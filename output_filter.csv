@@ -1,0 +1,774 @@
+Name,JavaScript Percentage,Test Framework,License,Open Source
+bigbluebutton,40.01%,no framework test,GNU Lesser General Public License v3.0,Yes
+grpc-web,52.93%,no framework test,Apache License 2.0,Yes
+cockpit,35.94%,no framework test,GNU Lesser General Public License v2.1,Yes
+gdevelop,56.53%,no framework test,Other,No
+nuclei-templates,100.00%,no framework test,MIT License,Yes
+jesse,88.24%,no framework test,MIT License,Yes
+mobile-security-framework-mobsf,37.81%,no framework test,GNU General Public License v3.0,Yes
+phaser,99.52%,no framework test,MIT License,Yes
+create-react-native-app,100.00%,jest,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+bitcoinjs-lib,51.17%,mocha,MIT License,Yes
+kutt,45.61%,no framework test,MIT License,Yes
+browserslist,100.00%,no framework test,MIT License,Yes
+mailspring,41.83%,no framework test,GNU General Public License v3.0,Yes
+svelte,72.08%,no framework test,MIT License,Yes
+turbo,99.96%,no framework test,MIT License,Yes
+cat-catch,83.28%,no framework test,GNU General Public License v3.0,Yes
+postcss-cssnext,71.33%,no framework test,MIT License,Yes
+umd,100.00%,no framework test,MIT License,Yes
+pell,73.31%,no framework test,MIT License,Yes
+crossfilter,92.64%,no framework test,Other,No
+fontmin,92.84%,mocha,MIT License,Yes
+react-redux-universal-hot-example,86.00%,mocha,MIT License,Yes
+istanbul,97.90%,no framework test,Other,No
+thief,68.68%,no framework test,GNU General Public License v3.0,Yes
+rickshaw,88.66%,jest,MIT License,Yes
+backbone,56.34%,no framework test,MIT License,Yes
+awesome-blockchain-cn,100.00%,no framework test,Apache License 2.0,Yes
+lebab,100.00%,mocha,MIT License,Yes
+fantasy-land,68.64%,no framework test,MIT License,Yes
+nn-svg,58.42%,no framework test,MIT License,Yes
+parallax,100.00%,no framework test,Other,No
+npm-check,100.00%,no framework test,MIT License,Yes
+esm,99.87%,jest,Other,No
+react-in-patterns,95.26%,no framework test,MIT License,Yes
+clsx,97.50%,no framework test,MIT License,Yes
+cash,59.30%,no framework test,MIT License,Yes
+magnific-popup,67.88%,no framework test,MIT License,Yes
+traceur-compiler,98.98%,mocha,Apache License 2.0,Yes
+awesome-guidelines,100.00%,no framework test,Creative Commons Zero v1.0 Universal,Yes
+pixelmatch,100.00%,no framework test,ISC License,Yes
+project-guidelines,100.00%,no framework test,MIT License,Yes
+js-cookie,95.15%,no framework test,MIT License,Yes
+grunt,100.00%,no framework test,Other,No
+webgl-fluid-simulation,88.50%,no framework test,MIT License,Yes
+jsfuck,72.55%,no framework test,Do What The F*ck You Want To Public License,Yes
+shortid,96.55%,mocha,Other,No
+polka,100.00%,no framework test,MIT License,Yes
+miniprogram-demo,95.44%,jest,MIT License,Yes
+classnames,81.92%,no framework test,MIT License,Yes
+form-create,83.41%,no framework test,MIT License,Yes
+awesomplete,68.31%,no framework test,MIT License,Yes
+handlebars.js,94.65%,mocha,MIT License,Yes
+administrative-divisions-of-china,91.00%,mocha,Do What The F*ck You Want To Public License,Yes
+flat-ui,46.50%,no framework test,MIT License,Yes
+smartcrop.js,91.76%,mocha,MIT License,Yes
+lightbox2,87.94%,no framework test,MIT License,Yes
+flexsearch,100.00%,no framework test,Apache License 2.0,Yes
+dragula,78.41%,no framework test,MIT License,Yes
+hubot,98.80%,no framework test,MIT License,Yes
+prosemirror,100.00%,no framework test,MIT License,Yes
+nodegit,62.90%,mocha,MIT License,Yes
+node-clinic,100.00%,no framework test,MIT License,Yes
+numi,100.00%,no framework test,MIT License,Yes
+aws-lambda-power-tuning,85.05%,mocha,Apache License 2.0,Yes
+compressorjs,99.82%,mocha,MIT License,Yes
+svgomg,65.63%,no framework test,MIT License,Yes
+whs.js,99.98%,jest,MIT License,Yes
+nyc,100.00%,no framework test,ISC License,Yes
+x-editable,95.48%,no framework test,MIT License,Yes
+react-quill,64.52%,mocha,MIT License,Yes
+redux-actions,100.00%,no framework test,MIT License,Yes
+progressbar.js,97.43%,mocha,MIT License,Yes
+github-contributions-chart,79.35%,no framework test,MIT License,Yes
+requirejs,67.96%,no framework test,Other,No
+uncss,55.83%,mocha,MIT License,Yes
+c3,49.68%,no framework test,MIT License,Yes
+whatsapp-web-reveng,57.47%,no framework test,MIT License,Yes
+paper.js,98.22%,no framework test,Other,No
+areacity-jsspider-statsgov,69.09%,no framework test,MIT License,Yes
+tesseract.js,95.01%,mocha,Apache License 2.0,Yes
+prerender,100.00%,mocha,MIT License,Yes
+hilo,98.30%,mocha,MIT License,Yes
+passport,99.83%,mocha,MIT License,Yes
+connect,100.00%,mocha,MIT License,Yes
+nodeclub,90.85%,mocha,MIT License,Yes
+node-express-mongoose-demo,61.62%,no framework test,MIT License,Yes
+live2d-widget,62.16%,no framework test,GNU General Public License v3.0,Yes
+semantic-ui,62.99%,no framework test,MIT License,Yes
+slick,76.68%,no framework test,MIT License,Yes
+react-native-macos,36.45%,jest,MIT License,Yes
+critical,67.73%,jest,Apache License 2.0,Yes
+antd-admin,96.11%,no framework test,MIT License,Yes
+morgan,100.00%,mocha,MIT License,Yes
+chancejs,100.00%,ava,MIT License,Yes
+simditor,59.41%,no framework test,Other,No
+f2,92.19%,jest,MIT License,Yes
+instant.page,74.53%,no framework test,MIT License,Yes
+city-roads,49.72%,no framework test,MIT License,Yes
+browsh,46.35%,no framework test,GNU Lesser General Public License v2.1,Yes
+glide,97.22%,jest,MIT License,Yes
+async,95.90%,mocha,MIT License,Yes
+node-semver,100.00%,no framework test,ISC License,Yes
+wifi-card,94.54%,no framework test,MIT License,Yes
+neumorphism,65.98%,no framework test,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+markdown-here,87.24%,no framework test,MIT License,Yes
+statsd,96.76%,no framework test,MIT License,Yes
+systemjs,96.41%,mocha,MIT License,Yes
+easeljs,90.52%,no framework test,MIT License,Yes
+markdown-it,97.11%,mocha,MIT License,Yes
+stats.js,100.00%,no framework test,MIT License,Yes
+udemy-docker-mastery,48.77%,no framework test,MIT License,Yes
+localforage,91.98%,mocha,Apache License 2.0,Yes
+madge,93.97%,mocha,MIT License,Yes
+grokking_algorithms,12.41%,no framework test,Other,No
+echarts-for-weixin,100.00%,no framework test,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+react-burger-menu,95.72%,mocha,MIT License,Yes
+osint-framework,62.77%,no framework test,MIT License,Yes
+node-restify,98.28%,mocha,MIT License,Yes
+aplayer,75.14%,no framework test,MIT License,Yes
+plop,95.04%,no framework test,MIT License,Yes
+pkg,77.93%,no framework test,MIT License,Yes
+dplayer,77.31%,no framework test,MIT License,Yes
+papaparse,90.36%,mocha,MIT License,Yes
+react-autosuggest,99.84%,mocha,MIT License,Yes
+melonjs,62.99%,no framework test,MIT License,Yes
+locomotive-scroll,97.87%,no framework test,MIT License,Yes
+todomvc,78.60%,cypress,Other,No
+tips,100.00%,no framework test,MIT License,Yes
+jquery-validation,95.54%,no framework test,MIT License,Yes
+svg.js,98.56%,jasmine,Other,No
+gl-matrix,95.91%,mocha,MIT License,Yes
+impress.js,88.50%,no framework test,MIT License,Yes
+supertinyicons,0.97%,mocha,MIT License,Yes
+pdfkit,99.97%,jest,MIT License,Yes
+nwb,98.36%,no framework test,Other,No
+react-virtualized,97.30%,jest,MIT License,Yes
+canvas-confetti,61.99%,ava,ISC License,Yes
+hackathon-starter,50.11%,mocha,MIT License,Yes
+bower,100.00%,mocha,MIT License,Yes
+vimium,88.44%,no framework test,MIT License,Yes
+eslint-config-prettier,98.92%,jest,MIT License,Yes
+color-thief,68.05%,mocha,MIT License,Yes
+prompts,95.68%,no framework test,MIT License,Yes
+lite-youtube-embed,35.93%,no framework test,Other,No
+mammoth.js,99.50%,mocha,"BSD 2-Clause ""Simplified"" License",Yes
+dva,100.00%,no framework test,MIT License,Yes
+react-modal,92.08%,mocha,MIT License,Yes
+jsdiff,100.00%,mocha,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+artillery,92.86%,no framework test,Mozilla Public License 2.0,Yes
+easy-peasy,71.63%,jest,MIT License,Yes
+xgplayer,93.37%,jest,MIT License,Yes
+33-js-concepts,100.00%,no framework test,MIT License,Yes
+multer,100.00%,mocha,MIT License,Yes
+anime,90.50%,mocha,MIT License,Yes
+koa,100.00%,no framework test,MIT License,Yes
+jquery-ui,88.05%,no framework test,Other,No
+typed.js,80.32%,no framework test,MIT License,Yes
+mediaelement,92.13%,mocha,MIT License,Yes
+howler.js,91.68%,no framework test,MIT License,Yes
+browser-sync,75.98%,no framework test,Apache License 2.0,Yes
+cz-cli,97.76%,mocha,MIT License,Yes
+piskel,86.79%,no framework test,Apache License 2.0,Yes
+log4js-node,98.30%,no framework test,Other,No
+execa,79.23%,ava,MIT License,Yes
+webfunny_monitor,99.65%,no framework test,Apache License 2.0,Yes
+react-beautiful-dnd,99.99%,jest,Other,No
+photoswipe,93.24%,no framework test,MIT License,Yes
+heroicons,100.00%,no framework test,MIT License,Yes
+webpack-bundle-analyzer,96.79%,jest,MIT License,Yes
+stylus,53.82%,mocha,MIT License,Yes
+codimd,75.25%,mocha,GNU Affero General Public License v3.0,Yes
+ora,94.78%,ava,MIT License,Yes
+bundlephobia,54.03%,jest,MIT License,Yes
+elasticsearch-dump,99.80%,mocha,Apache License 2.0,Yes
+react-draft-wysiwyg,93.63%,mocha,MIT License,Yes
+imagemin,100.00%,ava,MIT License,Yes
+dotenv,98.91%,no framework test,"BSD 2-Clause ""Simplified"" License",Yes
+node-telegram-bot-api,100.00%,mocha,MIT License,Yes
+bpmn-js,98.90%,mocha,Other,No
+bignumber.js,98.91%,no framework test,MIT License,Yes
+web-vitals,51.80%,no framework test,Apache License 2.0,Yes
+chinese-poetry,77.09%,no framework test,MIT License,Yes
+medis,69.18%,no framework test,MIT License,Yes
+jscodeshift,96.86%,jest,MIT License,Yes
+ractive,98.87%,no framework test,MIT License,Yes
+webpack-dashboard,100.00%,mocha,MIT License,Yes
+sql.js,88.84%,no framework test,Other,No
+google-map-react,97.63%,no framework test,MIT License,Yes
+chalk,72.94%,ava,MIT License,Yes
+jasmine,97.94%,jasmine,MIT License,Yes
+how-to-ask-questions-the-smart-way,100.00%,no framework test,MIT License,Yes
+http-server,98.32%,no framework test,MIT License,Yes
+sockjs-client,90.54%,mocha,MIT License,Yes
+redux-offline,100.00%,jest,MIT License,Yes
+viewerjs,93.73%,mocha,MIT License,Yes
+svgedit,96.58%,cypress,MIT License,Yes
+size-limit,98.27%,no framework test,MIT License,Yes
+responsively-app,50.35%,no framework test,GNU Affero General Public License v3.0,Yes
+webtorrent-desktop,94.26%,no framework test,MIT License,Yes
+rockstar,89.64%,no framework test,GNU Affero General Public License v3.0,Yes
+ui-grid,94.10%,no framework test,MIT License,Yes
+session,99.81%,mocha,MIT License,Yes
+ncc,98.43%,jest,MIT License,Yes
+json5,100.00%,no framework test,Other,No
+recordrtc,62.20%,no framework test,MIT License,Yes
+express,99.89%,mocha,MIT License,Yes
+wechat-app-mall,100.00%,no framework test,Apache License 2.0,Yes
+charts,96.63%,no framework test,MIT License,Yes
+chroma.js,94.11%,no framework test,Other,No
+manta,93.80%,jest,GNU Lesser General Public License v3.0,Yes
+just-react,68.24%,no framework test,MIT License,Yes
+dev-sidecar,78.46%,no framework test,Mozilla Public License 2.0,Yes
+json-server,94.70%,no framework test,Other,No
+gun,87.38%,mocha,Other,No
+react-window,97.47%,no framework test,MIT License,Yes
+pdfmake,99.75%,mocha,Other,No
+readability,100.00%,mocha,Other,No
+node-media-server,99.77%,no framework test,Apache License 2.0,Yes
+javascript,100.00%,no framework test,MIT License,Yes
+sortable,95.46%,no framework test,MIT License,Yes
+lowdb,99.12%,no framework test,MIT License,Yes
+react-testing-library,90.23%,no framework test,MIT License,Yes
+browserify,99.58%,no framework test,MIT License,Yes
+whistle,94.29%,no framework test,MIT License,Yes
+awesome-wpo,58.01%,no framework test,MIT License,Yes
+scripts,83.57%,no framework test,GNU General Public License v3.0,Yes
+drawio-desktop,95.94%,no framework test,Apache License 2.0,Yes
+you-dont-need-lodash-underscore,100.00%,mocha,MIT License,Yes
+anotherredisdesktopmanager,93.14%,no framework test,MIT License,Yes
+haraka,97.66%,mocha,MIT License,Yes
+bluebird,99.55%,mocha,MIT License,Yes
+marktext,76.62%,mocha,MIT License,Yes
+eruda,83.70%,no framework test,MIT License,Yes
+cube-ui,90.79%,mocha,Apache License 2.0,Yes
+chai,99.97%,mocha,MIT License,Yes
+terser,99.91%,mocha,Other,No
+angular.js,98.17%,no framework test,MIT License,Yes
+react,93.85%,no framework test,MIT License,Yes
+winston,99.24%,mocha,MIT License,Yes
+ws,100.00%,mocha,MIT License,Yes
+awesome-cheatsheets,50.17%,no framework test,MIT License,Yes
+git-history,94.09%,no framework test,MIT License,Yes
+reactjs-interview-questions,71.61%,no framework test,MIT License,Yes
+bull,89.15%,mocha,Other,No
+downshift,97.59%,cypress,MIT License,Yes
+protobuf.js,99.78%,no framework test,Other,No
+polished,92.75%,jest,MIT License,Yes
+socketcluster,93.54%,no framework test,MIT License,Yes
+vue-echarts,42.31%,no framework test,MIT License,Yes
+regl,94.57%,no framework test,MIT License,Yes
+js-framework-benchmark,78.73%,no framework test,Apache License 2.0,Yes
+buster,77.61%,no framework test,GNU General Public License v3.0,Yes
+nodemon,83.95%,mocha,MIT License,Yes
+streama,65.43%,no framework test,MIT License,Yes
+sinon,99.43%,mocha,Other,No
+react-rails,77.78%,no framework test,Apache License 2.0,Yes
+vanilla-lazyload,83.64%,jest,MIT License,Yes
+spug,59.46%,no framework test,GNU Affero General Public License v3.0,Yes
+fehelper,78.45%,no framework test,MIT License,Yes
+font-awesome,79.70%,no framework test,Other,No
+gulp,100.00%,mocha,MIT License,Yes
+ramda,99.82%,mocha,MIT License,Yes
+feather,96.40%,jest,MIT License,Yes
+immer,38.65%,jest,MIT License,Yes
+less.js,63.00%,no framework test,Apache License 2.0,Yes
+draggable,73.83%,jest,MIT License,Yes
+react-dropzone,95.20%,jest,MIT License,Yes
+gitalk,82.51%,jest,MIT License,Yes
+node-qrcode,100.00%,no framework test,MIT License,Yes
+moleculer,99.43%,jest,MIT License,Yes
+user.js,72.24%,no framework test,MIT License,Yes
+stdlib,61.56%,no framework test,Apache License 2.0,Yes
+vuex,91.31%,jest,MIT License,Yes
+sails,99.99%,mocha,MIT License,Yes
+nightwatch,95.88%,no framework test,MIT License,Yes
+dataloader,98.96%,jest,MIT License,Yes
+watermelondb,70.06%,jest,MIT License,Yes
+listen1_chrome_extension,41.47%,no framework test,MIT License,Yes
+wtfjs,97.06%,no framework test,Do What The F*ck You Want To Public License,Yes
+bootstrap-vue,97.84%,jest,MIT License,Yes
+terminalizer,99.10%,no framework test,MIT License,Yes
+nock,96.07%,jest,MIT License,Yes
+tabler-icons,57.89%,no framework test,MIT License,Yes
+react-slick,95.52%,jest,MIT License,Yes
+jszip,97.35%,no framework test,Other,No
+query-string,93.78%,ava,MIT License,Yes
+ejs,100.00%,mocha,Apache License 2.0,Yes
+jstree,81.36%,no framework test,MIT License,Yes
+ssh2,91.91%,no framework test,MIT License,Yes
+tabulator,70.99%,jest,MIT License,Yes
+sqlpad,60.22%,no framework test,MIT License,Yes
+foliate,87.91%,no framework test,GNU General Public License v3.0,Yes
+moment,99.71%,no framework test,MIT License,Yes
+learngitbranching,94.32%,no framework test,MIT License,Yes
+es6tutorial,59.38%,no framework test,Other,No
+vue-multiselect,78.37%,no framework test,MIT License,Yes
+inputmask,98.18%,no framework test,MIT License,Yes
+loadable-components,70.80%,jest,MIT License,Yes
+gm_script,84.63%,no framework test,MIT License,Yes
+ar.js,97.12%,no framework test,MIT License,Yes
+developerfolio,61.94%,no framework test,GNU General Public License v3.0,Yes
+quantumultx,91.17%,no framework test,GNU General Public License v3.0,Yes
+underscore,65.73%,no framework test,MIT License,Yes
+select2,81.33%,no framework test,MIT License,Yes
+pouchdb,98.80%,mocha,Apache License 2.0,Yes
+nodemailer,99.99%,no framework test,Other,No
+fuse,96.39%,no framework test,Apache License 2.0,Yes
+matter-js,100.00%,jest,MIT License,Yes
+novnc,92.64%,mocha,Other,No
+adarkroom,92.34%,no framework test,Mozilla Public License 2.0,Yes
+ua-parser-js,98.90%,mocha,GNU Affero General Public License v3.0,Yes
+react-lazyload,100.00%,mocha,MIT License,Yes
+duktape,66.79%,no framework test,MIT License,Yes
+awesome-mac,94.18%,no framework test,Creative Commons Zero v1.0 Universal,Yes
+rollup,86.26%,mocha,Other,No
+autoprefixer,62.98%,no framework test,MIT License,Yes
+bootswatch,57.47%,no framework test,MIT License,Yes
+jsverbalexpressions,100.00%,ava,MIT License,Yes
+bootstrap-table,59.42%,cypress,MIT License,Yes
+evergreen,87.98%,jest,MIT License,Yes
+functions-samples,64.98%,no framework test,Apache License 2.0,Yes
+windows-universal-samples,72.93%,no framework test,MIT License,Yes
+botframework-sdk,87.85%,no framework test,MIT License,Yes
+np,100.00%,ava,MIT License,Yes
+flexboxfroggy,66.96%,no framework test,MIT License,Yes
+react-big-calendar,80.29%,jest,MIT License,Yes
+projectvisbug,74.19%,ava,Apache License 2.0,Yes
+release-it,98.87%,no framework test,MIT License,Yes
+discord-api-docs,46.84%,no framework test,Creative Commons Attribution Share Alike 4.0 International,Yes
+markdownlint,95.10%,ava,MIT License,Yes
+postgres,100.00%,no framework test,The Unlicense,Yes
+reveal.js,59.60%,no framework test,MIT License,Yes
+ace,98.95%,no framework test,Other,No
+material,83.71%,no framework test,MIT License,Yes
+riot,97.35%,mocha,Other,No
+semantic-ui-react,99.89%,mocha,MIT License,Yes
+karma,92.40%,mocha,MIT License,Yes
+samples,66.63%,jest,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+marko,64.55%,mocha,MIT License,Yes
+electron-quick-start,75.86%,no framework test,Creative Commons Zero v1.0 Universal,Yes
+objection.js,95.47%,mocha,MIT License,Yes
+isomorphic-git,99.61%,jest,MIT License,Yes
+intl-tel-input,94.99%,jest,MIT License,Yes
+cors,100.00%,mocha,MIT License,Yes
+body-parser,100.00%,mocha,MIT License,Yes
+litegraph.js,97.10%,jest,MIT License,Yes
+binance-trading-bot,98.54%,jest,MIT License,Yes
+yarn,98.68%,jest,Other,No
+modernizr,98.70%,mocha,MIT License,Yes
+hyperapp,100.00%,no framework test,MIT License,Yes
+chromeappheroes,87.92%,no framework test,GNU General Public License v3.0,Yes
+wekan,57.76%,no framework test,MIT License,Yes
+remote-jobs,66.76%,mocha,Creative Commons Zero v1.0 Universal,Yes
+vant-weapp,41.26%,jest,MIT License,Yes
+jsdoc,99.40%,jasmine,Apache License 2.0,Yes
+luxon,100.00%,jest,MIT License,Yes
+keeweb,27.51%,no framework test,Other,No
+cytoscape.js,96.88%,mocha,MIT License,Yes
+octicons,66.98%,no framework test,MIT License,Yes
+tiddlywiki5,96.68%,no framework test,Other,No
+why-did-you-render,97.64%,jest,MIT License,Yes
+newman,98.39%,mocha,Apache License 2.0,Yes
+simpread,90.79%,no framework test,GNU General Public License v3.0,Yes
+hexo-theme-icarus,68.89%,no framework test,MIT License,Yes
+nlp.js,99.86%,jest,MIT License,Yes
+imba,49.57%,no framework test,MIT License,Yes
+remark,100.00%,no framework test,MIT License,Yes
+astexplorer,88.67%,no framework test,MIT License,Yes
+yjs,99.97%,no framework test,Other,No
+detect-it-easy,99.91%,no framework test,MIT License,Yes
+tailwindcss-typography,100.00%,jest,MIT License,Yes
+nw.js,42.33%,no framework test,MIT License,Yes
+standard,81.89%,no framework test,MIT License,Yes
+monaco-editor,61.25%,mocha,MIT License,Yes
+webtorrent,99.79%,no framework test,MIT License,Yes
+pure,48.85%,no framework test,Other,No
+commander.js,95.53%,jest,MIT License,Yes
+react-native-web,83.00%,jest,MIT License,Yes
+inferno,99.89%,jest,MIT License,Yes
+mithril.js,99.12%,no framework test,MIT License,Yes
+shelljs,99.99%,ava,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+mathjs,98.10%,mocha,Apache License 2.0,Yes
+filepond,95.84%,jest,MIT License,Yes
+mdx,100.00%,no framework test,MIT License,Yes
+apexcharts.js,98.58%,jest,MIT License,Yes
+html-webpack-plugin,99.93%,jest,MIT License,Yes
+prism,78.65%,mocha,MIT License,Yes
+react-vis,96.47%,no framework test,MIT License,Yes
+node-fs-extra,100.00%,mocha,MIT License,Yes
+uplot,72.12%,no framework test,MIT License,Yes
+microbundle,100.00%,jest,MIT License,Yes
+sarasa-gothic,100.00%,no framework test,Other,No
+ce,95.03%,mocha,MIT License,Yes
+vvvebjs,100.00%,no framework test,Apache License 2.0,Yes
+min,91.86%,no framework test,Apache License 2.0,Yes
+miragejs,95.71%,jest,MIT License,Yes
+brasilapi,97.20%,no framework test,MIT License,Yes
+css-doodle,99.86%,no framework test,MIT License,Yes
+zotero,67.94%,mocha,Other,No
+surfingkeys,75.35%,jest,MIT License,Yes
+h5-dooring,53.32%,no framework test,GNU General Public License v3.0,Yes
+grocy,34.48%,no framework test,MIT License,Yes
+electerm,96.96%,no framework test,MIT License,Yes
+redux-saga,82.37%,jest,MIT License,Yes
+enzyme,99.98%,mocha,MIT License,Yes
+validator.js,100.00%,mocha,MIT License,Yes
+vega,74.29%,no framework test,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+shepherd,49.75%,no framework test,Other,No
+single-spa,99.06%,jest,Other,No
+tether,91.65%,jest,MIT License,Yes
+two.js,96.88%,no framework test,MIT License,Yes
+sandstorm,44.79%,no framework test,Other,No
+serverless-offline,96.64%,mocha,MIT License,Yes
+recorder,76.59%,no framework test,MIT License,Yes
+floccus,42.79%,mocha,Mozilla Public License 2.0,Yes
+dayjs,100.00%,jest,MIT License,Yes
+snapdrop,64.22%,no framework test,GNU General Public License v3.0,Yes
+ariang,70.89%,no framework test,MIT License,Yes
+noty,67.06%,no framework test,MIT License,Yes
+react-markdown,100.00%,no framework test,MIT License,Yes
+screenity,76.92%,no framework test,GNU General Public License v3.0,Yes
+mongo-express,71.56%,mocha,MIT License,Yes
+html5-boilerplate,83.70%,mocha,MIT License,Yes
+nanoid,96.33%,no framework test,MIT License,Yes
+v86,35.47%,no framework test,"BSD 2-Clause ""Simplified"" License",Yes
+node-postgres,81.82%,no framework test,MIT License,Yes
+showdoc,40.81%,no framework test,Other,No
+dompurify,51.43%,no framework test,Other,No
+vue-i18n,95.86%,mocha,MIT License,Yes
+graphite-web,52.64%,no framework test,Apache License 2.0,Yes
+tfjs-examples,47.92%,jasmine,Apache License 2.0,Yes
+bootstrap-fileinput,93.67%,no framework test,Other,No
+decimal.js,99.76%,no framework test,MIT License,Yes
+stylus,82.61%,no framework test,GNU General Public License v3.0,Yes
+singlefile,75.80%,no framework test,GNU Affero General Public License v3.0,Yes
+dependency-cruiser,95.53%,mocha,MIT License,Yes
+plyr,83.75%,no framework test,MIT License,Yes
+summernote,93.32%,mocha,MIT License,Yes
+workbox,67.27%,mocha,MIT License,Yes
+yargs,70.91%,mocha,MIT License,Yes
+jss,95.14%,mocha,MIT License,Yes
+jquery,94.09%,no framework test,MIT License,Yes
+mongoose,94.70%,mocha,MIT License,Yes
+cyberchef,97.17%,no framework test,Apache License 2.0,Yes
+examples,31.33%,no framework test,Other,No
+jsoneditor,87.62%,mocha,Apache License 2.0,Yes
+openlayers,99.06%,mocha,"BSD 2-Clause ""Simplified"" License",Yes
+documentation,95.88%,jest,Other,No
+react-player,100.00%,no framework test,MIT License,Yes
+lighthouse-ci,91.50%,jest,Apache License 2.0,Yes
+sharedb,99.98%,mocha,Other,No
+planka,93.51%,no framework test,GNU Affero General Public License v3.0,Yes
+twinkle-tray,65.36%,no framework test,MIT License,Yes
+pm2,81.30%,mocha,Other,No
+fullpage.js,93.99%,no framework test,GNU General Public License v3.0,Yes
+video.js,96.63%,no framework test,Other,No
+lottie-web,99.90%,no framework test,MIT License,Yes
+highlight.js,63.79%,mocha,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+p5.js,68.88%,mocha,GNU Lesser General Public License v2.1,Yes
+knex,95.24%,mocha,MIT License,Yes
+javascript,99.97%,no framework test,GNU General Public License v3.0,Yes
+detox,63.09%,no framework test,MIT License,Yes
+cerebro,82.39%,jest,MIT License,Yes
+react-i18next,63.28%,no framework test,MIT License,Yes
+jspaint,95.56%,cypress,MIT License,Yes
+luban-h5,73.25%,no framework test,GNU General Public License v3.0,Yes
+axios,87.86%,mocha,MIT License,Yes
+husky,92.07%,no framework test,MIT License,Yes
+openapi-specification,2.03%,no framework test,Apache License 2.0,Yes
+vuepress,55.35%,no framework test,MIT License,Yes
+vue-router,97.09%,jasmine,MIT License,Yes
+framework7,44.81%,no framework test,MIT License,Yes
+insomnia,49.79%,no framework test,Apache License 2.0,Yes
+vulcan,98.53%,no framework test,MIT License,Yes
+chrome-extensions-samples,81.80%,no framework test,Apache License 2.0,Yes
+pino,91.25%,jest,MIT License,Yes
+cesium,89.86%,no framework test,Apache License 2.0,Yes
+qs,100.00%,no framework test,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+metro,99.81%,jest,MIT License,Yes
+webgoat,51.26%,no framework test,Other,No
+whatsapp-web.js,99.43%,mocha,Apache License 2.0,Yes
+leetcode,83.76%,no framework test,Other,No
+carbon,99.91%,cypress,MIT License,Yes
+swiper,89.75%,no framework test,MIT License,Yes
+swagger-ui,95.20%,jest,Apache License 2.0,Yes
+appium,78.72%,mocha,Apache License 2.0,Yes
+sweetalert2,86.83%,cypress,MIT License,Yes
+codesandbox-client,89.86%,no framework test,Other,No
+exceljs,99.66%,mocha,MIT License,Yes
+swagger-editor,94.72%,jest,Apache License 2.0,Yes
+iframe-resizer,63.32%,jest,Other,No
+academicpages.github.io,23.79%,no framework test,MIT License,Yes
+casl,51.39%,no framework test,MIT License,Yes
+leaflet,88.04%,mocha,"BSD 2-Clause ""Simplified"" License",Yes
+github-readme-stats,99.85%,jest,MIT License,Yes
+handsontable,93.26%,no framework test,Other,No
+katex,85.82%,jest,MIT License,Yes
+hapi,99.12%,no framework test,Other,No
+mjml,100.00%,no framework test,MIT License,Yes
+formidable,98.28%,jest,MIT License,Yes
+backstopjs,92.96%,mocha,MIT License,Yes
+openpgpjs,97.97%,mocha,GNU Lesser General Public License v3.0,Yes
+arkime,29.07%,jest,Apache License 2.0,Yes
+dash.js,99.41%,mocha,Other,No
+axe-core,89.08%,mocha,Mozilla Public License 2.0,Yes
+up-for-grabs.net,49.39%,jest,Other,No
+meteor,91.08%,no framework test,Other,No
+ghost,69.89%,no framework test,MIT License,Yes
+lighthouse,94.52%,mocha,Apache License 2.0,Yes
+mocha,89.27%,no framework test,MIT License,Yes
+fe-interview,57.66%,no framework test,MIT License,Yes
+plotly.js,99.68%,jasmine,MIT License,Yes
+emotion,68.13%,no framework test,MIT License,Yes
+aframe,98.30%,mocha,MIT License,Yes
+nginxconfig.io,71.47%,jest,MIT License,Yes
+reactstrap,82.40%,jest,MIT License,Yes
+compromise,99.73%,no framework test,MIT License,Yes
+ungit,86.45%,mocha,MIT License,Yes
+openzeppelin-contracts,44.45%,no framework test,MIT License,Yes
+react-native-firebase,59.39%,jest,Other,No
+openmct,62.49%,no framework test,Other,No
+habitica,53.02%,mocha,Other,No
+aws-sdk-js,80.63%,mocha,Apache License 2.0,Yes
+engine,100.00%,mocha,MIT License,Yes
+styled-jsx,99.97%,ava,MIT License,Yes
+caniuse,100.00%,no framework test,Creative Commons Attribution 4.0 International,Yes
+cli,99.71%,no framework test,Other,No
+listen1_desktop,67.87%,no framework test,MIT License,Yes
+social-analyzer,100.00%,no framework test,GNU Affero General Public License v3.0,Yes
+leetcode-patterns,79.20%,no framework test,GNU General Public License v3.0,Yes
+pipedream,90.57%,jest,Other,No
+hakuneko,84.78%,jest,The Unlicense,Yes
+drei,59.39%,no framework test,MIT License,Yes
+javascript-algorithms,99.99%,jest,MIT License,Yes
+vue-cli,75.05%,jest,MIT License,Yes
+ublock,88.77%,no framework test,GNU General Public License v3.0,Yes
+core-js,99.81%,no framework test,MIT License,Yes
+semantic-release,100.00%,ava,MIT License,Yes
+natural,66.92%,jasmine,MIT License,Yes
+brave-browser,100.00%,no framework test,Mozilla Public License 2.0,Yes
+webpack-dev-server,100.00%,jest,MIT License,Yes
+i18next,84.49%,no framework test,MIT License,Yes
+autocannon,100.00%,no framework test,MIT License,Yes
+countly-server,82.46%,mocha,Other,No
+luci,45.77%,no framework test,Apache License 2.0,Yes
+htmx,91.34%,mocha,Other,No
+next-seo,52.32%,jest,MIT License,Yes
+valetudo,66.54%,no framework test,Apache License 2.0,Yes
+module-federation-examples,64.67%,jest,MIT License,Yes
+create-react-app,98.35%,jest,MIT License,Yes
+next.js,59.04%,jest,MIT License,Yes
+lodash,97.22%,no framework test,Other,No
+serverless,98.54%,mocha,MIT License,Yes
+pdf.js,70.41%,jasmine,Apache License 2.0,Yes
+ember.js,60.09%,mocha,MIT License,Yes
+hiring-without-whiteboards,100.00%,no framework test,MIT License,Yes
+mostly-adequate-guide,98.47%,no framework test,Other,No
+sharp,76.34%,mocha,Apache License 2.0,Yes
+eslint,99.47%,mocha,MIT License,Yes
+fastify,91.11%,no framework test,Other,No
+svgo,100.00%,jest,MIT License,Yes
+jsdom,75.30%,mocha,MIT License,Yes
+amphtml,79.94%,mocha,Apache License 2.0,Yes
+iosevka,99.45%,no framework test,SIL Open Font License 1.1,Yes
+node-red,99.75%,mocha,Apache License 2.0,Yes
+testcafe,73.77%,no framework test,MIT License,Yes
+eleventy,97.65%,ava,MIT License,Yes
+stylelint,98.99%,jest,MIT License,Yes
+chakracore,52.78%,no framework test,MIT License,Yes
+gutenberg,61.96%,jest,Other,No
+violentmonkey,68.08%,jest,MIT License,Yes
+ios_rule_script,97.49%,no framework test,GNU General Public License v2.0,Yes
+register,100.00%,ava,GNU General Public License v3.0,Yes
+react,69.10%,jest,MIT License,Yes
+parcel,84.13%,mocha,MIT License,Yes
+uni-app,83.29%,jest,Apache License 2.0,Yes
+preact,96.95%,mocha,MIT License,Yes
+parse-server,99.15%,jasmine,Apache License 2.0,Yes
+quasar,88.11%,no framework test,MIT License,Yes
+docsify,87.06%,jest,MIT License,Yes
+web-dev-for-beginners,71.00%,no framework test,MIT License,Yes
+shields,99.85%,mocha,Creative Commons Zero v1.0 Universal,Yes
+netron,96.09%,no framework test,MIT License,Yes
+nodebb,87.49%,no framework test,GNU General Public License v3.0,Yes
+uglifyjs,98.70%,no framework test,Other,No
+trilium,98.45%,jasmine,GNU Affero General Public License v3.0,Yes
+grommet,72.41%,jest,Apache License 2.0,Yes
+freetube,62.84%,no framework test,GNU Affero General Public License v3.0,Yes
+hexo-theme-fluid,41.47%,no framework test,GNU General Public License v3.0,Yes
+mineflayer,100.00%,mocha,MIT License,Yes
+undici,96.55%,jest,MIT License,Yes
+venom,53.51%,no framework test,Apache License 2.0,Yes
+userscript,100.00%,no framework test,GNU General Public License v3.0,Yes
+bootstrap,37.45%,jasmine,MIT License,Yes
+simple-icons,99.76%,mocha,Creative Commons Zero v1.0 Universal,Yes
+popcorn-desktop,67.33%,no framework test,Other,No
+webpack,97.65%,jest,MIT License,Yes
+gatsby,58.99%,jest,MIT License,Yes
+howtheysre,100.00%,no framework test,Creative Commons Zero v1.0 Universal,Yes
+prettier,82.68%,jest,MIT License,Yes
+three.js,64.24%,no framework test,MIT License,Yes
+chart.js,89.16%,jasmine,MIT License,Yes
+rawgraphs-app,76.17%,no framework test,Apache License 2.0,Yes
+react-grid-layout,97.47%,jest,MIT License,Yes
+react-draggable,94.87%,no framework test,MIT License,Yes
+gogocode,76.00%,jest,MIT License,Yes
+kit,99.56%,no framework test,MIT License,Yes
+sharedrop,62.15%,no framework test,MIT License,Yes
+ipfs-desktop,96.51%,no framework test,MIT License,Yes
+filestash,48.23%,no framework test,GNU Affero General Public License v3.0,Yes
+ferry,95.37%,no framework test,MIT License,Yes
+administrate,70.36%,no framework test,MIT License,Yes
+mailcow-dockerized,34.11%,no framework test,GNU General Public License v3.0,Yes
+jsdelivr,100.00%,no framework test,MIT License,Yes
+webhook.site,95.94%,no framework test,Other,No
+choices,68.75%,no framework test,MIT License,Yes
+zx,68.58%,no framework test,Apache License 2.0,Yes
+boring-avatars,98.11%,jest,MIT License,Yes
+openclash,31.97%,no framework test,MIT License,Yes
+tooljet,65.31%,no framework test,GNU Affero General Public License v3.0,Yes
+betterdiscord,56.67%,no framework test,Apache License 2.0,Yes
+overleaf,65.18%,no framework test,GNU Affero General Public License v3.0,Yes
+ckeditor5,38.13%,no framework test,Other,No
+uptime-kuma,55.13%,no framework test,MIT License,Yes
+eslint-plugin-import,99.12%,mocha,MIT License,Yes
+awesome-vite,100.00%,no framework test,MIT License,Yes
+script,98.14%,no framework test,GNU General Public License v3.0,Yes
+beautiful-react-hooks,51.13%,mocha,MIT License,Yes
+audiobookshelf,67.12%,mocha,GNU General Public License v3.0,Yes
+apidoc,83.46%,mocha,Other,No
+server,97.98%,jest,GNU Lesser General Public License v3.0,Yes
+jspdf,96.49%,jasmine,MIT License,Yes
+liferestart,99.79%,no framework test,MIT License,Yes
+rabbitmq-server,50.85%,no framework test,Other,No
+win11react,73.62%,no framework test,Creative Commons Zero v1.0 Universal,Yes
+mind-map,70.18%,no framework test,MIT License,Yes
+metalsmith,93.26%,mocha,MIT License,Yes
+mall4cloud,35.37%,no framework test,GNU Affero General Public License v3.0,Yes
+debug,100.00%,mocha,MIT License,Yes
+iringo,0.00%,no framework test,Apache License 2.0,Yes
+dexie.js,49.99%,no framework test,Apache License 2.0,Yes
+notionnext,95.94%,no framework test,MIT License,Yes
+leetcode,16.01%,no framework test,MIT License,Yes
+cider,81.26%,no framework test,GNU Affero General Public License v3.0,Yes
+daedalos,88.78%,jest,MIT License,Yes
+v2.vuejs.org,73.64%,no framework test,MIT License,Yes
+nginx-proxy-manager,72.15%,no framework test,MIT License,Yes
+node-config,97.78%,no framework test,Other,No
+github-chinese,99.88%,no framework test,GNU General Public License v3.0,Yes
+spicetify-cli,72.08%,no framework test,GNU Lesser General Public License v2.1,Yes
+shaka-player,97.14%,no framework test,Apache License 2.0,Yes
+alasql,94.41%,mocha,MIT License,Yes
+ai-deadlines,66.22%,no framework test,MIT License,Yes
+eslint-plugin-react,100.00%,mocha,MIT License,Yes
+x-ui,86.22%,no framework test,GNU General Public License v3.0,Yes
+layui,83.39%,no framework test,MIT License,Yes
+codemirror5,77.76%,no framework test,MIT License,Yes
+dev,100.00%,no framework test,Other,No
+sub-store,99.95%,no framework test,GNU Affero General Public License v3.0,Yes
+quicklink,92.27%,no framework test,Apache License 2.0,Yes
+spacegray,89.56%,no framework test,MIT License,Yes
+tagui,31.93%,no framework test,Apache License 2.0,Yes
+joi,97.54%,no framework test,Other,No
+fay,32.60%,no framework test,GNU General Public License v3.0,Yes
+icons,85.48%,no framework test,MIT License,Yes
+tape,99.83%,no framework test,MIT License,Yes
+shapez.io,88.83%,no framework test,GNU General Public License v3.0,Yes
+luckysheet,90.86%,no framework test,MIT License,Yes
+windmill,6.24%,no framework test,Other,No
+bruno,94.04%,jest,MIT License,Yes
+superagent,88.31%,mocha,MIT License,Yes
+dejavu,99.35%,jest,MIT License,Yes
+supertest,100.00%,mocha,MIT License,Yes
+trix,97.25%,no framework test,MIT License,Yes
+webvm,44.04%,no framework test,Apache License 2.0,Yes
+preguntas-entrevista-react,72.34%,no framework test,MIT License,Yes
+easyspider,47.74%,no framework test,GNU Affero General Public License v3.0,Yes
+edgetunnel,100.00%,no framework test,GNU General Public License v2.0,Yes
+wechat-bot,96.74%,no framework test,MIT License,Yes
+bootbox,99.16%,mocha,Other,No
+pt-plugin-plus,37.88%,no framework test,MIT License,Yes
+nopecha-extension,61.38%,no framework test,MIT License,Yes
+ava,90.44%,no framework test,MIT License,Yes
+decap-cms,67.19%,jest,MIT License,Yes
+ohm,96.30%,no framework test,MIT License,Yes
+gpt-ai-assistant,99.91%,jest,MIT License,Yes
+postcat,75.77%,no framework test,Apache License 2.0,Yes
+bilibili-api-collect,77.88%,no framework test,Other,No
+opencommit,98.39%,jest,MIT License,Yes
+chardin.js,61.74%,no framework test,Other,No
+automatisch,99.60%,no framework test,Other,No
+betterfox,93.94%,no framework test,MIT License,Yes
+layer,64.47%,no framework test,MIT License,Yes
+pairdrop,70.30%,no framework test,GNU General Public License v3.0,Yes
+chatgptbox,88.47%,no framework test,MIT License,Yes
+keepchatgpt,76.81%,no framework test,GNU General Public License v2.0,Yes
+one-api,61.70%,no framework test,MIT License,Yes
+defi-developer-road-map,100.00%,no framework test,Other,No
+idurar-erp-crm,94.00%,no framework test,GNU Affero General Public License v3.0,Yes
+hotkeys-js,92.92%,jest,MIT License,Yes
+taskbook,100.00%,no framework test,MIT License,Yes
+anything-llm,97.55%,no framework test,MIT License,Yes
+wenda,85.34%,no framework test,GNU Affero General Public License v3.0,Yes
+orbitdb,97.66%,mocha,MIT License,Yes
+fetch,99.47%,mocha,MIT License,Yes
+transformers.js,96.17%,jest,Apache License 2.0,Yes
+baileys,90.90%,jest,MIT License,Yes
+win12,34.77%,no framework test,Eclipse Public License 2.0,Yes
+apihub,99.61%,jest,Other,No
+easydiffusion,73.95%,no framework test,Other,No
+label-studio,41.70%,no framework test,Apache License 2.0,Yes
+langflow,29.30%,no framework test,MIT License,Yes
+d2,65.56%,no framework test,Mozilla Public License 2.0,Yes
+RealChar,37.57%,no framework test,MIT License,Yes
+ChatALL,59.45%,no framework test,Apache License 2.0,Yes
+pot-desktop,86.92%,no framework test,GNU General Public License v3.0,Yes
+SillyTavern,84.14%,no framework test,GNU Affero General Public License v3.0,Yes
+3x-ui,74.68%,no framework test,GNU General Public License v3.0,Yes
+meshery,57.90%,no framework test,Apache License 2.0,Yes
+node,61.18%,no framework test,Other,No
+LiteLoaderQQNT,70.04%,no framework test,MIT License,Yes
+node-fluent-ffmpeg,96.42%,mocha,MIT License,Yes
+Metro-UI-CSS,46.26%,no framework test,MIT License,Yes
+bowser,100.00%,ava,Other,No
+ChatGPT-AutoExpert,81.14%,no framework test,Other,No
+serverless-express,99.75%,jest,Apache License 2.0,Yes
+lint-staged,99.44%,jest,MIT License,Yes
+clappr,78.24%,no framework test,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+hexo-theme-butterfly,38.98%,no framework test,Apache License 2.0,Yes
+codecombat,85.24%,jasmine,MIT License,Yes
+MagicMirror,88.64%,jest,MIT License,Yes
+js-beautify,42.74%,mocha,MIT License,Yes
+nue,73.55%,no framework test,MIT License,Yes
+RemoveAdblockThing,100.00%,no framework test,MIT License,Yes
+koodo-reader,78.97%,no framework test,GNU Affero General Public License v3.0,Yes
+30-seconds-of-code,62.19%,no framework test,Creative Commons Attribution 4.0 International,Yes
+live,92.06%,no framework test,GNU General Public License v3.0,Yes
+homepage,98.07%,no framework test,GNU General Public License v3.0,Yes
+shepherd,49.75%,no framework test,Other,No
+stylex,98.52%,jest,MIT License,Yes
+dots-hyprland,66.70%,no framework test,GNU General Public License v3.0,Yes
+reor,58.36%,jest,GNU Affero General Public License v3.0,Yes
+edgetunnel,100.00%,no framework test,GNU General Public License v2.0,Yes
+OpenChat,59.82%,no framework test,MIT License,Yes
+BPB-Worker-Panel,100.00%,no framework test,GNU General Public License v3.0,Yes
+curriculum,100.00%,no framework test,Other,No
+llrt,45.47%,no framework test,Apache License 2.0,Yes
+signale,72.88%,no framework test,MIT License,Yes
+tape,99.83%,no framework test,MIT License,Yes
+TW-Elements,98.49%,no framework test,MIT License,Yes
+puter,96.07%,mocha,GNU Affero General Public License v3.0,Yes
+chatgpt-web-midjourney-proxy,38.42%,no framework test,MIT License,Yes
+cryptpad,83.78%,no framework test,GNU Affero General Public License v3.0,Yes
+drawdb,98.76%,no framework test,GNU Affero General Public License v3.0,Yes
+cobalt,42.22%,no framework test,GNU Affero General Public License v3.0,Yes
+cli,72.08%,no framework test,GNU Lesser General Public License v2.1,Yes
+polyfill-service,95.25%,no framework test,MIT License,Yes
+desktop,56.40%,no framework test,Mozilla Public License 2.0,Yes
+TiddlyWiki5,96.68%,no framework test,Other,No
+MindSearch,74.62%,no framework test,Apache License 2.0,Yes
+react-bits,53.97%,no framework test,Other,No
+css.gg,100.00%,no framework test,Other,No
+snapdrop,64.22%,no framework test,GNU General Public License v3.0,Yes
+ChatALL,59.45%,no framework test,Apache License 2.0,Yes
+transformers.js,96.17%,jest,Apache License 2.0,Yes
+2048,38.13%,no framework test,MIT License,Yes
+sharedrop,62.15%,no framework test,MIT License,Yes
+servers,45.69%,no framework test,MIT License,Yes
+art-template,90.94%,mocha,MIT License,Yes
+open-webui,39.19%,cypress,"BSD 3-Clause ""New"" or ""Revised"" License",Yes
+metroui,46.26%,no framework test,MIT License,Yes
+rust-by-example,89.38%,no framework test,Apache License 2.0,Yes
+awesome-chatgpt-prompts,49.66%,no framework test,Creative Commons Zero v1.0 Universal,Yes
