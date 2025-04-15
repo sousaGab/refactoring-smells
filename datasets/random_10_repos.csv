@@ -1,11 +1,11 @@
 name,percentage,Test Framewok,License,Observation
-huggingface/transformers.js,96.17%,jest,Apache License 2.0,
+verlok/vanilla-lazyload,83.64%,jest,MIT License,
+vercel/ncc,98.43%,jest,MIT License,
 redux-saga/redux-saga,82.37%,jest,MIT License,
-swagger-api/swagger-ui,95.2%,jest,Apache License 2.0,
-akiran/react-slick,95.52%,jest,MIT License,
-single-spa/single-spa,99.06%,jest,Other,MIT License
-dcloudio/uni-app,83.29%,jest,Apache License 2.0,
-jantimon/html-webpack-plugin,99.93%,jest,MIT License,
-moleculerjs/moleculer,99.43%,jest,MIT License,
-expo/create-react-native-app,100%,jest,"BSD 3-Clause ""New"" or ""Revised"" License",
-facebook/stylex,98.52%,jest,MIT License,
+webpack-contrib/webpack-bundle-analyzer,96.79%,jest,MIT License,
+xenova/transformers.js,96.17%,jest,Apache License 2.0,
+hql287/manta,93.8%,jest,GNU Lesser General Public License v3.0,
+chrisleekr/binance-trading-bot,98.54%,jest,MIT License,
+thx/gogocode,76%,jest,MIT License,
+atlassian/react-beautiful-dnd,99.99%,jest,Other,Apache License 2.0
+prettier/prettier,82.68%,jest,MIT License,

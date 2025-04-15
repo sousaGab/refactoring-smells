@@ -1,0 +1,87 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 68, 'column': 4, 'index': 1968}","  66 |     setSources(img, settings, instance);
+  67 |     cancelLoading(img, entry, settings, instance);
+> 68 |     expect(img).toHaveAttribute(""src"", url1);
+     |    ^ Duplicate Assert
+  69 |     expect(img).not.toHaveAttribute(""srcset"");
+  70 |     expect(img).not.toHaveAttribute(""sizes"");
+  71 |   });"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 2014}","  67 |     cancelLoading(img, entry, settings, instance);
+  68 |     expect(img).toHaveAttribute(""src"", url1);
+> 69 |     expect(img).not.toHaveAttribute(""srcset"");
+     |    ^ Duplicate Assert
+  70 |     expect(img).not.toHaveAttribute(""sizes"");
+  71 |   });
+  72 |"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 70, 'column': 4, 'index': 2061}","  68 |     expect(img).toHaveAttribute(""src"", url1);
+  69 |     expect(img).not.toHaveAttribute(""srcset"");
+> 70 |     expect(img).not.toHaveAttribute(""sizes"");
+     |    ^ Duplicate Assert
+  71 |   });
+  72 |
+  73 |   test(""Removes loading class"", () => {"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 99, 'column': 4, 'index': 2957}","   97 |     setSources(img, settings, instance);
+   98 |     cancelLoading(img, entry, settings, instance);
+>  99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+      |    ^ Duplicate Assert
+  100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  101 |   });
+  102 | });"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 3004}","   98 |     cancelLoading(img, entry, settings, instance);
+   99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+> 100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+      |    ^ Duplicate Assert
+  101 |   });
+  102 | });
+  103 |"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Global Variable,"{'line': 13, 'column': 0, 'index': 473}","  11 | expectExtend(expect);
+  12 |
+> 13 | var outerDiv, instance, settings;
+  14 |
+  15 | beforeEach(() => {
+  16 |   outerDiv = document.createElement(""div"");"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Magic Number,"{'line': 84, 'column': 39, 'index': 2522}","  82 |     setSources(img, settings, instance);
+  83 |     cancelLoading(img, entry, settings, instance);
+> 84 |     expect(instance.loadingCount).toBe(0);
+     |                                       ^ Magic Number
+  85 |   });
+  86 |
+  87 |   test(""Resets internal status"", () => {"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/load.test.js,Global Variable,"{'line': 12, 'column': 0, 'index': 402}","  10 | expectExtend(expect);
+  11 |
+> 12 | var outerDiv, settings, instance;
+  13 |
+  14 | beforeEach(() => {
+  15 |   outerDiv = document.createElement(""div"");"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/originalAttributes.test.js,Global Variable,"{'line': 11, 'column': 0, 'index': 371}","   9 | expectExtend(expect);
+  10 |
+> 11 | var outerDiv, settings, instance;
+  12 |
+  13 | beforeEach(() => {
+  14 |   outerDiv = document.createElement(""div"");"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/reset.test.js,Global Variable,"{'line': 10, 'column': 0, 'index': 313}","   8 | expectExtend(expect);
+   9 |
+> 10 | var outerDiv, settings, instance;
+  11 |
+  12 | beforeEach(() => {
+  13 |   outerDiv = document.createElement(""div"");"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/restore.test.js,Global Variable,"{'line': 16, 'column': 0, 'index': 513}","  14 | const sizes50 = ""50vw"";
+  15 |
+> 16 | var outerDiv, settings, instance;
+  17 |
+  18 | expectExtend(expect);
+  19 |"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Magic Number,"{'line': 29, 'column': 42, 'index': 889}","  27 |     const mockInstance = { toLoadCount: 5 };
+  28 |     decreaseToLoadCount(mockInstance);
+> 29 |     expect(mockInstance.toLoadCount).toBe(4);
+     |                                          ^ Magic Number
+  30 |   });
+  31 |
+  32 |   test('setToLoadCount sets toLoadCount to the given value', () => {"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Magic Number,"{'line': 35, 'column': 42, 'index': 1078}","  33 |     const mockInstance = {};
+  34 |     setToLoadCount(mockInstance, 10);
+> 35 |     expect(mockInstance.toLoadCount).toBe(10);
+     |                                          ^ Magic Number
+  36 |   });
+  37 | })
+  38 |"
