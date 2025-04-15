@@ -6,74 +6,91 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+def log_info(message):
+    """Log informational messages."""
+    print(f"[INFO] {message}")
+
+def log_error(message):
+    """Log error messages."""
+    print(f"[ERROR] {message}")
+
+def validate_env_variable(var_name):
+    """Validate that an environment variable is set."""
+    value = os.getenv(var_name, '')
+    if not value:
+        raise ValueError(f"Environment variable '{var_name}' is not set.")
+    return value
+
 def run_snuts_js():
-    projects_folder = os.getenv('PROJECTS_FOLDER', '')
-    snuts_output_folder = os.getenv('OUTPUT_SNUTS_FOLDER', '')
+    """Run the Snuts.js tool."""
+    projects_folder = validate_env_variable('PROJECTS_FOLDER')
+    snuts_output_folder = validate_env_variable('OUTPUT_SNUTS_FOLDER')
 
-    # Get the project name
-    project_name = input("Enter the project name: ")
+    project_name = input("Enter the project name: ").strip()
 
-    snuts_command = f'''
-        curl -X POST http://localhost:3001/export-csv-local \
-        -H "Content-Type: application/json" \
-        -d '{{"directory":"{projects_folder}{project_name}/"}}' \
-        -o {snuts_output_folder}/ouput_snuts.csv
-    '''
+    snuts_command = (
+        f'curl -X POST http://localhost:3001/export-csv-local '
+        f'-H "Content-Type: application/json" '
+        f'-d \'{{"directory":"{projects_folder}{project_name}/"}}\' '
+        f'-o {snuts_output_folder}/output_snuts.csv'
+    )
 
-    print(f"Running command: {snuts_command}")
+    log_info(f"Running command: {snuts_command}")
     subprocess.run(snuts_command, shell=True, check=True)
 
 def filter_snuts_csv():
-
-    # Define the input and output file paths
-    input_csv = os.getenv('SNUTS_INPUT_CSV', '')
-    output_csv = os.getenv('SNUTS_OUTPUT_CSV', '')
+    """Filter the Snuts.js CSV file based on selected smell types."""
+    input_csv = validate_env_variable('SNUTS_INPUT_CSV')
+    output_csv = validate_env_variable('SNUTS_OUTPUT_CSV')
     selected_smell_types = os.getenv('SELECTED_SNUTS_SMELL_TYPES', '').strip('[]').replace('"', '').split(',')
-    
-    max_number = 5 # Maximum number of rows per smell type
+    max_number = 5  # Maximum number of rows per smell type
 
     # Initialize a dictionary to count occurrences of each smell type
     smell_type_counter = {smell_type: 0 for smell_type in selected_smell_types}
 
-    print(f"Selected Smell Types: {smell_type_counter}")
-
-    print(f"Selected Smell Types: {selected_smell_types}")
-    print(f"Input CSV Path: {input_csv}")
-    print(f"Output CSV Path: {output_csv}")
+    log_info(f"Selected Smell Types: {selected_smell_types}")
+    log_info(f"Input CSV Path: {input_csv}")
+    log_info(f"Output CSV Path: {output_csv}")
 
     # Read the input CSV and filter rows
     filtered_rows = []
-    with open(input_csv, 'r') as csv_file:
-        reader = csv.DictReader(csv_file)
-        for row in reader:
-            smell_type = row['type']
-            if smell_type in selected_smell_types:
-                # Check if the count for this smell type has reached the maximum
-                if smell_type_counter[smell_type] < max_number:
-                    filtered_rows.append(row)
-                    smell_type_counter[smell_type] += 1
+    try:
+        with open(input_csv, 'r') as csv_file:
+            reader = csv.DictReader(csv_file)
+            for row in reader:
+                smell_type = row['type']
+                if smell_type in selected_smell_types:
+                    # Check if the count for this smell type has reached the maximum
+                    if smell_type_counter[smell_type] < max_number:
+                        filtered_rows.append(row)
+                        smell_type_counter[smell_type] += 1
+    except FileNotFoundError:
+        log_error(f"Input CSV file not found: {input_csv}")
+        return
+    except Exception as e:
+        log_error(f"An error occurred while reading the input CSV: {e}")
+        return
 
     # Write the filtered rows to the output CSV
-    with open(output_csv, 'w', newline='') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=reader.fieldnames)
-        writer.writeheader()
-        writer.writerows(filtered_rows)
-
-    print(f"Filtered CSV created successfully at: {output_csv}")
-
+    try:
+        with open(output_csv, 'w', newline='') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=reader.fieldnames)
+            writer.writeheader()
+            writer.writerows(filtered_rows)
+        log_info(f"Filtered CSV created successfully at: {output_csv}")
+    except Exception as e:
+        log_error(f"An error occurred while writing the output CSV: {e}")
 
 if __name__ == "__main__":
     try:
-        
-        print("Starting the snutsjs process...")
+        log_info("Starting the Snuts.js process...")
         run_snuts_js()
-        print("snutsjs process completed.")
+        log_info("Snuts.js process completed.")
 
-        print("Filtering snuts.csv...")
+        log_info("Filtering Snuts.js CSV...")
         filter_snuts_csv()
-        print("Filtering completed.")
-
+        log_info("Filtering completed.")
     except subprocess.CalledProcessError as e:
-        print(f"An error occurred while running a command: {e}")
+        log_error(f"An error occurred while running a command: {e}")
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        log_error(f"An unexpected error occurred: {e}")
