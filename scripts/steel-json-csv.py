@@ -1,9 +1,16 @@
 import json
 import csv
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Define the input and output file paths
-input_file = '/home/gabriel/Desktop/research/smell-detection-tools/steel/steel.json'
-output_file = '/home/gabriel/Desktop/research/smell-detection-tools/steel/steel_output.csv'
+input_file = os.getenv('INPUT_STEEL_JSON', '')
+output_file = os.getenv('OUTPUT_STEEL_CSV', '') 
+if not input_file or not output_file:
+    raise ValueError("Please set the INPUT_STEEL_JSON and OUTPUT_STEEL_CSV environment variables.")
 
 # Read the JSON file
 with open(input_file, 'r') as json_file:
