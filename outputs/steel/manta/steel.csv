@@ -1,0 +1,106 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Duplicate Assert,"{'line': 34, 'column': 4, 'index': 722}","  32 |
+  33 |   it('renders 1 TR row', () => {
+> 34 |     expect(wrapper.find(TR)).toHaveLength(1);
+     |    ^ Duplicate Assert
+  35 |     expect(wrapper.find(TR)).not.toHaveLength(2);
+  36 |   });
+  37 |"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Duplicate Assert,"{'line': 35, 'column': 4, 'index': 768}","  33 |   it('renders 1 TR row', () => {
+  34 |     expect(wrapper.find(TR)).toHaveLength(1);
+> 35 |     expect(wrapper.find(TR)).not.toHaveLength(2);
+     |    ^ Duplicate Assert
+  36 |   });
+  37 |
+  38 |   it('renders 4 TD columns', () => {"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Duplicate Assert,"{'line': 39, 'column': 4, 'index': 862}","  37 |
+  38 |   it('renders 4 TD columns', () => {
+> 39 |     expect(wrapper.find(TD)).toHaveLength(4);
+     |    ^ Duplicate Assert
+  40 |     expect(wrapper.find(TD)).not.toHaveLength(5);
+  41 |   });
+  42 |"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Duplicate Assert,"{'line': 40, 'column': 4, 'index': 908}","  38 |   it('renders 4 TD columns', () => {
+  39 |     expect(wrapper.find(TD)).toHaveLength(4);
+> 40 |     expect(wrapper.find(TD)).not.toHaveLength(5);
+     |    ^ Duplicate Assert
+  41 |   });
+  42 |
+  43 |   it('receive correct props', () => {"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Duplicate Assert,"{'line': 57, 'column': 4, 'index': 1413}","  55 |
+  56 |   it('renders 2 buttons in the last TD', () => {
+> 57 |     expect(
+     |    ^ Duplicate Assert
+  58 |       wrapper
+  59 |         .find(TD)
+  60 |         .last()"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Magic Number,"{'line': 34, 'column': 42, 'index': 760}","  32 |
+  33 |   it('renders 1 TR row', () => {
+> 34 |     expect(wrapper.find(TR)).toHaveLength(1);
+     |                                          ^ Magic Number
+  35 |     expect(wrapper.find(TR)).not.toHaveLength(2);
+  36 |   });
+  37 |"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Magic Number,"{'line': 35, 'column': 46, 'index': 810}","  33 |   it('renders 1 TR row', () => {
+  34 |     expect(wrapper.find(TR)).toHaveLength(1);
+> 35 |     expect(wrapper.find(TR)).not.toHaveLength(2);
+     |                                              ^ Magic Number
+  36 |   });
+  37 |
+  38 |   it('renders 4 TD columns', () => {"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Magic Number,"{'line': 39, 'column': 42, 'index': 900}","  37 |
+  38 |   it('renders 4 TD columns', () => {
+> 39 |     expect(wrapper.find(TD)).toHaveLength(4);
+     |                                          ^ Magic Number
+  40 |     expect(wrapper.find(TD)).not.toHaveLength(5);
+  41 |   });
+  42 |"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Magic Number,"{'line': 40, 'column': 46, 'index': 950}","  38 |   it('renders 4 TD columns', () => {
+  39 |     expect(wrapper.find(TD)).toHaveLength(4);
+> 40 |     expect(wrapper.find(TD)).not.toHaveLength(5);
+     |                                              ^ Magic Number
+  41 |   });
+  42 |
+  43 |   it('receive correct props', () => {"
+/home/gabriel/Desktop/research/projects/Manta/app/components/contacts/__tests__/Contact.spec.js,Magic Number,"{'line': 62, 'column': 19, 'index': 1510}","  60 |         .last()
+  61 |         .find(Button)
+> 62 |     ).toHaveLength(2);
+     |                   ^ Magic Number
+  63 |     expect(
+  64 |       wrapper
+  65 |         .find(TD)"
+/home/gabriel/Desktop/research/projects/Manta/app/helpers/__tests__/form.spec.js,Lazy Test,"{'line': 107, 'column': 24, 'index': 2432}","  105 |
+  106 |   it('Should return correct data shape', () => {
+> 107 |     const invoiceData = getInvoiceData(formData);
+      |                        ^ Lazy Test
+  108 |     // Include custom invoiceID
+  109 |     expect(invoiceData).not.toHaveProperty('invoiceID');
+  110 |     // Include Rows & Recipient Data"
+/home/gabriel/Desktop/research/projects/Manta/app/helpers/__tests__/form.spec.js,Lazy Test,"{'line': 124, 'column': 24, 'index': 3186}","  122 |
+  123 |   it('Should return rows data correctly', () => {
+> 124 |     const invoiceData = getInvoiceData(formData);
+      |                        ^ Lazy Test
+  125 |     expect(invoiceData.rows.length).toEqual(2);
+  126 |   });
+  127 |"
+/home/gabriel/Desktop/research/projects/Manta/app/helpers/__tests__/form.spec.js,Lazy Test,"{'line': 129, 'column': 22, 'index': 3342}","  127 |
+  128 |   it('should return correct recipient data', () => {
+> 129 |     let invoiceData = getInvoiceData(formData);
+      |                      ^ Lazy Test
+  130 |     // Filter out data
+  131 |     expect(invoiceData.recipient).not.toHaveProperty('new');
+  132 |     expect(invoiceData.recipient).not.toHaveProperty('select');"
+/home/gabriel/Desktop/research/projects/Manta/app/helpers/__tests__/form.spec.js,Lazy Test,"{'line': 168, 'column': 24, 'index': 4805}","  166 |       }),
+  167 |     });
+> 168 |     const invoiceData = getInvoiceData(newFormData);
+      |                        ^ Lazy Test
+  169 |     expect(invoiceData.dueDate).toEqual({
+  170 |       selectedDate: {
+  171 |         date: 20,"
+/home/gabriel/Desktop/research/projects/Manta/app/helpers/__tests__/form.spec.js,Lazy Test,"{'line': 194, 'column': 24, 'index': 5462}","  192 |     });
+  193 |
+> 194 |     const invoiceData = getInvoiceData(newFormData);
+      |                        ^ Lazy Test
+  195 |     expect(invoiceData.currency).toEqual({
+  196 |       code: 'USD',
+  197 |       placement: 'before',"

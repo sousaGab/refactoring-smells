@@ -1,0 +1,8 @@
+file,type,smells,itCount,describeCount
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":120,""endLine"":126}]",1,0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":138,""endLine"":138}]",1,0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":140,""endLine"":145}]",1,0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":146,""endLine"":149}]",1,0
+test/unit.test.js,NonFunctionalStatement,"[{""startLine"":21,""endLine"":21}]",0,0
+test/unit.test.js,NonFunctionalStatement,"[{""startLine"":27,""endLine"":27}]",0,0
+test/integration.test.js,NonFunctionalStatement,"[{""startLine"":60,""endLine"":60}]",0,0

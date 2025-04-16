@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <style type="text/css">
+    .details-row.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-dark welcome is-small is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          STEEL - teST smElls dEtection tooL
+        </h1>
+        <h2 class="subtitle">
+          Report for "steel" () project.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div>
+        <div class="columns">
+          <div class="column">
+            <div class="box notification is-info">
+              <div class="heading">Test Suites</div>
+              <div class="title">4</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-success">
+              <div class="heading">Test Cases</div>
+              <div class="title">1</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-warning">
+              <div class="heading">Smelled Test Suites</div>
+              <div class="title">4</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-danger">
+              <div class="heading">Detected Smells</div>
+              <div class="title">48</div>
+            </div>
+          </div>
+        </div>
+
+        <table class="table is-fullwidth" id="table-of-suites">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th class="has-text-right">smells</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;ncc&#x2F;test&#x2F;cli.test.js</a>
+              </td>
+              <td class="has-text-right">5</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">35</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">54</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">14</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">25.926</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.43</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">23.76</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">30638.86</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">209</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">1702.159</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">72</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">1289.514</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">105.357</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   6 | jest.setTimeout(20000);
+   7 |
+&gt;  8 | for (const cliTest of cliTests) {
+   9 |   it(&#x60;should execute &quot;ncc ${(cliTest.args || []).join(&quot; &quot;)}&quot;&#x60;, async () &#x3D;&gt; {
+  10 |     const ps &#x3D; fork(join(__dirname, file), cliTest.args || [], {
+  11 |       stdio: &quot;pipe&quot;,</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  17 |     const expected &#x3D; cliTest.expect || { code: 0 };
+  18 |     let timedOut &#x3D; false;
+&gt; 19 |     if (cliTest.timeout)
+     |    ^ Conditional Test Logic
+  20 |       setTimeout(() &#x3D;&gt; {
+  21 |         timedOut &#x3D; true;
+  22 |         ps.kill();</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  23 |       }, cliTest.timeout);
+  24 |     const code &#x3D; await new Promise(resolve &#x3D;&gt; ps.on(&quot;close&quot;, resolve));
+&gt; 25 |     if (typeof expected &#x3D;&#x3D;&#x3D; &quot;function&quot;)
+     |    ^ Conditional Test Logic
+  26 |       expect(expected(code, stdout, stderr, timedOut)).toBe(true);
+  27 |     else {
+  28 |       if (&quot;code&quot; in expected)</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  26 |       expect(expected(code, stdout, stderr, timedOut)).toBe(true);
+  27 |     else {
+&gt; 28 |       if (&quot;code&quot; in expected)
+     |      ^ Conditional Test Logic
+  29 |         expect(code).toBe(expected.code);
+  30 |       if (&quot;timeout&quot; in expected)
+  31 |         expect(timedOut).toBe(true);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  28 |       if (&quot;code&quot; in expected)
+  29 |         expect(code).toBe(expected.code);
+&gt; 30 |       if (&quot;timeout&quot; in expected)
+     |      ^ Conditional Test Logic
+  31 |         expect(timedOut).toBe(true);
+  32 |     }
+  33 |   });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;ncc&#x2F;test&#x2F;integration.test.js</a>
+              </td>
+              <td class="has-text-right">15</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">130</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">113</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">23</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">20.354</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">1.039</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">31.728</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">98924.86</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">444</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">5495.826</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">130</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">3117.931</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">94.822</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  20 |
+  21 | let nccRun;
+&gt; 22 | if (coverage) {
+  23 |   nccRun &#x3D; require(__dirname + &quot;&#x2F;..&#x2F;src&#x2F;cli.js&quot;);
+  24 | }
+  25 | else {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  40 | }
+  41 |
+&gt; 42 | for (const integrationTest of fs.readdirSync(__dirname + &quot;&#x2F;integration&quot;)) {
+  43 |   &#x2F;&#x2F; ignore e.g.: &#x60;.json&#x60; files
+  44 |   if (!&#x2F;\.(mjs|tsx?|js)$&#x2F;.test(integrationTest)) continue;
+  45 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  42 | for (const integrationTest of fs.readdirSync(__dirname + &quot;&#x2F;integration&quot;)) {
+  43 |   &#x2F;&#x2F; ignore e.g.: &#x60;.json&#x60; files
+&gt; 44 |   if (!&#x2F;\.(mjs|tsx?|js)$&#x2F;.test(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  45 |
+  46 |   &#x2F;&#x2F; disabled pending https:&#x2F;&#x2F;github.com&#x2F;zeit&#x2F;ncc&#x2F;issues&#x2F;141
+  47 |   if (integrationTest.endsWith(&#39;loopback.js&#39;)) continue;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  45 |
+  46 |   &#x2F;&#x2F; disabled pending https:&#x2F;&#x2F;github.com&#x2F;zeit&#x2F;ncc&#x2F;issues&#x2F;141
+&gt; 47 |   if (integrationTest.endsWith(&#39;loopback.js&#39;)) continue;
+     |  ^ Conditional Test Logic
+  48 |
+  49 |   &#x2F;&#x2F; ignore a few tests known to fail on windows
+  50 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;win32&#39; &amp;&amp; skipOnWindows.includes(integrationTest)) continue;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  48 |
+  49 |   &#x2F;&#x2F; ignore a few tests known to fail on windows
+&gt; 50 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;win32&#39; &amp;&amp; skipOnWindows.includes(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  51 |
+  52 |   &#x2F;&#x2F; ignore a few tests known to fail on macOS
+  53 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;darwin&#39; &amp;&amp; skipOnMacOS.includes(integrationTest)) continue;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  51 |
+  52 |   &#x2F;&#x2F; ignore a few tests known to fail on macOS
+&gt; 53 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;darwin&#39; &amp;&amp; skipOnMacOS.includes(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  54 |
+  55 |   it(&#x60;should execute &quot;ncc run ${integrationTest}&quot;&#x60;, async () &#x3D;&gt; {
+  56 |     let expectedStdout;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  59 |     }
+  60 |     catch (e) {}
+&gt; 61 |     if (global.gc) global.gc();
+     |    ^ Conditional Test Logic
+  62 |     const stdout &#x3D; new StoreStream();
+  63 |     const stderr &#x3D; new StoreStream();
+  64 |     try {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  66 |     }
+  67 |     catch (e) {
+&gt; 68 |       if (e.silent) {
+     |      ^ Conditional Test Logic
+  69 |         let lastErr &#x3D; stderr.data[stderr.data.length - 1];
+  70 |         if (lastErr)
+  71 |           throw new Error(lastErr);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  68 |       if (e.silent) {
+  69 |         let lastErr &#x3D; stderr.data[stderr.data.length - 1];
+&gt; 70 |         if (lastErr)
+     |        ^ Conditional Test Logic
+  71 |           throw new Error(lastErr);
+  72 |         else
+  73 |           throw new Error(&#39;Process exited with code &#39; + e.exitCode);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  75 |       throw e;
+  76 |     }
+&gt; 77 |     if (expectedStdout) {
+     |    ^ Conditional Test Logic
+  78 |       let stdoutStr &#x3D; &#39;&#39;;
+  79 |       for (const chunk of stdout.data)
+  80 |         stdoutStr +&#x3D; chunk.toString();</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  77 |     if (expectedStdout) {
+  78 |       let stdoutStr &#x3D; &#39;&#39;;
+&gt; 79 |       for (const chunk of stdout.data)
+     |      ^ Conditional Test Logic
+  80 |         stdoutStr +&#x3D; chunk.toString();
+  81 |       expect(stdoutStr.startsWith(expectedStdout));
+  82 |     }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  85 |
+  86 | it(&#x60;should execute &quot;ncc build web-vitals&quot; with target config&#x60;, async () &#x3D;&gt; {
+&gt; 87 |   if (global.gc) global.gc();
+     |  ^ Conditional Test Logic
+  88 |   const stdout &#x3D; new StoreStream();
+  89 |   const stderr &#x3D; new StoreStream();
+  90 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   95 |   }
+   96 |   catch (e) {
+&gt;  97 |     if (e.silent) {
+      |    ^ Conditional Test Logic
+   98 |       let lastErr &#x3D; stderr.data[stderr.data.length - 1];
+   99 |       if (lastErr)
+  100 |         throw new Error(lastErr);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   97 |     if (e.silent) {
+   98 |       let lastErr &#x3D; stderr.data[stderr.data.length - 1];
+&gt;  99 |       if (lastErr)
+      |      ^ Conditional Test Logic
+  100 |         throw new Error(lastErr);
+  101 |       else
+  102 |         throw new Error(&#39;Process exited with code &#39; + e.exitCode);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  120 |
+  121 | afterAll(() &#x3D;&gt; {
+&gt; 122 |   if (coverage)
+      |  ^ Conditional Test Logic
+  123 |     process.exit(0);
+  124 | });
+  125 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;ncc&#x2F;test&#x2F;unit.test.js</a>
+              </td>
+              <td class="has-text-right">7</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">82</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">97</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">16</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">16.495</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.867</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">24.124</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">62757.656</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">376</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">3486.536</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">121</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">2601.493</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">89.523</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   9 | }
+  10 |
+&gt; 11 | for (const unitTest of fs.readdirSync(&#x60;${__dirname}&#x2F;unit&#x60;)) {
+  12 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;win32&#39; &amp;&amp; unitTest.includes(&#39;shebang&#39;)) {
+  13 |     continue;
+  14 |   }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  10 |
+  11 | for (const unitTest of fs.readdirSync(&#x60;${__dirname}&#x2F;unit&#x60;)) {
+&gt; 12 |   if (process.platform &#x3D;&#x3D;&#x3D; &#39;win32&#39; &amp;&amp; unitTest.includes(&#39;shebang&#39;)) {
+     |  ^ Conditional Test Logic
+  13 |     continue;
+  14 |   }
+  15 |   it(&#x60;should generate correct output for ${unitTest}&#x60;, async () &#x3D;&gt; { </code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  35 |       transpileOnly: true,
+  36 |       customEmit (path) {
+&gt; 37 |         if (path.endsWith(&#39;test.json&#39;))
+     |        ^ Conditional Test Logic
+  38 |           return false;
+  39 |       },
+  40 |       externals: {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  46 |     }, opts)).then(
+  47 |       async ({ code, assets, map }) &#x3D;&gt; {
+&gt; 48 |         if (unitTest.startsWith(&#39;bundle-subasset&#39;)) {
+     |        ^ Conditional Test Logic
+  49 |           expect(assets[&#39;pi-bridge.js&#39;]).toBeDefined();
+  50 |           expect(assets[&#39;pi-bridge.js&#39;].source.toString()).toContain(&#39;Math.PI&#39;);
+  51 |         }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  50 |           expect(assets[&#39;pi-bridge.js&#39;].source.toString()).toContain(&#39;Math.PI&#39;);
+  51 |         }
+&gt; 52 |         if (unitTest.includes(&#39;sourcemap-register&#39;)) {
+     |        ^ Conditional Test Logic
+  53 |           expect(assets[&#39;sourcemap-register.js&#39;]).toBeDefined()
+  54 |           expect(assets[&#39;sourcemap-register.js&#39;].source.toString()).toEqual(fs.readFileSync(__dirname + &#39;&#x2F;..&#x2F;src&#x2F;sourcemap-register.js.cache.js&#39;).toString())
+  55 |         }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  54 |           expect(assets[&#39;sourcemap-register.js&#39;].source.toString()).toEqual(fs.readFileSync(__dirname + &#39;&#x2F;..&#x2F;src&#x2F;sourcemap-register.js.cache.js&#39;).toString())
+  55 |         }
+&gt; 56 |         if (unitTest.includes(&#39;minify&#39;) &amp;&amp; !unitTest.includes(&#39;minify-err&#39;)) {
+     |        ^ Conditional Test Logic
+  57 |           expect(assets[&#39;index.js.map&#39;]).toBeDefined()
+  58 |         }
+  59 |         const actual &#x3D; normalizeForWindows(code);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  66 |         }
+  67 |
+&gt; 68 |         if (map) {
+     |        ^ Conditional Test Logic
+  69 |           const actualSourceMap &#x3D; normalizeForWindows(map);
+  70 |           try {
+  71 |             expect(actualSourceMap).toBe(expectedSourceMap);</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;ncc&#x2F;test&#x2F;watcher.test.js</a>
+              </td>
+              <td class="has-text-right">21</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">159</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">123</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">21</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">17.073</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">1.213</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">33.421</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">121650.337</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">527</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">6758.352</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">120</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">3639.931</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">105.794</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  31 |   
+  32 |   triggerChanges (changed, removed) {
+&gt; 33 |     if (!this.paused) {
+     |    ^ Conditional Test Logic
+  34 |       const newTime &#x3D; +Date.now();
+  35 |       for (const file of changed)
+  36 |         this.timestamps.set(file, {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  33 |     if (!this.paused) {
+  34 |       const newTime &#x3D; +Date.now();
+&gt; 35 |       for (const file of changed)
+     |      ^ Conditional Test Logic
+  36 |         this.timestamps.set(file, {
+  37 |           safeTime: newTime + 10,
+  38 |           accuracy: 10,</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  39 |           timestamp: newTime
+  40 |         });
+&gt; 41 |       for (const file of removed)
+     |      ^ Conditional Test Logic
+  42 |         this.timestamps.set(file, null);
+  43 |
+  44 |       for (const file of changed) {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  42 |         this.timestamps.set(file, null);
+  43 |
+&gt; 44 |       for (const file of changed) {
+     |      ^ Conditional Test Logic
+  45 |         this.changes.add(file);
+  46 |         this.inputFileSystem.purge(file);
+  47 |       }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  46 |         this.inputFileSystem.purge(file);
+  47 |       }
+&gt; 48 |       for (const file of removed) {
+     |      ^ Conditional Test Logic
+  49 |         this.removals.add(file);
+  50 |         this.inputFileSystem.purge(file);
+  51 |       }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  74 |     &#x2F;&#x2F; empty object indicates &quot;unknown&quot; timestamp
+  75 |     &#x2F;&#x2F; (that is, not cached)
+&gt; 76 |     for (const item of files)
+     |    ^ Conditional Test Logic
+  77 |       this.timestamps.set(item, {});
+  78 |     for (const item of dirs)
+  79 |       this.timestamps.set(item, {});</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  76 |     for (const item of files)
+  77 |       this.timestamps.set(item, {});
+&gt; 78 |     for (const item of dirs)
+     |    ^ Conditional Test Logic
+  79 |       this.timestamps.set(item, {});
+  80 |     &#x2F;&#x2F; null represents &quot;no file&quot;
+  81 |     for (const item of missing)</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  79 |       this.timestamps.set(item, {});
+  80 |     &#x2F;&#x2F; null represents &quot;no file&quot;
+&gt; 81 |     for (const item of missing)
+     |    ^ Conditional Test Logic
+  82 |       this.timestamps.set(item, null);
+  83 |
+  84 |     this.paused &#x3D; false;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  118 |     const watcher &#x3D; new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+  119 |       expect(files._set.size).toBeGreaterThan(100);
+&gt; 120 |       if (buildCnt &lt; 3) {
+      |      ^ Conditional Test Logic
+  121 |         setTimeout(() &#x3D;&gt; {
+  122 |           &#x2F;&#x2F; NOTE: We actually have to make the change for the rebuild to happen!
+  123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + &#39;\n&#39;);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  136 |     
+  137 |     handler(({ err, code, map, assets, permissions }) &#x3D;&gt; {
+&gt; 138 |       if (err) return reject(err);
+      |      ^ Conditional Test Logic
+  139 |       buildCnt++;
+  140 |       if (buildCnt &#x3D;&#x3D;&#x3D; 1) {
+  141 |         console.timeEnd(&#39;First Build&#39;);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  138 |       if (err) return reject(err);
+  139 |       buildCnt++;
+&gt; 140 |       if (buildCnt &#x3D;&#x3D;&#x3D; 1) {
+      |      ^ Conditional Test Logic
+  141 |         console.timeEnd(&#39;First Build&#39;);
+  142 |       }
+  143 |       else {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  144 |         console.timeEnd(&#39;Watched Build&#39;);
+  145 |       }
+&gt; 146 |       if (buildCnt &#x3D;&#x3D;&#x3D; 3) {
+      |      ^ Conditional Test Logic
+  147 |         close();
+  148 |         fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+  149 |       }</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Magic Number</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  117 |   await new Promise((resolve, reject) &#x3D;&gt; {
+  118 |     const watcher &#x3D; new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+&gt; 119 |       expect(files._set.size).toBeGreaterThan(100);
+      |                                              ^ Magic Number
+  120 |       if (buildCnt &lt; 3) {
+  121 |         setTimeout(() &#x3D;&gt; {
+  122 |           &#x2F;&#x2F; NOTE: We actually have to make the change for the rebuild to happen!</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Mystery Guest</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  113 |   let buildCnt &#x3D; 0;
+  114 |   const buildFile &#x3D; path.resolve(&#39;.&#x2F;test&#x2F;integration&#x2F;twilio.js&#39;);
+&gt; 115 |   const initialBuildFileContents &#x3D; fs.readFileSync(buildFile).toString();
+      |                                   ^ Mystery Guest
+  116 |
+  117 |   await new Promise((resolve, reject) &#x3D;&gt; {
+  118 |     const watcher &#x3D; new CustomWatchFileSystem(function watchStart (files, dirs, missing) {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  121 |         setTimeout(() &#x3D;&gt; {
+  122 |           &#x2F;&#x2F; NOTE: We actually have to make the change for the rebuild to happen!
+&gt; 123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + &#39;\n&#39;);
+      |                                      ^ Mystery Guest
+  124 |           watcher.triggerChanges([buildFile], []);
+  125 |         }, 100);
+  126 |       }</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  146 |       if (buildCnt &#x3D;&#x3D;&#x3D; 3) {
+  147 |         close();
+&gt; 148 |         fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      |                                    ^ Mystery Guest
+  149 |       }
+  150 |     });
+  151 |     rebuild(() &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Redundant Print</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  129 |     });
+  130 |
+&gt; 131 |     console.time(&#39;First Build&#39;);
+      |    ^ Redundant Print
+  132 |     const { handler, rebuild, close } &#x3D; ncc(buildFile, {
+  133 |       assetBuilds: true,
+  134 |       watch: watcher</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  139 |       buildCnt++;
+  140 |       if (buildCnt &#x3D;&#x3D;&#x3D; 1) {
+&gt; 141 |         console.timeEnd(&#39;First Build&#39;);
+      |        ^ Redundant Print
+  142 |       }
+  143 |       else {
+  144 |         console.timeEnd(&#39;Watched Build&#39;);</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  142 |       }
+  143 |       else {
+&gt; 144 |         console.timeEnd(&#39;Watched Build&#39;);
+      |        ^ Redundant Print
+  145 |       }
+  146 |       if (buildCnt &#x3D;&#x3D;&#x3D; 3) {
+  147 |         close();</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  150 |     });
+  151 |     rebuild(() &#x3D;&gt; {
+&gt; 152 |       console.time(&#39;Watched Build&#39;);
+      |      ^ Redundant Print
+  153 |     });
+  154 |   });
+  155 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Sleepy Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  119 |       expect(files._set.size).toBeGreaterThan(100);
+  120 |       if (buildCnt &lt; 3) {
+&gt; 121 |         setTimeout(() &#x3D;&gt; {
+      |        ^ Sleepy Test
+  122 |           &#x2F;&#x2F; NOTE: We actually have to make the change for the rebuild to happen!
+  123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + &#39;\n&#39;);
+  124 |           watcher.triggerChanges([buildFile], []);</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>Copyright © 2020 STEEL. All rights reserved.</p>
+      <p>
+        <strong>STEEL</strong> by Dalton N. Jorge, under the guidance of Prof. Dr. Patricia D. L. Machado & Prof. Dr.
+        Wilkerson L. Andrade.
+      </p>
+      <p>SPLab - PPGCC - UFCG</p>
+    </div>
+  </footer>
+  <script>
+    function toggleDetails(node) {
+      let parentRow = node.parentNode.parentNode;
+      let path = parentRow.children[0].children[0].innerText;
+      let detailsRow = parentRow.nextElementSibling;
+      if (detailsRow.className === "details-row hidden") {
+        parentRow.children[0].children[0].innerText = path.replace(/^\+/g, '-')
+        detailsRow.className = "details-row";
+      } else {
+        parentRow.children[0].children[0].innerText = path.replace(/^-/g, '+')
+        detailsRow.className = "details-row hidden";
+      }
+    }
+  </script>
+</body>
+
+</html>

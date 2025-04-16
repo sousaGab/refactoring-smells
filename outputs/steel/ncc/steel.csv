@@ -1,0 +1,8 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Magic Number,"{'line': 119, 'column': 46, 'index': 3367}","  117 |   await new Promise((resolve, reject) => {
+  118 |     const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+> 119 |       expect(files._set.size).toBeGreaterThan(100);
+      |                                              ^ Magic Number
+  120 |       if (buildCnt < 3) {
+  121 |         setTimeout(() => {
+  122 |           // NOTE: We actually have to make the change for the rebuild to happen!"

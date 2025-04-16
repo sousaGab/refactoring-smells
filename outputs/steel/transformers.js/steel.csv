@@ -1,0 +1,106 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/audio_spectrogram_transformer/test_feature_extraction_audio_spectrogram_transformer.js,Magic Number,"{'line': 40, 'column': 55, 'index': 1597}","  38 |         expect(input_values.dims).toEqual([1, 1024, 128]); // [1, 4, 128] -> (padded to) -> [1, 1024, 128]
+  39 |
+> 40 |         expect(input_values.mean().item()).toBeCloseTo(0.4647964835166931);
+     |                                                       ^ Magic Number
+  41 |         expect(input_values.data[0]).toBeCloseTo(-0.5662586092948914);
+  42 |         expect(input_values.data[1]).toBeCloseTo(-1.0300861597061157);
+  43 |         expect(input_values.data[129]).toBeCloseTo(-1.084834098815918);"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/audio_spectrogram_transformer/test_feature_extraction_audio_spectrogram_transformer.js,Magic Number,"{'line': 46, 'column': 52, 'index': 1910}","  44 |
+  45 |         // padded values
+> 46 |         expect(input_values.data[1025]).toBeCloseTo(0.46703237295150757);
+     |                                                    ^ Magic Number
+  47 |         expect(input_values.data[2049]).toBeCloseTo(0.46703237295150757);
+  48 |         expect(input_values.data[10000]).toBeCloseTo(0.46703237295150757);
+  49 |       },"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/audio_spectrogram_transformer/test_feature_extraction_audio_spectrogram_transformer.js,Magic Number,"{'line': 47, 'column': 52, 'index': 1984}","  45 |         // padded values
+  46 |         expect(input_values.data[1025]).toBeCloseTo(0.46703237295150757);
+> 47 |         expect(input_values.data[2049]).toBeCloseTo(0.46703237295150757);
+     |                                                    ^ Magic Number
+  48 |         expect(input_values.data[10000]).toBeCloseTo(0.46703237295150757);
+  49 |       },
+  50 |       MAX_TEST_EXECUTION_TIME,"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/audio_spectrogram_transformer/test_feature_extraction_audio_spectrogram_transformer.js,Magic Number,"{'line': 48, 'column': 53, 'index': 2059}","  46 |         expect(input_values.data[1025]).toBeCloseTo(0.46703237295150757);
+  47 |         expect(input_values.data[2049]).toBeCloseTo(0.46703237295150757);
+> 48 |         expect(input_values.data[10000]).toBeCloseTo(0.46703237295150757);
+     |                                                     ^ Magic Number
+  49 |       },
+  50 |       MAX_TEST_EXECUTION_TIME,
+  51 |     );"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/beit/test_image_processing_beit.js,Magic Number,"{'line': 23, 'column': 77, 'index': 889}","  21 |
+  22 |         expect(pixel_values.dims).toEqual([1, 3, 224, 224]);
+> 23 |         expect(pixel_values.mean().item()).toBeCloseTo(-0.22706867939852762, 6);
+     |                                                                             ^ Magic Number
+  24 |
+  25 |         expect(original_sizes).toEqual([[408, 612]]);
+  26 |         expect(reshaped_input_sizes).toEqual([[224, 224]]);"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/florence2/test_modeling_florence2.js,Duplicate Assert,"{'line': 44, 'column': 10, 'index': 1593}","  42 |           const text_inputs = processor.tokenizer(texts[0]);
+  43 |           const generate_ids = await model.generate({ ...text_inputs, max_new_tokens: 10 });
+> 44 |           expect(generate_ids.tolist()).toEqual([[2n, 0n, 0n, 0n, 1n, 0n, 0n, 2n]]);
+     |          ^ Duplicate Assert
+  45 |         }
+  46 |         {
+  47 |           const inputs = await processor(image, texts[0]);"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/florence2/test_modeling_florence2.js,Duplicate Assert,"{'line': 49, 'column': 10, 'index': 1845}","  47 |           const inputs = await processor(image, texts[0]);
+  48 |           const generate_ids = await model.generate({ ...inputs, max_new_tokens: 10 });
+> 49 |           expect(generate_ids.tolist()).toEqual([[2n, 0n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 2n]]);
+     |          ^ Duplicate Assert
+  50 |         }
+  51 |       },
+  52 |       MAX_TEST_EXECUTION_TIME,"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/florence2/test_modeling_florence2.js,Duplicate Assert,"{'line': 61, 'column': 10, 'index': 2238}","  59 |           const text_inputs = processor.tokenizer(texts, { padding: true });
+  60 |           const generate_ids = await model.generate({ ...text_inputs, max_new_tokens: 10 });
+> 61 |           expect(generate_ids.tolist()).toEqual([
+     |          ^ Duplicate Assert
+  62 |             [2n, 0n, 0n, 0n, 1n, 0n, 0n, 2n],
+  63 |             [2n, 0n, 0n, 0n, 1n, 0n, 0n, 2n],
+  64 |           ]);"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/florence2/test_modeling_florence2.js,Duplicate Assert,"{'line': 70, 'column': 10, 'index': 2587}","  68 |
+  69 |           const generate_ids = await model.generate({ ...inputs, max_new_tokens: 10 });
+> 70 |           expect(generate_ids.tolist()).toEqual([
+     |          ^ Duplicate Assert
+  71 |             [2n, 0n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 2n],
+  72 |             [2n, 0n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 48n, 2n],
+  73 |           ]);"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/whisper/test_tokenization_whisper.js,Lazy Test,"{'line': 635, 'column': 8, 'index': 41068}","  633 |         ];
+  634 |
+> 635 |         compare(
+      |        ^ Lazy Test
+  636 |           tokenizer._decode_asr(model_outputs, {
+  637 |             return_timestamps: ""word"",
+  638 |             time_precision: 0.02,"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/models/whisper/test_tokenization_whisper.js,Lazy Test,"{'line': 765, 'column': 8, 'index': 49532}","  763 |         ];
+  764 |
+> 765 |         compare(
+      |        ^ Lazy Test
+  766 |           tokenizer._decode_asr(model_outputs, {
+  767 |             return_timestamps: ""word"",
+  768 |             time_precision: 0.02,"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/tokenizers.test.js,Duplicate Assert,"{'line': 107, 'column': 8, 'index': 3303}","  105 |         });
+  106 |
+> 107 |         expect(input_ids.tolist()).toEqual([[1037n], [1038n]]);
+      |        ^ Duplicate Assert
+  108 |         expect(attention_mask.tolist()).toEqual([[1n], [1n]]);
+  109 |         expect(token_type_ids.tolist()).toEqual([[0n], [0n]]);
+  110 |       }"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/tokenizers.test.js,Lazy Test,"{'line': 71, 'column': 6, 'index': 2409}","  69 |         ],
+  70 |       };
+> 71 |       compare(output, expected);
+     |      ^ Lazy Test
+  72 |     }
+  73 |
+  74 |     {"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/tokenizers.test.js,Lazy Test,"{'line': 216, 'column': 6, 'index': 6153}","  214 |       };
+  215 |
+> 216 |       compare(model_inputs, expected);
+      |      ^ Lazy Test
+  217 |     },
+  218 |     MAX_TEST_EXECUTION_TIME,
+  219 |   );"
+/home/gabriel/Desktop/research/projects/transformers.js/tests/tokenizers.test.js,Lazy Test,"{'line': 237, 'column': 8, 'index': 6722}","  235 |           token_type_ids: [0, 0],
+  236 |         };
+> 237 |         compare(model_inputs, expected);
+      |        ^ Lazy Test
+  238 |       }
+  239 |
+  240 |       {"

@@ -1,6 +1,7 @@
 import csv
 import subprocess
 import os
+import asyncio
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -21,7 +22,7 @@ def validate_env_variable(var_name):
         raise ValueError(f"Environment variable '{var_name}' is not set.")
     return value
 
-def run_snuts_js():
+async def run_snuts_js():
     """Run the Snuts.js tool."""
     projects_folder = validate_env_variable('PROJECTS_FOLDER')
     snuts_output_folder = validate_env_variable('OUTPUT_SNUTS_FOLDER')
@@ -35,8 +36,21 @@ def run_snuts_js():
         f'-o {snuts_output_folder}/output_snuts.csv'
     )
 
+    # log_info(f"Running command: {snuts_command}")
+    # subprocess.run(snuts_command, shell=True, check=True)
     log_info(f"Running command: {snuts_command}")
-    subprocess.run(snuts_command, shell=True, check=True)
+    process = await asyncio.create_subprocess_shell(
+        snuts_command,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
+    )
+    stdout, stderr = await process.communicate()
+
+    if process.returncode == 0:
+        log_info(f"Snuts.js command completed successfully:\n{stdout.decode()}")
+    else:
+        log_error(f"Snuts.js command failed with error:\n{stderr.decode()}")
+        raise subprocess.CalledProcessError(process.returncode, snuts_command)
 
 def filter_snuts_csv():
     """Filter the Snuts.js CSV file based on selected smell types."""
@@ -81,10 +95,10 @@ def filter_snuts_csv():
     except Exception as e:
         log_error(f"An error occurred while writing the output CSV: {e}")
 
-if __name__ == "__main__":
+async def main():
     try:
         log_info("Starting the Snuts.js process...")
-        run_snuts_js()
+        await run_snuts_js()
         log_info("Snuts.js process completed.")
 
         log_info("Filtering Snuts.js CSV...")
@@ -94,3 +108,6 @@ if __name__ == "__main__":
         log_error(f"An error occurred while running a command: {e}")
     except Exception as e:
         log_error(f"An unexpected error occurred: {e}")
+
+if __name__ == "__main__":
+    asyncio.run(main())

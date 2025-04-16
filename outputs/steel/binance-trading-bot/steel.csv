@@ -1,0 +1,71 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 189, 'column': 8, 'index': 5619}","  187 |
+  188 |       it('triggers refreshCandles', () => {
+> 189 |         expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      |        ^ Duplicate Assert
+  190 |           logger,
+  191 |           'trailing-trade-candles',
+  192 |           {}"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 194, 'column': 8, 'index': 5755}","  192 |           {}
+  193 |         );
+> 194 |         expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      |        ^ Duplicate Assert
+  195 |           logger,
+  196 |           'trailing-trade-ath-candles',
+  197 |           {}"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 691, 'column': 6, 'index': 22289}","  689 |
+  690 |     it('triggers refreshCandles', () => {
+> 691 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      |      ^ Duplicate Assert
+  692 |         logger,
+  693 |         'trailing-trade-candles',
+  694 |         {}"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 696, 'column': 6, 'index': 22415}","  694 |         {}
+  695 |       );
+> 696 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      |      ^ Duplicate Assert
+  697 |         logger,
+  698 |         'trailing-trade-ath-candles',
+  699 |         {}"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Magic Number,"{'line': 230, 'column': 10, 'index': 6700}","  228 |           'trailing-trade-streams',
+  229 |           `count`,
+> 230 |           1
+      |          ^ Magic Number
+  231 |         );
+  232 |       });
+  233 |"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Magic Number,"{'line': 739, 'column': 8, 'index': 23471}","  737 |         'trailing-trade-streams',
+  738 |         `count`,
+> 739 |         1
+      |        ^ Magic Number
+  740 |       );
+  741 |     });
+  742 |   });"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-frontend.test.js,Magic Number,"{'line': 314, 'column': 74, 'index': 9174}","  312 |
+  313 |         it('triggers status', () => {
+> 314 |           expect(mockRateLimiterMiddlewareResStatus).toHaveBeenCalledWith(403);
+      |                                                                          ^ Magic Number
+  315 |         });
+  316 |
+  317 |         it('triggers send', () => {"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/binance/__tests__/orders.test.js,Magic Number,"{'line': 137, 'column': 56, 'index': 3912}","  135 |
+  136 |       it('triggers clearInterval', () => {
+> 137 |         expect(spyOnClearInterval).toHaveBeenCalledWith(33);
+      |                                                        ^ Magic Number
+  138 |       });
+  139 |     });
+  140 |   });"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/binance/__tests__/user.test.js,Magic Number,"{'line': 142, 'column': 10, 'index': 4072}","  140 |           loggerMock,
+  141 |           [{ asset: 'ADA', free: '0.00000000', locked: '13.82000000' }],
+> 142 |           1625585531721
+      |          ^ Magic Number
+  143 |         );
+  144 |       });
+  145 |"
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2469, 'column': 8, 'index': 67424}","  2467 |
+  2468 |       it('triggers slack.sendMessage', () => {
+> 2469 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
+       |        ^ Duplicate Assert
+  2470 |           expect.stringContaining('BTCUSDT'),
+  2471 |           {
+  2472 |             apiLimit: 0,"
