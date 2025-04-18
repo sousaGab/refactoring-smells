@@ -1,8 +1,0 @@
-file,type,smells,itCount,describeCount
-app/reducers/__tests__/FormReducer.spec.js,OvercommentedTest,"[{""startLine"":482,""endLine"":496}]",30,6
-app/middlewares/__tests__/UIMiddleware.spec.js,SubOptimalAssert,"[{""startLine"":25,""endLine"":25}]",9,4
-app/middlewares/__tests__/UIMiddleware.spec.js,SubOptimalAssert,"[{""startLine"":26,""endLine"":26}]",9,4
-app/middlewares/__tests__/UIMiddleware.spec.js,SubOptimalAssert,"[{""startLine"":32,""endLine"":32}]",9,4
-app/middlewares/__tests__/UIMiddleware.spec.js,SubOptimalAssert,"[{""startLine"":33,""endLine"":33}]",9,4
-app/middlewares/__tests__/UIMiddleware.spec.js,SubOptimalAssert,"[{""startLine"":47,""endLine"":47}]",9,4
-app/middlewares/__tests__/SettingsMW.spec.js,NonFunctionalStatement,"[{""startLine"":76,""endLine"":76}]",7,2

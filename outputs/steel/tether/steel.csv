@@ -1,0 +1,106 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Duplicate Assert,"{'line': 59, 'column': 6, 'index': 1898}","  57 |
+  58 |       expect(element.classList.length, 'element - tether classes added').toEqual(12);
+> 59 |       expect(element).toHaveClass('tether-element');
+     |      ^ Duplicate Assert
+  60 |       expect(element).not.toHaveClass('tether-target');
+  61 |
+  62 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Duplicate Assert,"{'line': 60, 'column': 6, 'index': 1951}","  58 |       expect(element.classList.length, 'element - tether classes added').toEqual(12);
+  59 |       expect(element).toHaveClass('tether-element');
+> 60 |       expect(element).not.toHaveClass('tether-target');
+     |      ^ Duplicate Assert
+  61 |
+  62 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);
+  63 |       expect(target).toHaveClass('tether-target');"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Duplicate Assert,"{'line': 63, 'column': 6, 'index': 2092}","  61 |
+  62 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);
+> 63 |       expect(target).toHaveClass('tether-target');
+     |      ^ Duplicate Assert
+  64 |       expect(target).not.toHaveClass('tether-element');
+  65 |
+  66 |       tether.destroy();"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Duplicate Assert,"{'line': 64, 'column': 6, 'index': 2143}","  62 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);
+  63 |       expect(target).toHaveClass('tether-target');
+> 64 |       expect(target).not.toHaveClass('tether-element');
+     |      ^ Duplicate Assert
+  65 |
+  66 |       tether.destroy();
+  67 |"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Duplicate Assert,"{'line': 86, 'column': 6, 'index': 2969}","  84 |
+  85 |       expect(element.classList.length, 'element - foo classes added').toEqual(12);
+> 86 |       expect(element).toHaveClass('foo-element');
+     |      ^ Duplicate Assert
+  87 |       expect(element).not.toHaveClass('foo-target');
+  88 |
+  89 |       expect(target.classList.length, 'target - foo classes added').toEqual(12);"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Magic Number,"{'line': 24, 'column': 75, 'index': 664}","  22 |   describe('destroy()', () => {
+  23 |     it('removes classes on destroy', () => {
+> 24 |       expect(element.classList.length, 'element - only one class').toEqual(1);
+     |                                                                           ^ Magic Number
+  25 |       expect(target.classList.length, 'target - only one class').toEqual(1);
+  26 |       const tether = new Tether({
+  27 |         element: '.element',"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Magic Number,"{'line': 25, 'column': 73, 'index': 741}","  23 |     it('removes classes on destroy', () => {
+  24 |       expect(element.classList.length, 'element - only one class').toEqual(1);
+> 25 |       expect(target.classList.length, 'target - only one class').toEqual(1);
+     |                                                                         ^ Magic Number
+  26 |       const tether = new Tether({
+  27 |         element: '.element',
+  28 |         target: '.target',"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Magic Number,"{'line': 35, 'column': 81, 'index': 1021}","  33 |       tether.enable();
+  34 |
+> 35 |       expect(element.classList.length, 'element - tether classes added').toEqual(12);
+     |                                                                                 ^ Magic Number
+  36 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);
+  37 |
+  38 |       tether.destroy();"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Magic Number,"{'line': 36, 'column': 79, 'index': 1105}","  34 |
+  35 |       expect(element.classList.length, 'element - tether classes added').toEqual(12);
+> 36 |       expect(target.classList.length, 'target - tether classes added').toEqual(12);
+     |                                                                               ^ Magic Number
+  37 |
+  38 |       tether.destroy();
+  39 |"
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,Magic Number,"{'line': 40, 'column': 103, 'index': 1239}","  38 |       tether.destroy();
+  39 |
+> 40 |       expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+     |                                                                                                       ^ Magic Number
+  41 |       expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+  42 |     });
+  43 |   });"
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 14, 'column': 13, 'index': 502}","  12 |   describe('attachmentToOffset', () => {
+  13 |     it('top left', () => {
+> 14 |       expect(attachmentToOffset({ left: 'left', top: 'top' })).toStrictEqual({ left: 0, top: 0 });
+     |             ^ Lazy Test
+  15 |     });
+  16 |
+  17 |     it('middle center', () => {"
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 18, 'column': 13, 'index': 642}","  16 |
+  17 |     it('middle center', () => {
+> 18 |       expect(attachmentToOffset({ left: 'center', top: 'middle' })).toStrictEqual({ left: '50%', top: '50%' });
+     |             ^ Lazy Test
+  19 |     });
+  20 |
+  21 |     it('bottom right', () => {"
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 22, 'column': 13, 'index': 794}","  20 |
+  21 |     it('bottom right', () => {
+> 22 |       expect(attachmentToOffset({ left: 'right', top: 'bottom' })).toStrictEqual({ left: '100%', top: '100%' });
+     |             ^ Lazy Test
+  23 |     });
+  24 |   });
+  25 |"
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 28, 'column': 13, 'index': 996}","  26 |   describe('autoToFixedAttachment', () => {
+  27 |     it('mirror left', () => {
+> 28 |       expect(autoToFixedAttachment(
+     |             ^ Lazy Test
+  29 |         { left: 'auto', top: 'top' },
+  30 |         { left: 'left', top: 'top' }
+  31 |       )).toStrictEqual({ left: 'right', top: 'top' });"
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 35, 'column': 13, 'index': 1203}","  33 |
+  34 |     it('mirror center', () => {
+> 35 |       expect(autoToFixedAttachment(
+     |             ^ Lazy Test
+  36 |         { left: 'auto', top: 'top' },
+  37 |         { left: 'center', top: 'top' }
+  38 |       )).toStrictEqual({ left: 'center', top: 'top' });"

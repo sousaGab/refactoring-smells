@@ -1,0 +1,36 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 21, 'column': 21, 'index': 739}","  19 |   describe(""getReleaseUrl"", () => {
+  20 |     it(""returns URL for patch releasing"", () => {
+> 21 |       const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+     |                     ^ Lazy Test
+  22 |       assert.equal(
+  23 |         result,
+  24 |         getExpectedReleaseUrl({"
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 33, 'column': 21, 'index': 1090}","  31 |
+  32 |     it(""returns URL for minor releasing"", () => {
+> 33 |       const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+     |                     ^ Lazy Test
+  34 |       assert.equal(
+  35 |         result,
+  36 |         getExpectedReleaseUrl({"
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 50, 'column': 21, 'index': 1590}","  48 |
+  49 |     it(""returns URL for major releasing"", () => {
+> 50 |       const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+     |                     ^ Lazy Test
+  51 |       assert.equal(
+  52 |         result,
+  53 |         getExpectedReleaseUrl({"
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 7, 'column': 20, 'index': 268}","   5 | describe(""isVersionReleased"", () => {
+   6 |   it(""returns true for existing version"", async () => {
+>  7 |     assert.ok(await isVersionReleased(""1.0.0""));
+     |                    ^ Lazy Test
+   8 |   });
+   9 |   it(""rejects for non-existing version"", async () => {
+  10 |     await assert.rejects(() => isVersionReleased(""999.0.0""), {"
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 10, 'column': 31, 'index': 389}","   8 |   });
+   9 |   it(""rejects for non-existing version"", async () => {
+> 10 |     await assert.rejects(() => isVersionReleased(""999.0.0""), {
+     |                               ^ Lazy Test
+  11 |       message: ""prettier@999.0.0 doesn't exit."",
+  12 |     });
+  13 |   });"

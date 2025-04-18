@@ -1,0 +1,57 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 26, 'column': 6, 'index': 687}","  24 |
+  25 |     it(""resolves the promise"", async () => {
+> 26 |       expect(loadResult).toBeAPromise();
+     |      ^ Duplicate Assert
+  27 |       await expect(loadResult).resolves.toBe(true);
+  28 |     });
+  29 |"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 27, 'column': 12, 'index': 734}","  25 |     it(""resolves the promise"", async () => {
+  26 |       expect(loadResult).toBeAPromise();
+> 27 |       await expect(loadResult).resolves.toBe(true);
+     |            ^ Duplicate Assert
+  28 |     });
+  29 |
+  30 |     it(""installs the utils module at intlTelInput.utils"", async () => {"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","  154 |     // typing area code starting with 1 changes to Russia
+  155 |     await user.type(input, ""1"");
+> 156 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  157 |
+  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","  154 |     // typing area code starting with 1 changes to Russia
+  155 |     await user.type(input, ""1"");
+> 156 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  157 |
+  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}","  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");
+> 160 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  161 |
+  162 |     // typing area code starting with 7 changes to Kazakhstan
+  163 |     await user.type(input, ""7"");"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}","  33 |   
+  34 |   test(""instances have different country lists"", () => {
+> 35 |     expect(getCountryListLength(container1)).toEqual(2);
+     |                                                     ^ Magic Number
+  36 |     expect(getCountryListLength(container2)).toEqual(4);
+  37 |   });
+  38 |"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}","  34 |   test(""instances have different country lists"", () => {
+  35 |     expect(getCountryListLength(container1)).toEqual(2);
+> 36 |     expect(getCountryListLength(container2)).toEqual(4);
+     |                                                     ^ Magic Number
+  37 |   });
+  38 |
+  39 |   test(""selecting a country in the first instance dropdown only updates the selected country for that instance"", async () => {"
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/countrySearch.test.js,Magic Number,"{'line': 55, 'column': 51, 'index': 1582}","  53 |     
+  54 |     test(""shows the right number of results"", () => {
+> 55 |       expect(getCountryListLength(container)).toBe(6);
+     |                                                   ^ Magic Number
+  56 |     });
+  57 |       
+  58 |     test(""hitting Enter selects Aland Islands"", async () => {"

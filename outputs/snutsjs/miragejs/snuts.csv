@@ -1,0 +1,8 @@
+file,type,smells,itCount,describeCount
+__tests__/external/shared/fixtures-and-factories-test.js,NonFunctionalStatement,"[{""startLine"":15,""endLine"":15}]",0,1
+__tests__/external/browser-only/passthrough-test.js,NonFunctionalStatement,"[{""startLine"":19,""endLine"":19}]",11,1
+__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"[{""startLine"":56,""endLine"":56}]",4,1
+__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"[{""startLine"":73,""endLine"":73}]",4,1
+__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"[{""startLine"":94,""endLine"":94}]",4,1
+__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"[{""startLine"":42,""endLine"":42}]",4,1
+__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"[{""startLine"":58,""endLine"":58}]",4,1

@@ -1,0 +1,15 @@
+"file","type","smells","itCount","describeCount"
+"test/unit/tether.spec.js","VerboseStatement","[{""startLine"":99,""endLine"":129}]",5,3
+"test/unit/evented.spec.js","AnonymousTest","[{""startLine"":14,""endLine"":17}]",8,6
+"test/unit/evented.spec.js","NonFunctionalStatement","[{""startLine"":50,""endLine"":50}]",8,6
+"test/unit/constraint.spec.js","IdenticalTestDescription","[{""startLine"":238,""endLine"":244}]",33,14
+"test/unit/constraint.spec.js","IdenticalTestDescription","[{""startLine"":246,""endLine"":252}]",33,14
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":13,""endLine"":15}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":17,""endLine"":19}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":21,""endLine"":23}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":27,""endLine"":32}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":34,""endLine"":39}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":41,""endLine"":46}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":48,""endLine"":53}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":55,""endLine"":60}]",12,6
+"test/unit/utils/offset.spec.js","AnonymousTest","[{""startLine"":62,""endLine"":67}]",12,6

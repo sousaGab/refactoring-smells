@@ -1,0 +1,106 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}","  156 |             for (const scriptName of scriptNames) {
+  157 |                 if (scriptRegExps[scriptName].test(character)) {
+> 158 |                     expect(script).toEqual(scriptName);
+      |                    ^ Duplicate Assert
+  159 |                     continue outer;
+  160 |                 }
+  161 |             }"
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}","  161 |             }
+  162 |
+> 163 |             expect(script).toBe(null);
+      |            ^ Duplicate Assert
+  164 |             expect(supportedCodepoint(codepoint)).toBe(false);
+  165 |         }
+  166 |     });"
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}","  143 |     it(""supportedCodepoint() should return the correct values"", () => {
+  144 |         for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+> 145 |             expect(supportedCodepoint(codepoint)).toBe(
+      |                   ^ Lazy Test
+  146 |                 allRegExp.test(String.fromCharCode(codepoint))
+  147 |             );
+  148 |         }"
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}","  162 |
+  163 |             expect(script).toBe(null);
+> 164 |             expect(supportedCodepoint(codepoint)).toBe(false);
+      |                   ^ Lazy Test
+  165 |         }
+  166 |     });
+  167 | });"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}","  572 |         parse = getParsed(simpleOver)[0];
+  573 |
+> 574 |         expect(parse.type).toEqual(""genfrac"");
+      |        ^ Duplicate Assert
+  575 |         expect(parse.numer).toBeDefined();
+  576 |         expect(parse.denom).toBeDefined();
+  577 |"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}","  572 |         parse = getParsed(simpleOver)[0];
+  573 |
+> 574 |         expect(parse.type).toEqual(""genfrac"");
+      |        ^ Duplicate Assert
+  575 |         expect(parse.numer).toBeDefined();
+  576 |         expect(parse.denom).toBeDefined();
+  577 |"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}","  573 |
+  574 |         expect(parse.type).toEqual(""genfrac"");
+> 575 |         expect(parse.numer).toBeDefined();
+      |        ^ Duplicate Assert
+  576 |         expect(parse.denom).toBeDefined();
+  577 |
+  578 |         parse = getParsed(complexOver)[0];"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}","  42 |
+  43 |     it(""should build a list of ords"", function() {
+> 44 |         const parse = getParsed(expression);
+     |                      ^ Lazy Test
+  45 |
+  46 |         for (let i = 0; i < parse.length; i++) {
+  47 |             const group = parse[i];"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}","  51 |
+  52 |     it(""should parse the right number of ords"", function() {
+> 53 |         const parse = getParsed(expression);
+     |                      ^ Lazy Test
+  54 |
+  55 |         expect(parse).toHaveLength(expression.length);
+  56 |     });"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}","  65 |
+  66 |     it(""should build a list of bins"", function() {
+> 67 |         const parse = getParsed(expression);
+     |                      ^ Lazy Test
+  68 |
+  69 |         for (let i = 0; i < parse.length; i++) {
+  70 |             const group = parse[i];"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}","  90 |             let group = parse[i];
+  91 |             if (group.type === ""htmlmathml"") {
+> 92 |                 expect(group.html).toHaveLength(1);
+     |                                                ^ Magic Number
+  93 |                 group = group.html[0];
+  94 |             }
+  95 |             if (group.type === ""mclass"") {"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}","  112 |         const contents = ""\\mathinner{\\langle{\\psi}\\rangle}"";
+  113 |         const mml = buildMathML(getParsed(contents), contents, defaultOptions);
+> 114 |         expect(mml.children.length).toEqual(1);
+      |                                            ^ Magic Number
+  115 |     });
+  116 | });
+  117 |"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}","  344 |         const parse = getParsed`{xy}`;
+  345 |
+> 346 |         expect(parse).toHaveLength(1);
+      |                                   ^ Magic Number
+  347 |
+  348 |         const ord = parse[0];
+  349 |"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}","  366 |         const parse = getParsed`\begingroup xy \endgroup`;
+  367 |
+> 368 |         expect(parse).toHaveLength(1);
+      |                                   ^ Magic Number
+  369 |
+  370 |         const ord = parse[0];
+  371 |"
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}","  389 |         const parse = getParsed`\Large abc`;
+  390 |
+> 391 |         expect(parse).toHaveLength(1);
+      |                                   ^ Magic Number
+  392 |
+  393 |         const sizing = parse[0];
+  394 |"

@@ -1,0 +1,71 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 622, 'column': 4, 'index': 14567}","  620 |       awesomeCategoryId: ""1"",
+  621 |     });
+> 622 |     expect(server.db.authors).toHaveLength(1);
+      |    ^ Duplicate Assert
+  623 |     expect(server.db.categories).toHaveLength(1);
+  624 |
+  625 |     let anotherArticle = server.create(""article"", ""withCategory"");"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 623, 'column': 4, 'index': 14614}","  621 |     });
+  622 |     expect(server.db.authors).toHaveLength(1);
+> 623 |     expect(server.db.categories).toHaveLength(1);
+      |    ^ Duplicate Assert
+  624 |
+  625 |     let anotherArticle = server.create(""article"", ""withCategory"");
+  626 |     expect(anotherArticle.attrs).toEqual({"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 632, 'column': 4, 'index': 14877}","  630 |       awesomeCategoryId: ""2"",
+  631 |     });
+> 632 |     expect(server.db.authors).toHaveLength(2);
+      |    ^ Duplicate Assert
+  633 |     expect(server.db.categories).toHaveLength(2);
+  634 |
+  635 |     server.shutdown();"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 633, 'column': 4, 'index': 14924}","  631 |     });
+  632 |     expect(server.db.authors).toHaveLength(2);
+> 633 |     expect(server.db.categories).toHaveLength(2);
+      |    ^ Duplicate Assert
+  634 |
+  635 |     server.shutdown();
+  636 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 26, 'column': 39, 'index': 502}","  24 |     let handler = server.post(""foo"");
+  25 |
+> 26 |     expect(handler.numberOfCalls).toBe(0);
+     |                                       ^ Magic Number
+  27 |
+  28 |     server.shutdown();
+  29 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 59, 'column': 39, 'index': 1191}","  57 |     let handler = server.post(""foo"");
+  58 |
+> 59 |     expect(handler.numberOfCalls).toBe(0);
+     |                                       ^ Magic Number
+  60 |
+  61 |     server.shutdown();
+  62 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 80, 'column': 31, 'index': 1650}","  78 |     let server = createServer({ environment: ""test"" });
+  79 |
+> 80 |     expect(server.timing).toBe(0);
+     |                               ^ Magic Number
+  81 |
+  82 |     server.shutdown();
+  83 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 88, 'column': 31, 'index': 1818}","  86 |     let server = createServer({ timing: 0 });
+  87 |
+> 88 |     expect(server.timing).toBe(0);
+     |                               ^ Magic Number
+  89 |
+  90 |     server.shutdown();
+  91 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 102, 'column': 31, 'index': 2121}","  100 |     });
+  101 |
+> 102 |     expect(server.timing).toBe(0);
+      |                               ^ Magic Number
+  103 |
+  104 |     server.shutdown();
+  105 |   });"
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/schema-test.js,Duplicate Assert,"{'line': 42, 'column': 4, 'index': 1188}","  40 |     schema.registerModel(""author"", authorModel);
+  41 |
+> 42 |     expect(schema.first(""author"")).toBeNull();
+     |    ^ Duplicate Assert
+  43 |
+  44 |     let record = schema.create(""author"", { id: 1, name: ""Mary Roach"" });
+  45 |"

@@ -1,0 +1,13 @@
+file,type,smells,itCount,describeCount
+test/unicode-spec.js,ConditionalTestLogic,"[{""startLine"":157,""endLine"":160}]",25,2
+test/unicode-spec.js,SubOptimalAssert,"[{""startLine"":163,""endLine"":163}]",25,2
+test/katex-spec.js,OvercommentedTest,"[{""startLine"":4010,""endLine"":4045}]",556,117
+test/katex-spec.js,ConditionalTestLogic,"[{""startLine"":91,""endLine"":94}]",556,117
+test/katex-spec.js,ConditionalTestLogic,"[{""startLine"":95,""endLine"":100}]",556,117
+test/katex-spec.js,SubOptimalAssert,"[{""startLine"":1759,""endLine"":1761}]",556,117
+test/katex-spec.js,SubOptimalAssert,"[{""startLine"":1894,""endLine"":1895}]",556,117
+test/katex-spec.js,SubOptimalAssert,"[{""startLine"":3167,""endLine"":3167}]",556,117
+test/katex-spec.js,SubOptimalAssert,"[{""startLine"":3182,""endLine"":3182}]",556,117
+test/unicode-spec.js,ConditionalTestLogic,"[{""startLine"":157,""endLine"":160}]",25,2
+test/katex-spec.js,OvercommentedTest,"[{""startLine"":4010,""endLine"":4045}]",556,117
+test/katex-spec.js,ConditionalTestLogic,"[{""startLine"":91,""endLine"":94}]",556,117

@@ -1,0 +1,50 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}","  64 |
+  65 |         expect(normal.mappings.find('of')).toBe(undefined);
+> 66 |         expect(document.execCommand).toHaveBeenCalledTimes(0);
+     |        ^ Duplicate Assert
+  67 |
+  68 |         await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+  69 |             return true;"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}","  73 |
+  74 |         expect(normal.mappings.find('of').meta.word).toBe('of');
+> 75 |         expect(document.execCommand).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  76 |     });
+  77 |
+  78 |     test(""render markdown from clipboard"", async () => {"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}","  86 |         });
+  87 |         const links = document.querySelectorAll(""a"");
+> 88 |         expect(links.length).toBe(2);
+     |                                  ^ Magic Number
+  89 |         expect(links[0].href).toBe(""https://github.com/"");
+  90 |     });
+  91 |"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}","  113 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+  114 |         const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+> 115 |         expect(hint_labels.length).toBe(2);
+      |                                        ^ Magic Number
+  116 |         expect(hint_labels[0].label).toBe(""A"");
+  117 |         expect(hint_labels[1].label).toBe(""S"");
+  118 |     });"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 80, 'column': 8, 'index': 3134}","  78 |         window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+  79 |         await new Promise((r) => setTimeout(r, 100));
+> 80 |         expect(elmOmnibarClass.value).toContain('sk_omnibar_middle');
+     |        ^ Duplicate Assert
+  81 |         Mode.handleMapKey.call(omnibar, {
+  82 |             sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+  83 |         });"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 85, 'column': 8, 'index': 3378}","  83 |         });
+  84 |         await new Promise((r) => setTimeout(r, 100));
+> 85 |         expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
+     |        ^ Duplicate Assert
+  86 |     });
+  87 | });
+  88 |"
+/home/gabriel/Desktop/research/projects/Surfingkeys/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}","  38 |     test('show omnibar', async () => {
+  39 |         const elmOmnibarStyle = document.getElementById(""sk_omnibar"").style;
+> 40 |         expect(elmOmnibarStyle).toHaveProperty('display', 'none');
+     |        ^ Duplicate Assert
+  41 |         await waitForEvent(window, ""message"", (_msg) => {
+  42 |             return _msg.surfingkeys_uihost_data && _msg.surfingkeys_uihost_data.action === ""setFrontFrame"";
+  43 |         }, () => {"

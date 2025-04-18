@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <style type="text/css">
+    .details-row.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-dark welcome is-small is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          STEEL - teST smElls dEtection tooL
+        </h1>
+        <h2 class="subtitle">
+          Report for "steel" () project.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div>
+        <div class="columns">
+          <div class="column">
+            <div class="box notification is-info">
+              <div class="heading">Test Suites</div>
+              <div class="title">4</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-success">
+              <div class="heading">Test Cases</div>
+              <div class="title">14</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-warning">
+              <div class="heading">Smelled Test Suites</div>
+              <div class="title">3</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-danger">
+              <div class="heading">Detected Smells</div>
+              <div class="title">25</div>
+            </div>
+          </div>
+        </div>
+
+        <table class="table is-fullwidth" id="table-of-suites">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th class="has-text-right">smells</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;prettier&#x2F;scripts&#x2F;release&#x2F;tests&#x2F;publish-to-npm.test.js</a>
+              </td>
+              <td class="has-text-right">3</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">67</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">52</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">8</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">15.385</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.352</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">15.167</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">16030.235</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">182</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">890.569</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">56</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">1056.939</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">114.675</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Lazy Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  19 |   describe(&quot;getReleaseUrl&quot;, () &#x3D;&gt; {
+  20 |     it(&quot;returns URL for patch releasing&quot;, () &#x3D;&gt; {
+&gt; 21 |       const result &#x3D; getReleaseUrl(&quot;2.3.1&quot;, &quot;2.3.0&quot;);
+     |                     ^ Lazy Test
+  22 |       assert.equal(
+  23 |         result,
+  24 |         getExpectedReleaseUrl({</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  31 |
+  32 |     it(&quot;returns URL for minor releasing&quot;, () &#x3D;&gt; {
+&gt; 33 |       const result &#x3D; getReleaseUrl(&quot;2.4.0&quot;, &quot;2.3.0&quot;);
+     |                     ^ Lazy Test
+  34 |       assert.equal(
+  35 |         result,
+  36 |         getExpectedReleaseUrl({</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  48 |
+  49 |     it(&quot;returns URL for major releasing&quot;, () &#x3D;&gt; {
+&gt; 50 |       const result &#x3D; getReleaseUrl(&quot;2.3.0&quot;, &quot;2.2.0&quot;);
+     |                     ^ Lazy Test
+  51 |       assert.equal(
+  52 |         result,
+  53 |         getExpectedReleaseUrl({</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;prettier&#x2F;scripts&#x2F;release&#x2F;tests&#x2F;version-check.test.js</a>
+              </td>
+              <td class="has-text-right">3</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">15</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">14</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">5</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">35.714</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.043</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">3.077</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">397.747</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">31</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">22.097</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">18</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">129.268</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">139.353</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Lazy Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   5 | describe(&quot;isVersionReleased&quot;, () &#x3D;&gt; {
+   6 |   it(&quot;returns true for existing version&quot;, async () &#x3D;&gt; {
+&gt;  7 |     assert.ok(await isVersionReleased(&quot;1.0.0&quot;));
+     |                    ^ Lazy Test
+   8 |   });
+   9 |   it(&quot;rejects for non-existing version&quot;, async () &#x3D;&gt; {
+  10 |     await assert.rejects(() &#x3D;&gt; isVersionReleased(&quot;999.0.0&quot;), {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   8 |   });
+   9 |   it(&quot;rejects for non-existing version&quot;, async () &#x3D;&gt; {
+&gt; 10 |     await assert.rejects(() &#x3D;&gt; isVersionReleased(&quot;999.0.0&quot;), {
+     |                               ^ Lazy Test
+  11 |       message: &quot;prettier@999.0.0 doesn&#39;t exit.&quot;,
+  12 |     });
+  13 |   });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Unknown Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   7 |     assert.ok(await isVersionReleased(&quot;1.0.0&quot;));
+   8 |   });
+&gt;  9 |   it(&quot;rejects for non-existing version&quot;, async () &#x3D;&gt; {
+     |  ^ Unknown Test
+  10 |     await assert.rejects(() &#x3D;&gt; isVersionReleased(&quot;999.0.0&quot;), {
+  11 |       message: &quot;prettier@999.0.0 doesn&#39;t exit.&quot;,
+  12 |     });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;prettier&#x2F;tests&#x2F;format&#x2F;js&#x2F;test-declarations&#x2F;test_declarations.js</a>
+              </td>
+              <td class="has-text-right">19</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">163</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">134</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">57</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">42.537</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.855</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">16.465</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">42248.211</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">457</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">2347.123</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">49</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">2565.922</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">134.552</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Ignored Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  58 | describe.only(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+  59 |
+&gt; 60 | describe.skip(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+     |         ^ Ignored Test
+  61 |
+  62 | fit(&quot;does something really long and complicated so I have to write a very long name for the describe block&quot;, () &#x3D;&gt; {});
+  63 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  72 | });
+  73 |
+&gt; 74 | it.skip(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+     |   ^ Ignored Test
+  75 |
+  76 | test.only(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+  77 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  76 | test.only(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+  77 |
+&gt; 78 | test.skip(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, () &#x3D;&gt; {});
+     |     ^ Ignored Test
+  79 |
+  80 | ftest(&quot;does something really long and complicated so I have to write a very long name for the describe block&quot;, () &#x3D;&gt; {});
+  81 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Redundant Print</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  2 |
+  3 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, () &#x3D;&gt; {
+&gt; 4 |   console.log(&quot;hello!&quot;);
+    |  ^ Redundant Print
+  5 | });
+  6 |
+  7 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function() {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   6 |
+   7 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function() {
+&gt;  8 |   console.log(&quot;hello!&quot;);
+     |  ^ Redundant Print
+   9 | });
+  10 |
+  11 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function(done) {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  10 |
+  11 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function(done) {
+&gt; 12 |   console.log(&quot;hello!&quot;);
+     |  ^ Redundant Print
+  13 | });
+  14 |
+  15 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function myAssertions(done) {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  14 |
+  15 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function myAssertions(done) {
+&gt; 16 |   console.log(&quot;hello!&quot;);
+     |  ^ Redundant Print
+  17 | });
+  18 |
+  19 | it(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, function() {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  33 |
+  34 | test(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, (done) &#x3D;&gt; {
+&gt; 35 |   console.log(&quot;hello!&quot;);
+     |  ^ Redundant Print
+  36 | });
+  37 |
+  38 | test(&#x60;does something really long and complicated so I have to write a very long name for the test&#x60;, (done) &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  42 | describe(&quot;does something really long and complicated so I have to write a very long name for the describe block&quot;, () &#x3D;&gt; {
+  43 |   it(&quot;an example test&quot;, (done) &#x3D;&gt; {
+&gt; 44 |     console.log(&quot;hello!&quot;);
+     |    ^ Redundant Print
+  45 |   });
+  46 | });
+  47 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  148 |
+  149 | it(&quot;does something quick&quot;, () &#x3D;&gt; {
+&gt; 150 |   console.log(&quot;hello!&quot;)
+      |  ^ Redundant Print
+  151 | }, 1000000000)
+  152 |
+  153 | it(</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Sleepy Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  153 | it(
+  154 |   &#39;succeeds if the test finishes in time&#39;,
+&gt; 155 |   () &#x3D;&gt; new Promise(resolve &#x3D;&gt; setTimeout(resolve, 10))
+      |                               ^ Sleepy Test
+  156 | );
+  157 |
+  158 | it(</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  158 | it(
+  159 |   &#39;succeeds if the test finishes in time&#39;,
+&gt; 160 |   () &#x3D;&gt; new Promise(resolve &#x3D;&gt; setTimeout(resolve, 10)),
+      |                               ^ Sleepy Test
+  161 |   250
+  162 | );
+  163 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Unknown Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  1 | &#x2F;&#x2F; Shouldn&#39;t break
+  2 |
+&gt; 3 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, () &#x3D;&gt; {
+  4 |   console.log(&quot;hello!&quot;);
+  5 | });
+  6 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   5 | });
+   6 |
+&gt;  7 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function() {
+   8 |   console.log(&quot;hello!&quot;);
+   9 | });
+  10 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   9 | });
+  10 |
+&gt; 11 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function(done) {
+  12 |   console.log(&quot;hello!&quot;);
+  13 | });
+  14 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  13 | });
+  14 |
+&gt; 15 | it(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, function myAssertions(done) {
+  16 |   console.log(&quot;hello!&quot;);
+  17 | });
+  18 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  32 | })
+  33 |
+&gt; 34 | test(&quot;does something really long and complicated so I have to write a very long name for the test&quot;, (done) &#x3D;&gt; {
+  35 |   console.log(&quot;hello!&quot;);
+  36 | });
+  37 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  41 |
+  42 | describe(&quot;does something really long and complicated so I have to write a very long name for the describe block&quot;, () &#x3D;&gt; {
+&gt; 43 |   it(&quot;an example test&quot;, (done) &#x3D;&gt; {
+     |  ^ Unknown Test
+  44 |     console.log(&quot;hello!&quot;);
+  45 |   });
+  46 | });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  147 | }, 2500)
+  148 |
+&gt; 149 | it(&quot;does something quick&quot;, () &#x3D;&gt; {
+  150 |   console.log(&quot;hello!&quot;)
+  151 | }, 1000000000)
+  152 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>Copyright © 2020 STEEL. All rights reserved.</p>
+      <p>
+        <strong>STEEL</strong> by Dalton N. Jorge, under the guidance of Prof. Dr. Patricia D. L. Machado & Prof. Dr.
+        Wilkerson L. Andrade.
+      </p>
+      <p>SPLab - PPGCC - UFCG</p>
+    </div>
+  </footer>
+  <script>
+    function toggleDetails(node) {
+      let parentRow = node.parentNode.parentNode;
+      let path = parentRow.children[0].children[0].innerText;
+      let detailsRow = parentRow.nextElementSibling;
+      if (detailsRow.className === "details-row hidden") {
+        parentRow.children[0].children[0].innerText = path.replace(/^\+/g, '-')
+        detailsRow.className = "details-row";
+      } else {
+        parentRow.children[0].children[0].innerText = path.replace(/^-/g, '+')
+        detailsRow.className = "details-row hidden";
+      }
+    }
+  </script>
+</body>
+
+</html>

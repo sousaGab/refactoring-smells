@@ -1,0 +1,118 @@
+file,type,smells,frame
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 23, 'column': 2, 'index': 467}","  21 |   warning('hi');
+  22 |
+> 23 |   expect(warn).not.toHaveBeenCalled();
+     |  ^ Duplicate Assert
+  24 |
+  25 |   // re-enable
+  26 |"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 31, 'column': 2, 'index': 607}","  29 |   warning('hey');
+  30 |
+> 31 |   expect(warn).toHaveBeenCalled();
+     |  ^ Duplicate Assert
+  32 | });
+  33 |"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 2698}","   98 |       getDimension: expect.any(Function),
+   99 |     };
+> 100 |     expect(registerSpy).toHaveBeenCalledTimes(1);
+      |    ^ Duplicate Assert
+  101 |     expect(registerSpy).toHaveBeenCalledWith(expected);
+  102 |   });
+  103 |"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 101, 'column': 4, 'index': 2748}","   99 |     };
+  100 |     expect(registerSpy).toHaveBeenCalledTimes(1);
+> 101 |     expect(registerSpy).toHaveBeenCalledWith(expected);
+      |    ^ Duplicate Assert
+  102 |   });
+  103 |
+  104 |   it('should unregister itself when unmounting', () => {"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 119, 'column': 4, 'index': 3360}","  117 |     };
+  118 |
+> 119 |     expect(unregisterSpy).not.toHaveBeenCalled();
+      |    ^ Duplicate Assert
+  120 |     expect(registerSpy).toHaveBeenCalledTimes(1);
+  121 |     expect(registerSpy).toHaveBeenCalledWith(expected);
+  122 |     const entry = registerSpy.mock.calls[0][0];"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 40, 'column': 2, 'index': 1310}","  38 |
+  39 |   const el: ?HTMLElement = getElement('5');
+> 40 |   invariant(el, 'Cannot find node');
+     |  ^ Lazy Test
+  41 |
+  42 |   expect(el.getAttribute('aria-live')).toBe('assertive');
+  43 |   expect(el.getAttribute('aria-atomic')).toBe('true');"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 67, 'column': 2, 'index': 2142}","  65 |   render(<WithAnnouncer contextId=""6"">{mock}</WithAnnouncer>);
+  66 |   const el: ?HTMLElement = getElement('6');
+> 67 |   invariant(el, 'Could not find announcer');
+     |  ^ Lazy Test
+  68 |
+  69 |   // act
+  70 |   const announce: Announce = getAnnounce(mock);"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 53, 'column': 32, 'index': 1757}","  51 |
+  52 |   // validating no initial scroll
+> 53 |   expect(parent.scrollTop).toBe(0);
+     |                                ^ Magic Number
+  54 |   expect(parent.scrollLeft).toBe(0);
+  55 |   expect(droppable.scrollTop).toBe(0);
+  56 |   expect(droppable.scrollLeft).toBe(0);"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 54, 'column': 33, 'index': 1794}","  52 |   // validating no initial scroll
+  53 |   expect(parent.scrollTop).toBe(0);
+> 54 |   expect(parent.scrollLeft).toBe(0);
+     |                                 ^ Magic Number
+  55 |   expect(droppable.scrollTop).toBe(0);
+  56 |   expect(droppable.scrollLeft).toBe(0);
+  57 |"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 55, 'column': 35, 'index': 1833}","  53 |   expect(parent.scrollTop).toBe(0);
+  54 |   expect(parent.scrollLeft).toBe(0);
+> 55 |   expect(droppable.scrollTop).toBe(0);
+     |                                   ^ Magic Number
+  56 |   expect(droppable.scrollLeft).toBe(0);
+  57 |
+  58 |   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 56, 'column': 36, 'index': 1873}","  54 |   expect(parent.scrollLeft).toBe(0);
+  55 |   expect(droppable.scrollTop).toBe(0);
+> 56 |   expect(droppable.scrollLeft).toBe(0);
+     |                                    ^ Magic Number
+  57 |
+  58 |   const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  59 |   // request the droppable start listening for scrolling"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 66, 'column': 32, 'index': 2230}","  64 |
+  65 |   // no scroll changes
+> 66 |   expect(parent.scrollTop).toBe(0);
+     |                                ^ Magic Number
+  67 |   expect(parent.scrollLeft).toBe(0);
+  68 |   expect(droppable.scrollTop).toBe(0);
+  69 |   expect(droppable.scrollLeft).toBe(0);"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'column': 2, 'line': 72}","  70 |   };
+  71 |   expectIsFull(getPlaceholderStyle(wrapper));
+> 72 |   assert();
+     |  ^ Assertion Roulette
+  73 |
+  74 |   wrapper.setProps({ animate: 'open' });
+  75 |   assert();"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'column': 2, 'line': 75}","  73 |
+  74 |   wrapper.setProps({ animate: 'open' });
+> 75 |   assert();
+     |  ^ Assertion Roulette
+  76 | });
+  77 |"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 142, 'column': 6, 'index': 3763}","  140 |
+  141 |     registry.draggable.register(
+> 142 |       getDraggableEntry({ dimension: beforeInHome1 }),
+      |      ^ Lazy Test
+  143 |     );
+  144 |     registry.draggable.register(
+  145 |       getDraggableEntry({ dimension: beforeInHome2 }),"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 176, 'column': 6, 'index': 4997}","  174 |
+  175 |     registry.draggable.register(
+> 176 |       getDraggableEntry({ dimension: inAnotherType }),
+      |      ^ Lazy Test
+  177 |     );
+  178 |     expect(callbacks.collectionStarting).not.toHaveBeenCalled();
+  179 |   });"
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 213, 'column': 6, 'index': 6080}","  211 |     // publishing the higher index value first
+  212 |     registry.draggable.register(
+> 213 |       getDraggableEntry({ dimension: beforeInHome2 }),
+      |      ^ Lazy Test
+  214 |     );
+  215 |     // publishing the lower index value second
+  216 |     registry.draggable.register("

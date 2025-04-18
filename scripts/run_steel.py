@@ -30,7 +30,9 @@ def run_steel_tool():
     log_info(f"Changed directory to {os.getcwd()}")
 
     project_name = input("Enter the project name: ").strip()
-    test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+    # test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+    # test_files_pattern = "{**/__tests__/**/*.js,*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+    test_files_pattern = "{**/__tests__/**/*.js,**/test/**/*.js,**/?(*.)+(test|tests|spec|specs).js,**/test_*.js,**/test-*.js,**/Spec*.js,**/*Test.js,**/*Tests.js}"
     steel_command = f'npx steel detect "../../projects/{project_name}/**/{test_files_pattern}"'
 
     log_info(f"Running command: {steel_command}")

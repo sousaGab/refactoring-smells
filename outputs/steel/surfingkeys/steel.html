@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <style type="text/css">
+    .details-row.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-dark welcome is-small is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          STEEL - teST smElls dEtection tooL
+        </h1>
+        <h2 class="subtitle">
+          Report for "steel" () project.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div>
+        <div class="columns">
+          <div class="column">
+            <div class="box notification is-info">
+              <div class="heading">Test Suites</div>
+              <div class="title">6</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-success">
+              <div class="heading">Test Cases</div>
+              <div class="title">11</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-warning">
+              <div class="heading">Smelled Test Suites</div>
+              <div class="title">5</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box notification is-danger">
+              <div class="heading">Detected Smells</div>
+              <div class="title">21</div>
+            </div>
+          </div>
+        </div>
+
+        <table class="table is-fullwidth" id="table-of-suites">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th class="has-text-right">smells</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;Surfingkeys&#x2F;tests&#x2F;content_scripts&#x2F;uiframe.test.js</a>
+              </td>
+              <td class="has-text-right">2</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">46</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">42</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">8</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">19.048</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.253</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">9.213</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">7002.467</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">134</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">389.026</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">51</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">760.105</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">118.214</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   6 |             runtime: {
+   7 |                 sendMessage: (args, callback) &#x3D;&gt; {
+&gt;  8 |                     if (args.action &#x3D;&#x3D;&#x3D; &quot;getSettings&quot;) {
+     |                    ^ Conditional Test Logic
+   9 |                         callback({settings});
+  10 |                     }
+  11 |                 },</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Unknown Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  40 |     });
+  41 |
+&gt; 42 |     it(&quot;&quot;, () &#x3D;&gt; {
+     |    ^ Unknown Test
+  43 |         uiframe.default();
+  44 |     });
+  45 | });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;Surfingkeys&#x2F;tests&#x2F;content_scripts&#x2F;markdown.test.js</a>
+              </td>
+              <td class="has-text-right">4</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">120</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">178</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">17</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">9.551</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">1.406</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">14.338</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">60471.941</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">585</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">3359.552</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">148</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">4217.53</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">104.989</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  64 |
+  65 |         expect(normal.mappings.find(&#39;of&#39;)).toBe(undefined);
+&gt; 66 |         expect(document.execCommand).toHaveBeenCalledTimes(0);
+     |        ^ Duplicate Assert
+  67 |
+  68 |         await waitForEvent(document, &quot;surfingkeys:defaultSettingsLoaded&quot;, () &#x3D;&gt; {
+  69 |             return true;</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  73 |
+  74 |         expect(normal.mappings.find(&#39;of&#39;).meta.word).toBe(&#39;of&#39;);
+&gt; 75 |         expect(document.execCommand).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  76 |     });
+  77 |
+  78 |     test(&quot;render markdown from clipboard&quot;, async () &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Magic Number</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  86 |         });
+  87 |         const links &#x3D; document.querySelectorAll(&quot;a&quot;);
+&gt; 88 |         expect(links.length).toBe(2);
+     |                                  ^ Magic Number
+  89 |         expect(links[0].href).toBe(&quot;https:&#x2F;&#x2F;github.com&#x2F;&quot;);
+  90 |     });
+  91 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  113 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;f&#39;}));
+  114 |         const hint_labels &#x3D; document.querySelector(&quot;div.surfingkeys_hints_host&quot;).shadowRoot.querySelectorAll(&quot;section&gt;div&quot;);
+&gt; 115 |         expect(hint_labels.length).toBe(2);
+      |                                        ^ Magic Number
+  116 |         expect(hint_labels[0].label).toBe(&quot;A&quot;);
+  117 |         expect(hint_labels[1].label).toBe(&quot;S&quot;);
+  118 |     });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;Surfingkeys&#x2F;tests&#x2F;content_scripts&#x2F;ui&#x2F;omnibar.test.js</a>
+              </td>
+              <td class="has-text-right">5</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">88</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">89</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">8</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">8.989</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.689</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">9.54</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">19707.947</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">313</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">1094.886</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">97</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">2065.773</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">105.263</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  78 |         window.postMessage({surfingkeys_frontend_data: { action: &quot;openOmnibar&quot;, type: &quot;URLs&quot;, extra: &quot;getAllSites&quot; }}, document.location.origin);
+  79 |         await new Promise((r) &#x3D;&gt; setTimeout(r, 100));
+&gt; 80 |         expect(elmOmnibarClass.value).toContain(&#39;sk_omnibar_middle&#39;);
+     |        ^ Duplicate Assert
+  81 |         Mode.handleMapKey.call(omnibar, {
+  82 |             sk_keyName: KeyboardUtils.encodeKeystroke(&quot;&lt;Ctrl-j&gt;&quot;)
+  83 |         });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  83 |         });
+  84 |         await new Promise((r) &#x3D;&gt; setTimeout(r, 100));
+&gt; 85 |         expect(elmOmnibarClass.value).toContain(&#39;sk_omnibar_bottom&#39;);
+     |        ^ Duplicate Assert
+  86 |     });
+  87 | });
+  88 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Sleepy Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  70 |             sk_keyName: KeyboardUtils.encodeKeystroke(&quot;&lt;Ctrl-i&gt;&quot;)
+  71 |         });
+&gt; 72 |         await new Promise((r) &#x3D;&gt; setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  73 |         expect(Front.showEditor).toHaveBeenCalledTimes(1);
+  74 |     });
+  75 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  77 |         const elmOmnibarClass &#x3D; document.getElementById(&quot;sk_omnibar&quot;).classList;
+  78 |         window.postMessage({surfingkeys_frontend_data: { action: &quot;openOmnibar&quot;, type: &quot;URLs&quot;, extra: &quot;getAllSites&quot; }}, document.location.origin);
+&gt; 79 |         await new Promise((r) &#x3D;&gt; setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  80 |         expect(elmOmnibarClass.value).toContain(&#39;sk_omnibar_middle&#39;);
+  81 |         Mode.handleMapKey.call(omnibar, {
+  82 |             sk_keyName: KeyboardUtils.encodeKeystroke(&quot;&lt;Ctrl-j&gt;&quot;)</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  82 |             sk_keyName: KeyboardUtils.encodeKeystroke(&quot;&lt;Ctrl-j&gt;&quot;)
+  83 |         });
+&gt; 84 |         await new Promise((r) &#x3D;&gt; setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  85 |         expect(elmOmnibarClass.value).toContain(&#39;sk_omnibar_bottom&#39;);
+  86 |     });
+  87 | });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;Surfingkeys&#x2F;tests&#x2F;content_scripts&#x2F;ui&#x2F;frontend.test.js</a>
+              </td>
+              <td class="has-text-right">2</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">49</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">61</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">10</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">16.393</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.473</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">9.9</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">14040.968</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">227</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">780.054</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">76</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">1418.28</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">112.319</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  38 |     test(&#39;show omnibar&#39;, async () &#x3D;&gt; {
+  39 |         const elmOmnibarStyle &#x3D; document.getElementById(&quot;sk_omnibar&quot;).style;
+&gt; 40 |         expect(elmOmnibarStyle).toHaveProperty(&#39;display&#39;, &#39;none&#39;);
+     |        ^ Duplicate Assert
+  41 |         await waitForEvent(window, &quot;message&quot;, (_msg) &#x3D;&gt; {
+  42 |             return _msg.surfingkeys_uihost_data &amp;&amp; _msg.surfingkeys_uihost_data.action &#x3D;&#x3D;&#x3D; &quot;setFrontFrame&quot;;
+  43 |         }, () &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  44 |             window.postMessage({surfingkeys_frontend_data: { action: &quot;openOmnibar&quot;, type: &quot;SearchEngine&quot;, extra: &quot;b&quot; }}, document.location.origin);
+  45 |         });
+&gt; 46 |         expect(elmOmnibarStyle).not.toHaveProperty(&#39;display&#39;, &#39;none&#39;);
+     |        ^ Duplicate Assert
+  47 |     });
+  48 | });
+  49 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;Surfingkeys&#x2F;tests&#x2F;content_scripts&#x2F;common&#x2F;normal.test.js</a>
+              </td>
+              <td class="has-text-right">8</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">79</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">90</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">15</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">16.667</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.777</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">19.303</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">45022.366</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">370</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">2501.243</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">79</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">2332.399</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">108.195</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Conditional Test Logic</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  27 |         await new Promise((r) &#x3D;&gt; {
+  28 |             document.addEventListener(&quot;surfingkeys:front&quot;, function(evt) {
+&gt; 29 |                 if (evt.detail.length &amp;&amp; evt.detail[0] &#x3D;&#x3D;&#x3D; &quot;openFinder&quot;) {
+     |                ^ Conditional Test Logic
+  30 |                     r(evt);
+  31 |                 }
+  32 |             });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  64 |         await new Promise((r) &#x3D;&gt; {
+  65 |             document.addEventListener(&quot;surfingkeys:front&quot;, function(evt) {
+&gt; 66 |                 if (evt.detail.length &amp;&amp; evt.detail[0] &#x3D;&#x3D;&#x3D; &quot;querySelectedWord&quot;) {
+     |                ^ Conditional Test Logic
+  67 |                     r(evt);
+  68 |                 }
+  69 |             });</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  40 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));
+  41 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;G&#39;}));
+&gt; 42 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  43 |
+  44 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));
+  45 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;G&#39;}));</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  44 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));
+  45 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;G&#39;}));
+&gt; 46 |         expect(normal.captureElement).toHaveBeenCalledTimes(2);
+     |        ^ Duplicate Assert
+  47 |     });
+  48 |
+  49 |     test(&quot;normal once&quot;, async () &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  52 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));
+  53 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;G&#39;}));
+&gt; 54 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  55 |
+  56 |         &#x2F;&#x2F; the 2nd yG won&#39;t trigger action.
+  57 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  57 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;y&#39;}));
+  58 |         document.body.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, {&#39;key&#39;: &#39;G&#39;}));
+&gt; 59 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  60 |     });
+  61 |
+  62 |     test(&quot;normal mouse up&quot;, async () &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Unknown Test</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  23 |     });
+  24 |
+&gt; 25 |     test(&quot;normal &#x2F;&quot;, async () &#x3D;&gt; {
+     |    ^ Unknown Test
+  26 |         normal.enter();
+  27 |         await new Promise((r) &#x3D;&gt; {
+  28 |             document.addEventListener(&quot;surfingkeys:front&quot;, function(evt) {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  60 |     });
+  61 |
+&gt; 62 |     test(&quot;normal mouse up&quot;, async () &#x3D;&gt; {
+     |    ^ Unknown Test
+  63 |         runtime.conf.mouseSelectToQuery &#x3D; [ &quot;http:&#x2F;&#x2F;localhost&quot; ];
+  64 |         await new Promise((r) &#x3D;&gt; {
+  65 |             document.addEventListener(&quot;surfingkeys:front&quot;, function(evt) {</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>Copyright © 2020 STEEL. All rights reserved.</p>
+      <p>
+        <strong>STEEL</strong> by Dalton N. Jorge, under the guidance of Prof. Dr. Patricia D. L. Machado & Prof. Dr.
+        Wilkerson L. Andrade.
+      </p>
+      <p>SPLab - PPGCC - UFCG</p>
+    </div>
+  </footer>
+  <script>
+    function toggleDetails(node) {
+      let parentRow = node.parentNode.parentNode;
+      let path = parentRow.children[0].children[0].innerText;
+      let detailsRow = parentRow.nextElementSibling;
+      if (detailsRow.className === "details-row hidden") {
+        parentRow.children[0].children[0].innerText = path.replace(/^\+/g, '-')
+        detailsRow.className = "details-row";
+      } else {
+        parentRow.children[0].children[0].innerText = path.replace(/^-/g, '+')
+        detailsRow.className = "details-row hidden";
+      }
+    }
+  </script>
+</body>
+
+</html>
