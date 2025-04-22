@@ -66,9 +66,9 @@
           <tbody>
             <tr>
               <td>
-                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;cancelOnExit.test.js</a>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;set.test.js</a>
               </td>
-              <td class="has-text-right">7</td>
+              <td class="has-text-right">9</td>
             </tr>
             <tr class="details-row hidden">
               <td colspan="2">
@@ -76,73 +76,73 @@
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Physical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">125</div>
+                      <div class="title has-text-weight-light is-size-4">289</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Logical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">119</div>
+                      <div class="title has-text-weight-light is-size-4">300</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Cyclomatic</div>
-                      <div class="title has-text-weight-light is-size-4">17</div>
+                      <div class="title has-text-weight-light is-size-4">41</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Cyclomatic Density</div>
-                      <div class="title has-text-weight-light is-size-4">14.286</div>
+                      <div class="title has-text-weight-light is-size-4">13.667</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Bugs</div>
-                      <div class="title has-text-weight-light is-size-4">0.888</div>
+                      <div class="title has-text-weight-light is-size-4">2.523</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Difficulty</div>
-                      <div class="title has-text-weight-light is-size-4">12.965</div>
+                      <div class="title has-text-weight-light is-size-4">39.24</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead effort</div>
-                      <div class="title has-text-weight-light is-size-4">34551.299</div>
+                      <div class="title has-text-weight-light is-size-4">297038.115</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Length</div>
-                      <div class="title has-text-weight-light is-size-4">424</div>
+                      <div class="title has-text-weight-light is-size-4">1112</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Time</div>
-                      <div class="title has-text-weight-light is-size-4">1919.517</div>
+                      <div class="title has-text-weight-light is-size-4">16502.118</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Vocabulary</div>
-                      <div class="title has-text-weight-light is-size-4">78</div>
+                      <div class="title has-text-weight-light is-size-4">112</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Volume</div>
-                      <div class="title has-text-weight-light is-size-4">2665.011</div>
+                      <div class="title has-text-weight-light is-size-4">7569.779</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Maintainability</div>
-                      <div class="title has-text-weight-light is-size-4">113.426</div>
+                      <div class="title has-text-weight-light is-size-4">108.361</div>
                     </div>
                   </div>
                 </div>
@@ -156,322 +156,72 @@
                   <tbody>
                     <tr>
                       <td>
-                        <pre><code>  66 |     setSources(img, settings, instance);
-  67 |     cancelLoading(img, entry, settings, instance);
-&gt; 68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
+                        <pre><code>  56 |     img.setAttribute(&quot;data-srcset&quot;, url400);
+  57 |     setSources(img, settings, instance);
+&gt; 58 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
      |    ^ Duplicate Assert
-  69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
-  70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
-  71 |   });</code></pre><br>
+  59 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+  60 |   });
+  61 |</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>  67 |     cancelLoading(img, entry, settings, instance);
-  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
-&gt; 69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+                        <pre><code>  57 |     setSources(img, settings, instance);
+  58 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+&gt; 59 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
      |    ^ Duplicate Assert
-  70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
-  71 |   });
-  72 |</code></pre><br>
+  60 |   });
+  61 |
+  62 |   test(&quot;with initial values in src and srcset&quot;, () &#x3D;&gt; {</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
-  69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
-&gt; 70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+                        <pre><code>  66 |     img.setAttribute(&quot;srcset&quot;, url1);
+  67 |     setSources(img, settings, instance);
+&gt; 68 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
      |    ^ Duplicate Assert
-  71 |   });
-  72 |
-  73 |   test(&quot;Removes loading class&quot;, () &#x3D;&gt; {</code></pre><br>
+  69 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+  70 |   });
+  71 |   test(&quot;with initial values in src and srcset and empty data-*&quot;, () &#x3D;&gt; {</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>   97 |     setSources(img, settings, instance);
-   98 |     cancelLoading(img, entry, settings, instance);
-&gt;  99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
-      |    ^ Duplicate Assert
-  100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
-  101 |   });
-  102 | });</code></pre><br>
+                        <pre><code>  67 |     setSources(img, settings, instance);
+  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+&gt; 69 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+     |    ^ Duplicate Assert
+  70 |   });
+  71 |   test(&quot;with initial values in src and srcset and empty data-*&quot;, () &#x3D;&gt; {
+  72 |     img.setAttribute(&quot;data-src&quot;, &quot;&quot;);</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>   98 |     cancelLoading(img, entry, settings, instance);
-   99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
-&gt; 100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
-      |    ^ Duplicate Assert
-  101 |   });
-  102 | });
-  103 |</code></pre><br>
+                        <pre><code>  75 |     img.setAttribute(&quot;srcset&quot;, url400);
+  76 |     setSources(img, settings, instance);
+&gt; 77 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+     |    ^ Duplicate Assert
+  78 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+  79 |   });
+  80 | });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  76 |     setSources(img, settings, instance);
+  77 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+&gt; 78 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+     |    ^ Duplicate Assert
+  79 |   });
+  80 | });
+  81 |</code></pre><br>
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <hr>
-                <table class="table is-fullwidth" id="table-of-smell">
-                  <thead>
-                    <tr>
-                      <td>Global Variable</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <pre><code>  11 | expectExtend(expect);
-  12 |
-&gt; 13 | var outerDiv, instance, settings;
-  14 |
-  15 | beforeEach(() &#x3D;&gt; {
-  16 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr>
-                <table class="table is-fullwidth" id="table-of-smell">
-                  <thead>
-                    <tr>
-                      <td>Magic Number</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <pre><code>  82 |     setSources(img, settings, instance);
-  83 |     cancelLoading(img, entry, settings, instance);
-&gt; 84 |     expect(instance.loadingCount).toBe(0);
-     |                                       ^ Magic Number
-  85 |   });
-  86 |
-  87 |   test(&quot;Resets internal status&quot;, () &#x3D;&gt; {</code></pre><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;load.test.js</a>
-              </td>
-              <td class="has-text-right">3</td>
-            </tr>
-            <tr class="details-row hidden">
-              <td colspan="2">
-                <div class="columns is-multiline is-centered">
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Physical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">52</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Logical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">46</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic</div>
-                      <div class="title has-text-weight-light is-size-4">8</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic Density</div>
-                      <div class="title has-text-weight-light is-size-4">17.391</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Bugs</div>
-                      <div class="title has-text-weight-light is-size-4">0.225</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Difficulty</div>
-                      <div class="title has-text-weight-light is-size-4">8.118</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead effort</div>
-                      <div class="title has-text-weight-light is-size-4">5471.616</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Length</div>
-                      <div class="title has-text-weight-light is-size-4">125</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Time</div>
-                      <div class="title has-text-weight-light is-size-4">303.979</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Vocabulary</div>
-                      <div class="title has-text-weight-light is-size-4">42</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Volume</div>
-                      <div class="title has-text-weight-light is-size-4">674.04</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Maintainability</div>
-                      <div class="title has-text-weight-light is-size-4">120.338</div>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <table class="table is-fullwidth" id="table-of-smell">
-                  <thead>
-                    <tr>
-                      <td>Duplicate Assert</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <pre><code>  46 |     settings.callback_loading &#x3D; loadingCb;
-  47 |     load(img, settings, instance);
-&gt; 48 |     expect(loadingCb).toHaveBeenCalledTimes(1);
-     |    ^ Duplicate Assert
-  49 |     expect(loadingCb).toHaveBeenCalledWith(img, instance);
-  50 |   });
-  51 | });</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  47 |     load(img, settings, instance);
-  48 |     expect(loadingCb).toHaveBeenCalledTimes(1);
-&gt; 49 |     expect(loadingCb).toHaveBeenCalledWith(img, instance);
-     |    ^ Duplicate Assert
-  50 |   });
-  51 | });
-  52 |</code></pre><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr>
-                <table class="table is-fullwidth" id="table-of-smell">
-                  <thead>
-                    <tr>
-                      <td>Global Variable</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <pre><code>  10 | expectExtend(expect);
-  11 |
-&gt; 12 | var outerDiv, settings, instance;
-  13 |
-  14 | beforeEach(() &#x3D;&gt; {
-  15 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;originalAttributes.test.js</a>
-              </td>
-              <td class="has-text-right">1</td>
-            </tr>
-            <tr class="details-row hidden">
-              <td colspan="2">
-                <div class="columns is-multiline is-centered">
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Physical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">59</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Logical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">52</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic</div>
-                      <div class="title has-text-weight-light is-size-4">7</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic Density</div>
-                      <div class="title has-text-weight-light is-size-4">13.462</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Bugs</div>
-                      <div class="title has-text-weight-light is-size-4">0.326</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Difficulty</div>
-                      <div class="title has-text-weight-light is-size-4">7.223</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead effort</div>
-                      <div class="title has-text-weight-light is-size-4">7066.879</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Length</div>
-                      <div class="title has-text-weight-light is-size-4">170</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Time</div>
-                      <div class="title has-text-weight-light is-size-4">392.604</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Vocabulary</div>
-                      <div class="title has-text-weight-light is-size-4">54</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Volume</div>
-                      <div class="title has-text-weight-light is-size-4">978.331</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Maintainability</div>
-                      <div class="title has-text-weight-light is-size-4">114.857</div>
-                    </div>
-                  </div>
-                </div>
                 <hr>
                 <table class="table is-fullwidth" id="table-of-smell">
                   <thead>
@@ -492,149 +242,34 @@
                     </tr>
                   </tbody>
                 </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;reset.test.js</a>
-              </td>
-              <td class="has-text-right">4</td>
-            </tr>
-            <tr class="details-row hidden">
-              <td colspan="2">
-                <div class="columns is-multiline is-centered">
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Physical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">50</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Logical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">44</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic</div>
-                      <div class="title has-text-weight-light is-size-4">7</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Cyclomatic Density</div>
-                      <div class="title has-text-weight-light is-size-4">15.909</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Bugs</div>
-                      <div class="title has-text-weight-light is-size-4">0.236</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Difficulty</div>
-                      <div class="title has-text-weight-light is-size-4">7.618</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead effort</div>
-                      <div class="title has-text-weight-light is-size-4">5387.176</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Length</div>
-                      <div class="title has-text-weight-light is-size-4">132</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Time</div>
-                      <div class="title has-text-weight-light is-size-4">299.288</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Vocabulary</div>
-                      <div class="title has-text-weight-light is-size-4">41</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Halstead Volume</div>
-                      <div class="title has-text-weight-light is-size-4">707.197</div>
-                    </div>
-                  </div>
-                  <div class="column is-one-quarter">
-                    <div class="box px-4 py-4">
-                      <div class="heading">Maintainability</div>
-                      <div class="title has-text-weight-light is-size-4">118.491</div>
-                    </div>
-                  </div>
-                </div>
                 <hr>
                 <table class="table is-fullwidth" id="table-of-smell">
                   <thead>
                     <tr>
-                      <td>Duplicate Assert</td>
+                      <td>Magic Number</td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>
-                        <pre><code>  42 |     img.setAttribute(&quot;sizes&quot;, sizes50);
-  43 |     resetSourcesImg(img);
-&gt; 44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
-     |    ^ Duplicate Assert
-  45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
-  46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
-  47 |   });</code></pre><br>
+                        <pre><code>  27 |     const mockInstance &#x3D; { toLoadCount: 5 };
+  28 |     decreaseToLoadCount(mockInstance);
+&gt; 29 |     expect(mockInstance.toLoadCount).toBe(4);
+     |                                          ^ Magic Number
+  30 |   });
+  31 |
+  32 |   test(&#39;setToLoadCount sets toLoadCount to the given value&#39;, () &#x3D;&gt; {</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>  43 |     resetSourcesImg(img);
-  44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
-&gt; 45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
-     |    ^ Duplicate Assert
-  46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
-  47 |   });
-  48 | });</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
-  45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
-&gt; 46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
-     |    ^ Duplicate Assert
-  47 |   });
-  48 | });
-  49 |</code></pre><br>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr>
-                <table class="table is-fullwidth" id="table-of-smell">
-                  <thead>
-                    <tr>
-                      <td>Global Variable</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <pre><code>   8 | expectExtend(expect);
-   9 |
-&gt; 10 | var outerDiv, settings, instance;
-  11 |
-  12 | beforeEach(() &#x3D;&gt; {
-  13 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
+                        <pre><code>  33 |     const mockInstance &#x3D; {};
+  34 |     setToLoadCount(mockInstance, 10);
+&gt; 35 |     expect(mockInstance.toLoadCount).toBe(10);
+     |                                          ^ Magic Number
+  36 |   });
+  37 | })
+  38 |</code></pre><br>
                       </td>
                     </tr>
                   </tbody>
@@ -1263,9 +898,9 @@
             </tr>
             <tr>
               <td>
-                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;set.test.js</a>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;reset.test.js</a>
               </td>
-              <td class="has-text-right">9</td>
+              <td class="has-text-right">4</td>
             </tr>
             <tr class="details-row hidden">
               <td colspan="2">
@@ -1273,73 +908,73 @@
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Physical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">289</div>
+                      <div class="title has-text-weight-light is-size-4">50</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Logical SLOC</div>
-                      <div class="title has-text-weight-light is-size-4">300</div>
+                      <div class="title has-text-weight-light is-size-4">44</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Cyclomatic</div>
-                      <div class="title has-text-weight-light is-size-4">41</div>
+                      <div class="title has-text-weight-light is-size-4">7</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Cyclomatic Density</div>
-                      <div class="title has-text-weight-light is-size-4">13.667</div>
+                      <div class="title has-text-weight-light is-size-4">15.909</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Bugs</div>
-                      <div class="title has-text-weight-light is-size-4">2.523</div>
+                      <div class="title has-text-weight-light is-size-4">0.236</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Difficulty</div>
-                      <div class="title has-text-weight-light is-size-4">39.24</div>
+                      <div class="title has-text-weight-light is-size-4">7.618</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead effort</div>
-                      <div class="title has-text-weight-light is-size-4">297038.115</div>
+                      <div class="title has-text-weight-light is-size-4">5387.176</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Length</div>
-                      <div class="title has-text-weight-light is-size-4">1112</div>
+                      <div class="title has-text-weight-light is-size-4">132</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Time</div>
-                      <div class="title has-text-weight-light is-size-4">16502.118</div>
+                      <div class="title has-text-weight-light is-size-4">299.288</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Vocabulary</div>
-                      <div class="title has-text-weight-light is-size-4">112</div>
+                      <div class="title has-text-weight-light is-size-4">41</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Halstead Volume</div>
-                      <div class="title has-text-weight-light is-size-4">7569.779</div>
+                      <div class="title has-text-weight-light is-size-4">707.197</div>
                     </div>
                   </div>
                   <div class="column is-one-quarter">
                     <div class="box px-4 py-4">
                       <div class="heading">Maintainability</div>
-                      <div class="title has-text-weight-light is-size-4">108.361</div>
+                      <div class="title has-text-weight-light is-size-4">118.491</div>
                     </div>
                   </div>
                 </div>
@@ -1353,72 +988,143 @@
                   <tbody>
                     <tr>
                       <td>
-                        <pre><code>  56 |     img.setAttribute(&quot;data-srcset&quot;, url400);
-  57 |     setSources(img, settings, instance);
-&gt; 58 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+                        <pre><code>  42 |     img.setAttribute(&quot;sizes&quot;, sizes50);
+  43 |     resetSourcesImg(img);
+&gt; 44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
      |    ^ Duplicate Assert
-  59 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
-  60 |   });
-  61 |</code></pre><br>
+  45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+  46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+  47 |   });</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>  57 |     setSources(img, settings, instance);
-  58 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
-&gt; 59 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
+                        <pre><code>  43 |     resetSourcesImg(img);
+  44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
+&gt; 45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
      |    ^ Duplicate Assert
-  60 |   });
-  61 |
-  62 |   test(&quot;with initial values in src and srcset&quot;, () &#x3D;&gt; {</code></pre><br>
+  46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+  47 |   });
+  48 | });</code></pre><br>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        <pre><code>  66 |     img.setAttribute(&quot;srcset&quot;, url1);
-  67 |     setSources(img, settings, instance);
-&gt; 68 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
+                        <pre><code>  44 |     expect(img).not.toHaveAttribute(&quot;src&quot;);
+  45 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+&gt; 46 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
      |    ^ Duplicate Assert
-  69 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
-  70 |   });
-  71 |   test(&quot;with initial values in src and srcset and empty data-*&quot;, () &#x3D;&gt; {</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  67 |     setSources(img, settings, instance);
-  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
-&gt; 69 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
-     |    ^ Duplicate Assert
-  70 |   });
-  71 |   test(&quot;with initial values in src and srcset and empty data-*&quot;, () &#x3D;&gt; {
-  72 |     img.setAttribute(&quot;data-src&quot;, &quot;&quot;);</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  75 |     img.setAttribute(&quot;srcset&quot;, url400);
-  76 |     setSources(img, settings, instance);
-&gt; 77 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
-     |    ^ Duplicate Assert
-  78 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
-  79 |   });
-  80 | });</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  76 |     setSources(img, settings, instance);
-  77 |     expect(img).toHaveAttribute(&quot;src&quot;, url200);
-&gt; 78 |     expect(img).toHaveAttribute(&quot;srcset&quot;, url400);
-     |    ^ Duplicate Assert
-  79 |   });
-  80 | });
-  81 |</code></pre><br>
+  47 |   });
+  48 | });
+  49 |</code></pre><br>
                       </td>
                     </tr>
                   </tbody>
                 </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Global Variable</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>   8 | expectExtend(expect);
+   9 |
+&gt; 10 | var outerDiv, settings, instance;
+  11 |
+  12 | beforeEach(() &#x3D;&gt; {
+  13 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;originalAttributes.test.js</a>
+              </td>
+              <td class="has-text-right">1</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">59</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">52</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">7</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">13.462</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.326</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">7.223</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">7066.879</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">170</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">392.604</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">54</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">978.331</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">114.857</div>
+                    </div>
+                  </div>
+                </div>
                 <hr>
                 <table class="table is-fullwidth" id="table-of-smell">
                   <thead>
@@ -1439,6 +1145,311 @@
                     </tr>
                   </tbody>
                 </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;load.test.js</a>
+              </td>
+              <td class="has-text-right">3</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">52</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">46</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">8</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">17.391</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.225</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">8.118</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">5471.616</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">125</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">303.979</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">42</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">674.04</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">120.338</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  46 |     settings.callback_loading &#x3D; loadingCb;
+  47 |     load(img, settings, instance);
+&gt; 48 |     expect(loadingCb).toHaveBeenCalledTimes(1);
+     |    ^ Duplicate Assert
+  49 |     expect(loadingCb).toHaveBeenCalledWith(img, instance);
+  50 |   });
+  51 | });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  47 |     load(img, settings, instance);
+  48 |     expect(loadingCb).toHaveBeenCalledTimes(1);
+&gt; 49 |     expect(loadingCb).toHaveBeenCalledWith(img, instance);
+     |    ^ Duplicate Assert
+  50 |   });
+  51 | });
+  52 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Global Variable</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  10 | expectExtend(expect);
+  11 |
+&gt; 12 | var outerDiv, settings, instance;
+  13 |
+  14 | beforeEach(() &#x3D;&gt; {
+  15 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a class="toggle-link" href="javascript:;" onclick="toggleDetails(this)">+ &#x2F;home&#x2F;gabriel&#x2F;Desktop&#x2F;research&#x2F;projects&#x2F;vanilla-lazyload&#x2F;tests&#x2F;unit&#x2F;cancelOnExit.test.js</a>
+              </td>
+              <td class="has-text-right">7</td>
+            </tr>
+            <tr class="details-row hidden">
+              <td colspan="2">
+                <div class="columns is-multiline is-centered">
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Physical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">125</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Logical SLOC</div>
+                      <div class="title has-text-weight-light is-size-4">119</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic</div>
+                      <div class="title has-text-weight-light is-size-4">17</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Cyclomatic Density</div>
+                      <div class="title has-text-weight-light is-size-4">14.286</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Bugs</div>
+                      <div class="title has-text-weight-light is-size-4">0.888</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Difficulty</div>
+                      <div class="title has-text-weight-light is-size-4">12.965</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead effort</div>
+                      <div class="title has-text-weight-light is-size-4">34551.299</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Length</div>
+                      <div class="title has-text-weight-light is-size-4">424</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Time</div>
+                      <div class="title has-text-weight-light is-size-4">1919.517</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Vocabulary</div>
+                      <div class="title has-text-weight-light is-size-4">78</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Halstead Volume</div>
+                      <div class="title has-text-weight-light is-size-4">2665.011</div>
+                    </div>
+                  </div>
+                  <div class="column is-one-quarter">
+                    <div class="box px-4 py-4">
+                      <div class="heading">Maintainability</div>
+                      <div class="title has-text-weight-light is-size-4">113.426</div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Duplicate Assert</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  66 |     setSources(img, settings, instance);
+  67 |     cancelLoading(img, entry, settings, instance);
+&gt; 68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
+     |    ^ Duplicate Assert
+  69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+  70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+  71 |   });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  67 |     cancelLoading(img, entry, settings, instance);
+  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
+&gt; 69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+     |    ^ Duplicate Assert
+  70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+  71 |   });
+  72 |</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>  68 |     expect(img).toHaveAttribute(&quot;src&quot;, url1);
+  69 |     expect(img).not.toHaveAttribute(&quot;srcset&quot;);
+&gt; 70 |     expect(img).not.toHaveAttribute(&quot;sizes&quot;);
+     |    ^ Duplicate Assert
+  71 |   });
+  72 |
+  73 |   test(&quot;Removes loading class&quot;, () &#x3D;&gt; {</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   97 |     setSources(img, settings, instance);
+   98 |     cancelLoading(img, entry, settings, instance);
+&gt;  99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+      |    ^ Duplicate Assert
+  100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  101 |   });
+  102 | });</code></pre><br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <pre><code>   98 |     cancelLoading(img, entry, settings, instance);
+   99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+&gt; 100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+      |    ^ Duplicate Assert
+  101 |   });
+  102 | });
+  103 |</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <table class="table is-fullwidth" id="table-of-smell">
+                  <thead>
+                    <tr>
+                      <td>Global Variable</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <pre><code>  11 | expectExtend(expect);
+  12 |
+&gt; 13 | var outerDiv, instance, settings;
+  14 |
+  15 | beforeEach(() &#x3D;&gt; {
+  16 |   outerDiv &#x3D; document.createElement(&quot;div&quot;);</code></pre><br>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 <hr>
                 <table class="table is-fullwidth" id="table-of-smell">
                   <thead>
@@ -1449,24 +1460,13 @@
                   <tbody>
                     <tr>
                       <td>
-                        <pre><code>  27 |     const mockInstance &#x3D; { toLoadCount: 5 };
-  28 |     decreaseToLoadCount(mockInstance);
-&gt; 29 |     expect(mockInstance.toLoadCount).toBe(4);
-     |                                          ^ Magic Number
-  30 |   });
-  31 |
-  32 |   test(&#39;setToLoadCount sets toLoadCount to the given value&#39;, () &#x3D;&gt; {</code></pre><br>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <pre><code>  33 |     const mockInstance &#x3D; {};
-  34 |     setToLoadCount(mockInstance, 10);
-&gt; 35 |     expect(mockInstance.toLoadCount).toBe(10);
-     |                                          ^ Magic Number
-  36 |   });
-  37 | })
-  38 |</code></pre><br>
+                        <pre><code>  82 |     setSources(img, settings, instance);
+  83 |     cancelLoading(img, entry, settings, instance);
+&gt; 84 |     expect(instance.loadingCount).toBe(0);
+     |                                       ^ Magic Number
+  85 |   });
+  86 |
+  87 |   test(&quot;Resets internal status&quot;, () &#x3D;&gt; {</code></pre><br>
                       </td>
                     </tr>
                   </tbody>

@@ -1,0 +1,822 @@
+Id,Tool Detection,Repository,File,Type,Lines,Prompt,Original Method,Refactored Method,Refactored,Removed smell,Test passed,Added smell,Test After,"Coverage 
+after",Observation
+1,snutsjs,verlok/vanilla-lazyload,/tests/unit/restore.test.js,NonFunctionalStatement,"{""startLine"":337,""endLine"":338}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":337,""endLine"":338}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+2,snutsjs,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,SubOptimalAssert,"{""startLine"":91,""endLine"":91}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":91,""endLine"":91}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+3,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 68, 'column': 4, 'index': 1968}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 68, 'column': 4, 'index': 1968}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+4,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 2014}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 69, 'column': 4, 'index': 2014}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+5,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 70, 'column': 4, 'index': 2061}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 70, 'column': 4, 'index': 2061}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+6,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 99, 'column': 4, 'index': 2957}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 99, 'column': 4, 'index': 2957}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+7,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 3004}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 100, 'column': 4, 'index': 3004}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+8,steel,verlok/vanilla-lazyload,/tests/unit/cancelOnExit.test.js,Magic Number,"{'line': 84, 'column': 39, 'index': 2522}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 84, 'column': 39, 'index': 2522}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+9,steel,verlok/vanilla-lazyload,/tests/unit/set.test.js,Magic Number,"{'line': 29, 'column': 42, 'index': 889}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 29, 'column': 42, 'index': 889}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+10,steel,verlok/vanilla-lazyload,/tests/unit/set.test.js,Magic Number,"{'line': 35, 'column': 42, 'index': 1078}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 35, 'column': 42, 'index': 1078}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+11,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":120,""endLine"":126}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+12,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":138,""endLine"":138}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+13,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":140,""endLine"":145}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+14,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":146,""endLine"":149}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+15,snutsjs,vercel/ncc,/test/unit.test.js,NonFunctionalStatement,"{""startLine"":21,""endLine"":21}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":21,""endLine"":21}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+16,snutsjs,vercel/ncc,/test/unit.test.js,NonFunctionalStatement,"{""startLine"":27,""endLine"":27}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":27,""endLine"":27}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+17,snutsjs,vercel/ncc,/test/integration.test.js,NonFunctionalStatement,"{""startLine"":60,""endLine"":60}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":60,""endLine"":60}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+18,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":120,""endLine"":126}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+19,snutsjs,chrisleekr/binance-trading-bot,/app/__tests__/error-handler.test.js,ConditionalTestLogic,"{""startLine"":207,""endLine"":212}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":207,""endLine"":212}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+20,snutsjs,chrisleekr/binance-trading-bot,/app/__tests__/error-handler.test.js,ConditionalTestLogic,"{""startLine"":225,""endLine"":230}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":225,""endLine"":230}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+21,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"{""startLine"":47,""endLine"":47}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":47,""endLine"":47}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+22,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"{""startLine"":225,""endLine"":225}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":225,""endLine"":225}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+23,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"{""startLine"":282,""endLine"":282}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":282,""endLine"":282}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+24,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"{""startLine"":351,""endLine"":351}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":351,""endLine"":351}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+25,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/webserver/handlers/__tests__/grid-trade-logs-export.test.js,SubOptimalAssert,"{""startLine"":201,""endLine"":201}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":201,""endLine"":201}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+26,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 189, 'column': 8, 'index': 5619}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 189, 'column': 8, 'index': 5619}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+27,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 194, 'column': 8, 'index': 5755}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 194, 'column': 8, 'index': 5755}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+28,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 691, 'column': 6, 'index': 22289}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 691, 'column': 6, 'index': 22289}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+29,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 696, 'column': 6, 'index': 22415}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 696, 'column': 6, 'index': 22415}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+30,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Magic Number,"{'line': 230, 'column': 10, 'index': 6700}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 230, 'column': 10, 'index': 6700}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+31,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Magic Number,"{'line': 739, 'column': 8, 'index': 23471}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 739, 'column': 8, 'index': 23471}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+32,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-frontend.test.js,Magic Number,"{'line': 314, 'column': 74, 'index': 9174}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 314, 'column': 74, 'index': 9174}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+33,steel,chrisleekr/binance-trading-bot,/app/binance/__tests__/orders.test.js,Magic Number,"{'line': 137, 'column': 56, 'index': 3912}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 137, 'column': 56, 'index': 3912}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+34,steel,chrisleekr/binance-trading-bot,/app/binance/__tests__/user.test.js,Magic Number,"{'line': 142, 'column': 10, 'index': 4072}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 142, 'column': 10, 'index': 4072}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+35,steel,chrisleekr/binance-trading-bot,/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2469, 'column': 8, 'index': 67424}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 2469, 'column': 8, 'index': 67424}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+36,snutsjs,prettier/prettier,/tests/format/js/tab-width/nested-functions.spec.js,NonFunctionalStatement,"{""startLine"":1,""endLine"":1}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":1,""endLine"":1}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+37,snutsjs,prettier/prettier,/tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"{""startLine"":54,""endLine"":54}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":54,""endLine"":54}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+38,snutsjs,prettier/prettier,/tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"{""startLine"":56,""endLine"":56}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":56,""endLine"":56}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+39,snutsjs,prettier/prettier,/tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"{""startLine"":58,""endLine"":58}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":58,""endLine"":58}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+40,snutsjs,prettier/prettier,/tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"{""startLine"":60,""endLine"":60}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":60,""endLine"":60}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+41,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 21, 'column': 21, 'index': 739}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 21, 'column': 21, 'index': 739}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+42,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 33, 'column': 21, 'index': 1090}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 33, 'column': 21, 'index': 1090}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+43,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 50, 'column': 21, 'index': 1590}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 50, 'column': 21, 'index': 1590}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+44,steel,prettier/prettier,/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 7, 'column': 20, 'index': 268}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 7, 'column': 20, 'index': 268}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+45,steel,prettier/prettier,/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 10, 'column': 31, 'index': 389}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 10, 'column': 31, 'index': 389}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+46,snutsjs,atlassian/react-beautiful-dnd,/test/unit/dev-warning.spec.js,NonFunctionalStatement,"{""startLine"":4,""endLine"":4}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":4,""endLine"":4}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+47,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":59,""endLine"":100}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":59,""endLine"":100}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+48,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":134,""endLine"":171}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":134,""endLine"":171}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+49,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":173,""endLine"":215}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":173,""endLine"":215}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+50,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":217,""endLine"":254}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":217,""endLine"":254}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+51,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":257,""endLine"":288}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":257,""endLine"":288}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+52,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,NonFunctionalStatement,"{""startLine"":77,""endLine"":77}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":77,""endLine"":77}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+53,snutsjs,atlassian/react-beautiful-dnd,/test/unit/health/src-file-name-convention.spec.js,ConditionalTestLogic,"{""startLine"":28,""endLine"":30}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":28,""endLine"":30}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+54,snutsjs,atlassian/react-beautiful-dnd,/test/unit/integration/responders-integration.spec.js,NonFunctionalStatement,"{""startLine"":107,""endLine"":107}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":107,""endLine"":107}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+55,snutsjs,atlassian/react-beautiful-dnd,/test/unit/docs/content.spec.js,ConditionalTestLogic,"{""startLine"":20,""endLine"":25}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":20,""endLine"":25}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+56,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,NonFunctionalStatement,"{""startLine"":291,""endLine"":291}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":291,""endLine"":291}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+57,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/publishing.spec.js,NonFunctionalStatement,"{""startLine"":362,""endLine"":362}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":362,""endLine"":362}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+58,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":21,""endLine"":21}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":21,""endLine"":21}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+59,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":64,""endLine"":64}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":64,""endLine"":64}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+60,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":70,""endLine"":70}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":70,""endLine"":70}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+61,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":77,""endLine"":77}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":77,""endLine"":77}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+62,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/animated-mount.spec.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":42,""endLine"":42}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+63,snutsjs,atlassian/react-beautiful-dnd,/test/unit/state/middleware/responders/announcements.spec.js,ConditionalTestLogic,"{""startLine"":143,""endLine"":146}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":143,""endLine"":146}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+64,snutsjs,atlassian/react-beautiful-dnd,/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,ConditionalTestLogic,"{""startLine"":13,""endLine"":16}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":13,""endLine"":16}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+65,snutsjs,atlassian/react-beautiful-dnd,/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,ConditionalTestLogic,"{""startLine"":37,""endLine"":40}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":37,""endLine"":40}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+66,steel,atlassian/react-beautiful-dnd,/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 23, 'column': 2, 'index': 467}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 23, 'column': 2, 'index': 467}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+67,steel,atlassian/react-beautiful-dnd,/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 31, 'column': 2, 'index': 607}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 31, 'column': 2, 'index': 607}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+68,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 2698}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 100, 'column': 4, 'index': 2698}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+69,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 101, 'column': 4, 'index': 2748}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 101, 'column': 4, 'index': 2748}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+70,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 119, 'column': 4, 'index': 3360}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 119, 'column': 4, 'index': 3360}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+71,steel,atlassian/react-beautiful-dnd,/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 40, 'column': 2, 'index': 1310}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 40, 'column': 2, 'index': 1310}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+72,steel,atlassian/react-beautiful-dnd,/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 67, 'column': 2, 'index': 2142}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 67, 'column': 2, 'index': 2142}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+73,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 53, 'column': 32, 'index': 1757}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 53, 'column': 32, 'index': 1757}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+74,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 54, 'column': 33, 'index': 1794}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 54, 'column': 33, 'index': 1794}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+75,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 55, 'column': 35, 'index': 1833}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 55, 'column': 35, 'index': 1833}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+76,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 56, 'column': 36, 'index': 1873}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 56, 'column': 36, 'index': 1873}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+77,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 66, 'column': 32, 'index': 2230}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 66, 'column': 32, 'index': 2230}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+78,steel,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'column': 2, 'line': 72}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'column': 2, 'line': 72}  – Assertion Roulette
+This issue occurs due to the presence of multiple assertions in a test method without associated explanations. If one of these assertions fails, it will not be possible to identify which one is problematic.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+79,steel,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'column': 2, 'line': 75}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'column': 2, 'line': 75}  – Assertion Roulette
+This issue occurs due to the presence of multiple assertions in a test method without associated explanations. If one of these assertions fails, it will not be possible to identify which one is problematic.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+80,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 142, 'column': 6, 'index': 3763}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 142, 'column': 6, 'index': 3763}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+81,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 176, 'column': 6, 'index': 4997}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 176, 'column': 6, 'index': 4997}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+82,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 213, 'column': 6, 'index': 6080}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 213, 'column': 6, 'index': 6080}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+83,steel,jackocnr/intl-tel-input,/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 26, 'column': 6, 'index': 687}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 26, 'column': 6, 'index': 687}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+84,steel,jackocnr/intl-tel-input,/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 27, 'column': 12, 'index': 734}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 27, 'column': 12, 'index': 734}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+85,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 156, 'column': 4, 'index': 4180}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+86,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 156, 'column': 4, 'index': 4180}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+87,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 160, 'column': 4, 'index': 4331}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+88,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 35, 'column': 53, 'index': 886}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+89,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 36, 'column': 53, 'index': 943}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+90,steel,jackocnr/intl-tel-input,/tests/core/countrySearch.test.js,Magic Number,"{'line': 55, 'column': 51, 'index': 1582}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 55, 'column': 51, 'index': 1582}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+91,snutsjs,miragejs/miragejs,/__tests__/external/shared/fixtures-and-factories-test.js,NonFunctionalStatement,"{""startLine"":15,""endLine"":15}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":15,""endLine"":15}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+92,snutsjs,miragejs/miragejs,/__tests__/external/browser-only/passthrough-test.js,NonFunctionalStatement,"{""startLine"":19,""endLine"":19}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":19,""endLine"":19}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+93,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":56,""endLine"":56}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":56,""endLine"":56}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+94,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":73,""endLine"":73}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":73,""endLine"":73}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+95,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":94,""endLine"":94}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":94,""endLine"":94}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+96,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":42,""endLine"":42}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+97,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":58,""endLine"":58}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":58,""endLine"":58}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+98,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 622, 'column': 4, 'index': 14567}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 622, 'column': 4, 'index': 14567}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+99,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 623, 'column': 4, 'index': 14614}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 623, 'column': 4, 'index': 14614}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+100,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 632, 'column': 4, 'index': 14877}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 632, 'column': 4, 'index': 14877}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+101,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 633, 'column': 4, 'index': 14924}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 633, 'column': 4, 'index': 14924}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+102,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 26, 'column': 39, 'index': 502}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 26, 'column': 39, 'index': 502}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+103,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 59, 'column': 39, 'index': 1191}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 59, 'column': 39, 'index': 1191}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+104,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 80, 'column': 31, 'index': 1650}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 80, 'column': 31, 'index': 1650}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+105,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 88, 'column': 31, 'index': 1818}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 88, 'column': 31, 'index': 1818}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+106,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 102, 'column': 31, 'index': 2121}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 102, 'column': 31, 'index': 2121}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+107,steel,miragejs/miragejs,/__tests__/internal/unit/schema-test.js,Duplicate Assert,"{'line': 42, 'column': 4, 'index': 1188}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 42, 'column': 4, 'index': 1188}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+109,snutsjs,brookhong/surfingkeys,/tests/content_scripts/uiframe.test.js,TestWithoutDescription,"{""startLine"":42,""endLine"":44}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":42,""endLine"":44}  – TestWithoutDescription
+A test case that is defined without a descriptive name or message, making it unclear what functionality is being tested.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+110,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":65,""endLine"":65}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":65,""endLine"":65}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+111,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":88,""endLine"":88}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":88,""endLine"":88}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+112,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":111,""endLine"":111}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":111,""endLine"":111}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+113,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":115,""endLine"":115}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":115,""endLine"":115}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+114,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":29,""endLine"":31}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":29,""endLine"":31}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+115,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":66,""endLine"":68}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":66,""endLine"":68}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+116,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 66, 'column': 8, 'index': 2706}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+117,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 75, 'column': 8, 'index': 3043}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+118,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 88, 'column': 34, 'index': 3642}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+119,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 115, 'column': 40, 'index': 4850}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+120,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 80, 'column': 8, 'index': 3134}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 80, 'column': 8, 'index': 3134}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+121,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 85, 'column': 8, 'index': 3378}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 85, 'column': 8, 'index': 3378}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+122,steel,brookhong/surfingkeys,/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 40, 'column': 8, 'index': 1331}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+123,snutsjs,shipshapecode/tether,/test/unit/evented.spec.js,NonFunctionalStatement,"{""startLine"":50,""endLine"":50}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":50,""endLine"":50}  – NonFunctionalStatement
+Refers to test code statements that do not have any functional effect on the program. These statements exist in the code but do not impact the program's behavior, functionality, or state.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+124,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 59, 'column': 6, 'index': 1898}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 59, 'column': 6, 'index': 1898}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+125,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 60, 'column': 6, 'index': 1951}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 60, 'column': 6, 'index': 1951}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+126,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 63, 'column': 6, 'index': 2092}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 63, 'column': 6, 'index': 2092}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+127,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 64, 'column': 6, 'index': 2143}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 64, 'column': 6, 'index': 2143}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+128,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 86, 'column': 6, 'index': 2969}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 86, 'column': 6, 'index': 2969}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+129,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 24, 'column': 75, 'index': 664}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 24, 'column': 75, 'index': 664}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+130,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 25, 'column': 73, 'index': 741}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 25, 'column': 73, 'index': 741}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+131,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 35, 'column': 81, 'index': 1021}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 35, 'column': 81, 'index': 1021}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+132,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 36, 'column': 79, 'index': 1105}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 36, 'column': 79, 'index': 1105}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+133,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 40, 'column': 103, 'index': 1239}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 40, 'column': 103, 'index': 1239}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+134,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 14, 'column': 13, 'index': 502}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 14, 'column': 13, 'index': 502}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+135,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 18, 'column': 13, 'index': 642}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 18, 'column': 13, 'index': 642}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+136,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 22, 'column': 13, 'index': 794}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 22, 'column': 13, 'index': 794}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+137,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 28, 'column': 13, 'index': 996}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 28, 'column': 13, 'index': 996}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+138,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 35, 'column': 13, 'index': 1203}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 35, 'column': 13, 'index': 1203}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+139,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":157,""endLine"":160}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+140,snutsjs,katex/katex,/test/unicode-spec.js,SubOptimalAssert,"{""startLine"":163,""endLine"":163}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":163,""endLine"":163}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+141,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":4010,""endLine"":4045}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+142,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":91,""endLine"":94}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+143,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":95,""endLine"":100}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":95,""endLine"":100}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+144,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1759,""endLine"":1761}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":1759,""endLine"":1761}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+145,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1894,""endLine"":1895}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":1894,""endLine"":1895}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+146,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3167,""endLine"":3167}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":3167,""endLine"":3167}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+147,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3182,""endLine"":3182}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":3182,""endLine"":3182}  – SubOptimalAssert
+Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+148,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":157,""endLine"":160}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+149,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":4010,""endLine"":4045}  – OvercommentedTest
+A test method that has been excessively commented on
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+150,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {""startLine"":91,""endLine"":94}  – ConditionalTestLogic
+Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+151,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 158, 'column': 20, 'index': 5760}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+152,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 163, 'column': 12, 'index': 5877}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+153,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 145, 'column': 19, 'index': 5223}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+154,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 164, 'column': 19, 'index': 5923}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+155,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 574, 'column': 8, 'index': 17088}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+156,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 574, 'column': 8, 'index': 17088}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+157,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 575, 'column': 8, 'index': 17135}  – Duplicate Assert
+This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+158,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 44, 'column': 22, 'index': 1225}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+159,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 53, 'column': 22, 'index': 1483}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+160,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 67, 'column': 22, 'index': 1816}  – Lazy Test
+Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+161,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 92, 'column': 48, 'index': 2613}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+162,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 114, 'column': 44, 'index': 3404}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+163,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 346, 'column': 35, 'index': 10074}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+164,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 368, 'column': 35, 'index': 10676}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,
+165,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}","In this test file, the following lines contain a bad design pattern (also known as a test smell):
+
+Lines {'line': 391, 'column': 35, 'index': 11303}  – Magic Number
+Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
+To improve test quality and maintainability, can you refactor the method to eliminate ConditionalTestLogic while ensuring the test remains clear and effective?",,,FALSE,FALSE,FALSE,FALSE,,,

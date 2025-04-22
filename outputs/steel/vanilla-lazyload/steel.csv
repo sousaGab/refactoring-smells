@@ -1,76 +1,39 @@
 file,type,smells,frame
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 68, 'column': 4, 'index': 1968}","  66 |     setSources(img, settings, instance);
-  67 |     cancelLoading(img, entry, settings, instance);
-> 68 |     expect(img).toHaveAttribute(""src"", url1);
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 58, 'column': 4, 'index': 1579}","  56 |     img.setAttribute(""data-srcset"", url400);
+  57 |     setSources(img, settings, instance);
+> 58 |     expect(img).toHaveAttribute(""src"", url200);
      |    ^ Duplicate Assert
-  69 |     expect(img).not.toHaveAttribute(""srcset"");
-  70 |     expect(img).not.toHaveAttribute(""sizes"");
-  71 |   });"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 2014}","  67 |     cancelLoading(img, entry, settings, instance);
-  68 |     expect(img).toHaveAttribute(""src"", url1);
-> 69 |     expect(img).not.toHaveAttribute(""srcset"");
+  59 |     expect(img).toHaveAttribute(""srcset"", url400);
+  60 |   });
+  61 |"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 59, 'column': 4, 'index': 1627}","  57 |     setSources(img, settings, instance);
+  58 |     expect(img).toHaveAttribute(""src"", url200);
+> 59 |     expect(img).toHaveAttribute(""srcset"", url400);
      |    ^ Duplicate Assert
-  70 |     expect(img).not.toHaveAttribute(""sizes"");
-  71 |   });
-  72 |"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 70, 'column': 4, 'index': 2061}","  68 |     expect(img).toHaveAttribute(""src"", url1);
-  69 |     expect(img).not.toHaveAttribute(""srcset"");
-> 70 |     expect(img).not.toHaveAttribute(""sizes"");
+  60 |   });
+  61 |
+  62 |   test(""with initial values in src and srcset"", () => {"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 68, 'column': 4, 'index': 1942}","  66 |     img.setAttribute(""srcset"", url1);
+  67 |     setSources(img, settings, instance);
+> 68 |     expect(img).toHaveAttribute(""src"", url200);
      |    ^ Duplicate Assert
-  71 |   });
-  72 |
-  73 |   test(""Removes loading class"", () => {"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 99, 'column': 4, 'index': 2957}","   97 |     setSources(img, settings, instance);
-   98 |     cancelLoading(img, entry, settings, instance);
->  99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
-      |    ^ Duplicate Assert
-  100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
-  101 |   });
-  102 | });"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 3004}","   98 |     cancelLoading(img, entry, settings, instance);
-   99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
-> 100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
-      |    ^ Duplicate Assert
-  101 |   });
-  102 | });
-  103 |"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Global Variable,"{'line': 13, 'column': 0, 'index': 473}","  11 | expectExtend(expect);
-  12 |
-> 13 | var outerDiv, instance, settings;
-  14 |
-  15 | beforeEach(() => {
-  16 |   outerDiv = document.createElement(""div"");"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Magic Number,"{'line': 84, 'column': 39, 'index': 2522}","  82 |     setSources(img, settings, instance);
-  83 |     cancelLoading(img, entry, settings, instance);
-> 84 |     expect(instance.loadingCount).toBe(0);
-     |                                       ^ Magic Number
-  85 |   });
-  86 |
-  87 |   test(""Resets internal status"", () => {"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/load.test.js,Global Variable,"{'line': 12, 'column': 0, 'index': 402}","  10 | expectExtend(expect);
-  11 |
-> 12 | var outerDiv, settings, instance;
-  13 |
-  14 | beforeEach(() => {
-  15 |   outerDiv = document.createElement(""div"");"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/originalAttributes.test.js,Global Variable,"{'line': 11, 'column': 0, 'index': 371}","   9 | expectExtend(expect);
-  10 |
-> 11 | var outerDiv, settings, instance;
-  12 |
-  13 | beforeEach(() => {
-  14 |   outerDiv = document.createElement(""div"");"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/reset.test.js,Global Variable,"{'line': 10, 'column': 0, 'index': 313}","   8 | expectExtend(expect);
-   9 |
-> 10 | var outerDiv, settings, instance;
-  11 |
-  12 | beforeEach(() => {
-  13 |   outerDiv = document.createElement(""div"");"
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/restore.test.js,Global Variable,"{'line': 16, 'column': 0, 'index': 513}","  14 | const sizes50 = ""50vw"";
-  15 |
-> 16 | var outerDiv, settings, instance;
-  17 |
-  18 | expectExtend(expect);
-  19 |"
+  69 |     expect(img).toHaveAttribute(""srcset"", url400);
+  70 |   });
+  71 |   test(""with initial values in src and srcset and empty data-*"", () => {"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 1990}","  67 |     setSources(img, settings, instance);
+  68 |     expect(img).toHaveAttribute(""src"", url200);
+> 69 |     expect(img).toHaveAttribute(""srcset"", url400);
+     |    ^ Duplicate Assert
+  70 |   });
+  71 |   test(""with initial values in src and srcset and empty data-*"", () => {
+  72 |     img.setAttribute(""data-src"", """");"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 77, 'column': 4, 'index': 2317}","  75 |     img.setAttribute(""srcset"", url400);
+  76 |     setSources(img, settings, instance);
+> 77 |     expect(img).toHaveAttribute(""src"", url200);
+     |    ^ Duplicate Assert
+  78 |     expect(img).toHaveAttribute(""srcset"", url400);
+  79 |   });
+  80 | });"
 /home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Magic Number,"{'line': 29, 'column': 42, 'index': 889}","  27 |     const mockInstance = { toLoadCount: 5 };
   28 |     decreaseToLoadCount(mockInstance);
 > 29 |     expect(mockInstance.toLoadCount).toBe(4);
@@ -85,3 +48,10 @@ file,type,smells,frame
   36 |   });
   37 | })
   38 |"
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Magic Number,"{'line': 84, 'column': 39, 'index': 2522}","  82 |     setSources(img, settings, instance);
+  83 |     cancelLoading(img, entry, settings, instance);
+> 84 |     expect(instance.loadingCount).toBe(0);
+     |                                       ^ Magic Number
+  85 |   });
+  86 |
+  87 |   test(""Resets internal status"", () => {"

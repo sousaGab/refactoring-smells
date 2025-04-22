@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@babel/parser": "^7.27.0",
+    "@babel/traverse": "^7.27.0",
+    "csv-parser": "^3.2.0",
+    "csv-stringify": "^6.5.2"
+  }
+}
