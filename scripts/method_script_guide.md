@@ -99,13 +99,13 @@ The output CSV file will have the following columns:
 
 | Column Name              | Description                                                                 |
 |---------------------------|-----------------------------------------------------------------------------|
-| `A (filename)`           | The full path to the JavaScript file.                                       |
-| `B (test)`               | The extracted test method or an error message.                             |
-| `C (start: ... end: ....)`| The start and end line numbers of the extracted test method.               |
+| `filename`           | The full path to the JavaScript file.                                       |
+| `test`               | The extracted test method or an error message.                             |
+| `start: ... end: ....`| The start and end line numbers of the extracted test method.               |
 
 ### Example Output CSV
 ```csv
-A (filename),B (test),C (start: ... end: ....)
+filename,test,start: ... end: ....
 "/path/to/project/tests/unit/test.js","it('should do something', () => { ... });","start: 10 end: 20"
 "/path/to/project/tests/unit/cancelOnExit.test.js","Error: No test method found containing the specified line.",""
 ```

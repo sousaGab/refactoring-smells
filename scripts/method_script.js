@@ -132,31 +132,31 @@ function processCsv(inputCsv, outputCsv) {
 
         if (!filePath || !targetLine) {
           return {
-            'A (filename)': filePath || 'Invalid file path',
-            'B (test)': 'Error: Invalid "Lines" format',
-            'C (start: ... end: ....)': '',
+            'filename': filePath || 'Invalid file path',
+            'test': 'Error: Invalid "Lines" format',
+            'start: ... end: ...': '',
           };
         }
 
         const result = findParentTestMethod(filePath, targetLine);
         if (result.error) {
           return {
-            'A (filename)': filePath,
-            'B (test)': result.error,
-            'C (start: ... end: ....)': '',
+            'filename': filePath,
+            'test': result.error,
+            'start: ... end: ...': '',
           };
         }
 
         return {
-          'A (filename)': filePath,
-          'B (test)': result.test,
-          'C (start: ... end: ....)': `start: ${result.start} end: ${result.end}`,
+          'filename': filePath,
+          'test': result.test,
+          'start: ... end: ...': `start: ${result.start} end: ${result.end}`,
         };
       });
 
       const csvOutput = stringify(results, {
         header: true,
-        columns: ['A (filename)', 'B (test)', 'C (start: ... end: ....)'],
+        columns: ['filename', 'test', 'start: ... end: ...'],
       });
 
       fs.writeFileSync(outputCsv, csvOutput);
