@@ -40,3 +40,6 @@ debug/
 
 # Project specific
 projects/
+smell-detection-tools/SNUTS.js
+smell-detection-tools/steel
+smell-detection-tools/test-smell-detector-js
