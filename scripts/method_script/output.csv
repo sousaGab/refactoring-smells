@@ -1,0 +1,2775 @@
+filename,test,start: ... end: ...
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Resets internal status"", () => {
+    img.setAttribute(""src"", url200);
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(getStatus(img)).toBe(null);
+  });",start: 87 end: 92
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Restores original attributes"", () => {
+    img.setAttribute(""src"", url1);
+    img.setAttribute(""data-src"", url100);
+    img.setAttribute(""data-srcset"", url200);
+    img.setAttribute(""data-sizes"", sizes100);
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(img).toHaveAttribute(""src"", url1);
+    expect(img).not.toHaveAttribute(""srcset"");
+    expect(img).not.toHaveAttribute(""sizes"");
+  });",start: 61 end: 71
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Restores original attributes"", () => {
+    img.setAttribute(""src"", url1);
+    img.setAttribute(""data-src"", url100);
+    img.setAttribute(""data-srcset"", url200);
+    img.setAttribute(""data-sizes"", sizes100);
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(img).toHaveAttribute(""src"", url1);
+    expect(img).not.toHaveAttribute(""srcset"");
+    expect(img).not.toHaveAttribute(""sizes"");
+  });",start: 61 end: 71
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Restores original attributes"", () => {
+    img.setAttribute(""src"", url1);
+    img.setAttribute(""data-src"", url100);
+    img.setAttribute(""data-srcset"", url200);
+    img.setAttribute(""data-sizes"", sizes100);
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(img).toHaveAttribute(""src"", url1);
+    expect(img).not.toHaveAttribute(""srcset"");
+    expect(img).not.toHaveAttribute(""sizes"");
+  });",start: 61 end: 71
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Callbacks are called"", () => {
+    const cancelCb = jest.fn();
+    settings.callback_cancel = cancelCb;
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(cancelCb).toHaveBeenCalledTimes(1);
+    expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  });",start: 94 end: 101
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Callbacks are called"", () => {
+    const cancelCb = jest.fn();
+    settings.callback_cancel = cancelCb;
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(cancelCb).toHaveBeenCalledTimes(1);
+    expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  });",start: 94 end: 101
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,"  test(""Decreases loading count"", () => {
+    img.setAttribute(""src"", url200);
+    setSources(img, settings, instance);
+    cancelLoading(img, entry, settings, instance);
+    expect(instance.loadingCount).toBe(0);
+  });",start: 80 end: 85
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,"  test('decreaseToLoadCount decreases toLoadCount by 1', () => {
+    const mockInstance = { toLoadCount: 5 };
+    decreaseToLoadCount(mockInstance);
+    expect(mockInstance.toLoadCount).toBe(4);
+  });",start: 26 end: 30
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,"  test('setToLoadCount sets toLoadCount to the given value', () => {
+    const mockInstance = {};
+    setToLoadCount(mockInstance, 10);
+    expect(mockInstance.toLoadCount).toBe(10);
+  });",start: 32 end: 36
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,"  it(`should generate correct output for ${unitTest}`, async () => { 
+    const testDir = `${__dirname}/unit/${unitTest}`;
+    const expected = normalizeForWindows(fs.readFileSync(`${testDir}/output${coverage ? '-coverage' : ''}.js`, 'utf8'));
+    let expectedSourceMap;
+    try {
+      expectedSourceMap = normalizeForWindows(fs.readFileSync(`${testDir}/output${coverage ? '-coverage' : ''}.js.map`, 'utf8'));
+    } catch (_) {}
+
+    let opts;
+    try {
+      opts = fs.readFileSync(`${testDir}/opt.json`, 'utf8');
+      opts = JSON.parse(opts);
+    } catch (_) {}
+
+    // set env variable so tsconfig-paths can find the config
+    process.env.TS_NODE_PROJECT = `${testDir}/tsconfig.json`;
+    // find the name of the input file (e.g input.ts)
+    const inputFile = fs.readdirSync(testDir).find(file => file.includes(""input""));
+    await ncc(`${testDir}/${inputFile}`, Object.assign({
+      assetBuilds: true,
+      transpileOnly: true,
+      customEmit (path) {
+        if (path.endsWith('test.json'))
+          return false;
+      },
+      externals: {
+        'piscina': 'piscina',
+        'externaltest': 'externalmapped',
+        '/\\w+-regex/': 'regexexternal',
+        '/external-replace(/.*)/': 'external-replace/replaced$1'
+      }
+    }, opts)).then(
+      async ({ code, assets, map }) => {
+        if (unitTest.startsWith('bundle-subasset')) {
+          expect(assets['pi-bridge.js']).toBeDefined();
+          expect(assets['pi-bridge.js'].source.toString()).toContain('Math.PI');
+        }
+        if (unitTest.includes('sourcemap-register')) {
+          expect(assets['sourcemap-register.js']).toBeDefined()
+          expect(assets['sourcemap-register.js'].source.toString()).toEqual(fs.readFileSync(__dirname + '/../src/sourcemap-register.js.cache.js').toString())
+        }
+        if (unitTest.includes('minify') && !unitTest.includes('minify-err')) {
+          expect(assets['index.js.map']).toBeDefined()
+        }
+        const actual = normalizeForWindows(code);
+        try {
+          expect(actual).toBe(expected);
+        } catch (e) {
+          // useful for updating fixtures
+          fs.writeFileSync(`${testDir}/actual.js`, actual);
+          throw e;
+        }
+
+        if (map) {
+          const actualSourceMap = normalizeForWindows(map);
+          try {
+            expect(actualSourceMap).toBe(expectedSourceMap);
+          } catch (e) {
+            // useful for updating fixtures
+            fs.writeFileSync(`${testDir}/actual.js.map`, actualSourceMap);
+            throw e;
+          }
+        }
+      }
+    )
+  });",start: 15 end: 80
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,"it('Should support custom watch API', async () => {
+  let buildCnt = 0;
+  const buildFile = path.resolve('./test/integration/twilio.js');
+  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+
+  await new Promise((resolve, reject) => {
+    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+      expect(files._set.size).toBeGreaterThan(100);
+      if (buildCnt < 3) {
+        setTimeout(() => {
+          // NOTE: We actually have to make the change for the rebuild to happen!
+          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+          watcher.triggerChanges([buildFile], []);
+        }, 100);
+      }
+    }, function watchEnd () {
+      resolve();
+    });
+
+    console.time('First Build');
+    const { handler, rebuild, close } = ncc(buildFile, {
+      assetBuilds: true,
+      watch: watcher
+    });
+    
+    handler(({ err, code, map, assets, permissions }) => {
+      if (err) return reject(err);
+      buildCnt++;
+      if (buildCnt === 1) {
+        console.timeEnd('First Build');
+      }
+      else {
+        console.timeEnd('Watched Build');
+      }
+      if (buildCnt === 3) {
+        close();
+        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      }
+    });
+    rebuild(() => {
+      console.time('Watched Build');
+    });
+  });
+
+  fs.writeFileSync(buildFile, initialBuildFileContents);
+});",start: 112 end: 157
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/error-handler.test.js,"      it('throws an error', async () => {
+        expect(() => {
+          process.on = jest.fn().mockImplementation((event, error) => {
+            if (event === 'unhandledRejection') {
+              error({
+                message: `something-unhandled`,
+                code: 2000
+              });
+            }
+          });
+
+          const { runErrorHandler } = require('../error-handler');
+          runErrorHandler(mockLogger);
+        }).toThrow(`something-unhandled`);
+      });",start: 204 end: 218
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/error-handler.test.js,"      it('does not throws an error', async () => {
+        expect(() => {
+          process.on = jest.fn().mockImplementation((event, error) => {
+            if (event === 'uncaughtException') {
+              error({
+                message: `redlock:lock-XRPBUSD`,
+                code: 500
+              });
+            }
+          });
+
+          const { runErrorHandler } = require('../error-handler');
+          runErrorHandler(mockLogger);
+        }).not.toThrow();
+      });",start: 222 end: 236
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/frontend/webserver/handlers/__tests__/grid-trade-logs-export.test.js,"      it('keeps 10 logs in the folder', () => {
+        const files = fs.readdirSync(fileFolder);
+        expect(files.length).toBe(10);
+      });",start: 199 end: 202
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"      it('triggers refreshCandles', () => {
+        expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+          logger,
+          'trailing-trade-candles',
+          {}
+        );
+        expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+          logger,
+          'trailing-trade-ath-candles',
+          {}
+        );
+      });",start: 188 end: 199
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"      it('triggers refreshCandles', () => {
+        expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+          logger,
+          'trailing-trade-candles',
+          {}
+        );
+        expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+          logger,
+          'trailing-trade-ath-candles',
+          {}
+        );
+      });",start: 188 end: 199
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"    it('triggers refreshCandles', () => {
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+        logger,
+        'trailing-trade-candles',
+        {}
+      );
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+        logger,
+        'trailing-trade-ath-candles',
+        {}
+      );
+    });",start: 690 end: 701
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"    it('triggers refreshCandles', () => {
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+        logger,
+        'trailing-trade-candles',
+        {}
+      );
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+        logger,
+        'trailing-trade-ath-candles',
+        {}
+      );
+    });",start: 690 end: 701
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"      it('triggers cache.hset', () => {
+        expect(mockCache.hset).toHaveBeenCalledWith(
+          'trailing-trade-streams',
+          `count`,
+          1
+        );
+      });",start: 226 end: 232
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,"    it('triggers cache.hset', () => {
+      expect(mockCache.hset).toHaveBeenCalledWith(
+        'trailing-trade-streams',
+        `count`,
+        1
+      );
+    });",start: 735 end: 741
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-frontend.test.js,"        it('triggers status', () => {
+          expect(mockRateLimiterMiddlewareResStatus).toHaveBeenCalledWith(403);
+        });",start: 313 end: 315
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/binance/__tests__/orders.test.js,"      it('triggers clearInterval', () => {
+        expect(spyOnClearInterval).toHaveBeenCalledWith(33);
+      });",start: 136 end: 138
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/binance/__tests__/user.test.js,"      it('triggers updateAccountInfo', () => {
+        expect(mockUpdateAccountInfo).toHaveBeenCalledWith(
+          loggerMock,
+          [{ asset: 'ADA', free: '0.00000000', locked: '13.82000000' }],
+          1625585531721
+        );
+      });",start: 138 end: 144
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,"      it('triggers slack.sendMessage', () => {
+        expect(slackMock.sendMessage).toHaveBeenCalledWith(
+          expect.stringContaining('BTCUSDT'),
+          {
+            apiLimit: 0,
+            symbol: 'BTCUSDT'
+          }
+        );
+
+        expect(slackMock.sendMessage).toHaveBeenCalledWith(
+          expect.stringContaining(
+            'The bot queued to trigger the grid trade for buying'
+          ),
+          {
+            apiLimit: 0,
+            symbol: 'BTCUSDT'
+          }
+        );
+      });",start: 2468 end: 2486
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,"    it(""returns URL for patch releasing"", () => {
+      const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+      assert.equal(
+        result,
+        getExpectedReleaseUrl({
+          tag: ""2.3.1"",
+          title: ""2.3.1"",
+          body: ""🔗 [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md#231)"",
+        }),
+      );
+    });",start: 20 end: 30
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,"    it(""returns URL for minor releasing"", () => {
+      const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+      assert.equal(
+        result,
+        getExpectedReleaseUrl({
+          tag: ""2.4.0"",
+          title: ""2.4.0"",
+          body: [
+            ""[diff](https://github.com/prettier/prettier/compare/2.3.0...2.4.0)"",
+            `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(
+              ""/"",
+            )}/2.4.0)`,
+          ].join(""\n\n""),
+        }),
+      );
+    });",start: 32 end: 47
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,"    it(""returns URL for major releasing"", () => {
+      const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+      assert.equal(
+        result,
+        getExpectedReleaseUrl({
+          tag: ""2.3.0"",
+          title: ""2.3.0"",
+          body: [
+            ""[diff](https://github.com/prettier/prettier/compare/2.2.0...2.3.0)"",
+            `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(
+              ""/"",
+            )}/2.3.0)`,
+          ].join(""\n\n""),
+        }),
+      );
+    });",start: 49 end: 64
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,"  it(""returns true for existing version"", async () => {
+    assert.ok(await isVersionReleased(""1.0.0""));
+  });",start: 6 end: 8
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,"  it(""rejects for non-existing version"", async () => {
+    await assert.rejects(() => isVersionReleased(""999.0.0""), {
+      message: ""prettier@999.0.0 doesn't exit."",
+    });
+  });",start: 9 end: 13
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,"  it('should not fire a scroll if the value has not changed since the previous call', () => {
+    // this can happen if you scroll backward and forward super quick
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+    // tell the droppable to watch for scrolling
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    // watch scroll will only be called after the dimension is requested
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
+
+    // first event
+    scroll(container, { x: 500, y: 1000 });
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1000 },
+    );
+    // $ExpectError
+    marshal.updateDroppableScroll.mockReset();
+
+    // second event - scroll to same spot
+    scroll(container, { x: 500, y: 1000 });
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+
+    // third event - new value
+    scroll(container, { x: 500, y: 1001 });
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1001 },
+    );
+  });",start: 59 end: 100
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,"  it('should throttle multiple scrolls into a animation frame', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+    // tell the droppable to watch for scrolling
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    // watch scroll will only be called after the dimension is requested
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    // first event
+    scroll(container, { x: 500, y: 1000 });
+    // second event in same frame
+    scroll(container, { x: 200, y: 800 });
+
+    // release the update animation frame
+    requestAnimationFrame.step();
+
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 200, y: 800 },
+    );
+
+    // also checking that no loose frames are stored up
+    requestAnimationFrame.flush();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+  });",start: 134 end: 171
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,"  it('should not fire a scroll if the value has not changed since the previous frame', () => {
+    // this can happen if you scroll backward and forward super quick
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+    // tell the droppable to watch for scrolling
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    // watch scroll will only be called after the dimension is requested
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    // first event
+    scroll(container, { x: 500, y: 1000 });
+    // release the frame
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1000 },
+    );
+    // $ExpectError
+    marshal.updateDroppableScroll.mockReset();
+
+    // second event
+    scroll(container, { x: 501, y: 1001 });
+    // no frame to release change yet
+
+    // third event - back to original value
+    scroll(container, { x: 500, y: 1000 });
+    // release the frame
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+  });",start: 173 end: 215
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,"  it('should not publish a scroll update after requested not to update while an animation frame is occurring', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+    // tell the droppable to watch for scrolling
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    // watch scroll will only be called after the dimension is requested
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    // first event
+    scroll(container, { x: 500, y: 1000 });
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    // $ExpectError
+    marshal.updateDroppableScroll.mockReset();
+
+    // second event
+    scroll(container, { x: 400, y: 100 });
+    // no animation frame to release event fired yet
+
+    // unwatching before frame fired
+    callbacks.dragStopped();
+
+    // flushing any frames
+    requestAnimationFrame.flush();
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+  });",start: 217 end: 254
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,"it('should stop watching scroll when no longer required to publish', () => {
+  // this can happen if you scroll backward and forward super quick
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem />
+    </WithAppContext>,
+  );
+  const container: ?HTMLElement = wrapper
+    .find('.scroll-container')
+    .getDOMNode();
+  invariant(container);
+  // tell the droppable to watch for scrolling
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+
+  // watch scroll will only be called after the dimension is requested
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
+
+  // first event
+  scroll(container, { x: 500, y: 1000 });
+  expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+  // $ExpectError
+  marshal.updateDroppableScroll.mockReset();
+
+  callbacks.dragStopped();
+
+  // scroll event after no longer watching
+  scroll(container, { x: 190, y: 400 });
+  expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+});",start: 257 end: 288
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/health/src-file-name-convention.spec.js,"it('should have every prettier target following the file name convention', async () => {
+  const targets: string[] = pkg.config.prettier_target.split(' ');
+  const paths: string[] = await globby(targets);
+
+  invariant(
+    paths.length,
+    'Could not find files to test against file name convention',
+  );
+
+  paths.forEach((filePath: string) => {
+    if (exceptions.includes(filePath)) {
+      return;
+    }
+
+    const isMatching: boolean = isSnakeCase(filePath);
+
+    invariant(
+      isMatching,
+      `${filePath} does not follow the file path convention (snake-case.js) ${convention.toString()}`,
+    );
+
+    expect(isMatching).toBe(true);
+  });
+});",start: 18 end: 41
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/docs/content.spec.js,"it('should end all nested docs with a link back to the documentation root', async () => {
+  const files: string[] = await globby('docs/**/*.md');
+  expect(files.length).toBeGreaterThan(0);
+  const backLink: string =
+    '[← Back to documentation](/README.md#documentation-)';
+
+  for (const file of files) {
+    const contents: string = await fs.readFile(file, 'utf8');
+
+    // Printing a nice message to allow for quick fixing
+    const endsWithBacklink: boolean = contents.trim().endsWith(backLink);
+
+    if (!endsWithBacklink) {
+      expect(`
+        File: ""${file}""
+        Did not end with back link
+      `).toBe(true);
+    }
+
+    // need at least one assertion
+    expect(true).toBe(true);
+  }
+});",start: 8 end: 30
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,"it('should return false if an element has overflow:visible', () => {
+  ['overflowY', 'overflowX'].forEach((overflow: string) => {
+    const el: HTMLElement = document.createElement('div');
+    // $ExpectError - flow being mean
+    el.style[overflow] = 'visible';
+    expect(getClosestScrollable(el)).toBe(null);
+  });
+});",start: 16 end: 23
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,"  it('should warn if the body might be a scroll container', () => {
+    body.style.overflowX = 'auto';
+    html.style.overflowY = 'auto';
+
+    expect(getClosestScrollable(body)).toBe(null);
+    expect(console.warn).toHaveBeenCalled();
+  });",start: 60 end: 66
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,"  it('should not mark the body as a scroll container if it does not have any overflow set', () => {
+    body.style.overflowX = 'visible';
+    expect(getClosestScrollable(body)).toBe(null);
+    expect(console.warn).not.toHaveBeenCalled();
+  });",start: 68 end: 72
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,"  it('should not mark the body as a scroll container if the html element has visible overflow', () => {
+    body.style.overflowX = 'auto';
+    html.style.overflowY = 'visible';
+    expect(getClosestScrollable(body)).toBe(null);
+    expect(console.warn).not.toHaveBeenCalled();
+  });",start: 74 end: 79
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/placeholder/animated-mount.spec.js,"it('should animate a mount', () => {
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      contextId={contextId}
+      animate=""open""
+      placeholder={placeholder}
+      onClose={jest.fn()}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+
+  expect(getCreatePlaceholderCalls().length).toBe(1);
+
+  // first call had an empty size
+  const onMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  expectIsEmpty(onMount);
+
+  // Will trigger a .setState
+  act(() => {
+    jest.runOnlyPendingTimers();
+  });
+
+  // tell enzyme that something has changed
+  wrapper.update();
+
+  const postMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  expectIsFull(postMount);
+});",start: 31 end: 58
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/state/middleware/responders/announcements.spec.js,"    it('should announce with the default message if no responder is provided', () => {
+      // This test is not relevant for onDragEnd as it must always be provided
+      if (current.responder === 'onDragEnd') {
+        expect(true).toBe(true);
+        return;
+      }
+      // unsetting responder
+      responders[current.responder] = undefined;
+      current.execute(store);
+      expect(announce).toHaveBeenCalledWith(current.defaultMessage);
+    });",start: 141 end: 151
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,"it('should recover from rbd errors', () => {
+  let hasThrown: boolean = false;
+  function CanThrow(props: { shouldThrow: boolean }) {
+    if (!hasThrown && props.shouldThrow) {
+      hasThrown = true;
+      invariant(false, 'throwing');
+    }
+    return null;
+  }
+
+  const { rerender, getByTestId } = render(
+    <App anotherChild={<CanThrow shouldThrow={false} />} />,
+  );
+
+  simpleLift(keyboard, getByTestId('0'));
+  expect(isDragging(getByTestId('0'))).toBe(true);
+
+  withError(() => {
+    rerender(<App anotherChild={<CanThrow shouldThrow />} />);
+  });
+
+  expect(isDragging(getByTestId('0'))).toBe(false);
+});",start: 10 end: 32
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,"it('should not recover from non-rbd errors', () => {
+  let hasThrown: boolean = false;
+  function CanThrow(props: { shouldThrow: boolean }) {
+    if (!hasThrown && props.shouldThrow) {
+      hasThrown = true;
+      throw new Error('Boom');
+    }
+    return null;
+  }
+
+  const { rerender, getByTestId } = render(
+    <App anotherChild={<CanThrow shouldThrow={false} />} />,
+  );
+
+  simpleLift(keyboard, getByTestId('0'));
+  expect(isDragging(getByTestId('0'))).toBe(true);
+
+  withError(() => {
+    expect(() => {
+      rerender(<App anotherChild={<CanThrow shouldThrow />} />);
+    }).toThrow();
+  });
+});",start: 34 end: 56
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/dev-warning.spec.js,"it('should not log a warning if warnings are disabled', () => {
+  window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+
+  warning('hey');
+  warning('sup');
+  warning('hi');
+
+  expect(warn).not.toHaveBeenCalled();
+
+  // re-enable
+
+  window['__react-beautiful-dnd-disable-dev-warnings'] = false;
+
+  warning('hey');
+
+  expect(warn).toHaveBeenCalled();
+});",start: 16 end: 32
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/dev-warning.spec.js,"it('should not log a warning if warnings are disabled', () => {
+  window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+
+  warning('hey');
+  warning('sup');
+  warning('hi');
+
+  expect(warn).not.toHaveBeenCalled();
+
+  // re-enable
+
+  window['__react-beautiful-dnd-disable-dev-warnings'] = false;
+
+  warning('hey');
+
+  expect(warn).toHaveBeenCalled();
+});",start: 16 end: 32
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,"  it('should register itself when mounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+    expect(registerSpy).toHaveBeenCalledTimes(1);
+    expect(registerSpy).toHaveBeenCalledWith(expected);
+  });",start: 87 end: 102
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,"  it('should register itself when mounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+    expect(registerSpy).toHaveBeenCalledTimes(1);
+    expect(registerSpy).toHaveBeenCalledWith(expected);
+  });",start: 87 end: 102
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-draggable-publisher.spec.js,"  it('should unregister itself when unmounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    const unregisterSpy = jest.spyOn(registry.draggable, 'unregister');
+    const wrapper = mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+
+    expect(unregisterSpy).not.toHaveBeenCalled();
+    expect(registerSpy).toHaveBeenCalledTimes(1);
+    expect(registerSpy).toHaveBeenCalledWith(expected);
+    const entry = registerSpy.mock.calls[0][0];
+    expect(entry).toEqual(expected);
+
+    wrapper.unmount();
+    expect(unregisterSpy).toHaveBeenCalledTimes(1);
+    expect(unregisterSpy.mock.calls[0][0]).toBe(entry);
+  });",start: 104 end: 128
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/announcer.spec.js,"it('should apply the appropriate aria attributes and non visibility styles', () => {
+  render(<WithAnnouncer contextId=""5"">{getMock()}</WithAnnouncer>);
+
+  const el: ?HTMLElement = getElement('5');
+  invariant(el, 'Cannot find node');
+
+  expect(el.getAttribute('aria-live')).toBe('assertive');
+  expect(el.getAttribute('aria-atomic')).toBe('true');
+
+  // not checking all the styles - just enough to know we are doing something
+  expect(el.style.overflow).toBe('hidden');
+});",start: 36 end: 47
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/announcer.spec.js,"it('should set the text content of the announcement element', () => {
+  // arrange
+  const mock = getMock();
+  render(<WithAnnouncer contextId=""6"">{mock}</WithAnnouncer>);
+  const el: ?HTMLElement = getElement('6');
+  invariant(el, 'Could not find announcer');
+
+  // act
+  const announce: Announce = getAnnounce(mock);
+  announce('test');
+
+  // assert
+  expect(el.textContent).toBe('test');
+});",start: 62 end: 75
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,"it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: 100, y: 100 })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",start: 31 end: 70
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,"it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: 100, y: 100 })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",start: 31 end: 70
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,"it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: 100, y: 100 })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",start: 31 end: 70
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,"it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: 100, y: 100 })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",start: 31 end: 70
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,"it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: 100, y: 100 })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",start: 31 end: 70
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/placeholder/on-close.spec.js,"it('should not fire an onClose if not closing when a transitionend occurs', () => {
+  const onClose = jest.fn();
+
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      animate=""none""
+      contextId=""1""
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+  const assert = () => {
+    // $ExpectError - not a complete event
+    const height: TransitionEvent = {
+      propertyName: 'height',
+    };
+    wrapper.simulate('transitionend', height);
+    expect(onClose).not.toHaveBeenCalled();
+    onClose.mockClear();
+  };
+  expectIsFull(getPlaceholderStyle(wrapper));
+  assert();
+
+  wrapper.setProps({ animate: 'open' });
+  assert();
+});",start: 50 end: 76
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/placeholder/on-close.spec.js,"it('should not fire an onClose if not closing when a transitionend occurs', () => {
+  const onClose = jest.fn();
+
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      animate=""none""
+      contextId=""1""
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+  const assert = () => {
+    // $ExpectError - not a complete event
+    const height: TransitionEvent = {
+      propertyName: 'height',
+    };
+    wrapper.simulate('transitionend', height);
+    expect(onClose).not.toHaveBeenCalled();
+    onClose.mockClear();
+  };
+  expectIsFull(getPlaceholderStyle(wrapper));
+  assert();
+
+  wrapper.setProps({ animate: 'open' });
+  assert();
+});",start: 50 end: 76
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,"  it('should collect and publish the draggables', () => {
+    const beforeInHome1: DraggableDimension = {
+      ...preset.inHome1,
+      descriptor: {
+        ...preset.inHome1.descriptor,
+        id: 'addition1',
+        index: 0,
+      },
+    };
+    const beforeInHome2: DraggableDimension = {
+      ...preset.inHome2,
+      descriptor: {
+        ...preset.inHome2.descriptor,
+        id: 'addition2',
+        index: 1,
+      },
+    };
+    const registry: Registry = createRegistry();
+    const callbacks: Callbacks = getCallbacksStub();
+    const marshal: DimensionMarshal = createDimensionMarshal(
+      registry,
+      callbacks,
+    );
+    populate(registry, withScrollables);
+
+    // A publish has started
+    marshal.startPublishing(defaultRequest);
+    expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+    registry.draggable.register(
+      getDraggableEntry({ dimension: beforeInHome1 }),
+    );
+    registry.draggable.register(
+      getDraggableEntry({ dimension: beforeInHome2 }),
+    );
+    expect(callbacks.collectionStarting).toHaveBeenCalled();
+    expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+    // Fire the collection / publish step
+    requestAnimationFrame.step();
+    const expected: Published = {
+      ...empty,
+      additions: [beforeInHome1, beforeInHome2],
+      modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
+    };
+    expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
+  });",start: 112 end: 158
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,"  it('should not do anything if trying to add a draggable that does not have the same type as the dragging item', () => {
+    const callbacks: Callbacks = getCallbacksStub();
+    const registry: Registry = createRegistry();
+    const marshal: DimensionMarshal = createDimensionMarshal(
+      registry,
+      callbacks,
+    );
+    populate(registry, withScrollables);
+
+    // A publish has started
+    marshal.startPublishing(defaultRequest);
+    expect(callbacks.collectionStarting).not.toHaveBeenCalled();
+
+    // Registering a new draggable (inserted before inHome1)
+
+    registry.draggable.register(
+      getDraggableEntry({ dimension: inAnotherType }),
+    );
+    expect(callbacks.collectionStarting).not.toHaveBeenCalled();
+  });",start: 160 end: 179
+/home/gabriel/Desktop/research/projects/react-beautiful-dnd/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,"  it('should order published draggables by their index', () => {
+    const beforeInHome1: DraggableDimension = {
+      ...preset.inHome1,
+      descriptor: {
+        ...preset.inHome1.descriptor,
+        id: 'b',
+        index: 0,
+      },
+    };
+    const beforeInHome2: DraggableDimension = {
+      ...preset.inHome2,
+      descriptor: {
+        ...preset.inHome2.descriptor,
+        // if ordered by a key, this would be first
+        id: 'a',
+        index: 1,
+      },
+    };
+    const callbacks: Callbacks = getCallbacksStub();
+    const registry: Registry = createRegistry();
+    const marshal: DimensionMarshal = createDimensionMarshal(
+      registry,
+      callbacks,
+    );
+    populate(registry, withScrollables);
+
+    // A publish has started
+    marshal.startPublishing(defaultRequest);
+    expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+    // publishing the higher index value first
+    registry.draggable.register(
+      getDraggableEntry({ dimension: beforeInHome2 }),
+    );
+    // publishing the lower index value second
+    registry.draggable.register(
+      getDraggableEntry({ dimension: beforeInHome1 }),
+    );
+    expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+    // Fire the collection / publish step
+    requestAnimationFrame.step();
+    const expected: Published = {
+      ...empty,
+      // we expect this to be ordered by index
+      additions: [beforeInHome1, beforeInHome2],
+      modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
+    };
+    expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
+  });",start: 181 end: 230
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,"    it(""resolves the promise"", async () => {
+      expect(loadResult).toBeAPromise();
+      await expect(loadResult).resolves.toBe(true);
+    });",start: 25 end: 28
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,"    it(""resolves the promise"", async () => {
+      expect(loadResult).toBeAPromise();
+      await expect(loadResult).resolves.toBe(true);
+    });",start: 25 end: 28
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,"  test(""typing/deleting different area codes should update the selected country"", async () => {
+    // typing area code starting with 1 changes to Russia
+    await user.type(input, ""1"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // deleting area code keeps Russia selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // typing area code starting with 7 changes to Kazakhstan
+    await user.type(input, ""7"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+
+    // deleting area code keeps Kazakhstan selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+  });",start: 153 end: 169
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,"  test(""typing/deleting different area codes should update the selected country"", async () => {
+    // typing area code starting with 1 changes to Russia
+    await user.type(input, ""1"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // deleting area code keeps Russia selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // typing area code starting with 7 changes to Kazakhstan
+    await user.type(input, ""7"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+
+    // deleting area code keeps Kazakhstan selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+  });",start: 153 end: 169
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,"  test(""typing/deleting different area codes should update the selected country"", async () => {
+    // typing area code starting with 1 changes to Russia
+    await user.type(input, ""1"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // deleting area code keeps Russia selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""ru"")).toBe(true);
+
+    // typing area code starting with 7 changes to Kazakhstan
+    await user.type(input, ""7"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+
+    // deleting area code keeps Kazakhstan selected
+    await user.type(input, ""{backspace}"");
+    expect(checkFlagSelected(container, ""kz"")).toBe(true);
+  });",start: 153 end: 169
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,"  test(""instances have different country lists"", () => {
+    expect(getCountryListLength(container1)).toEqual(2);
+    expect(getCountryListLength(container2)).toEqual(4);
+  });",start: 34 end: 37
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,"  test(""instances have different country lists"", () => {
+    expect(getCountryListLength(container1)).toEqual(2);
+    expect(getCountryListLength(container2)).toEqual(4);
+  });",start: 34 end: 37
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/countrySearch.test.js,"    test(""shows the right number of results"", () => {
+      expect(getCountryListLength(container)).toBe(6);
+    });",start: 54 end: 56
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,"  test(""undefined shorthand updates the record and returns the model"", () => {
+    let handler = new PutShorthandRouteHandler(
+      schema,
+      serializer,
+      undefined,
+      ""/authors/:id""
+    );
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1"",
+      params: { id: ""1"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model instanceof Model).toBeTruthy();
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganondorf"");
+  });",start: 40 end: 59
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,"  test(""query params are ignored"", () => {
+    let handler = new PutShorthandRouteHandler(schema, serializer, ""author"");
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1?foo=bar"",
+      params: { id: ""1"" },
+      queryParams: { foo: ""bar"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model instanceof Model).toBeTruthy();
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganondorf"");
+  });",start: 61 end: 76
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,"  test(""string shorthand updates the record of the specified type and returns the model"", () => {
+    let handler = new PutShorthandRouteHandler(
+      schema,
+      serializer,
+      undefined,
+      ""/authors/:id""
+    );
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1"",
+      params: { id: ""1"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model instanceof Model).toBeTruthy();
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganondorf"");
+  });",start: 78 end: 97
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,"  test(""string shorthand creates a record of the specified type and returns the new model"", () => {
+    let request = { requestBody: JSON.stringify(body), url: ""/people"" };
+    let handler = new PostShorthandRouteHandler(schema, serializer, ""author"");
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model instanceof Model).toBeTruthy();
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganon"");
+  });",start: 35 end: 45
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,"  test(""query params are ignored"", () => {
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors?foo=bar"",
+      queryParams: { foo: ""bar"" },
+    };
+    let handler = new PostShorthandRouteHandler(schema, serializer, ""author"");
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model instanceof Model).toBeTruthy();
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganon"");
+  });",start: 47 end: 61
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let article = server.create(""article"", ""withCategory"");
+
+    expect(article.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""1"",
+      authorId: ""1"",
+      awesomeCategoryId: ""1"",
+    });
+    expect(server.db.authors).toHaveLength(1);
+    expect(server.db.categories).toHaveLength(1);
+
+    let anotherArticle = server.create(""article"", ""withCategory"");
+    expect(anotherArticle.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""2"",
+      authorId: ""2"",
+      awesomeCategoryId: ""2"",
+    });
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",start: 578 end: 636
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let article = server.create(""article"", ""withCategory"");
+
+    expect(article.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""1"",
+      authorId: ""1"",
+      awesomeCategoryId: ""1"",
+    });
+    expect(server.db.authors).toHaveLength(1);
+    expect(server.db.categories).toHaveLength(1);
+
+    let anotherArticle = server.create(""article"", ""withCategory"");
+    expect(anotherArticle.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""2"",
+      authorId: ""2"",
+      awesomeCategoryId: ""2"",
+    });
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",start: 578 end: 636
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let article = server.create(""article"", ""withCategory"");
+
+    expect(article.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""1"",
+      authorId: ""1"",
+      awesomeCategoryId: ""1"",
+    });
+    expect(server.db.authors).toHaveLength(1);
+    expect(server.db.categories).toHaveLength(1);
+
+    let anotherArticle = server.create(""article"", ""withCategory"");
+    expect(anotherArticle.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""2"",
+      authorId: ""2"",
+      awesomeCategoryId: ""2"",
+    });
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",start: 578 end: 636
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let article = server.create(""article"", ""withCategory"");
+
+    expect(article.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""1"",
+      authorId: ""1"",
+      awesomeCategoryId: ""1"",
+    });
+    expect(server.db.authors).toHaveLength(1);
+    expect(server.db.categories).toHaveLength(1);
+
+    let anotherArticle = server.create(""article"", ""withCategory"");
+    expect(anotherArticle.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""2"",
+      authorId: ""2"",
+      awesomeCategoryId: ""2"",
+    });
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",start: 578 end: 636
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""routes return pretender handler"", () => {
+    let server = new Server({ environment: ""test"" });
+
+    let handler = server.post(""foo"");
+
+    expect(handler.numberOfCalls).toBe(0);
+
+    server.shutdown();
+  });",start: 21 end: 29
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""routes return pretender handler"", async () => {
+    let server = createServer({ environment: ""test"" });
+
+    let handler = server.post(""foo"");
+
+    expect(handler.numberOfCalls).toBe(0);
+
+    server.shutdown();
+  });",start: 54 end: 62
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""forces timing to be 0 in test environment"", async () => {
+    let server = createServer({ environment: ""test"" });
+
+    expect(server.timing).toBe(0);
+
+    server.shutdown();
+  });",start: 77 end: 83
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""allows setting the timing to 0"", async () => {
+    let server = createServer({ timing: 0 });
+
+    expect(server.timing).toBe(0);
+
+    server.shutdown();
+  });",start: 85 end: 91
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/server-test.js,"  test(""forces timing to 0 in test environment"", () => {
+    let server = new Server({ environment: ""test"" });
+
+    server.loadConfig(function () {
+      this.timing = 50;
+    });
+
+    expect(server.timing).toBe(0);
+
+    server.shutdown();
+  });",start: 95 end: 105
+/home/gabriel/Desktop/research/projects/miragejs/__tests__/internal/unit/schema-test.js,"  test(""`first()` returns null when nothing is found"", () => {
+    expect.assertions(2);
+
+    let db = new Db();
+    let schema = new Schema(db);
+
+    let authorModel = Model.extend({});
+    schema.registerModel(""author"", authorModel);
+
+    expect(schema.first(""author"")).toBeNull();
+
+    let record = schema.create(""author"", { id: 1, name: ""Mary Roach"" });
+
+    expect(schema.first(""author"")).toEqual(record);
+  });",start: 33 end: 47
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/uiframe.test.js,"    it("""", () => {
+        uiframe.default();
+    });",start: 42 end: 44
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBe(undefined);
+        expect(document.execCommand).toHaveBeenCalledTimes(0);
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        expect(normal.mappings.find('of').meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",start: 62 end: 76
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""render markdown from clipboard"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+        const links = document.querySelectorAll(""a"");
+        expect(links.length).toBe(2);
+        expect(links[0].href).toBe(""https://github.com/"");
+    });",start: 78 end: 90
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: 100, height: 10, top: 100 * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBe(null);
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+        expect(hint_labels.length).toBe(2);
+        expect(hint_labels[0].label).toBe(""A"");
+        expect(hint_labels[1].label).toBe(""S"");
+    });",start: 92 end: 118
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: 100, height: 10, top: 100 * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBe(null);
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+        expect(hint_labels.length).toBe(2);
+        expect(hint_labels[0].label).toBe(""A"");
+        expect(hint_labels[1].label).toBe(""S"");
+    });",start: 92 end: 118
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,"    test(""normal /"", async () => {
+        normal.enter();
+        await new Promise((r) => {
+            document.addEventListener(""surfingkeys:front"", function(evt) {
+                if (evt.detail.length && evt.detail[0] === ""openFinder"") {
+                    r(evt);
+                }
+            });
+            document.body.dispatchEvent(new KeyboardEvent('keydown',{'key':'/'}));
+        });
+    });",start: 25 end: 35
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,"    test(""normal mouse up"", async () => {
+        runtime.conf.mouseSelectToQuery = [ ""http://localhost"" ];
+        await new Promise((r) => {
+            document.addEventListener(""surfingkeys:front"", function(evt) {
+                if (evt.detail.length && evt.detail[0] === ""querySelectedWord"") {
+                    r(evt);
+                }
+            });
+            document.body.dispatchEvent(new MouseEvent('mouseup', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                button: 0
+            }));
+        });
+    });",start: 62 end: 77
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBe(undefined);
+        expect(document.execCommand).toHaveBeenCalledTimes(0);
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        expect(normal.mappings.find('of').meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",start: 62 end: 76
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBe(undefined);
+        expect(document.execCommand).toHaveBeenCalledTimes(0);
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        expect(normal.mappings.find('of').meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",start: 62 end: 76
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""render markdown from clipboard"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+        const links = document.querySelectorAll(""a"");
+        expect(links.length).toBe(2);
+        expect(links[0].href).toBe(""https://github.com/"");
+    });",start: 78 end: 90
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,"    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: 100, height: 10, top: 100 * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBe(null);
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+        expect(hint_labels.length).toBe(2);
+        expect(hint_labels[0].label).toBe(""A"");
+        expect(hint_labels[1].label).toBe(""S"");
+    });",start: 92 end: 118
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,"    test(""toggle Omnibar's position"", async () => {
+        const elmOmnibarClass = document.getElementById(""sk_omnibar"").classList;
+        window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+        await new Promise((r) => setTimeout(r, 100));
+        expect(elmOmnibarClass.value).toContain('sk_omnibar_middle');
+        Mode.handleMapKey.call(omnibar, {
+            sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+        });
+        await new Promise((r) => setTimeout(r, 100));
+        expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
+    });",start: 76 end: 86
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,"    test(""toggle Omnibar's position"", async () => {
+        const elmOmnibarClass = document.getElementById(""sk_omnibar"").classList;
+        window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+        await new Promise((r) => setTimeout(r, 100));
+        expect(elmOmnibarClass.value).toContain('sk_omnibar_middle');
+        Mode.handleMapKey.call(omnibar, {
+            sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+        });
+        await new Promise((r) => setTimeout(r, 100));
+        expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
+    });",start: 76 end: 86
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/frontend.test.js,"    test('show omnibar', async () => {
+        const elmOmnibarStyle = document.getElementById(""sk_omnibar"").style;
+        expect(elmOmnibarStyle).toHaveProperty('display', 'none');
+        await waitForEvent(window, ""message"", (_msg) => {
+            return _msg.surfingkeys_uihost_data && _msg.surfingkeys_uihost_data.action === ""setFrontFrame"";
+        }, () => {
+            window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""SearchEngine"", extra: ""b"" }}, document.location.origin);
+        });
+        expect(elmOmnibarStyle).not.toHaveProperty('display', 'none');
+    });",start: 38 end: 47
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(element).toHaveClass('tether-element');
+      expect(element).not.toHaveClass('tether-target');
+
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+      expect(target).toHaveClass('tether-target');
+      expect(target).not.toHaveClass('tether-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 46 end: 70
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(element).toHaveClass('tether-element');
+      expect(element).not.toHaveClass('tether-target');
+
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+      expect(target).toHaveClass('tether-target');
+      expect(target).not.toHaveClass('tether-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 46 end: 70
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(element).toHaveClass('tether-element');
+      expect(element).not.toHaveClass('tether-target');
+
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+      expect(target).toHaveClass('tether-target');
+      expect(target).not.toHaveClass('tether-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 46 end: 70
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(element).toHaveClass('tether-element');
+      expect(element).not.toHaveClass('tether-target');
+
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+      expect(target).toHaveClass('tether-target');
+      expect(target).not.toHaveClass('tether-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 46 end: 70
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('gets prefixed classes when classPrefix set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right',
+        classPrefix: 'foo'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - foo classes added').toEqual(12);
+      expect(element).toHaveClass('foo-element');
+      expect(element).not.toHaveClass('foo-target');
+
+      expect(target.classList.length, 'target - foo classes added').toEqual(12);
+      expect(target).toHaveClass('foo-target');
+      expect(target).not.toHaveClass('foo-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 72 end: 97
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('removes classes on destroy', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 23 end: 42
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('removes classes on destroy', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 23 end: 42
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('removes classes on destroy', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 23 end: 42
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('removes classes on destroy', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 23 end: 42
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,"    it('removes classes on destroy', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+        element: '.element',
+        target: '.target',
+        attachment: 'top left',
+        targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(12);
+      expect(target.classList.length, 'target - tether classes added').toEqual(12);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",start: 23 end: 42
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,"    it('top left', () => {
+      expect(attachmentToOffset({ left: 'left', top: 'top' })).toStrictEqual({ left: 0, top: 0 });
+    });",start: 13 end: 15
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,"    it('middle center', () => {
+      expect(attachmentToOffset({ left: 'center', top: 'middle' })).toStrictEqual({ left: '50%', top: '50%' });
+    });",start: 17 end: 19
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,"    it('bottom right', () => {
+      expect(attachmentToOffset({ left: 'right', top: 'bottom' })).toStrictEqual({ left: '100%', top: '100%' });
+    });",start: 21 end: 23
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,"    it('mirror left', () => {
+      expect(autoToFixedAttachment(
+        { left: 'auto', top: 'top' },
+        { left: 'left', top: 'top' }
+      )).toStrictEqual({ left: 'right', top: 'top' });
+    });",start: 27 end: 32
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,"    it('mirror center', () => {
+      expect(autoToFixedAttachment(
+        { left: 'auto', top: 'top' },
+        { left: 'center', top: 'top' }
+      )).toStrictEqual({ left: 'center', top: 'top' });
+    });",start: 34 end: 39
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build some surrogate pairs"", function() {
+        let wideCharStr = """";
+        wideCharStr += String.fromCharCode(0xD835, 0xDC00);   // bold A
+        wideCharStr += String.fromCharCode(0xD835, 0xDC68);   // bold italic A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD04);   // Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD6C);   // bold Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD38);   // double-struck
+        wideCharStr += String.fromCharCode(0xD835, 0xDC9C);   // script A
+        wideCharStr += String.fromCharCode(0xD835, 0xDDA0);   // sans serif A
+        wideCharStr += String.fromCharCode(0xD835, 0xDDD4);   // bold sans A
+        wideCharStr += String.fromCharCode(0xD835, 0xDE08);   // italic sans A
+        wideCharStr += String.fromCharCode(0xD835, 0xDE70);   // monospace A
+        wideCharStr += String.fromCharCode(0xD835, 0xDFCE);   // bold zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFE2);   // sans serif zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFEC);   // bold sans zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFF6);   // monospace zero
+        expect(wideCharStr).toBuild(strictSettings);
+
+        let wideCharText = ""\text{"";
+        wideCharText += String.fromCharCode(0xD835, 0xDC00);   // bold A
+        wideCharText += String.fromCharCode(0xD835, 0xDC68);   // bold italic A
+        wideCharText += String.fromCharCode(0xD835, 0xDD04);   // Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD6C);    // bold Fraktur A
+        wideCharText += String.fromCharCode(0xD835, 0xDD38);   // double-struck
+        wideCharText += String.fromCharCode(0xD835, 0xDC9C);   // script A
+        wideCharText += String.fromCharCode(0xD835, 0xDDA0);   // sans serif A
+        wideCharText += String.fromCharCode(0xD835, 0xDDD4);   // bold sans A
+        wideCharText += String.fromCharCode(0xD835, 0xDE08);   // italic sans A
+        wideCharText += String.fromCharCode(0xD835, 0xDE70);   // monospace A
+        wideCharText += String.fromCharCode(0xD835, 0xDFCE);   // bold zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFE2);   // sans serif zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFEC);   // bold sans zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFF6);   // monospace zero
+        wideCharText += ""}"";
+        expect(wideCharText).toBuild(strictSettings);
+    });",start: 4010 end: 4045
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            let group = parse[i];
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(1);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        }
+    });",start: 86 end: 102
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            let group = parse[i];
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(1);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        }
+    });",start: 86 end: 102
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should parse comments before and between \\hline"", () => {
+        expect(""\\begin{matrix}a&b\\\\ %hline\n"" +
+            ""\\hline %hline\n"" +
+            ""\\hline c&d\\end{matrix}"").toParse();
+    });",start: 1758 end: 1762
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should render wide characters with mord and with the correct font"", function() {
+        const markup = katex.renderToString(String.fromCharCode(0xD835, 0xDC00));
+        expect(markup).toContain(""<span class=\""mord mathbf\"">A</span>"");
+
+        expect(String.fromCharCode(0xD835, 0xDC00) +
+                "" = "" + String.fromCharCode(0xD835, 0xDC1A))
+            .toBuildLike`\mathbf A = \mathbf a`;
+    });",start: 1890 end: 1897
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should contain affected position and length information"", function() {
+        try {
+            katex.renderToString(""1 + \\fraq{}{}"");
+
+            // Render is expected to throw, so this should not be called.
+            expect(true).toBe(false);
+        } catch (error) {
+            expect(error).toBeInstanceOf(ParseError);
+            expect(error.message).toBe(""KaTeX parse error: Undefined control sequence: \\fraq at position 5: 1 + \\̲f̲r̲a̲q̲{}{}"");
+            expect(error.rawMessage).toBe(""Undefined control sequence: \\fraq"");
+            expect(error.position).toBe(4);
+            expect(error.length).toBe(5);
+        }
+    });",start: 3156 end: 3169
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should contain position and length information at end of input"", function() {
+        try {
+            katex.renderToString(""\\frac{}"");
+
+            // Render is expected to throw, so this should not be called.
+            expect(true).toBe(false);
+        } catch (error) {
+            expect(error).toBeInstanceOf(ParseError);
+            expect(error.message).toBe(""KaTeX parse error: Unexpected end of input in a macro argument, expected '}' at end of input: \\frac{}"");
+            expect(error.rawMessage).toBe(""Unexpected end of input in a macro argument, expected '}'"");
+            expect(error.position).toBe(7);
+            expect(error.length).toBe(0);
+        }
+    });",start: 3171 end: 3184
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build some surrogate pairs"", function() {
+        let wideCharStr = """";
+        wideCharStr += String.fromCharCode(0xD835, 0xDC00);   // bold A
+        wideCharStr += String.fromCharCode(0xD835, 0xDC68);   // bold italic A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD04);   // Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD6C);   // bold Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD38);   // double-struck
+        wideCharStr += String.fromCharCode(0xD835, 0xDC9C);   // script A
+        wideCharStr += String.fromCharCode(0xD835, 0xDDA0);   // sans serif A
+        wideCharStr += String.fromCharCode(0xD835, 0xDDD4);   // bold sans A
+        wideCharStr += String.fromCharCode(0xD835, 0xDE08);   // italic sans A
+        wideCharStr += String.fromCharCode(0xD835, 0xDE70);   // monospace A
+        wideCharStr += String.fromCharCode(0xD835, 0xDFCE);   // bold zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFE2);   // sans serif zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFEC);   // bold sans zero
+        wideCharStr += String.fromCharCode(0xD835, 0xDFF6);   // monospace zero
+        expect(wideCharStr).toBuild(strictSettings);
+
+        let wideCharText = ""\text{"";
+        wideCharText += String.fromCharCode(0xD835, 0xDC00);   // bold A
+        wideCharText += String.fromCharCode(0xD835, 0xDC68);   // bold italic A
+        wideCharText += String.fromCharCode(0xD835, 0xDD04);   // Fraktur A
+        wideCharStr += String.fromCharCode(0xD835, 0xDD6C);    // bold Fraktur A
+        wideCharText += String.fromCharCode(0xD835, 0xDD38);   // double-struck
+        wideCharText += String.fromCharCode(0xD835, 0xDC9C);   // script A
+        wideCharText += String.fromCharCode(0xD835, 0xDDA0);   // sans serif A
+        wideCharText += String.fromCharCode(0xD835, 0xDDD4);   // bold sans A
+        wideCharText += String.fromCharCode(0xD835, 0xDE08);   // italic sans A
+        wideCharText += String.fromCharCode(0xD835, 0xDE70);   // monospace A
+        wideCharText += String.fromCharCode(0xD835, 0xDFCE);   // bold zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFE2);   // sans serif zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFEC);   // bold sans zero
+        wideCharText += String.fromCharCode(0xD835, 0xDFF6);   // monospace zero
+        wideCharText += ""}"";
+        expect(wideCharText).toBuild(strictSettings);
+    });",start: 4010 end: 4045
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            let group = parse[i];
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(1);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        }
+    });",start: 86 end: 102
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""supportedCodepoint() should return the correct values"", () => {
+        for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            expect(supportedCodepoint(codepoint)).toBe(
+                allRegExp.test(String.fromCharCode(codepoint))
+            );
+        }
+    });",start: 143 end: 149
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,"    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(supportedCodepoint(codepoint)).toBe(false);
+        }
+    });",start: 151 end: 166
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a frac"", function() {
+        let parse;
+
+        parse = getParsed(simpleOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        parse = getParsed(complexOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        const parseBraceFrac = getParsed(braceFrac)[0];
+
+        expect(parseBraceFrac.type).toEqual(""genfrac"");
+        expect(parseBraceFrac.numer).toBeDefined();
+        expect(parseBraceFrac.denom).toBeDefined();
+        expect(parseBraceFrac.leftDelim).toBeDefined();
+        expect(parseBraceFrac.rightDelim).toBeDefined();
+
+        const parseBrackFrac = getParsed(brackFrac)[0];
+
+        expect(parseBrackFrac.type).toEqual(""genfrac"");
+        expect(parseBrackFrac.numer).toBeDefined();
+        expect(parseBrackFrac.denom).toBeDefined();
+        expect(parseBrackFrac.leftDelim).toBeDefined();
+        expect(parseBrackFrac.rightDelim).toBeDefined();
+    });",start: 569 end: 599
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a frac"", function() {
+        let parse;
+
+        parse = getParsed(simpleOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        parse = getParsed(complexOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        const parseBraceFrac = getParsed(braceFrac)[0];
+
+        expect(parseBraceFrac.type).toEqual(""genfrac"");
+        expect(parseBraceFrac.numer).toBeDefined();
+        expect(parseBraceFrac.denom).toBeDefined();
+        expect(parseBraceFrac.leftDelim).toBeDefined();
+        expect(parseBraceFrac.rightDelim).toBeDefined();
+
+        const parseBrackFrac = getParsed(brackFrac)[0];
+
+        expect(parseBrackFrac.type).toEqual(""genfrac"");
+        expect(parseBrackFrac.numer).toBeDefined();
+        expect(parseBrackFrac.denom).toBeDefined();
+        expect(parseBrackFrac.leftDelim).toBeDefined();
+        expect(parseBrackFrac.rightDelim).toBeDefined();
+    });",start: 569 end: 599
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a frac"", function() {
+        let parse;
+
+        parse = getParsed(simpleOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        parse = getParsed(complexOver)[0];
+
+        expect(parse.type).toEqual(""genfrac"");
+        expect(parse.numer).toBeDefined();
+        expect(parse.denom).toBeDefined();
+
+        const parseBraceFrac = getParsed(braceFrac)[0];
+
+        expect(parseBraceFrac.type).toEqual(""genfrac"");
+        expect(parseBraceFrac.numer).toBeDefined();
+        expect(parseBraceFrac.denom).toBeDefined();
+        expect(parseBraceFrac.leftDelim).toBeDefined();
+        expect(parseBraceFrac.rightDelim).toBeDefined();
+
+        const parseBrackFrac = getParsed(brackFrac)[0];
+
+        expect(parseBrackFrac.type).toEqual(""genfrac"");
+        expect(parseBrackFrac.numer).toBeDefined();
+        expect(parseBrackFrac.denom).toBeDefined();
+        expect(parseBrackFrac.leftDelim).toBeDefined();
+        expect(parseBrackFrac.rightDelim).toBeDefined();
+    });",start: 569 end: 599
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of ords"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            const group = parse[i];
+            expect(group.type).toMatch(""ord"");
+        }
+    });",start: 43 end: 50
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should parse the right number of ords"", function() {
+        const parse = getParsed(expression);
+
+        expect(parse).toHaveLength(expression.length);
+    });",start: 52 end: 56
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of bins"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            const group = parse[i];
+            expect(group.type).toEqual(""atom"");
+            expect(group.family).toEqual(""bin"");
+        }
+    });",start: 66 end: 74
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            let group = parse[i];
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(1);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        }
+    });",start: 86 end: 102
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should return one group, not a fragment"", function() {
+        const contents = ""\\mathinner{\\langle{\\psi}\\rangle}"";
+        const mml = buildMathML(getParsed(contents), contents, defaultOptions);
+        expect(mml.children.length).toEqual(1);
+    });",start: 111 end: 115
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a single ord"", function() {
+        const parse = getParsed`{xy}`;
+
+        expect(parse).toHaveLength(1);
+
+        const ord = parse[0];
+
+        expect(ord.type).toMatch(""ord"");
+        expect(ord.body).toBeTruthy();
+    });",start: 343 end: 352
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a semi-simple group"", function() {
+        const parse = getParsed`\begingroup xy \endgroup`;
+
+        expect(parse).toHaveLength(1);
+
+        const ord = parse[0];
+
+        expect(ord.type).toMatch(""ord"");
+        expect(ord.body).toBeTruthy();
+        expect(ord.semisimple).toBeTruthy();
+    });",start: 365 end: 375
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,"    it(""should produce a single object"", function() {
+        const parse = getParsed`\Large abc`;
+
+        expect(parse).toHaveLength(1);
+
+        const sizing = parse[0];
+
+        expect(sizing.type).toEqual(""sizing"");
+        expect(sizing.body).toBeTruthy();
+        expect(sizing.size).toBeDefined();
+    });",start: 388 end: 398

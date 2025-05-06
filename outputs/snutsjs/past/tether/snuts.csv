@@ -1,0 +1,2 @@
+file,type,smells,itCount,describeCount
+test/unit/evented.spec.js,NonFunctionalStatement,"[{""startLine"":50,""endLine"":50}]",8,6

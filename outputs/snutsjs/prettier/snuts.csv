@@ -1,6 +1,1 @@
-file,type,smells,itCount,describeCount
-tests/format/js/tab-width/nested-functions.spec.js,NonFunctionalStatement,"[{""startLine"":1,""endLine"":1}]",0,0
-tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"[{""startLine"":54,""endLine"":54}]",9,2
-tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"[{""startLine"":56,""endLine"":56}]",9,2
-tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"[{""startLine"":58,""endLine"":58}]",9,2
-tests/format/js/test-declarations/test_declarations.js,NonFunctionalStatement,"[{""startLine"":60,""endLine"":60}]",9,2
+"file","type","smells","itCount","describeCount"

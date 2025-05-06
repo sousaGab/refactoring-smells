@@ -19,6 +19,7 @@
 "tests/unit/restore.test.js","IdenticalTestDescription","[{""startLine"":352,""endLine"":357}]",29,6
 "tests/unit/restore.test.js","IdenticalTestDescription","[{""startLine"":359,""endLine"":365}]",29,6
 "tests/unit/restore.test.js","IdenticalTestDescription","[{""startLine"":381,""endLine"":392}]",29,6
+"tests/unit/restore.test.js","NonFunctionalStatement","[{""startLine"":337,""endLine"":338}]",29,6
 "tests/unit/reset.test.js","GeneralFixture","[{""startLine"":13,""endLine"":13}]",1,1
 "tests/unit/reset.test.js","GeneralFixture","[{""startLine"":14,""endLine"":14}]",1,1
 "tests/unit/reset.test.js","GeneralFixture","[{""startLine"":15,""endLine"":15}]",1,1

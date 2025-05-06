@@ -1,8 +1,4 @@
-file,type,smells,itCount,describeCount
-app/__tests__/error-handler.test.js,ConditionalTestLogic,"[{""startLine"":207,""endLine"":212}]",9,10
-app/__tests__/error-handler.test.js,ConditionalTestLogic,"[{""startLine"":225,""endLine"":230}]",9,10
-app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":47,""endLine"":47}]",25,10
-app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":225,""endLine"":225}]",25,10
-app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":282,""endLine"":282}]",25,10
-app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":351,""endLine"":351}]",25,10
-app/frontend/webserver/handlers/__tests__/grid-trade-logs-export.test.js,SubOptimalAssert,"[{""startLine"":201,""endLine"":201}]",7,5
+"file","type","smells","itCount","describeCount"
+"app/__tests__/error-handler.test.js","ConditionalTestLogic","[{""startLine"":207,""endLine"":212}]",9,10
+"app/__tests__/error-handler.test.js","ConditionalTestLogic","[{""startLine"":225,""endLine"":230}]",9,10
+"app/frontend/webserver/handlers/__tests__/grid-trade-logs-export.test.js","SubOptimalAssert","[{""startLine"":201,""endLine"":201}]",7,5

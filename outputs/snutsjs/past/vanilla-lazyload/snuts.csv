@@ -1,0 +1,3 @@
+file,type,smells,itCount,describeCount
+tests/unit/restore.test.js,NonFunctionalStatement,"[{""startLine"":337,""endLine"":338}]",29,6
+tests/unit/cancelOnExit.test.js,SubOptimalAssert,"[{""startLine"":91,""endLine"":91}]",8,2
