@@ -1,0 +1,16 @@
+# misc
+/.eslintignore
+/.eslintrc.js
+/.gitignore
+/.watchmanconfig
+/.travis.yml
+/tmp
+**/.gitkeep
+/__tests__/
+/tests/
+/yarn.lock
+.gitkeep
+
+/.sass-cache
+/jekyll-tmp
+*.md

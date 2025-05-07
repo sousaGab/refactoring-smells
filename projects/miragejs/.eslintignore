@@ -1,0 +1,9 @@
+# compiled output
+/dist/
+/tmp/
+
+# misc
+/coverage/
+
+# types
+/types
