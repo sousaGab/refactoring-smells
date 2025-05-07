@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+# Logging utilities
 def log_info(message):
     """Log informational messages."""
     print(f"[INFO] {message}")
@@ -18,6 +19,7 @@ def log_error(message):
     """Log error messages."""
     print(f"[ERROR] {message}")
 
+# Environment variable utilities
 def validate_env_variable(var_name):
     """Validate that an environment variable is set."""
     value = os.getenv(var_name, '')
@@ -25,6 +27,7 @@ def validate_env_variable(var_name):
         raise ValueError(f"Environment variable '{var_name}' is not set.")
     return value
 
+# Steel tool utilities
 def run_steel_tool(project_name, llm):
     """Run the steel detection tool."""
     smell_detections_tools_path = validate_env_variable('STEEL_DETECTION_TOOL_PATH')
@@ -39,7 +42,6 @@ def run_steel_tool(project_name, llm):
 
 def process_steel_json_to_csv(smell_number, llm):
     """Process the steel JSON file and convert it to a CSV."""
-
     input_file = validate_env_variable('INPUT_STEEL_JSON')
     output_file = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
 
@@ -55,15 +57,12 @@ def process_steel_json_to_csv(smell_number, llm):
 
         for smelled_info_item in smelled_info:
             smell_type = smelled_info_item.get('name', 'Unknown')
-
             items = smelled_info_item.get('items', [])
 
             for item in items:
                 smell_lines = item.get('start', [])
                 frame = item.get('frame', 'Unknown')
-
                 csv_data.append([file_name, smell_type, smell_lines, frame])
-
 
     with open(output_file, 'w', newline='') as csv_file:
         writer = csv.writer(csv_file)
@@ -72,7 +71,7 @@ def process_steel_json_to_csv(smell_number, llm):
 
     log_info(f"CSV file created successfully at: {output_file}")
 
-
+# Snuts.js utilities
 async def run_snuts_js(project_name, smell_number, llm):
     """Run the Snuts.js tool."""
     projects_folder = validate_env_variable('PROJECTS_FOLDER')
@@ -99,30 +98,24 @@ async def run_snuts_js(project_name, smell_number, llm):
         log_error(f"Snuts.js command failed with error:\n{stderr.decode()}")
         raise subprocess.CalledProcessError(process.returncode, snuts_command)
 
-
+# CSV utilities
 def concat_csv(name_run, smell_number, llm):
     """Concatenate the steel and Snuts.js CSV files."""
-    #string_csv_input_1
     steel_csv = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
     snutsjs_csv = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
 
-
-    #read the steel csv file
     steel_df = pd.read_csv(steel_csv)
-
-    #read the snutsjs csv file
     snutsjs_df = pd.read_csv(snutsjs_csv)
-    
-    #concatenate the two dataframes
+
     combined_df = pd.concat([steel_df, snutsjs_df], ignore_index=True)
-    #save the combined dataframe to a new csv file
-    combined_df.to_csv(f'/home/gabriel/Desktop/research/refactoring_data/copilot/smell_{smell_number}/{name_run}_smells.csv', index=False)
-    log_info(f"Combined CSV file created successfully at: /home/gabriel/Desktop/research/refactoring_data/copilot/smell_{smell_number}/{name_run}_smells.csv")
+    output_file = f'/home/gabriel/Desktop/research/refactoring_data/copilot/smell_{smell_number}/{name_run}_smells.csv'
+    combined_df.to_csv(output_file, index=False)
 
+    log_info(f"Combined CSV file created successfully at: {output_file}")
 
+# File organization utilities
 def organize_output_folder(smell_number, llm):
     """Organize the output folder."""
-    # Delete csv files
     csv_files = [
         f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv',
         f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
@@ -133,12 +126,40 @@ def organize_output_folder(smell_number, llm):
             os.remove(csv_file)
             log_info(f"Deleted file: {csv_file}")
         else:
-            log_info(f"File not found, skipping deletion: {csv_file}")    
+            log_info(f"File not found, skipping deletion: {csv_file}")
 
+def copy_test_file(name_run, project_name, smell_number, llm):
+    """Copy the test file to the output folder."""
+    csv_file_path = f'/home/gabriel/Desktop/research/scripts/assets/dataset.csv'
+    df = pd.read_csv(csv_file_path)
+
+    filtered_df = df.loc[df['Id'] == int(smell_number), 'File']
+    if filtered_df.empty:
+        log_error(f"No entry found for smell_number: {smell_number}")
+        return
+
+    test_file_path = filtered_df.values[0]
+    source_file = f'/home/gabriel/Desktop/research/projects/{project_name}{test_file_path}'
+    destination_folder = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
+    new_file_name = f'{name_run}_test.js'
+
+    try:
+        if os.path.exists(source_file):
+            destination_file = os.path.join(destination_folder, new_file_name)
+            shutil.copy(source_file, destination_file)
+            log_info(f"Copied test file to: {destination_folder}")
+        else:
+            project_folder = f'/home/gabriel/Desktop/projects/{project_name}/'
+            source_file = os.path.join(project_folder, test_file_path)
+            log_info(f"Checking for test file in project folder: {source_file}")
+    except FileNotFoundError:
+        log_error(f"Test file not found: {source_file}")
+    except Exception as e:
+        log_error(f"An error occurred while copying the test file: {e}")
+
+# Main function
 async def main():
-
     llm = 'copilot'
-
     projects_names = {
         1: 'vanilla-lazyload',
         2: 'ncc',
@@ -153,8 +174,6 @@ async def main():
     }
 
     type_of_run = input("Enter the type of run (1 for original, 2 for refactored): ").strip()
-
-    #print projects
     print("Available projects:")
     for key, value in projects_names.items():
         print(f"{key}: {value}")
@@ -168,32 +187,29 @@ async def main():
     name_run = 'original' if type_of_run == '1' else 'refactored'
 
     try:
-        # Steel tool process
         log_info("Starting the steel tool process...")
-        run_steel_tool(project_name,llm)
+        run_steel_tool(project_name, llm)
         log_info("Steel tool process completed.")
 
         log_info("Processing the steel JSON to CSV...")
         process_steel_json_to_csv(smell_number, llm)
         log_info("Steel JSON to CSV processing completed.")
 
-        # Snuts.js process
         log_info("Starting the Snuts.js process...")
         await run_snuts_js(project_name, smell_number, llm)
         log_info("Snuts.js process completed.")
 
-        # Concatenate CSV files
         log_info("Starting the CSV concatenation process...")
-        concat_csv(name_run,smell_number,llm)
+        concat_csv(name_run, smell_number, llm)
         log_info("CSV files concatenation completed.")
 
-        # Organize the output folder
         log_info("Organizing the output folder...")
         organize_output_folder(smell_number, llm)
         log_info("Output folder organization completed.")
 
-
-
+        log_info("Copying the test file...")
+        copy_test_file(name_run, project_name, smell_number, llm)
+        log_info("Test file copied successfully.")
     except subprocess.CalledProcessError as e:
         log_error(f"An error occurred while running a command: {e}")
     except Exception as e:
