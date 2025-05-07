@@ -157,6 +157,34 @@ def copy_test_file(name_run, project_name, smell_number, llm):
     except Exception as e:
         log_error(f"An error occurred while copying the test file: {e}")
 
+def run_tests(name_run, project_name, smell_number, llm):
+    """Run the tests for the specified project."""
+    test_command = f'npm run test:research'
+
+    os.chdir(f'/home/gabriel/Desktop/research/projects/{project_name}')
+    log_info(f"Changed directory to {os.getcwd()}")
+
+    log_info(f"Running command: {test_command}")
+    subprocess.run(test_command, shell=True, check=True)
+
+    log_info("Tests completed successfully.")
+
+    # Copy the test_summary.txt to the output folder
+    test_summary_file = f'/home/gabriel/Desktop/research/projects/{project_name}/test_summary.txt'
+    destination_folder = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
+    destination_file = os.path.join(destination_folder, f'{name_run}_test_summary.txt')
+    try:
+        if os.path.exists(test_summary_file):
+            shutil.copy(test_summary_file, destination_file)
+            log_info(f"Copied test summary file to: {destination_folder}")
+        else:
+            log_error(f"Test summary file not found: {test_summary_file}")
+    except FileNotFoundError:
+        log_error(f"Test summary file not found: {test_summary_file}")
+    except Exception as e:
+        log_error(f"An error occurred while copying the test summary file: {e}")
+
+
 # Main function
 async def main():
     llm = 'copilot'
@@ -210,6 +238,12 @@ async def main():
         log_info("Copying the test file...")
         copy_test_file(name_run, project_name, smell_number, llm)
         log_info("Test file copied successfully.")
+
+        log_info("Running the tests...")
+        run_tests(name_run, project_name, smell_number, llm)
+        log_info("Tests run completed.")
+
+
     except subprocess.CalledProcessError as e:
         log_error(f"An error occurred while running a command: {e}")
     except Exception as e:

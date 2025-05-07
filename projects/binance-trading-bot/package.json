@@ -22,7 +22,8 @@
     "docker:buildx:tradingview:prod": "docker buildx build --platform=linux/amd64,linux/arm64 ./tradingview -t chrisleekr/binance-trading-bot:tradingview",
     "migrate:create": "./node_modules/.bin/migrate create",
     "migrate:up": "./node_modules/.bin/migrate up --store=/srv/mongo-state-storage.js",
-    "migrate:down": "./node_modules/.bin/migrate down --store=/srv/mongo-state-storage.js"
+    "migrate:down": "./node_modules/.bin/migrate down --store=/srv/mongo-state-storage.js",
+    "test:research": "node test-summary.js"
   },
   "repository": {
     "type": "git",

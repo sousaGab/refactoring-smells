@@ -29,7 +29,8 @@
     "test:unit": "jest",
     "watch-test:unit": "jest --watch",
     "test:e2e": "playwright test",
-    "test-watch:e2e": "npx playwright test --ui"
+    "test-watch:e2e": "npx playwright test --ui",
+    "test:research": "node test-summary.js"
   },
   "files": [
     "dist",

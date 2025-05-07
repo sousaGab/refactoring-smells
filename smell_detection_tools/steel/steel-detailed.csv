@@ -1,7 +1,5 @@
 FileName, TotalMethods, TotalTestSmells,Physical SLOC,Logical SLOC,Cyclomatic,CyclomaticDensity,HalsteadBugs,HalsteadDifficulty,HalsteadEffort,HalsteadLength,HalsteadTime,HalsteadVocabulary,HalsteadVolume,Maintainability,assertionRoulette,conditionalTestLogic,duplicateAssert,eagerTest,emptyTest,exceptionHandling,globalVariable,ignoredTest,lazyTest,magicNumberRule,mysteryGuest,redundantAssertion,redundantPrint,resourceOptimism,sleepyTest,unknownTest
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,19,3,289,300,41,13.667,2.523,39.24,297038.115,1112,16502.118,112,7569.779,108.361,0,0,6,0,0,0,1,0,0,2,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/restore.test.js,29,2,394,448,51,11.384,3.992,50.34,602881.307,1756,33493.406,113,11976.234,103.726,0,0,46,0,0,0,1,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/reset.test.js,1,2,50,44,7,15.909,0.236,7.618,5387.176,132,299.288,41,707.197,118.491,0,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/originalAttributes.test.js,1,1,59,52,7,13.462,0.326,7.223,7066.879,170,392.604,54,978.331,114.857,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/load.test.js,2,2,52,46,8,17.391,0.225,8.118,5471.616,125,303.979,42,674.04,120.338,0,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,8,3,125,119,17,14.286,0.888,12.965,34551.299,424,1919.517,78,2665.011,113.426,0,0,5,0,0,0,1,0,0,1,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,1,5,159,123,21,17.073,1.213,33.421,121650.337,527,6758.352,120,3639.931,105.794,0,12,0,0,0,0,0,0,0,1,3,0,4,0,1,0
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,0,1,82,97,16,16.495,0.867,24.124,62757.656,376,3486.536,121,2601.493,89.523,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,0,1,130,113,23,20.354,1.039,31.728,98924.86,444,5495.826,130,3117.931,94.822,0,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,0,1,35,54,14,25.926,0.43,23.76,30638.86,209,1702.159,72,1289.514,105.357,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0

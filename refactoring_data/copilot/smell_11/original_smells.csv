@@ -1,0 +1,350 @@
+file,type,smells,frame,itCount,describeCount
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 33, 'column': 4, 'index': 1021}","  31 |   
+  32 |   triggerChanges (changed, removed) {
+> 33 |     if (!this.paused) {
+     |    ^ Conditional Test Logic
+  34 |       const newTime = +Date.now();
+  35 |       for (const file of changed)
+  36 |         this.timestamps.set(file, {",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 35, 'column': 6, 'index': 1082}","  33 |     if (!this.paused) {
+  34 |       const newTime = +Date.now();
+> 35 |       for (const file of changed)
+     |      ^ Conditional Test Logic
+  36 |         this.timestamps.set(file, {
+  37 |           safeTime: newTime + 10,
+  38 |           accuracy: 10,",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 41, 'column': 6, 'index': 1251}","  39 |           timestamp: newTime
+  40 |         });
+> 41 |       for (const file of removed)
+     |      ^ Conditional Test Logic
+  42 |         this.timestamps.set(file, null);
+  43 |
+  44 |       for (const file of changed) {",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 44, 'column': 6, 'index': 1327}","  42 |         this.timestamps.set(file, null);
+  43 |
+> 44 |       for (const file of changed) {
+     |      ^ Conditional Test Logic
+  45 |         this.changes.add(file);
+  46 |         this.inputFileSystem.purge(file);
+  47 |       }",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 48, 'column': 6, 'index': 1445}","  46 |         this.inputFileSystem.purge(file);
+  47 |       }
+> 48 |       for (const file of removed) {
+     |      ^ Conditional Test Logic
+  49 |         this.removals.add(file);
+  50 |         this.inputFileSystem.purge(file);
+  51 |       }",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 76, 'column': 4, 'index': 2127}","  74 |     // empty object indicates ""unknown"" timestamp
+  75 |     // (that is, not cached)
+> 76 |     for (const item of files)
+     |    ^ Conditional Test Logic
+  77 |       this.timestamps.set(item, {});
+  78 |     for (const item of dirs)
+  79 |       this.timestamps.set(item, {});",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 78, 'column': 4, 'index': 2194}","  76 |     for (const item of files)
+  77 |       this.timestamps.set(item, {});
+> 78 |     for (const item of dirs)
+     |    ^ Conditional Test Logic
+  79 |       this.timestamps.set(item, {});
+  80 |     // null represents ""no file""
+  81 |     for (const item of missing)",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 81, 'column': 4, 'index': 2293}","  79 |       this.timestamps.set(item, {});
+  80 |     // null represents ""no file""
+> 81 |     for (const item of missing)
+     |    ^ Conditional Test Logic
+  82 |       this.timestamps.set(item, null);
+  83 |
+  84 |     this.paused = false;",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 120, 'column': 6, 'index': 3379}","  118 |     const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+  119 |       expect(files._set.size).toBeGreaterThan(100);
+> 120 |       if (buildCnt < 3) {
+      |      ^ Conditional Test Logic
+  121 |         setTimeout(() => {
+  122 |           // NOTE: We actually have to make the change for the rebuild to happen!
+  123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 138, 'column': 6, 'index': 3939}","  136 |     
+  137 |     handler(({ err, code, map, assets, permissions }) => {
+> 138 |       if (err) return reject(err);
+      |      ^ Conditional Test Logic
+  139 |       buildCnt++;
+  140 |       if (buildCnt === 1) {
+  141 |         console.timeEnd('First Build');",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 140, 'column': 6, 'index': 3992}","  138 |       if (err) return reject(err);
+  139 |       buildCnt++;
+> 140 |       if (buildCnt === 1) {
+      |      ^ Conditional Test Logic
+  141 |         console.timeEnd('First Build');
+  142 |       }
+  143 |       else {",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Conditional Test Logic,"{'line': 146, 'column': 6, 'index': 4131}","  144 |         console.timeEnd('Watched Build');
+  145 |       }
+> 146 |       if (buildCnt === 3) {
+      |      ^ Conditional Test Logic
+  147 |         close();
+  148 |         fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+  149 |       }",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Magic Number,"{'line': 119, 'column': 46, 'index': 3367}","  117 |   await new Promise((resolve, reject) => {
+  118 |     const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
+> 119 |       expect(files._set.size).toBeGreaterThan(100);
+      |                                              ^ Magic Number
+  120 |       if (buildCnt < 3) {
+  121 |         setTimeout(() => {
+  122 |           // NOTE: We actually have to make the change for the rebuild to happen!",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Mystery Guest,"{'column': 35, 'line': 115}","  113 |   let buildCnt = 0;
+  114 |   const buildFile = path.resolve('./test/integration/twilio.js');
+> 115 |   const initialBuildFileContents = fs.readFileSync(buildFile).toString();
+      |                                   ^ Mystery Guest
+  116 |
+  117 |   await new Promise((resolve, reject) => {
+  118 |     const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Mystery Guest,"{'column': 38, 'line': 123}","  121 |         setTimeout(() => {
+  122 |           // NOTE: We actually have to make the change for the rebuild to happen!
+> 123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+      |                                      ^ Mystery Guest
+  124 |           watcher.triggerChanges([buildFile], []);
+  125 |         }, 100);
+  126 |       }",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Mystery Guest,"{'column': 36, 'line': 148}","  146 |       if (buildCnt === 3) {
+  147 |         close();
+> 148 |         fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
+      |                                    ^ Mystery Guest
+  149 |       }
+  150 |     });
+  151 |     rebuild(() => {",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Redundant Print,"{'line': 131, 'column': 4, 'index': 3729}","  129 |     });
+  130 |
+> 131 |     console.time('First Build');
+      |    ^ Redundant Print
+  132 |     const { handler, rebuild, close } = ncc(buildFile, {
+  133 |       assetBuilds: true,
+  134 |       watch: watcher",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Redundant Print,"{'line': 141, 'column': 8, 'index': 4022}","  139 |       buildCnt++;
+  140 |       if (buildCnt === 1) {
+> 141 |         console.timeEnd('First Build');
+      |        ^ Redundant Print
+  142 |       }
+  143 |       else {
+  144 |         console.timeEnd('Watched Build');",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Redundant Print,"{'line': 144, 'column': 8, 'index': 4083}","  142 |       }
+  143 |       else {
+> 144 |         console.timeEnd('Watched Build');
+      |        ^ Redundant Print
+  145 |       }
+  146 |       if (buildCnt === 3) {
+  147 |         close();",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Redundant Print,"{'line': 152, 'column': 6, 'index': 4301}","  150 |     });
+  151 |     rebuild(() => {
+> 152 |       console.time('Watched Build');
+      |      ^ Redundant Print
+  153 |     });
+  154 |   });
+  155 |",,
+/home/gabriel/Desktop/research/projects/ncc/test/watcher.test.js,Sleepy Test,"{'line': 121, 'column': 8, 'index': 3407}","  119 |       expect(files._set.size).toBeGreaterThan(100);
+  120 |       if (buildCnt < 3) {
+> 121 |         setTimeout(() => {
+      |        ^ Sleepy Test
+  122 |           // NOTE: We actually have to make the change for the rebuild to happen!
+  123 |           fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
+  124 |           watcher.triggerChanges([buildFile], []);",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 11, 'column': 0, 'index': 270}","   9 | }
+  10 |
+> 11 | for (const unitTest of fs.readdirSync(`${__dirname}/unit`)) {
+  12 |   if (process.platform === 'win32' && unitTest.includes('shebang')) {
+  13 |     continue;
+  14 |   }",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 12, 'column': 2, 'index': 334}","  10 |
+  11 | for (const unitTest of fs.readdirSync(`${__dirname}/unit`)) {
+> 12 |   if (process.platform === 'win32' && unitTest.includes('shebang')) {
+     |  ^ Conditional Test Logic
+  13 |     continue;
+  14 |   }
+  15 |   it(`should generate correct output for ${unitTest}`, async () => { ",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 37, 'column': 8, 'index': 1392}","  35 |       transpileOnly: true,
+  36 |       customEmit (path) {
+> 37 |         if (path.endsWith('test.json'))
+     |        ^ Conditional Test Logic
+  38 |           return false;
+  39 |       },
+  40 |       externals: {",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 48, 'column': 8, 'index': 1731}","  46 |     }, opts)).then(
+  47 |       async ({ code, assets, map }) => {
+> 48 |         if (unitTest.startsWith('bundle-subasset')) {
+     |        ^ Conditional Test Logic
+  49 |           expect(assets['pi-bridge.js']).toBeDefined();
+  50 |           expect(assets['pi-bridge.js'].source.toString()).toContain('Math.PI');
+  51 |         }",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 52, 'column': 8, 'index': 1932}","  50 |           expect(assets['pi-bridge.js'].source.toString()).toContain('Math.PI');
+  51 |         }
+> 52 |         if (unitTest.includes('sourcemap-register')) {
+     |        ^ Conditional Test Logic
+  53 |           expect(assets['sourcemap-register.js']).toBeDefined()
+  54 |           expect(assets['sourcemap-register.js'].source.toString()).toEqual(fs.readFileSync(__dirname + '/../src/sourcemap-register.js.cache.js').toString())
+  55 |         }",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 56, 'column': 8, 'index': 2219}","  54 |           expect(assets['sourcemap-register.js'].source.toString()).toEqual(fs.readFileSync(__dirname + '/../src/sourcemap-register.js.cache.js').toString())
+  55 |         }
+> 56 |         if (unitTest.includes('minify') && !unitTest.includes('minify-err')) {
+     |        ^ Conditional Test Logic
+  57 |           expect(assets['index.js.map']).toBeDefined()
+  58 |         }
+  59 |         const actual = normalizeForWindows(code);",,
+/home/gabriel/Desktop/research/projects/ncc/test/unit.test.js,Conditional Test Logic,"{'line': 68, 'column': 8, 'index': 2622}","  66 |         }
+  67 |
+> 68 |         if (map) {
+     |        ^ Conditional Test Logic
+  69 |           const actualSourceMap = normalizeForWindows(map);
+  70 |           try {
+  71 |             expect(actualSourceMap).toBe(expectedSourceMap);",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 22, 'column': 0, 'index': 417}","  20 |
+  21 | let nccRun;
+> 22 | if (coverage) {
+  23 |   nccRun = require(__dirname + ""/../src/cli.js"");
+  24 | }
+  25 | else {",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 42, 'column': 0, 'index': 786}","  40 | }
+  41 |
+> 42 | for (const integrationTest of fs.readdirSync(__dirname + ""/integration"")) {
+  43 |   // ignore e.g.: `.json` files
+  44 |   if (!/\.(mjs|tsx?|js)$/.test(integrationTest)) continue;
+  45 |",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 44, 'column': 2, 'index': 896}","  42 | for (const integrationTest of fs.readdirSync(__dirname + ""/integration"")) {
+  43 |   // ignore e.g.: `.json` files
+> 44 |   if (!/\.(mjs|tsx?|js)$/.test(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  45 |
+  46 |   // disabled pending https://github.com/zeit/ncc/issues/141
+  47 |   if (integrationTest.endsWith('loopback.js')) continue;",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 47, 'column': 2, 'index': 1017}","  45 |
+  46 |   // disabled pending https://github.com/zeit/ncc/issues/141
+> 47 |   if (integrationTest.endsWith('loopback.js')) continue;
+     |  ^ Conditional Test Logic
+  48 |
+  49 |   // ignore a few tests known to fail on windows
+  50 |   if (process.platform === 'win32' && skipOnWindows.includes(integrationTest)) continue;",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 50, 'column': 2, 'index': 1124}","  48 |
+  49 |   // ignore a few tests known to fail on windows
+> 50 |   if (process.platform === 'win32' && skipOnWindows.includes(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  51 |
+  52 |   // ignore a few tests known to fail on macOS
+  53 |   if (process.platform === 'darwin' && skipOnMacOS.includes(integrationTest)) continue;",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 53, 'column': 2, 'index': 1261}","  51 |
+  52 |   // ignore a few tests known to fail on macOS
+> 53 |   if (process.platform === 'darwin' && skipOnMacOS.includes(integrationTest)) continue;
+     |  ^ Conditional Test Logic
+  54 |
+  55 |   it(`should execute ""ncc run ${integrationTest}""`, async () => {
+  56 |     let expectedStdout;",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 61, 'column': 4, 'index': 1580}","  59 |     }
+  60 |     catch (e) {}
+> 61 |     if (global.gc) global.gc();
+     |    ^ Conditional Test Logic
+  62 |     const stdout = new StoreStream();
+  63 |     const stderr = new StoreStream();
+  64 |     try {",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 68, 'column': 6, 'index': 1828}","  66 |     }
+  67 |     catch (e) {
+> 68 |       if (e.silent) {
+     |      ^ Conditional Test Logic
+  69 |         let lastErr = stderr.data[stderr.data.length - 1];
+  70 |         if (lastErr)
+  71 |           throw new Error(lastErr);",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 70, 'column': 8, 'index': 1911}","  68 |       if (e.silent) {
+  69 |         let lastErr = stderr.data[stderr.data.length - 1];
+> 70 |         if (lastErr)
+     |        ^ Conditional Test Logic
+  71 |           throw new Error(lastErr);
+  72 |         else
+  73 |           throw new Error('Process exited with code ' + e.exitCode);",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 77, 'column': 4, 'index': 2075}","  75 |       throw e;
+  76 |     }
+> 77 |     if (expectedStdout) {
+     |    ^ Conditional Test Logic
+  78 |       let stdoutStr = '';
+  79 |       for (const chunk of stdout.data)
+  80 |         stdoutStr += chunk.toString();",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 79, 'column': 6, 'index': 2129}","  77 |     if (expectedStdout) {
+  78 |       let stdoutStr = '';
+> 79 |       for (const chunk of stdout.data)
+     |      ^ Conditional Test Logic
+  80 |         stdoutStr += chunk.toString();
+  81 |       expect(stdoutStr.startsWith(expectedStdout));
+  82 |     }",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 87, 'column': 2, 'index': 2347}","  85 |
+  86 | it(`should execute ""ncc build web-vitals"" with target config`, async () => {
+> 87 |   if (global.gc) global.gc();
+     |  ^ Conditional Test Logic
+  88 |   const stdout = new StoreStream();
+  89 |   const stderr = new StoreStream();
+  90 |",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 97, 'column': 4, 'index': 2679}","   95 |   }
+   96 |   catch (e) {
+>  97 |     if (e.silent) {
+      |    ^ Conditional Test Logic
+   98 |       let lastErr = stderr.data[stderr.data.length - 1];
+   99 |       if (lastErr)
+  100 |         throw new Error(lastErr);",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 99, 'column': 6, 'index': 2758}","   97 |     if (e.silent) {
+   98 |       let lastErr = stderr.data[stderr.data.length - 1];
+>  99 |       if (lastErr)
+      |      ^ Conditional Test Logic
+  100 |         throw new Error(lastErr);
+  101 |       else
+  102 |         throw new Error('Process exited with code ' + e.exitCode);",,
+/home/gabriel/Desktop/research/projects/ncc/test/integration.test.js,Conditional Test Logic,"{'line': 122, 'column': 2, 'index': 3278}","  120 |
+  121 | afterAll(() => {
+> 122 |   if (coverage)
+      |  ^ Conditional Test Logic
+  123 |     process.exit(0);
+  124 | });
+  125 |",,
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,Conditional Test Logic,"{'line': 8, 'column': 0, 'index': 214}","   6 | jest.setTimeout(20000);
+   7 |
+>  8 | for (const cliTest of cliTests) {
+   9 |   it(`should execute ""ncc ${(cliTest.args || []).join("" "")}""`, async () => {
+  10 |     const ps = fork(join(__dirname, file), cliTest.args || [], {
+  11 |       stdio: ""pipe"",",,
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,Conditional Test Logic,"{'line': 19, 'column': 4, 'index': 708}","  17 |     const expected = cliTest.expect || { code: 0 };
+  18 |     let timedOut = false;
+> 19 |     if (cliTest.timeout)
+     |    ^ Conditional Test Logic
+  20 |       setTimeout(() => {
+  21 |         timedOut = true;
+  22 |         ps.kill();",,
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,Conditional Test Logic,"{'line': 25, 'column': 4, 'index': 901}","  23 |       }, cliTest.timeout);
+  24 |     const code = await new Promise(resolve => ps.on(""close"", resolve));
+> 25 |     if (typeof expected === ""function"")
+     |    ^ Conditional Test Logic
+  26 |       expect(expected(code, stdout, stderr, timedOut)).toBe(true);
+  27 |     else {
+  28 |       if (""code"" in expected)",,
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,Conditional Test Logic,"{'line': 28, 'column': 6, 'index': 1021}","  26 |       expect(expected(code, stdout, stderr, timedOut)).toBe(true);
+  27 |     else {
+> 28 |       if (""code"" in expected)
+     |      ^ Conditional Test Logic
+  29 |         expect(code).toBe(expected.code);
+  30 |       if (""timeout"" in expected)
+  31 |         expect(timedOut).toBe(true);",,
+/home/gabriel/Desktop/research/projects/ncc/test/cli.test.js,Conditional Test Logic,"{'line': 30, 'column': 6, 'index': 1093}","  28 |       if (""code"" in expected)
+  29 |         expect(code).toBe(expected.code);
+> 30 |       if (""timeout"" in expected)
+     |      ^ Conditional Test Logic
+  31 |         expect(timedOut).toBe(true);
+  32 |     }
+  33 |   });",,
+test/watcher.test.js,SensitiveEquality,"[{""startLine"":123,""endLine"":123}]",,1.0,0.0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":120,""endLine"":126}]",,1.0,0.0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":138,""endLine"":138}]",,1.0,0.0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":140,""endLine"":145}]",,1.0,0.0
+test/watcher.test.js,ConditionalTestLogic,"[{""startLine"":146,""endLine"":149}]",,1.0,0.0
+test/unit.test.js,SensitiveEquality,"[{""startLine"":54,""endLine"":54}]",,0.0,0.0
+test/unit.test.js,NonFunctionalStatement,"[{""startLine"":21,""endLine"":21}]",,0.0,0.0
+test/unit.test.js,NonFunctionalStatement,"[{""startLine"":27,""endLine"":27}]",,0.0,0.0
+test/integration.test.js,NonFunctionalStatement,"[{""startLine"":60,""endLine"":60}]",,0.0,0.0
+test/integration/strict-module-exception-handling.js,NonFunctionalStatement,"[{""startLine"":3,""endLine"":3}]",,0.0,0.0
+test/integration/socket.io.js,NonFunctionalStatement,"[{""startLine"":4,""endLine"":4}]",,0.0,0.0
+test/integration/npm.js,NonFunctionalStatement,"[{""startLine"":16,""endLine"":16}]",,0.0,0.0
+test/integration/jugglingdb.js,NonFunctionalStatement,"[{""startLine"":2,""endLine"":2}]",,0.0,0.0
+test/integration/core-js.js,NonFunctionalStatement,"[{""startLine"":2,""endLine"":2}]",,0.0,0.0
+test/integration/bugsnag-js.js,NonFunctionalStatement,"[{""startLine"":3,""endLine"":3}]",,0.0,0.0
+test/unit/minify-v8cache-sourcemap-register/output.js,NonFunctionalStatement,"[{""startLine"":8,""endLine"":8}]",,0.0,0.0
+test/unit/minify-v8cache-sourcemap-register/output-coverage.js,NonFunctionalStatement,"[{""startLine"":8,""endLine"":8}]",,0.0,0.0
