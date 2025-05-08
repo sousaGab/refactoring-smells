@@ -201,20 +201,31 @@ describe('error-handler', () => {
     });
 
     describe(`when unhandledRejection received`, () => {
-      it('throws an error', async () => {
-        expect(() => {
-          process.on = jest.fn().mockImplementation((event, error) => {
-            if (event === 'unhandledRejection') {
-              error({
-                message: `something-unhandled`,
-                code: 2000
-              });
-            }
-          });
+      beforeEach(() => {
+      process.on = jest.fn().mockImplementation((event, error) => {
+        if (event === 'unhandledRejection') {
+        error({
+          message: `something-unhandled`,
+          code: 2000
+        });
+        }
+      });
 
-          const { runErrorHandler } = require('../error-handler');
-          runErrorHandler(mockLogger);
-        }).toThrow(`something-unhandled`);
+      const { runErrorHandler } = require('../error-handler');
+      runErrorHandler(mockLogger);
+      });
+
+      it('throws an error with message "something-unhandled"', () => {
+      expect(() => {
+        process.on.mock.calls.forEach(([event, handler]) => {
+        if (event === 'unhandledRejection') {
+          handler({
+          message: `something-unhandled`,
+          code: 2000
+          });
+        }
+        });
+      }).toThrow(`something-unhandled`);
       });
     });
 

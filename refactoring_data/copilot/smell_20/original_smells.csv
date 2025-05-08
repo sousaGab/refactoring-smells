@@ -2460,13 +2460,6 @@ app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{"
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":725,""endLine"":729}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":735,""endLine"":737}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":818,""endLine"":820}]",,32.0,13.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":38,""endLine"":40}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":42,""endLine"":47}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":60}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":123,""endLine"":128}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":130,""endLine"":136}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":177,""endLine"":182}]",,25.0,10.0
@@ -2874,6 +2867,13 @@ app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescriptio
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3697,""endLine"":3703}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3705,""endLine"":3707}]",,172.0,110.0
 app/cronjob/trailingTrade/__tests__/steps.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":24}]",,1.0,1.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":38,""endLine"":40}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":42,""endLine"":47}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":60}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
 app/frontend/websocket/handlers/__tests__/symbol-update-last-buy-price.test.js,AnonymousTest,"[{""startLine"":60,""endLine"":66}]",,14.0,8.0
 app/frontend/websocket/handlers/__tests__/symbol-update-last-buy-price.test.js,AnonymousTest,"[{""startLine"":68,""endLine"":75}]",,14.0,8.0
 app/frontend/websocket/handlers/__tests__/symbol-update-last-buy-price.test.js,AnonymousTest,"[{""startLine"":77,""endLine"":86}]",,14.0,8.0

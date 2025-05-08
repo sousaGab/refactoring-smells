@@ -1868,55 +1868,55 @@ file,type,smells,frame,itCount,describeCount
   92 |             case 'mode':
   93 |               return 'live';
   94 |             default:",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 246, 'column': 10, 'index': 7099}","  244 |       beforeEach(async () => {
-  245 |         config.get = jest.fn(key => {
-> 246 |           switch (key) {
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 247, 'column': 10, 'index': 7186}","  245 |       beforeEach(async () => {
+  246 |         config.get = jest.fn(key => {
+> 247 |           switch (key) {
       |          ^ Conditional Test Logic
-  247 |             case 'mode':
-  248 |               return 'live';
-  249 |             default:",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 358, 'column': 10, 'index': 10895}","  356 |       beforeEach(async () => {
-  357 |         config.get = jest.fn(key => {
-> 358 |           switch (key) {
+  248 |             case 'mode':
+  249 |               return 'live';
+  250 |             default:",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 359, 'column': 10, 'index': 10982}","  357 |       beforeEach(async () => {
+  358 |         config.get = jest.fn(key => {
+> 359 |           switch (key) {
       |          ^ Conditional Test Logic
-  359 |             case 'mode':
-  360 |               return 'live';
-  361 |             default:",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 438, 'column': 10, 'index': 13806}","  436 |
-  437 |         mockPubSub.subscribe = jest.fn().mockImplementation((key, cb) => {
-> 438 |           if (key === 'check-open-orders') {
+  360 |             case 'mode':
+  361 |               return 'live';
+  362 |             default:",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 439, 'column': 10, 'index': 13893}","  437 |
+  438 |         mockPubSub.subscribe = jest.fn().mockImplementation((key, cb) => {
+> 439 |           if (key === 'check-open-orders') {
       |          ^ Conditional Test Logic
-  439 |             cb('message', 'data');
-  440 |           }
-  441 |         });",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 489, 'column': 10, 'index': 15408}","  487 |       beforeEach(async () => {
-  488 |         config.get = jest.fn(key => {
-> 489 |           switch (key) {
+  440 |             cb('message', 'data');
+  441 |           }
+  442 |         });",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 490, 'column': 10, 'index': 15495}","  488 |       beforeEach(async () => {
+  489 |         config.get = jest.fn(key => {
+> 490 |           switch (key) {
       |          ^ Conditional Test Logic
-  490 |             case 'mode':
-  491 |               return 'live';
-  492 |             default:",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 569, 'column': 10, 'index': 18319}","  567 |
-  568 |         mockPubSub.subscribe = jest.fn().mockImplementation((key, cb) => {
-> 569 |           if (key === 'reset-symbol-websockets') {
+  491 |             case 'mode':
+  492 |               return 'live';
+  493 |             default:",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 570, 'column': 10, 'index': 18406}","  568 |
+  569 |         mockPubSub.subscribe = jest.fn().mockImplementation((key, cb) => {
+> 570 |           if (key === 'reset-symbol-websockets') {
       |          ^ Conditional Test Logic
-  570 |             cb('message', 'BTCUSDT');
-  571 |           }
-  572 |         });",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 589, 'column': 8, 'index': 18839}","  587 |     beforeEach(async () => {
-  588 |       config.get = jest.fn(key => {
-> 589 |         switch (key) {
+  571 |             cb('message', 'BTCUSDT');
+  572 |           }
+  573 |         });",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 590, 'column': 8, 'index': 18926}","  588 |     beforeEach(async () => {
+  589 |       config.get = jest.fn(key => {
+> 590 |         switch (key) {
       |        ^ Conditional Test Logic
-  590 |           case 'mode':
-  591 |             return 'test';
-  592 |           default:",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 747, 'column': 8, 'index': 23615}","  745 |     beforeEach(async () => {
-  746 |       config.get = jest.fn(key => {
-> 747 |         switch (key) {
+  591 |           case 'mode':
+  592 |             return 'test';
+  593 |           default:",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Conditional Test Logic,"{'line': 748, 'column': 8, 'index': 23702}","  746 |     beforeEach(async () => {
+  747 |       config.get = jest.fn(key => {
+> 748 |         switch (key) {
       |        ^ Conditional Test Logic
-  748 |           case 'mode':
-  749 |             return 'live';
-  750 |           default:",,
+  749 |           case 'mode':
+  750 |             return 'live';
+  751 |           default:",,
 /home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 189, 'column': 8, 'index': 5619}","  187 |
   188 |       it('triggers refreshCandles', () => {
 > 189 |         expect(mockMongo.deleteAll).toHaveBeenCalledWith(
@@ -1931,34 +1931,27 @@ file,type,smells,frame,itCount,describeCount
   195 |           logger,
   196 |           'trailing-trade-ath-candles',
   197 |           {}",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 691, 'column': 6, 'index': 22289}","  689 |
-  690 |     it('triggers refreshCandles', () => {
-> 691 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 692, 'column': 6, 'index': 22376}","  690 |
+  691 |     it('triggers refreshCandles', () => {
+> 692 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
       |      ^ Duplicate Assert
-  692 |         logger,
-  693 |         'trailing-trade-candles',
-  694 |         {}",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 696, 'column': 6, 'index': 22415}","  694 |         {}
-  695 |       );
-> 696 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+  693 |         logger,
+  694 |         'trailing-trade-candles',
+  695 |         {}",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 697, 'column': 6, 'index': 22502}","  695 |         {}
+  696 |       );
+> 697 |       expect(mockMongo.deleteAll).toHaveBeenCalledWith(
       |      ^ Duplicate Assert
-  697 |         logger,
-  698 |         'trailing-trade-ath-candles',
-  699 |         {}",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Magic Number,"{'line': 230, 'column': 10, 'index': 6700}","  228 |           'trailing-trade-streams',
-  229 |           `count`,
-> 230 |           1
-      |          ^ Magic Number
-  231 |         );
-  232 |       });
-  233 |",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Magic Number,"{'line': 739, 'column': 8, 'index': 23471}","  737 |         'trailing-trade-streams',
-  738 |         `count`,
-> 739 |         1
+  698 |         logger,
+  699 |         'trailing-trade-ath-candles',
+  700 |         {}",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/server-binance.test.js,Magic Number,"{'line': 740, 'column': 8, 'index': 23558}","  738 |         'trailing-trade-streams',
+  739 |         `count`,
+> 740 |         1
       |        ^ Magic Number
-  740 |       );
-  741 |     });
-  742 |   });",,
+  741 |       );
+  742 |     });
+  743 |   });",,
 /home/gabriel/Desktop/research/projects/binance-trading-bot/app/__tests__/error-handler.test.js,Conditional Test Logic,"{'line': 71, 'column': 6, 'index': 1659}","  69 |         featureToggleNotifyDebug: false
   70 |       }
 > 71 |     ].forEach(errorInfo => {
@@ -2084,46 +2077,46 @@ app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":201,""endLin
 app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":208,""endLine"":213}]",,35.0,11.0
 app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":215,""endLine"":220}]",,35.0,11.0
 app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":222,""endLine"":224}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":226,""endLine"":232}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":234,""endLine"":236}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":238,""endLine"":240}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":330,""endLine"":332}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":334,""endLine"":336}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":338,""endLine"":340}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":342,""endLine"":344}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":346,""endLine"":352}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":578,""endLine"":582}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":682,""endLine"":684}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":686,""endLine"":688}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":690,""endLine"":701}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":703,""endLine"":705}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":707,""endLine"":713}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":715,""endLine"":721}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":723,""endLine"":729}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":731,""endLine"":733}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":735,""endLine"":741}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":825,""endLine"":827}]",,35.0,11.0
-app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":834,""endLine"":836}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":226,""endLine"":233}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":235,""endLine"":237}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":239,""endLine"":241}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":331,""endLine"":333}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":335,""endLine"":337}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":339,""endLine"":341}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":343,""endLine"":345}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":347,""endLine"":353}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":579,""endLine"":583}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":683,""endLine"":685}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":687,""endLine"":689}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":691,""endLine"":702}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":704,""endLine"":706}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":708,""endLine"":714}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":716,""endLine"":722}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":724,""endLine"":730}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":732,""endLine"":734}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":736,""endLine"":742}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":826,""endLine"":828}]",,35.0,11.0
+app/__tests__/server-binance.test.js,AnonymousTest,"[{""startLine"":835,""endLine"":837}]",,35.0,11.0
 app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,35.0,11.0
 app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":62,""endLine"":64}]",,35.0,11.0
-app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":755,""endLine"":755}]",,35.0,11.0
-app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":758,""endLine"":758}]",,35.0,11.0
-app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":762,""endLine"":762}]",,35.0,11.0
-app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":766,""endLine"":766}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":346,""endLine"":352}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":668,""endLine"":673}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":675,""endLine"":680}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":682,""endLine"":684}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":686,""endLine"":688}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":690,""endLine"":701}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":703,""endLine"":705}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":707,""endLine"":713}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":715,""endLine"":721}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":723,""endLine"":729}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":731,""endLine"":733}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":735,""endLine"":741}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":825,""endLine"":827}]",,35.0,11.0
-app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":834,""endLine"":836}]",,35.0,11.0
+app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":756,""endLine"":756}]",,35.0,11.0
+app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":759,""endLine"":759}]",,35.0,11.0
+app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":763,""endLine"":763}]",,35.0,11.0
+app/__tests__/server-binance.test.js,GeneralFixture,"[{""startLine"":767,""endLine"":767}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":347,""endLine"":353}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":669,""endLine"":674}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":676,""endLine"":681}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":683,""endLine"":685}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":687,""endLine"":689}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":691,""endLine"":702}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":704,""endLine"":706}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":708,""endLine"":714}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":716,""endLine"":722}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":724,""endLine"":730}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":732,""endLine"":734}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":736,""endLine"":742}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":826,""endLine"":828}]",,35.0,11.0
+app/__tests__/server-binance.test.js,IdenticalTestDescription,"[{""startLine"":835,""endLine"":837}]",,35.0,11.0
 app/__tests__/error-handler.test.js,AnonymousTest,"[{""startLine"":94,""endLine"":96}]",,9.0,10.0
 app/__tests__/error-handler.test.js,AnonymousTest,"[{""startLine"":134,""endLine"":139}]",,9.0,10.0
 app/__tests__/error-handler.test.js,AnonymousTest,"[{""startLine"":141,""endLine"":146}]",,9.0,10.0
@@ -2292,6 +2285,41 @@ app/helpers/__tests__/binance.test.js,AnonymousTest,"[{""startLine"":67,""endLin
 app/helpers/__tests__/binance.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
 app/helpers/__tests__/binance.test.js,IdenticalTestDescription,"[{""startLine"":60,""endLine"":65}]",,4.0,3.0
 app/helpers/__tests__/binance.test.js,IdenticalTestDescription,"[{""startLine"":67,""endLine"":71}]",,4.0,3.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":28,""endLine"":28}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":31,""endLine"":31}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":32,""endLine"":32}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":46,""endLine"":50}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":56,""endLine"":59}]",,1.0,1.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":44,""endLine"":44}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":45,""endLine"":45}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":64}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":73,""endLine"":80}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":86,""endLine"":88}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":90,""endLine"":99}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":101,""endLine"":108}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":110,""endLine"":119}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":121,""endLine"":130}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":132,""endLine"":139}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":141,""endLine"":147}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":149,""endLine"":159}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":161,""endLine"":177}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":179,""endLine"":186}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":188,""endLine"":193}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":195,""endLine"":204}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":206,""endLine"":213}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":215,""endLine"":223}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":225,""endLine"":233}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":235,""endLine"":242}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":244,""endLine"":251}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":253,""endLine"":260}]",,3.0,5.0
+app/cronjob/__tests__/tradingView.test.js,GeneralFixture,"[{""startLine"":29,""endLine"":33}]",,1.0,2.0
+app/cronjob/__tests__/index.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":11}]",,1.0,1.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":31,""endLine"":33}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":35,""endLine"":37}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,IdenticalTestDescription,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":60,""endLine"":62}]",,30.0,13.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":64,""endLine"":66}]",,30.0,13.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":96,""endLine"":98}]",,30.0,13.0
@@ -2373,41 +2401,6 @@ app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLin
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":345,""endLine"":353}]",,23.0,8.0
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":355,""endLine"":357}]",,23.0,8.0
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":363,""endLine"":365}]",,23.0,8.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":28,""endLine"":28}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":31,""endLine"":31}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":32,""endLine"":32}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":46,""endLine"":50}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":56,""endLine"":59}]",,1.0,1.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":44,""endLine"":44}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":45,""endLine"":45}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":64}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":73,""endLine"":80}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":86,""endLine"":88}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":90,""endLine"":99}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":101,""endLine"":108}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":110,""endLine"":119}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":121,""endLine"":130}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":132,""endLine"":139}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":141,""endLine"":147}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":149,""endLine"":159}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":161,""endLine"":177}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":179,""endLine"":186}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":188,""endLine"":193}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":195,""endLine"":204}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":206,""endLine"":213}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":215,""endLine"":223}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":225,""endLine"":233}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":235,""endLine"":242}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":244,""endLine"":251}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":253,""endLine"":260}]",,3.0,5.0
-app/cronjob/__tests__/tradingView.test.js,GeneralFixture,"[{""startLine"":29,""endLine"":33}]",,1.0,2.0
-app/cronjob/__tests__/index.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":11}]",,1.0,1.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":31,""endLine"":33}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":35,""endLine"":37}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,IdenticalTestDescription,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":206,""endLine"":208}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":230,""endLine"":232}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":291,""endLine"":293}]",,32.0,13.0
@@ -2460,13 +2453,6 @@ app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{"
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":725,""endLine"":729}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":735,""endLine"":737}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":818,""endLine"":820}]",,32.0,13.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":38,""endLine"":40}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":42,""endLine"":47}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":60}]",,4.0,3.0
-app/frontend/webserver/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":123,""endLine"":128}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":130,""endLine"":136}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":177,""endLine"":182}]",,25.0,10.0
@@ -2497,6 +2483,13 @@ app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{
 app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":225,""endLine"":225}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":282,""endLine"":282}]",,25.0,10.0
 app/frontend/local-tunnel/__tests__/configure.test.js,NonFunctionalStatement,"[{""startLine"":351,""endLine"":351}]",,25.0,10.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":38,""endLine"":40}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":42,""endLine"":47}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":60}]",,4.0,3.0
+app/frontend/webserver/__tests__/configure.test.js,IdenticalTestDescription,"[{""startLine"":71,""endLine"":73}]",,4.0,3.0
 app/cronjob/trailingTradeIndicator/__tests__/steps.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":20}]",,1.0,1.0
 app/cronjob/trailingTradeHelper/__tests__/tradingview.test.js,GeneralFixture,"[{""startLine"":20,""endLine"":22}]",,27.0,28.0
 app/cronjob/trailingTradeHelper/__tests__/tradingview.test.js,IdenticalTestDescription,"[{""startLine"":102,""endLine"":108}]",,27.0,28.0

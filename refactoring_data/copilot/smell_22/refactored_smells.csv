@@ -1273,55 +1273,41 @@ file,type,smells,frame,itCount,describeCount
   1981 |               return true;
   1982 |             }
   1983 |             return null;",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3145, 'column': 6, 'index': 86113}","  3143 |         }
-  3144 |       }
-> 3145 |     ].forEach(t => {
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3137, 'column': 6, 'index': 85904}","  3135 |         }
+  3136 |       }
+> 3137 |     ].forEach(t => {
        |      ^ Conditional Test Logic
-  3146 |       describe(`sortBy - ${t.desc}`, () => {
-  3147 |         beforeEach(async () => {
-  3148 |           const { mongo, logger, cache } = require('../../../helpers');",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3157, 'column': 12, 'index': 86534}","  3155 |
-  3156 |           cacheMock.hget = jest.fn().mockImplementation((hash, key) => {
-> 3157 |             if (
+  3138 |       describe(`sortBy - ${t.desc}`, () => {
+  3139 |         beforeEach(async () => {
+  3140 |           const { mongo, logger, cache } = require('../../../helpers');",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3149, 'column': 12, 'index': 86325}","  3147 |
+  3148 |           cacheMock.hget = jest.fn().mockImplementation((hash, key) => {
+> 3149 |             if (
        |            ^ Conditional Test Logic
-  3158 |               hash === 'trailing-trade-common' &&
-  3159 |               key === 'open-trades-symbols'
-  3160 |             ) {",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3164, 'column': 12, 'index': 86737}","  3162 |             }
-  3163 |
-> 3164 |             if (
+  3150 |               hash === 'trailing-trade-common' &&
+  3151 |               key === 'open-trades-symbols'
+  3152 |             ) {",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Conditional Test Logic,"{'line': 3156, 'column': 12, 'index': 86528}","  3154 |             }
+  3155 |
+> 3156 |             if (
        |            ^ Conditional Test Logic
-  3165 |               hash === 'trailing-trade-common' &&
-  3166 |               key === 'open-orders-symbols'
-  3167 |             ) {",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2469, 'column': 8, 'index': 67424}","  2467 |
-  2468 |       it('triggers slack.sendMessage', () => {
-> 2469 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
+  3157 |               hash === 'trailing-trade-common' &&
+  3158 |               key === 'open-orders-symbols'
+  3159 |             ) {",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2523, 'column': 8, 'index': 68902}","  2521 |
+  2522 |       it('triggers slack.sendMessage', () => {
+> 2523 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
        |        ^ Duplicate Assert
-  2470 |           expect.stringContaining('BTCUSDT'),
-  2471 |           {
-  2472 |             apiLimit: 0,",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2477, 'column': 8, 'index': 67621}","  2475 |         );
-  2476 |
-> 2477 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
-       |        ^ Duplicate Assert
-  2478 |           expect.stringContaining(
-  2479 |             'The bot queued to trigger the grid trade for buying'
-  2480 |           ),",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2531, 'column': 8, 'index': 69111}","  2529 |
-  2530 |       it('triggers slack.sendMessage', () => {
+  2524 |           expect.stringContaining('BTCUSDT'),
+  2525 |           {
+  2526 |             apiLimit: 0,",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2531, 'column': 8, 'index': 69099}","  2529 |         );
+  2530 |
 > 2531 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
        |        ^ Duplicate Assert
-  2532 |           expect.stringContaining('BTCUSDT'),
-  2533 |           {
-  2534 |             apiLimit: 0,",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2539, 'column': 8, 'index': 69308}","  2537 |         );
-  2538 |
-> 2539 |         expect(slackMock.sendMessage).toHaveBeenCalledWith(
-       |        ^ Duplicate Assert
-  2540 |           expect.stringContaining(
-  2541 |             'The bot queued to trigger the grid trade for buying'
-  2542 |           ),",,
+  2532 |           expect.stringContaining(
+  2533 |             'The bot queued to trigger the grid trade for buying'
+  2534 |           ),",,
 /home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Magic Number,"{'line': 80, 'column': 10, 'index': 2037}","  78 |             _.cloneDeep(require('./fixtures/binance-exchange-info.json'))
   79 |           ),
 > 80 |           3600
@@ -1427,20 +1413,20 @@ file,type,smells,frame,itCount,describeCount
   2321 |       });
   2322 |     });
   2323 |   });",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Magic Number,"{'line': 3675, 'column': 37, 'index': 100390}","  3673 |
-  3674 |       it('returns expected value', () => {
-> 3675 |         expect(result).toStrictEqual(0);
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Magic Number,"{'line': 3667, 'column': 37, 'index': 100181}","  3665 |
+  3666 |       it('returns expected value', () => {
+> 3667 |         expect(result).toStrictEqual(0);
        |                                     ^ Magic Number
-  3676 |       });
-  3677 |     });
-  3678 |",,
-/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Magic Number,"{'line': 3706, 'column': 37, 'index': 101237}","  3704 |
-  3705 |       it('returns expected value', () => {
-> 3706 |         expect(result).toStrictEqual(10);
+  3668 |       });
+  3669 |     });
+  3670 |",,
+/home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Magic Number,"{'line': 3698, 'column': 37, 'index': 101028}","  3696 |
+  3697 |       it('returns expected value', () => {
+> 3698 |         expect(result).toStrictEqual(10);
        |                                     ^ Magic Number
-  3707 |       });
-  3708 |     });
-  3709 |   });",,
+  3699 |       });
+  3700 |     });
+  3701 |   });",,
 /home/gabriel/Desktop/research/projects/binance-trading-bot/app/cronjob/trailingTrade/step/__tests__/remove-last-buy-price.test.js,Conditional Test Logic,"{'line': 301, 'column': 10, 'index': 9596}","  299 |
   300 |         mockGetGridTradeOrder = jest.fn().mockImplementation((_logger, key) => {
 > 301 |           if (key === 'BTCUPUSDT-grid-trade-last-sell-order') {
@@ -2292,6 +2278,41 @@ app/helpers/__tests__/binance.test.js,AnonymousTest,"[{""startLine"":67,""endLin
 app/helpers/__tests__/binance.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,4.0,3.0
 app/helpers/__tests__/binance.test.js,IdenticalTestDescription,"[{""startLine"":60,""endLine"":65}]",,4.0,3.0
 app/helpers/__tests__/binance.test.js,IdenticalTestDescription,"[{""startLine"":67,""endLine"":71}]",,4.0,3.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":28,""endLine"":28}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":31,""endLine"":31}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":32,""endLine"":32}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":46,""endLine"":50}]",,1.0,1.0
+app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":56,""endLine"":59}]",,1.0,1.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":44,""endLine"":44}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":45,""endLine"":45}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":64}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":73,""endLine"":80}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":86,""endLine"":88}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":90,""endLine"":99}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":101,""endLine"":108}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":110,""endLine"":119}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":121,""endLine"":130}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":132,""endLine"":139}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":141,""endLine"":147}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":149,""endLine"":159}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":161,""endLine"":177}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":179,""endLine"":186}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":188,""endLine"":193}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":195,""endLine"":204}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":206,""endLine"":213}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":215,""endLine"":223}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":225,""endLine"":233}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":235,""endLine"":242}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":244,""endLine"":251}]",,3.0,5.0
+app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":253,""endLine"":260}]",,3.0,5.0
+app/cronjob/__tests__/tradingView.test.js,GeneralFixture,"[{""startLine"":29,""endLine"":33}]",,1.0,2.0
+app/cronjob/__tests__/index.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":11}]",,1.0,1.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":31,""endLine"":33}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":35,""endLine"":37}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
+app/cronjob/__tests__/alive.test.js,IdenticalTestDescription,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":60,""endLine"":62}]",,30.0,13.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":64,""endLine"":66}]",,30.0,13.0
 app/binance/__tests__/user.test.js,AnonymousTest,"[{""startLine"":96,""endLine"":98}]",,30.0,13.0
@@ -2373,41 +2394,6 @@ app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLin
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":345,""endLine"":353}]",,23.0,8.0
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":355,""endLine"":357}]",,23.0,8.0
 app/binance/__tests__/ath-candles.test.js,IdenticalTestDescription,"[{""startLine"":363,""endLine"":365}]",,23.0,8.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":28,""endLine"":28}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":31,""endLine"":31}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":32,""endLine"":32}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":46,""endLine"":50}]",,1.0,1.0
-app/cronjob/__tests__/trailingTradeIndicator.test.js,GeneralFixture,"[{""startLine"":56,""endLine"":59}]",,1.0,1.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":44,""endLine"":44}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":45,""endLine"":45}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":60,""endLine"":64}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":73,""endLine"":80}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":86,""endLine"":88}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":90,""endLine"":99}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":101,""endLine"":108}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":110,""endLine"":119}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":121,""endLine"":130}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":132,""endLine"":139}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":141,""endLine"":147}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":149,""endLine"":159}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":161,""endLine"":177}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":179,""endLine"":186}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":188,""endLine"":193}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":195,""endLine"":204}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":206,""endLine"":213}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":215,""endLine"":223}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":225,""endLine"":233}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":235,""endLine"":242}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":244,""endLine"":251}]",,3.0,5.0
-app/cronjob/__tests__/trailingTrade.test.js,GeneralFixture,"[{""startLine"":253,""endLine"":260}]",,3.0,5.0
-app/cronjob/__tests__/tradingView.test.js,GeneralFixture,"[{""startLine"":29,""endLine"":33}]",,1.0,2.0
-app/cronjob/__tests__/index.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":11}]",,1.0,1.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":31,""endLine"":33}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":35,""endLine"":37}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,AnonymousTest,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
-app/cronjob/__tests__/alive.test.js,IdenticalTestDescription,"[{""startLine"":50,""endLine"":52}]",,3.0,4.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":206,""endLine"":208}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":230,""endLine"":232}]",,32.0,13.0
 app/frontend/websocket/__tests__/configure.test.js,AnonymousTest,"[{""startLine"":291,""endLine"":293}]",,32.0,13.0
@@ -2728,32 +2714,32 @@ app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""star
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2312,""endLine"":2317}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2421,""endLine"":2423}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2456,""endLine"":2466}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2468,""endLine"":2486}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2488,""endLine"":2498}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2517,""endLine"":2528}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2530,""endLine"":2548}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2550,""endLine"":2560}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2579,""endLine"":2590}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2635,""endLine"":2648}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2650,""endLine"":2659}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2661,""endLine"":2670}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2691,""endLine"":2705}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2707,""endLine"":2716}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2718,""endLine"":2727}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2748,""endLine"":2762}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2823,""endLine"":2843}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2881,""endLine"":2905}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2938,""endLine"":2952}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3186,""endLine"":3223}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3243,""endLine"":3274}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3292,""endLine"":3314}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3606,""endLine"":3608}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3610,""endLine"":3612}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3666,""endLine"":3672}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3697,""endLine"":3703}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2468,""endLine"":2478}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2480,""endLine"":2490}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2509,""endLine"":2520}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2522,""endLine"":2540}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2542,""endLine"":2552}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2571,""endLine"":2582}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2627,""endLine"":2640}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2642,""endLine"":2651}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2653,""endLine"":2662}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2683,""endLine"":2697}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2699,""endLine"":2708}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2710,""endLine"":2719}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2740,""endLine"":2754}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2815,""endLine"":2835}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2873,""endLine"":2897}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":2930,""endLine"":2944}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3178,""endLine"":3215}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3235,""endLine"":3266}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3284,""endLine"":3306}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3598,""endLine"":3600}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3602,""endLine"":3604}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3658,""endLine"":3664}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,AnonymousTest,"[{""startLine"":3689,""endLine"":3695}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,GeneralFixture,"[{""startLine"":27,""endLine"":29}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,GeneralFixture,"[{""startLine"":3693,""endLine"":3693}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,GeneralFixture,"[{""startLine"":3498,""endLine"":3503}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,GeneralFixture,"[{""startLine"":3685,""endLine"":3685}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,GeneralFixture,"[{""startLine"":3490,""endLine"":3495}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":129,""endLine"":134}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":136,""endLine"":141}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":158,""endLine"":167}]",,172.0,110.0
@@ -2837,42 +2823,42 @@ app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescriptio
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2359,""endLine"":2361}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2421,""endLine"":2423}]",,172.0,110.0
 app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2456,""endLine"":2466}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2468,""endLine"":2486}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2488,""endLine"":2498}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2517,""endLine"":2528}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2530,""endLine"":2548}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2550,""endLine"":2560}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2579,""endLine"":2590}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2592,""endLine"":2594}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2635,""endLine"":2648}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2650,""endLine"":2659}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2661,""endLine"":2670}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2691,""endLine"":2705}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2707,""endLine"":2716}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2718,""endLine"":2727}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2748,""endLine"":2762}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2764,""endLine"":2766}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2768,""endLine"":2770}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2823,""endLine"":2843}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2881,""endLine"":2905}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2938,""endLine"":2952}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3186,""endLine"":3223}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3292,""endLine"":3314}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3377,""endLine"":3379}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3399,""endLine"":3401}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3421,""endLine"":3423}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3445,""endLine"":3447}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3467,""endLine"":3469}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3489,""endLine"":3491}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3513,""endLine"":3515}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3539,""endLine"":3541}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3561,""endLine"":3563}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3606,""endLine"":3608}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3610,""endLine"":3612}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3666,""endLine"":3672}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3674,""endLine"":3676}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3697,""endLine"":3703}]",,172.0,110.0
-app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3705,""endLine"":3707}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2468,""endLine"":2478}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2480,""endLine"":2490}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2509,""endLine"":2520}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2522,""endLine"":2540}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2542,""endLine"":2552}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2571,""endLine"":2582}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2584,""endLine"":2586}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2627,""endLine"":2640}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2642,""endLine"":2651}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2653,""endLine"":2662}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2683,""endLine"":2697}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2699,""endLine"":2708}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2710,""endLine"":2719}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2740,""endLine"":2754}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2756,""endLine"":2758}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2760,""endLine"":2762}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2815,""endLine"":2835}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2873,""endLine"":2897}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":2930,""endLine"":2944}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3178,""endLine"":3215}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3284,""endLine"":3306}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3369,""endLine"":3371}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3391,""endLine"":3393}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3413,""endLine"":3415}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3437,""endLine"":3439}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3459,""endLine"":3461}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3481,""endLine"":3483}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3505,""endLine"":3507}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3531,""endLine"":3533}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3553,""endLine"":3555}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3598,""endLine"":3600}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3602,""endLine"":3604}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3658,""endLine"":3664}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3666,""endLine"":3668}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3689,""endLine"":3695}]",,172.0,110.0
+app/cronjob/trailingTradeHelper/__tests__/common.test.js,IdenticalTestDescription,"[{""startLine"":3697,""endLine"":3699}]",,172.0,110.0
 app/cronjob/trailingTrade/__tests__/steps.test.js,AnonymousTest,"[{""startLine"":4,""endLine"":24}]",,1.0,1.0
 app/frontend/websocket/handlers/__tests__/symbol-update-last-buy-price.test.js,AnonymousTest,"[{""startLine"":60,""endLine"":66}]",,14.0,8.0
 app/frontend/websocket/handlers/__tests__/symbol-update-last-buy-price.test.js,AnonymousTest,"[{""startLine"":68,""endLine"":75}]",,14.0,8.0
