@@ -207,15 +207,15 @@ async def main():
     llm = 'copilot'
     projects_names = {
         1: 'vanilla-lazyload',
-        2: 'ncc',
-        3: 'binance-trading-bot',
-        4: 'prettier',
-        5: 'react-beautiful-dnd',
-        6: 'intl-tel-input',
-        7: 'miragejs',
-        8: 'surfingkeys',
-        9: 'tether',
-        10: 'katex'
+        2: 'binance-trading-bot',
+        3: 'prettier',
+        4: 'react-beautiful-dnd',
+        5: 'intl-tel-input',
+        6: 'miragejs',
+        7: 'surfingkeys',
+        8: 'tether',
+        9: 'katex',
+        10: 'ncc'
     }
 
     type_of_run = input("Enter the type of run (1 for original, 2 for refactored): ").strip()

@@ -1,6 +1,5 @@
 name,percentage,Test Framewok,License,Observation
 verlok/vanilla-lazyload,83.64%,jest,MIT License,
-vercel/ncc,98.43%,jest,MIT License,
 chrisleekr/binance-trading-bot,98.54%,jest,MIT License,
 prettier/prettier,82.68%,jest,MIT License,
 atlassian/react-beautiful-dnd,99.99%,jest,Other,Apache License 2
@@ -9,3 +8,4 @@ miragejs/miragejs,95.71%,jest,MIT License,
 brookhong/surfingkeys,75.35%,jest,MIT License,
 shipshapecode/tether,91.65%,jest,MIT License,
 katex/katex,85.82%,jest,MIT License,
+vercel/ncc,98.43%,jest,MIT License,
