@@ -1,7 +1,8 @@
 FileName, TotalMethods, TotalTestSmells,Physical SLOC,Logical SLOC,Cyclomatic,CyclomaticDensity,HalsteadBugs,HalsteadDifficulty,HalsteadEffort,HalsteadLength,HalsteadTime,HalsteadVocabulary,HalsteadVolume,Maintainability,assertionRoulette,conditionalTestLogic,duplicateAssert,eagerTest,emptyTest,exceptionHandling,globalVariable,ignoredTest,lazyTest,magicNumberRule,mysteryGuest,redundantAssertion,redundantPrint,resourceOptimism,sleepyTest,unknownTest
-/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,5,2,163,173,11,6.358,1.597,29.149,139687.9,767,7760.439,76,4792.16,94.046,0,0,17,0,0,0,0,0,0,30,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/tether/test/unit/evented.spec.js,8,1,70,83,19,22.892,0.566,11.136,18925.54,272,1051.419,76,1699.436,123.504,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/tether/test/unit/constraint.spec.js,33,2,452,529,59,11.153,5.279,29.601,468762.882,2030,26042.382,223,15835.827,104.753,0,0,21,0,0,0,0,0,0,25,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,12,1,86,140,20,14.286,0.797,12.075,28859.723,394,1603.318,67,2390.039,114.598,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/tether/test/unit/utils/deferred.spec.js,1,2,19,21,4,19.048,0.095,5.833,1663.942,66,92.441,20,285.247,123.512,0,0,4,3,0,0,0,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/tether/test/unit/utils/classes.spec.js,7,4,67,80,11,13.75,0.567,10.434,17750.095,288,986.116,60,1701.184,113.596,0,0,4,2,0,0,0,0,6,3,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/katex/test/unicode-spec.js,25,5,168,168,36,21.429,1.245,25.636,95774.883,532,5320.827,130,3735.9,115.991,0,5,2,2,0,0,0,0,2,0,0,0,0,0,0,22
+/home/gabriel/Desktop/research/projects/katex/test/screenshotter-spec.js,0,1,20,18,4,22.222,0.125,10.292,3860.205,72,214.456,37,375.081,117.199,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/katex/test/mathml-spec.js,21,1,154,156,27,17.308,1.081,18.851,61131.825,472,3396.213,117,3242.812,115.387,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/katex/test/katex-spec.js,556,9,4315,5524,730,13.215,67.108,65.741,13235293.802,18073,735294.1,2256,201325.112,104.194,0,20,80,38,0,5,0,0,65,33,0,42,2,0,0,280
+/home/gabriel/Desktop/research/projects/katex/test/errors-spec.js,50,2,332,262,77,29.389,1.961,5.692,33481.955,756,1860.109,220,5882.708,130.386,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,46
+/home/gabriel/Desktop/research/projects/katex/test/dup-spec.js,0,1,19,14,5,35.714,0.069,9.625,2002.807,46,111.267,23,208.084,123.291,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/katex/contrib/auto-render/test/auto-render-spec.js,18,2,364,406,37,9.113,3.648,53.951,590423.74,1472,32801.319,173,10943.773,93.349,0,9,0,0,0,0,0,0,0,0,0,14,0,0,0,0

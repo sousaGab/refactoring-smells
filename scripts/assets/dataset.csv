@@ -2797,7 +2797,25 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  // deleting area code keeps Kazakhstan selected
  await user.type(input, ""{backspace}"");
  expect(checkFlagSelected(container, ""kz"")).toBe(true);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""typing/deleting different area codes should update the selected country"", async () => {
+    // typing area code starting with 1 changes to Russia
+    await user.type(input, ""1"");
+    let selectedCountry = checkFlagSelected(container, ""ru"");
+    expect(selectedCountry).toBe(true);
+
+    // deleting area code keeps the current country selected
+    await user.type(input, ""{backspace}"");
+    expect(selectedCountry).toBe(true);
+
+    // typing area code starting with 7 changes to Kazakhstan
+    await user.type(input, ""7"");
+    selectedCountry = checkFlagSelected(container, ""kz"");
+    expect(selectedCountry).toBe(true);
+
+    // deleting area code keeps the current country selected
+    await user.type(input, ""{backspace}"");
+    expect(selectedCountry).toBe(true);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 64,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -2808,7 +2826,13 @@ Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","test(""instances have different country lists"", () => {
  expect(getCountryListLength(container1)).toEqual(2);
  expect(getCountryListLength(container2)).toEqual(4);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""instances have different country lists"", () => {
+    const expectedCountryListLengthInstance1 = 2;
+    const expectedCountryListLengthInstance2 = 4;
+
+    expect(getCountryListLength(container1)).toEqual(expectedCountryListLengthInstance1);
+    expect(getCountryListLength(container2)).toEqual(expectedCountryListLengthInstance2);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 65,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -2819,7 +2843,13 @@ Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","test(""instances have different country lists"", () => {
  expect(getCountryListLength(container1)).toEqual(2);
  expect(getCountryListLength(container2)).toEqual(4);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""instances have different country lists"", () => {
+    const expectedCountryListLengthInstance1 = 2;
+    const expectedCountryListLengthInstance2 = 4;
+
+    expect(getCountryListLength(container1)).toEqual(expectedCountryListLengthInstance1);
+    expect(getCountryListLength(container2)).toEqual(expectedCountryListLengthInstance2);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 66,steel,jackocnr/intl-tel-input,/tests/core/countrySearch.test.js,Magic Number,"{'line': 55, 'column': 51, 'index': 1582}",start: 54 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -2829,7 +2859,10 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","test(""shows the right number of results"", () => {
  expect(getCountryListLength(container)).toBe(6);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""shows the right number of results"", () => {
+      const expectedResultsCount = 6; // Number of countries matching the search query 'x'
+      expect(getCountryListLength(container)).toBe(expectedResultsCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 67,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":56,""endLine"":56}",start: 40 end: 59,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -2856,7 +2889,26 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model instanceof Model).toBeTruthy();
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""undefined shorthand updates the record and returns the model"", () => {
+    let handler = new PutShorthandRouteHandler(
+      schema,
+      serializer,
+      undefined,
+      ""/authors/:id""
+    );
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1"",
+      params: { id: ""1"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model).toBeInstanceOf(Model);
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganondorf"");
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 68,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":73,""endLine"":73}",start: 61 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -2879,7 +2931,22 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model instanceof Model).toBeTruthy();
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""query params are ignored"", () => {
+    let handler = new PutShorthandRouteHandler(schema, serializer, ""author"");
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1?foo=bar"",
+      params: { id: ""1"" },
+      queryParams: { foo: ""bar"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model).toBeInstanceOf(Model);
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganondorf"");
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 69,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":94,""endLine"":94}",start: 78 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -2906,7 +2973,28 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model instanceof Model).toBeTruthy();
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""string shorthand updates the record of the specified type and returns the model"", () => {
+    let handler = new PutShorthandRouteHandler(
+      schema,
+      serializer,
+      undefined,
+      ""/authors/:id""
+    );
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors/1"",
+      params: { id: ""1"" },
+    };
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toEqual([
+      { id: ""1"", firstName: ""Ganondorf"" }
+    ]);
+    expect(model).toBeInstanceOf(Model);
+    expect(model.modelName).toBe(""author"");
+    expect(model.attrs).toEqual({ id: ""1"", firstName: ""Ganondorf"" });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 70,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}",start: 35 end: 45,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -2924,7 +3012,17 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model instanceof Model).toBeTruthy();
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganon"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""string shorthand creates a record of the specified type and returns the new model"", () => {
+    let request = { requestBody: JSON.stringify(body), url: ""/people"" };
+    let handler = new PostShorthandRouteHandler(schema, serializer, ""author"");
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model).toBeInstanceOf(Model);
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganon"");
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 71,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":58,""endLine"":58}",start: 47 end: 61,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -2946,7 +3044,21 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model instanceof Model).toBeTruthy();
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganon"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""query params are ignored"", () => {
+    let request = {
+      requestBody: JSON.stringify(body),
+      url: ""/authors?foo=bar"",
+      queryParams: { foo: ""bar"" },
+    };
+    let handler = new PostShorthandRouteHandler(schema, serializer, ""author"");
+
+    let model = handler.handle(request);
+
+    expect(schema.db.authors).toHaveLength(1);
+    expect(model).toBeInstanceOf(Model);
+    expect(model.modelName).toBe(""author"");
+    expect(model.firstName).toBe(""Ganon"");
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 72,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 622, 'column': 4, 'index': 14567}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3012,7 +3124,58 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(server.db.categories).toHaveLength(2);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let articles = server.createList(""article"", 2, ""withCategory"");
+
+    articles.forEach((article, index) => {
+      expect(article.attrs).toEqual({
+        title: ""Lorem ipsum"",
+        id: `${index + 1}`,
+        authorId: `${index + 1}`,
+        awesomeCategoryId: `${index + 1}`,
+      });
+    });
+
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 73,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 623, 'column': 4, 'index': 14614}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3078,7 +3241,63 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(server.db.categories).toHaveLength(2);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let article1 = server.create(""article"", ""withCategory"");
+    let article2 = server.create(""article"", ""withCategory"");
+
+    expect(article1.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""1"",
+      authorId: ""1"",
+      awesomeCategoryId: ""1"",
+    });
+    expect(article2.attrs).toEqual({
+      title: ""Lorem ipsum"",
+      id: ""2"",
+      authorId: ""2"",
+      awesomeCategoryId: ""2"",
+    });
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });
+",TRUE,FALSE,FALSE,FALSE,,,,,
 74,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 632, 'column': 4, 'index': 14877}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3144,7 +3363,58 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(server.db.categories).toHaveLength(2);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let articles = server.createList(""article"", 2, ""withCategory"");
+
+    articles.forEach((article, index) => {
+      expect(article.attrs).toEqual({
+        title: ""Lorem ipsum"",
+        id: `${index + 1}`,
+        authorId: `${index + 1}`,
+        awesomeCategoryId: `${index + 1}`,
+      });
+    });
+
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 75,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 633, 'column': 4, 'index': 14924}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3210,7 +3480,59 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(server.db.categories).toHaveLength(2);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""create allows to create objects with associations"", () => {
+    let AuthorFactory = Factory.extend({
+      name: ""Sam"",
+    });
+    let CategoryFactory = Factory.extend({
+      name: ""splendid software"",
+    });
+    let ArticleFactory = Factory.extend({
+      title: ""Lorem ipsum"",
+
+      withCategory: trait({
+        awesomeCategory: association(),
+      }),
+
+      author: association(),
+    });
+
+    let server = new Server({
+      environment: ""test"",
+      models: {
+        author: Model.extend({
+          articles: hasMany(),
+        }),
+        category: Model.extend({}),
+        article: Model.extend({
+          author: belongsTo(),
+          awesomeCategory: belongsTo(""category""),
+        }),
+      },
+      factories: {
+        article: ArticleFactory,
+        author: AuthorFactory,
+        category: CategoryFactory,
+      },
+    });
+
+    let articles = server.createList(""article"", 2, ""withCategory"");
+
+    articles.forEach((article, index) => {
+      expect(article.attrs).toEqual({
+        title: ""Lorem ipsum"",
+        id: `${index + 1}`,
+        authorId: `${index + 1}`,
+        awesomeCategoryId: `${index + 1}`,
+      });
+    });
+
+    expect(server.db.authors).toHaveLength(2);
+    expect(server.db.categories).toHaveLength(2);
+
+    server.shutdown();
+  });
+",TRUE,FALSE,FALSE,FALSE,,,,,
 76,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 26, 'column': 39, 'index': 502}",start: 21 end: 29,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3226,7 +3548,16 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(handler.numberOfCalls).toBe(0);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""routes return pretender handler"", () => {
+    let server = new Server({ environment: ""test"" });
+
+    let handler = server.post(""foo"");
+
+    const expectedNumberOfCalls = 0; // Magic number replaced with a named constant
+    expect(handler.numberOfCalls).toBe(expectedNumberOfCalls);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 77,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 59, 'column': 39, 'index': 1191}",start: 54 end: 62,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3242,7 +3573,16 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(handler.numberOfCalls).toBe(0);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""routes return pretender handler"", async () => {
+    let server = createServer({ environment: ""test"" });
+
+    let handler = server.post(""foo"");
+
+    const expectedNumberOfCalls = 0; // Magic number replaced with a named constant
+    expect(handler.numberOfCalls).toBe(expectedNumberOfCalls);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 78,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 80, 'column': 31, 'index': 1650}",start: 77 end: 83,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3256,7 +3596,14 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(server.timing).toBe(0);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""forces timing to be 0 in test environment"", async () => {
+    const TEST_ENVIRONMENT_TIMING = 0;
+    let server = createServer({ environment: ""test"" });
+
+    expect(server.timing).toBe(TEST_ENVIRONMENT_TIMING);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 79,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 88, 'column': 31, 'index': 1818}",start: 85 end: 91,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3270,7 +3617,14 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(server.timing).toBe(0);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""allows setting the timing to 0"", async () => {
+    const DEFAULT_TIMING = 0;
+    let server = createServer({ timing: DEFAULT_TIMING });
+
+    expect(server.timing).toBe(DEFAULT_TIMING);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 80,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 102, 'column': 31, 'index': 2121}",start: 95 end: 105,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3288,7 +3642,18 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(server.timing).toBe(0);
 
  server.shutdown();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""forces timing to 0 in test environment"", () => {
+    const DEFAULT_TIMING = 0;
+    let server = new Server({ environment: ""test"" });
+
+    server.loadConfig(function () {
+      this.timing = 50;
+    });
+
+    expect(server.timing).toBe(DEFAULT_TIMING);
+
+    server.shutdown();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 81,steel,miragejs/miragejs,/__tests__/internal/unit/schema-test.js,Duplicate Assert,"{'line': 42, 'column': 4, 'index': 1188}",start: 33 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3310,7 +3675,22 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  let record = schema.create(""author"", { id: 1, name: ""Mary Roach"" });
 
  expect(schema.first(""author"")).toEqual(record);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  test(""`first()` returns the first record or null when no records exist"", () => {
+    let db = new Db();
+    let schema = new Schema(db);
+
+    let authorModel = Model.extend({});
+    schema.registerModel(""author"", authorModel);
+
+    // No records exist
+    expect(schema.first(""author"")).toBeNull();
+
+    // Create a record and verify it is returned
+    let record = schema.create(""author"", { id: 1, name: ""Mary Roach"" });
+    let firstRecord = schema.first(""author"");
+
+    expect(firstRecord).toEqual(record);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 82,snutsjs,brookhong/surfingkeys,/tests/content_scripts/uiframe.test.js,TestWithoutDescription,"{""startLine"":42,""endLine"":44}",start: 42 end: 44,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: TestWithoutDescription
@@ -3320,7 +3700,9 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the TestWithoutDescription. Ensure the test remains correct, readable, and maintainable.","it("""", () => {
  uiframe.default();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should initialize the uiframe default functionality"", () => {
+        uiframe.default();
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 83,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":65,""endLine"":65}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -3342,7 +3724,23 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBeUndefined();
+        expect(document.execCommand).not.toHaveBeenCalled();
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const mapping = normal.mappings.find('of');
+        expect(mapping).toBeDefined();
+        expect(mapping.meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 84,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":88,""endLine"":88}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -3362,7 +3760,22 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  const links = document.querySelectorAll(""a"");
  expect(links.length).toBe(2);
  expect(links[0].href).toBe(""https://github.com/"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""render markdown from clipboard"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+        const links = Array.from(document.querySelectorAll(""a""));
+        expect(links).toHaveLength(2);
+        expect(links.map(link => link.href)).toEqual([
+            ""https://github.com/"",
+            ""https://google.com/""
+        ]);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 85,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":111,""endLine"":111}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -3396,7 +3809,35 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(hint_labels.length).toBe(2);
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: 100, height: 10, top: 100 * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBeNull();
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hintHost = document.querySelector(""div.surfingkeys_hints_host"");
+        expect(hintHost).not.toBeNull();
+
+        const hintLabels = hintHost.shadowRoot.querySelectorAll(""section>div"");
+        expect(hintLabels).toHaveLength(2);
+        expect(Array.from(hintLabels).map(label => label.label)).toEqual([""A"", ""S""]);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 86,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":115,""endLine"":115}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -3430,7 +3871,35 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(hint_labels.length).toBe(2);
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: 100, height: 10, top: 100 * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBe(null);
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hintHost = document.querySelector(""div.surfingkeys_hints_host"");
+        expect(hintHost).not.toBeNull();
+
+        const hintLabels = hintHost.shadowRoot.querySelectorAll(""section>div"");
+        expect(hintLabels).toHaveLength(2);
+        expect(Array.from(hintLabels).map(label => label.label)).toEqual([""A"", ""S""]);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 87,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":29,""endLine"":31}",start: 25 end: 35,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -3448,7 +3917,20 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  });
  document.body.dispatchEvent(new KeyboardEvent('keydown',{'key':'/'}));
  });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""normal /"", async () => {
+        normal.enter();
+        const handleEvent = jest.fn((evt) => {
+            expect(evt.detail.length).toBeGreaterThan(0);
+            expect(evt.detail[0]).toBe(""openFinder"");
+        });
+
+        document.addEventListener(""surfingkeys:front"", handleEvent);
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': '/'}));
+
+        // Ensure the event listener was triggered
+        expect(handleEvent).toHaveBeenCalled();
+        document.removeEventListener(""surfingkeys:front"", handleEvent);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 88,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":66,""endLine"":68}",start: 62 end: 77,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -3471,7 +3953,22 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  button: 0
  }));
  });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""normal mouse up triggers querySelectedWord"", async () => {
+        runtime.conf.mouseSelectToQuery = [ ""http://localhost"" ];
+        await new Promise((r) => {
+            document.addEventListener(""surfingkeys:front"", function(evt) {
+                r(evt.detail);
+            });
+            document.body.dispatchEvent(new MouseEvent('mouseup', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                button: 0
+            }));
+        }).then((detail) => {
+            expect(detail).toContain(""querySelectedWord"");
+        });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 89,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3493,7 +3990,21 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBe(undefined);
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const shortcut = normal.mappings.find('of');
+        expect(shortcut.meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 90,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3515,7 +4026,21 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""verify local shortcuts for markdown preview"", async () => {
+        document.execCommand = jest.fn();
+
+        expect(normal.mappings.find('of')).toBe(undefined);
+
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const mapping = normal.mappings.find('of');
+        expect(mapping.meta.word).toBe('of');
+        expect(document.execCommand).toHaveBeenCalledTimes(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 91,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3535,7 +4060,22 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  const links = document.querySelectorAll(""a"");
  expect(links.length).toBe(2);
  expect(links[0].href).toBe(""https://github.com/"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""render markdown from clipboard"", async () => {
+        const expectedLinkCount = 2; // Refactored to eliminate magic number
+        const expectedFirstLinkHref = ""https://github.com/""; // Refactored to provide context
+
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+        const links = document.querySelectorAll(""a"");
+        expect(links.length).toBe(expectedLinkCount);
+        expect(links[0].href).toBe(expectedFirstLinkHref);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 92,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3569,7 +4109,37 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(hint_labels.length).toBe(2);
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""follow links generated from markdown"", async () => {
+        jest.spyOn(clipboard, 'read').mockImplementationOnce((onReady) => {
+            onReady({data: ""* [github](https://github.com)\n* [google](https://google.com)""});
+        });
+        await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+            return true;
+        }, () => {
+            dispatchSKEvent('defaultSettingsLoaded', {normal, api});
+        });
+
+        const links = document.querySelectorAll(""a"");
+        const linkHeight = 10;
+        const linkWidth = 100;
+        const linkTopOffset = 100;
+
+        links.forEach((l, i) => {
+            l.getBoundingClientRect = jest.fn(() => {
+                return { width: linkWidth, height: linkHeight, top: linkTopOffset * i, left: 0, bottom: 0, right: 0 };
+            });
+        });
+        document.elementFromPoint = jest.fn(() => {
+            return null;
+        });
+        expect(document.querySelector(""div.surfingkeys_hints_host"")).toBe(null);
+
+        document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+        const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+        expect(hint_labels.length).toBe(2);
+        expect(hint_labels[0].label).toBe(""A"");
+        expect(hint_labels[1].label).toBe(""S"");
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 93,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 80, 'column': 8, 'index': 3134}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3587,7 +4157,20 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  });
  await new Promise((r) => setTimeout(r, 100));
  expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""toggle Omnibar's position"", async () => {
+        const elmOmnibarClass = document.getElementById(""sk_omnibar"").classList;
+        window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+        await new Promise((r) => setTimeout(r, 100));
+        const initialPosition = elmOmnibarClass.value;
+        expect(initialPosition).toContain('sk_omnibar_middle');
+
+        Mode.handleMapKey.call(omnibar, {
+            sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+        });
+        await new Promise((r) => setTimeout(r, 100));
+        const updatedPosition = elmOmnibarClass.value;
+        expect(updatedPosition).toContain('sk_omnibar_bottom');
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 94,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 85, 'column': 8, 'index': 3378}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3605,7 +4188,20 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  });
  await new Promise((r) => setTimeout(r, 100));
  expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test(""toggle Omnibar's position"", async () => {
+        const elmOmnibarClass = document.getElementById(""sk_omnibar"").classList;
+        window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+        await new Promise((r) => setTimeout(r, 100));
+        const initialPosition = elmOmnibarClass.value;
+        expect(initialPosition).toContain('sk_omnibar_middle');
+
+        Mode.handleMapKey.call(omnibar, {
+            sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+        });
+        await new Promise((r) => setTimeout(r, 100));
+        const updatedPosition = elmOmnibarClass.value;
+        expect(updatedPosition).toContain('sk_omnibar_bottom');
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 95,steel,brookhong/surfingkeys,/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}",start: 38 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3622,7 +4218,16 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""SearchEngine"", extra: ""b"" }}, document.location.origin);
  });
  expect(elmOmnibarStyle).not.toHaveProperty('display', 'none');
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    test('show omnibar', async () => {
+        const elmOmnibarStyle = document.getElementById(""sk_omnibar"").style;
+        expect(elmOmnibarStyle.display).toBe('none');
+        await waitForEvent(window, ""message"", (_msg) => {
+            return _msg.surfingkeys_uihost_data && _msg.surfingkeys_uihost_data.action === ""setFrontFrame"";
+        }, () => {
+            window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""SearchEngine"", extra: ""b"" }}, document.location.origin);
+        });
+        expect(elmOmnibarStyle.display).not.toBe('none');
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 96,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 59, 'column': 6, 'index': 1898}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3654,7 +4259,26 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList).toContain('tether-element');
+      expect(target.classList).toContain('tether-target');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 97,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 60, 'column': 6, 'index': 1951}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3686,7 +4310,26 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList).toContain('tether-element');
+      expect(target.classList).toContain('tether-target');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 98,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 63, 'column': 6, 'index': 2092}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3718,7 +4361,27 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList).toContain('tether-element');
+      expect(target.classList).toContain('tether-target');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });
+",TRUE,FALSE,FALSE,FALSE,,,,,
 99,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 64, 'column': 6, 'index': 2143}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3750,7 +4413,26 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('gets default classes when no options set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList).toContain('tether-element');
+      expect(target.classList).toContain('tether-target');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 100,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 86, 'column': 6, 'index': 2969}",start: 72 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -3783,7 +4465,33 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('gets prefixed classes when classPrefix set', () => {
+      expect(element.classList.length, 'element - only one class').toEqual(1);
+      expect(target.classList.length, 'target - only one class').toEqual(1);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right',
+      classPrefix: 'foo'
+      });
+
+      tether.enable();
+
+      const elementClasses = Array.from(element.classList);
+      const targetClasses = Array.from(target.classList);
+
+      expect(elementClasses, 'element - foo classes added').toContain('foo-element');
+      expect(elementClasses, 'element - foo classes added').not.toContain('foo-target');
+
+      expect(targetClasses, 'target - foo classes added').toContain('foo-target');
+      expect(targetClasses, 'target - foo classes added').not.toContain('foo-element');
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 101,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 24, 'column': 75, 'index': 664}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3810,7 +4518,29 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('removes classes on destroy', () => {
+      const initialClassCount = 1; // Initial state with one class
+      const tetherClassCount = 12; // Total classes added by Tether
+
+      expect(element.classList.length, 'element - only one class').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - only one class').toEqual(initialClassCount);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(tetherClassCount);
+      expect(target.classList.length, 'target - tether classes added').toEqual(tetherClassCount);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(initialClassCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 102,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 25, 'column': 73, 'index': 741}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3837,7 +4567,29 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('removes classes on destroy', () => {
+      const initialClassCount = 1; // Initial state with one class
+      const tetherClassCount = 12; // Total classes after tether is enabled
+
+      expect(element.classList.length, 'element - only one class').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - only one class').toEqual(initialClassCount);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(tetherClassCount);
+      expect(target.classList.length, 'target - tether classes added').toEqual(tetherClassCount);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(initialClassCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 103,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 35, 'column': 81, 'index': 1021}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3864,7 +4616,29 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('removes classes on destroy', () => {
+      const initialClassCount = 1;
+      const tetherClassCount = 12;
+
+      expect(element.classList.length, 'element - only one class').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - only one class').toEqual(initialClassCount);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(tetherClassCount);
+      expect(target.classList.length, 'target - tether classes added').toEqual(tetherClassCount);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(initialClassCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 104,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 36, 'column': 79, 'index': 1105}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3891,7 +4665,29 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('removes classes on destroy', () => {
+      const initialClassCount = 1; // Initial state with only one class
+      const tetherClassCount = 12; // Total classes added by Tether
+
+      expect(element.classList.length, 'element - only one class').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - only one class').toEqual(initialClassCount);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(tetherClassCount);
+      expect(target.classList.length, 'target - tether classes added').toEqual(tetherClassCount);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(initialClassCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 105,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 40, 'column': 103, 'index': 1239}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -3918,7 +4714,29 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('removes classes on destroy', () => {
+      const initialClassCount = 1; // Initial state with only one class
+      const tetherClassCount = 12; // Total classes added by Tether
+
+      expect(element.classList.length, 'element - only one class').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - only one class').toEqual(initialClassCount);
+      const tether = new Tether({
+      element: '.element',
+      target: '.target',
+      attachment: 'top left',
+      targetAttachment: 'top right'
+      });
+
+      tether.enable();
+
+      expect(element.classList.length, 'element - tether classes added').toEqual(tetherClassCount);
+      expect(target.classList.length, 'target - tether classes added').toEqual(tetherClassCount);
+
+      tether.destroy();
+
+      expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(initialClassCount);
+      expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(initialClassCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 106,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 14, 'column': 13, 'index': 502}",start: 13 end: 15,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -3928,7 +4746,11 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('top left', () => {
  expect(attachmentToOffset({ left: 'left', top: 'top' })).toStrictEqual({ left: 0, top: 0 });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe('top left attachment', () => {
+      it('returns 0% for top and left', () => {
+      expect(attachmentToOffset({ left: 'left', top: 'top' })).toStrictEqual({ left: 0, top: 0 });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 107,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 18, 'column': 13, 'index': 642}",start: 17 end: 19,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -3938,7 +4760,11 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('middle center', () => {
  expect(attachmentToOffset({ left: 'center', top: 'middle' })).toStrictEqual({ left: '50%', top: '50%' });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe('when attachment is middle center', () => {
+      it('returns 50% for both left and top', () => {
+      expect(attachmentToOffset({ left: 'center', top: 'middle' })).toStrictEqual({ left: '50%', top: '50%' });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 108,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 22, 'column': 13, 'index': 794}",start: 21 end: 23,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -3948,7 +4774,11 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('bottom right', () => {
  expect(attachmentToOffset({ left: 'right', top: 'bottom' })).toStrictEqual({ left: '100%', top: '100%' });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe('bottom right attachment', () => {
+      it('calculates bottom right offset', () => {
+      expect(attachmentToOffset({ left: 'right', top: 'bottom' })).toStrictEqual({ left: '100%', top: '100%' });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 109,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 28, 'column': 13, 'index': 996}",start: 27 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -3961,7 +4791,14 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  { left: 'auto', top: 'top' },
  { left: 'left', top: 'top' }
  )).toStrictEqual({ left: 'right', top: 'top' });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe('when mirroring left attachment', () => {
+      it('mirrors to right', () => {
+      expect(autoToFixedAttachment(
+        { left: 'auto', top: 'top' },
+        { left: 'left', top: 'top' }
+      )).toStrictEqual({ left: 'right', top: 'top' });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 110,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 35, 'column': 13, 'index': 1203}",start: 34 end: 39,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -3974,7 +4811,14 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  { left: 'auto', top: 'top' },
  { left: 'center', top: 'top' }
  )).toStrictEqual({ left: 'center', top: 'top' });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe('when left is auto and top is top', () => {
+      it('returns center for left and top remains top', () => {
+      expect(autoToFixedAttachment(
+        { left: 'auto', top: 'top' },
+        { left: 'center', top: 'top' }
+      )).toStrictEqual({ left: 'center', top: 'top' });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 111,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -3997,7 +4841,32 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe(""scriptFromCodepoint() should return correct values"", () => {
+        scriptNames.forEach(scriptName => {
+            it(`should return '${scriptName}' for codepoints in the ${scriptName} script`, () => {
+                for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                    const character = String.fromCharCode(codepoint);
+                    if (scriptRegExps[scriptName].test(character)) {
+                        expect(scriptFromCodepoint(codepoint)).toEqual(scriptName);
+                    }
+                }
+            });
+        });
+
+        it(""should return null for unsupported codepoints"", () => {
+            for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                const character = String.fromCharCode(codepoint);
+                const isSupported = scriptNames.some(scriptName =>
+                    scriptRegExps[scriptName].test(character)
+                );
+
+                if (!isSupported) {
+                    expect(scriptFromCodepoint(codepoint)).toBe(null);
+                    expect(supportedCodepoint(codepoint)).toBe(false);
+                }
+            }
+        });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 112,snutsjs,katex/katex,/test/unicode-spec.js,SubOptimalAssert,"{""startLine"":163,""endLine"":163}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -4020,7 +4889,22 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toBe(scriptName); // Use toBe for strict equality
+                    continue outer;
+                }
+            }
+
+            expect(script).toBeNull(); // Use toBeNull for clarity
+            expect(supportedCodepoint(codepoint)).toBe(false); // Explicitly check for false
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 113,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -4063,7 +4947,28 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  wideCharText += String.fromCharCode(0xD835, 0xDFF6); // monospace zero
  wideCharText += ""}"";
  expect(wideCharText).toBuild(strictSettings);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should build some surrogate pairs"", function() {
+        const wideCharStr = [
+            0xD835, 0xDC00,  // bold A
+            0xD835, 0xDC68,  // bold italic A
+            0xD835, 0xDD04,  // Fraktur A
+            0xD835, 0xDD6C,  // bold Fraktur A
+            0xD835, 0xDD38,  // double-struck
+            0xD835, 0xDC9C,  // script A
+            0xD835, 0xDDA0,  // sans serif A
+            0xD835, 0xDDD4,  // bold sans A
+            0xD835, 0xDE08,  // italic sans A
+            0xD835, 0xDE70,  // monospace A
+            0xD835, 0xDFCE,  // bold zero
+            0xD835, 0xDFE2,  // sans serif zero
+            0xD835, 0xDFEC,  // bold sans zero
+            0xD835, 0xDFF6   // monospace zero
+        ].map(code => String.fromCharCode(code)).join("""");
+        expect(wideCharStr).toBuild(strictSettings);
+
+        const wideCharText = `\\text{${wideCharStr}}`;
+        expect(wideCharText).toBuild(strictSettings);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 114,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -4087,7 +4992,24 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  expect(group.family).toEqual(""rel"");
  }
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        const validateGroup = (group) => {
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(1);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        };
+
+        parse.forEach(validateGroup);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 115,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":95,""endLine"":100}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -4111,7 +5033,22 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  expect(group.family).toEqual(""rel"");
  }
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+
+        const flattenedGroups = parse.flatMap(group => 
+            group.type === ""htmlmathml"" ? group.html : [group]
+        );
+
+        flattenedGroups.forEach(group => {
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 116,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1759,""endLine"":1761}",start: 1758 end: 1762,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -4123,7 +5060,13 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(""\\begin{matrix}a&b\\\\ %hline\n"" +
  ""\\hline %hline\n"" +
  ""\\hline c&d\\end{matrix}"").toParse();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should parse comments before and between \\hline"", () => {
+        const parsed = getParsed(""\\begin{matrix}a&b\\\\ %hline\n"" +
+            ""\\hline %hline\n"" +
+            ""\\hline c&d\\end{matrix}"");
+        expect(parsed[0].type).toBe(""array"");
+        expect(parsed[0].body).toHaveLength(3); // 3 rows: a&b, hline, c&d
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 117,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1894,""endLine"":1895}",start: 1890 end: 1897,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -4138,7 +5081,15 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(String.fromCharCode(0xD835, 0xDC00) +
  "" = "" + String.fromCharCode(0xD835, 0xDC1A))
  .toBuildLike`\mathbf A = \mathbf a`;
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should render wide characters with mord and with the correct font"", function() {
+        const markup = katex.renderToString(String.fromCharCode(0xD835, 0xDC00));
+        expect(markup).toMatch(/<span class=""mord mathbf"">A<\/span>/);
+
+        const wideChar = String.fromCharCode(0xD835, 0xDC00);
+        const wideCharLower = String.fromCharCode(0xD835, 0xDC1A);
+        expect(`${wideChar} = ${wideCharLower}`)
+            .toBuildLike`\mathbf A = \mathbf a`;
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 118,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3167,""endLine"":3167}",start: 3156 end: 3169,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -4159,7 +5110,22 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(error.position).toBe(4);
  expect(error.length).toBe(5);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should contain affected position and length information"", function() {
+        try {
+            katex.renderToString(""1 + \\fraq{}{}"");
+
+            // Render is expected to throw, so this should not be called.
+            fail(""Expected a ParseError to be thrown, but none was thrown."");
+        } catch (error) {
+            expect(error).toBeInstanceOf(ParseError);
+            expect(error).toMatchObject({
+                message: ""KaTeX parse error: Undefined control sequence: \\fraq at position 5: 1 + \\̲f̲r̲a̲q̲{}{}"",
+                rawMessage: ""Undefined control sequence: \\fraq"",
+                position: 4,
+                length: 5,
+            });
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 119,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3182,""endLine"":3182}",start: 3171 end: 3184,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -4180,98 +5146,23 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(error.position).toBe(7);
  expect(error.length).toBe(0);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-120,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 157, endLine : 160
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+ });","    it(""should contain position and length information at end of input"", function() {
+        try {
+            katex.renderToString(""\\frac{}"");
 
-Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it(""scriptFromCodepoint() should return correct values"", () => {
- outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
- const character = String.fromCharCode(codepoint);
- const script = scriptFromCodepoint(codepoint);
-
- for (const scriptName of scriptNames) {
- if (scriptRegExps[scriptName].test(character)) {
- expect(script).toEqual(scriptName);
- continue outer;
- }
- }
-
- expect(script).toBe(null);
- expect(supportedCodepoint(codepoint)).toBe(false);
- }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-121,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: OvercommentedTest
-- Smell Location:  Line Range:  startLine : 4010, endLine : 4045
-- Description:  A test method that has been excessively commented on
-
-Request:
-Please refactor the affected code to eliminate the OvercommentedTest. Ensure the test remains correct, readable, and maintainable.","it(""should build some surrogate pairs"", function() {
- let wideCharStr = """";
- wideCharStr += String.fromCharCode(0xD835, 0xDC00); // bold A
- wideCharStr += String.fromCharCode(0xD835, 0xDC68); // bold italic A
- wideCharStr += String.fromCharCode(0xD835, 0xDD04); // Fraktur A
- wideCharStr += String.fromCharCode(0xD835, 0xDD6C); // bold Fraktur A
- wideCharStr += String.fromCharCode(0xD835, 0xDD38); // double-struck
- wideCharStr += String.fromCharCode(0xD835, 0xDC9C); // script A
- wideCharStr += String.fromCharCode(0xD835, 0xDDA0); // sans serif A
- wideCharStr += String.fromCharCode(0xD835, 0xDDD4); // bold sans A
- wideCharStr += String.fromCharCode(0xD835, 0xDE08); // italic sans A
- wideCharStr += String.fromCharCode(0xD835, 0xDE70); // monospace A
- wideCharStr += String.fromCharCode(0xD835, 0xDFCE); // bold zero
- wideCharStr += String.fromCharCode(0xD835, 0xDFE2); // sans serif zero
- wideCharStr += String.fromCharCode(0xD835, 0xDFEC); // bold sans zero
- wideCharStr += String.fromCharCode(0xD835, 0xDFF6); // monospace zero
- expect(wideCharStr).toBuild(strictSettings);
-
- let wideCharText = ""\text{"";
- wideCharText += String.fromCharCode(0xD835, 0xDC00); // bold A
- wideCharText += String.fromCharCode(0xD835, 0xDC68); // bold italic A
- wideCharText += String.fromCharCode(0xD835, 0xDD04); // Fraktur A
- wideCharStr += String.fromCharCode(0xD835, 0xDD6C); // bold Fraktur A
- wideCharText += String.fromCharCode(0xD835, 0xDD38); // double-struck
- wideCharText += String.fromCharCode(0xD835, 0xDC9C); // script A
- wideCharText += String.fromCharCode(0xD835, 0xDDA0); // sans serif A
- wideCharText += String.fromCharCode(0xD835, 0xDDD4); // bold sans A
- wideCharText += String.fromCharCode(0xD835, 0xDE08); // italic sans A
- wideCharText += String.fromCharCode(0xD835, 0xDE70); // monospace A
- wideCharText += String.fromCharCode(0xD835, 0xDFCE); // bold zero
- wideCharText += String.fromCharCode(0xD835, 0xDFE2); // sans serif zero
- wideCharText += String.fromCharCode(0xD835, 0xDFEC); // bold sans zero
- wideCharText += String.fromCharCode(0xD835, 0xDFF6); // monospace zero
- wideCharText += ""}"";
- expect(wideCharText).toBuild(strictSettings);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-122,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 91, endLine : 94
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
-
-Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it(""should build a list of rels"", function() {
- const parse = getParsed(expression);
-
- for (let i = 0; i < parse.length; i++) {
- let group = parse[i];
- if (group.type === ""htmlmathml"") {
- expect(group.html).toHaveLength(1);
- group = group.html[0];
- }
- if (group.type === ""mclass"") {
- expect(group.mclass).toEqual(""mrel"");
- } else {
- expect(group.type).toEqual(""atom"");
- expect(group.family).toEqual(""rel"");
- }
- }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-123,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+            // Render is expected to throw, so this should not be called.
+            fail(""Expected ParseError was not thrown"");
+        } catch (error) {
+            expect(error).toBeInstanceOf(ParseError);
+            expect(error).toMatchObject({
+                message: ""KaTeX parse error: Unexpected end of input in a macro argument, expected '}' at end of input: \\frac{}"",
+                rawMessage: ""Unexpected end of input in a macro argument, expected '}'"",
+                position: 7,
+                length: 0,
+            });
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
+120,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 159, column: 20, index: 5760
@@ -4293,8 +5184,25 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-124,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+ });","    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+            const isSupported = supportedCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    expect(isSupported).toBe(true);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(isSupported).toBe(false);
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
+121,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 164, column: 12, index: 5877
@@ -4316,8 +5224,25 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-125,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}",start: 143 end: 149,"Context: I'm refactoring test smells from a test file to improve code quality.
+ });","    it(""scriptFromCodepoint() should return correct values"", () => {
+        outer: for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+            const character = String.fromCharCode(codepoint);
+            const script = scriptFromCodepoint(codepoint);
+            const isSupported = supportedCodepoint(codepoint);
+
+            for (const scriptName of scriptNames) {
+                if (scriptRegExps[scriptName].test(character)) {
+                    expect(script).toEqual(scriptName);
+                    expect(isSupported).toBe(true);
+                    continue outer;
+                }
+            }
+
+            expect(script).toBe(null);
+            expect(isSupported).toBe(false);
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
+122,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}",start: 143 end: 149,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 146, column: 19, index: 5223
@@ -4330,8 +5255,25 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  allRegExp.test(String.fromCharCode(codepoint))
  );
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-126,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+ });","    describe(""supportedCodepoint()"", () => {
+        it(""should return true for supported codepoints"", () => {
+            for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                if (allRegExp.test(String.fromCharCode(codepoint))) {
+                    expect(supportedCodepoint(codepoint)).toBe(true);
+                }
+            }
+        });
+
+        it(""should return false for unsupported codepoints"", () => {
+            for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                if (!allRegExp.test(String.fromCharCode(codepoint))) {
+                    expect(supportedCodepoint(codepoint)).toBe(false);
+                }
+            }
+        });
+    });
+",TRUE,FALSE,FALSE,FALSE,,,,,
+123,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 165, column: 19, index: 5923
@@ -4353,8 +5295,42 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-127,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
+ });","    describe(""scriptFromCodepoint()"", () => {
+        it(""should return the correct script name for supported codepoints"", () => {
+            for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                const character = String.fromCharCode(codepoint);
+                const script = scriptFromCodepoint(codepoint);
+
+                for (const scriptName of scriptNames) {
+                    if (scriptRegExps[scriptName].test(character)) {
+                        expect(script).toEqual(scriptName);
+                        return;
+                    }
+                }
+            }
+        });
+
+        it(""should return null for unsupported codepoints"", () => {
+            for (let codepoint = 0; codepoint <= 0xffff; codepoint++) {
+                const character = String.fromCharCode(codepoint);
+                const script = scriptFromCodepoint(codepoint);
+
+                let isSupported = false;
+                for (const scriptName of scriptNames) {
+                    if (scriptRegExps[scriptName].test(character)) {
+                        isSupported = true;
+                        break;
+                    }
+                }
+
+                if (!isSupported) {
+                    expect(script).toBe(null);
+                    expect(supportedCodepoint(codepoint)).toBe(false);
+                }
+            }
+        });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
+124,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 575, column: 8, index: 17088
@@ -4391,46 +5367,31 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(parseBrackFrac.denom).toBeDefined();
  expect(parseBrackFrac.leftDelim).toBeDefined();
  expect(parseBrackFrac.rightDelim).toBeDefined();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-128,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: Duplicate Assert
-- Smell Location:  Line : 575, column: 8, index: 17088
-- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+ });","    it(""should produce a frac"", function() {
+        const testGenfrac = (expression) => {
+            const parse = getParsed(expression)[0];
+            expect(parse.type).toEqual(""genfrac"");
+            expect(parse.numer).toBeDefined();
+            expect(parse.denom).toBeDefined();
+        };
 
-Request:
-Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","it(""should produce a frac"", function() {
- let parse;
+        testGenfrac(simpleOver);
+        testGenfrac(complexOver);
 
- parse = getParsed(simpleOver)[0];
+        const testGenfracWithDelims = (expression) => {
+            const parse = getParsed(expression)[0];
+            expect(parse.type).toEqual(""genfrac"");
+            expect(parse.numer).toBeDefined();
+            expect(parse.denom).toBeDefined();
+            expect(parse.leftDelim).toBeDefined();
+            expect(parse.rightDelim).toBeDefined();
+        };
 
- expect(parse.type).toEqual(""genfrac"");
- expect(parse.numer).toBeDefined();
- expect(parse.denom).toBeDefined();
-
- parse = getParsed(complexOver)[0];
-
- expect(parse.type).toEqual(""genfrac"");
- expect(parse.numer).toBeDefined();
- expect(parse.denom).toBeDefined();
-
- const parseBraceFrac = getParsed(braceFrac)[0];
-
- expect(parseBraceFrac.type).toEqual(""genfrac"");
- expect(parseBraceFrac.numer).toBeDefined();
- expect(parseBraceFrac.denom).toBeDefined();
- expect(parseBraceFrac.leftDelim).toBeDefined();
- expect(parseBraceFrac.rightDelim).toBeDefined();
-
- const parseBrackFrac = getParsed(brackFrac)[0];
-
- expect(parseBrackFrac.type).toEqual(""genfrac"");
- expect(parseBrackFrac.numer).toBeDefined();
- expect(parseBrackFrac.denom).toBeDefined();
- expect(parseBrackFrac.leftDelim).toBeDefined();
- expect(parseBrackFrac.rightDelim).toBeDefined();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-129,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
+        testGenfracWithDelims(braceFrac);
+        testGenfracWithDelims(brackFrac);
+    });
+",TRUE,FALSE,FALSE,FALSE,,,,,
+125,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 576, column: 8, index: 17135
@@ -4468,7 +5429,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(parseBrackFrac.leftDelim).toBeDefined();
  expect(parseBrackFrac.rightDelim).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-130,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}",start: 43 end: 50,"Context: I'm refactoring test smells from a test file to improve code quality.
+126,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}",start: 43 end: 50,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 45, column: 22, index: 1225
@@ -4483,7 +5444,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(group.type).toMatch(""ord"");
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-131,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}",start: 52 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
+127,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}",start: 52 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 54, column: 22, index: 1483
@@ -4495,7 +5456,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
 
  expect(parse).toHaveLength(expression.length);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-132,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}",start: 66 end: 74,"Context: I'm refactoring test smells from a test file to improve code quality.
+128,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}",start: 66 end: 74,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 68, column: 22, index: 1816
@@ -4511,7 +5472,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(group.family).toEqual(""bin"");
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-133,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
+129,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 93, column: 48, index: 2613
@@ -4535,7 +5496,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  }
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-134,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}",start: 111 end: 115,"Context: I'm refactoring test smells from a test file to improve code quality.
+130,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}",start: 111 end: 115,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 115, column: 44, index: 3404
@@ -4547,7 +5508,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  const mml = buildMathML(getParsed(contents), contents, defaultOptions);
  expect(mml.children.length).toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-135,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}",start: 343 end: 352,"Context: I'm refactoring test smells from a test file to improve code quality.
+131,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}",start: 343 end: 352,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 347, column: 35, index: 10074
@@ -4564,7 +5525,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(ord.type).toMatch(""ord"");
  expect(ord.body).toBeTruthy();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-136,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}",start: 365 end: 375,"Context: I'm refactoring test smells from a test file to improve code quality.
+132,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}",start: 365 end: 375,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 369, column: 35, index: 10676
@@ -4582,7 +5543,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(ord.body).toBeTruthy();
  expect(ord.semisimple).toBeTruthy();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-137,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}",start: 388 end: 398,"Context: I'm refactoring test smells from a test file to improve code quality.
+133,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}",start: 388 end: 398,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 392, column: 35, index: 11303
@@ -4600,7 +5561,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(sizing.body).toBeTruthy();
  expect(sizing.size).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-138,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+134,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 120, endLine : 126
@@ -4653,7 +5614,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-139,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+135,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 138, endLine : 138
@@ -4706,7 +5667,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-140,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+136,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 140, endLine : 145
@@ -4759,7 +5720,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-141,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+137,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 146, endLine : 149
@@ -4812,7 +5773,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-142,snutsjs,vercel/ncc,/test/watcher.test.js,SensitiveEquality,"{""startLine"":123,""endLine"":123}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+138,snutsjs,vercel/ncc,/test/watcher.test.js,SensitiveEquality,"{""startLine"":123,""endLine"":123}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SensitiveEquality
 - Smell Location:  Line Range:  startLine : 123, endLine : 123
@@ -4865,7 +5826,7 @@ Please refactor the affected code to eliminate the SensitiveEquality. Ensure the
 
   fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-143,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+139,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line Range:  startLine : 120, endLine : 126
@@ -4918,7 +5879,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-144,snutsjs,vercel/ncc,/test/unit.test.js,SensitiveEquality,"{""startLine"":54,""endLine"":54}",start: 15 end: 80,"Context: I'm refactoring test smells from a test file to improve code quality.
+140,snutsjs,vercel/ncc,/test/unit.test.js,SensitiveEquality,"{""startLine"":54,""endLine"":54}",start: 15 end: 80,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SensitiveEquality
 - Smell Location:  Line Range:  startLine : 54, endLine : 54

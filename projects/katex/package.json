@@ -141,7 +141,7 @@
     "test:jest": "jest",
     "test:jest:watch": "jest --watch",
     "test:jest:update": "jest --updateSnapshot",
-    "test:jest:coverage": "jest --coverage",
+    "test:jest:coverage": "jest --coverage --coverageReporters=text-summary",
     "test:screenshots": "yarn test:screenshots:update --verify",
     "test:screenshots:update": "dockers/screenshotter/screenshotter.sh",
     "test:perf": "NODE_ENV=test node test/perf-test.js",
