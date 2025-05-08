@@ -40,7 +40,8 @@
     "dev": "rollup -c -w",
     "build": "rimraf dist && rollup -c",
     "prepublishOnly": "yarn run build",
-    "test:run": "node --experimental-vm-modules $(yarn bin jest)",
+    "test:run": "node --experimental-vm-modules $(yarn bin jest) --coverage --coverageReporters=text-summary",
+    "test:unit": "node --experimental-vm-modules $(yarn bin jest) --selectProjects internal --coverage --coverageReporters=text-summary",
     "test": "run-s build test:run",
     "ci": "run-s lint prettier:check test"
   },
