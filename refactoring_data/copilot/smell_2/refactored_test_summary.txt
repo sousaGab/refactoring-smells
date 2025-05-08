@@ -1,0 +1,12 @@
+
+Test Suites: 1 failed, 5 passed, 6 total
+Tests:       1 failed, 59 passed, 60 total
+Snapshots:   0 total
+Time:        1.405 s
+Ran all test suites.
+
+Total Coverage:
+Statements: 59.24%
+Branches: 49.67%
+Functions: 52.89%
+Lines: 60.52%

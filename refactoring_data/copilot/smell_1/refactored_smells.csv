@@ -517,4 +517,3 @@ tests/unit/reset.test.js,GeneralFixture,"[{""startLine"":15,""endLine"":15}]",,1
 tests/unit/originalAttributes.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,1.0,1.0
 tests/unit/load.test.js,GeneralFixture,"[{""startLine"":15,""endLine"":15}]",,2.0,1.0
 tests/unit/cancelOnExit.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,8.0,2.0
-tests/unit/cancelOnExit.test.js,SubOptimalAssert,"[{""startLine"":91,""endLine"":91}]",,8.0,2.0

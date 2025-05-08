@@ -463,33 +463,26 @@ file,type,smells,frame,itCount,describeCount
   71 |   });
   72 |
   73 |   test(""Removes loading class"", () => {",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 99, 'column': 4, 'index': 2957}","   97 |     setSources(img, settings, instance);
-   98 |     cancelLoading(img, entry, settings, instance);
->  99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 3052}","   98 |     setSources(img, settings, instance);
+   99 |     cancelLoading(img, entry, settings, instance);
+> 100 |     expect(cancelCb).toHaveBeenCalledTimes(1);
       |    ^ Duplicate Assert
-  100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
-  101 |   });
-  102 | });",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 3004}","   98 |     cancelLoading(img, entry, settings, instance);
-   99 |     expect(cancelCb).toHaveBeenCalledTimes(1);
-> 100 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  101 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
+  102 |   });
+  103 | });",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Duplicate Assert,"{'line': 101, 'column': 4, 'index': 3099}","   99 |     cancelLoading(img, entry, settings, instance);
+  100 |     expect(cancelCb).toHaveBeenCalledTimes(1);
+> 101 |     expect(cancelCb).toHaveBeenCalledWith(img, entry, instance);
       |    ^ Duplicate Assert
-  101 |   });
-  102 | });
-  103 |",,
+  102 |   });
+  103 | });
+  104 |",,
 /home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Global Variable,"{'line': 13, 'column': 0, 'index': 473}","  11 | expectExtend(expect);
   12 |
 > 13 | var outerDiv, instance, settings;
   14 |
   15 | beforeEach(() => {
   16 |   outerDiv = document.createElement(""div"");",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/cancelOnExit.test.js,Magic Number,"{'line': 84, 'column': 39, 'index': 2522}","  82 |     setSources(img, settings, instance);
-  83 |     cancelLoading(img, entry, settings, instance);
-> 84 |     expect(instance.loadingCount).toBe(0);
-     |                                       ^ Magic Number
-  85 |   });
-  86 |
-  87 |   test(""Resets internal status"", () => {",,
 tests/unit/set.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,19.0,7.0
 tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":171,""endLine"":176}]",,19.0,7.0
 tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":177,""endLine"":185}]",,19.0,7.0
@@ -517,4 +510,4 @@ tests/unit/reset.test.js,GeneralFixture,"[{""startLine"":15,""endLine"":15}]",,1
 tests/unit/originalAttributes.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,1.0,1.0
 tests/unit/load.test.js,GeneralFixture,"[{""startLine"":15,""endLine"":15}]",,2.0,1.0
 tests/unit/cancelOnExit.test.js,GeneralFixture,"[{""startLine"":16,""endLine"":16}]",,8.0,2.0
-tests/unit/cancelOnExit.test.js,SubOptimalAssert,"[{""startLine"":91,""endLine"":91}]",,8.0,2.0
+tests/unit/cancelOnExit.test.js,SubOptimalAssert,"[{""startLine"":92,""endLine"":92}]",,8.0,2.0

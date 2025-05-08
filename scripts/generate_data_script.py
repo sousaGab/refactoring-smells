@@ -129,7 +129,7 @@ def organize_output_folder(smell_number, llm):
             log_info(f"File not found, skipping deletion: {csv_file}")
 
 def copy_test_file(name_run, project_name, smell_number, llm):
-    """Copy the test file to the output folder."""
+    """Copy the test file to the output folder and delete the original test_summary.txt and output_tests files."""
     csv_file_path = f'/home/gabriel/Desktop/research/scripts/assets/dataset.csv'
     df = pd.read_csv(csv_file_path)
 
@@ -152,6 +152,7 @@ def copy_test_file(name_run, project_name, smell_number, llm):
             project_folder = f'/home/gabriel/Desktop/projects/{project_name}/'
             source_file = os.path.join(project_folder, test_file_path)
             log_info(f"Checking for test file in project folder: {source_file}")
+
     except FileNotFoundError:
         log_error(f"Test file not found: {source_file}")
     except Exception as e:
@@ -177,6 +178,22 @@ def run_tests(name_run, project_name, smell_number, llm):
         if os.path.exists(test_summary_file):
             shutil.copy(test_summary_file, destination_file)
             log_info(f"Copied test summary file to: {destination_folder}")
+              # Delete the original test_summary.txt file
+            test_summary_file = f'/home/gabriel/Desktop/research/projects/{project_name}/test_summary.txt'
+            if os.path.exists(test_summary_file):
+                os.remove(test_summary_file)
+                log_info(f"Deleted original test_summary.txt file: {test_summary_file}")
+            else:
+                log_info(f"Original test_summary.txt file not found, skipping deletion: {test_summary_file}")
+
+            # Delete the output_tests file
+            output_tests_file = f'/home/gabriel/Desktop/research/projects/{project_name}/output_tests'
+            if os.path.exists(output_tests_file):
+                os.remove(output_tests_file)
+                log_info(f"Deleted output_tests file: {output_tests_file}")
+            else:
+                log_info(f"Output_tests file not found, skipping deletion: {output_tests_file}")
+
         else:
             log_error(f"Test summary file not found: {test_summary_file}")
     except FileNotFoundError:
@@ -239,9 +256,9 @@ async def main():
         copy_test_file(name_run, project_name, smell_number, llm)
         log_info("Test file copied successfully.")
 
-        log_info("Running the tests...")
-        run_tests(name_run, project_name, smell_number, llm)
-        log_info("Tests run completed.")
+        # log_info("Running the tests...")
+        # run_tests(name_run, project_name, smell_number, llm)
+        # log_info("Tests run completed.")
 
 
     except subprocess.CalledProcessError as e:

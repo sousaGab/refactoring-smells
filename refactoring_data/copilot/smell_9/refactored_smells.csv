@@ -1,46 +1,46 @@
 file,type,smells,frame,itCount,describeCount
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 58, 'column': 4, 'index': 1579}","  56 |     img.setAttribute(""data-srcset"", url400);
-  57 |     setSources(img, settings, instance);
-> 58 |     expect(img).toHaveAttribute(""src"", url200);
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 59, 'column': 4, 'index': 1684}","  57 |     img.setAttribute(""data-srcset"", url400);
+  58 |     setSources(img, settings, instance);
+> 59 |     expect(img).toHaveAttribute(""src"", url200);
      |    ^ Duplicate Assert
-  59 |     expect(img).toHaveAttribute(""srcset"", url400);
-  60 |   });
-  61 |",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 59, 'column': 4, 'index': 1627}","  57 |     setSources(img, settings, instance);
-  58 |     expect(img).toHaveAttribute(""src"", url200);
-> 59 |     expect(img).toHaveAttribute(""srcset"", url400);
+  60 |     expect(img).toHaveAttribute(""srcset"", url400);
+  61 |   });
+  62 |",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 60, 'column': 4, 'index': 1732}","  58 |     setSources(img, settings, instance);
+  59 |     expect(img).toHaveAttribute(""src"", url200);
+> 60 |     expect(img).toHaveAttribute(""srcset"", url400);
      |    ^ Duplicate Assert
-  60 |   });
-  61 |
-  62 |   test(""with initial values in src and srcset"", () => {",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 68, 'column': 4, 'index': 1942}","  66 |     img.setAttribute(""srcset"", url1);
-  67 |     setSources(img, settings, instance);
-> 68 |     expect(img).toHaveAttribute(""src"", url200);
+  61 |   });
+  62 |
+  63 |   test(""with initial values in src and srcset"", () => {",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 2047}","  67 |     img.setAttribute(""srcset"", url1);
+  68 |     setSources(img, settings, instance);
+> 69 |     expect(img).toHaveAttribute(""src"", url200);
      |    ^ Duplicate Assert
-  69 |     expect(img).toHaveAttribute(""srcset"", url400);
-  70 |   });
-  71 |   test(""with initial values in src and srcset and empty data-*"", () => {",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 69, 'column': 4, 'index': 1990}","  67 |     setSources(img, settings, instance);
-  68 |     expect(img).toHaveAttribute(""src"", url200);
-> 69 |     expect(img).toHaveAttribute(""srcset"", url400);
+  70 |     expect(img).toHaveAttribute(""srcset"", url400);
+  71 |   });
+  72 |   test(""with initial values in src and srcset and empty data-*"", () => {",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 70, 'column': 4, 'index': 2095}","  68 |     setSources(img, settings, instance);
+  69 |     expect(img).toHaveAttribute(""src"", url200);
+> 70 |     expect(img).toHaveAttribute(""srcset"", url400);
      |    ^ Duplicate Assert
-  70 |   });
-  71 |   test(""with initial values in src and srcset and empty data-*"", () => {
-  72 |     img.setAttribute(""data-src"", """");",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 77, 'column': 4, 'index': 2317}","  75 |     img.setAttribute(""srcset"", url400);
-  76 |     setSources(img, settings, instance);
-> 77 |     expect(img).toHaveAttribute(""src"", url200);
+  71 |   });
+  72 |   test(""with initial values in src and srcset and empty data-*"", () => {
+  73 |     img.setAttribute(""data-src"", """");",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 78, 'column': 4, 'index': 2422}","  76 |     img.setAttribute(""srcset"", url400);
+  77 |     setSources(img, settings, instance);
+> 78 |     expect(img).toHaveAttribute(""src"", url200);
      |    ^ Duplicate Assert
-  78 |     expect(img).toHaveAttribute(""srcset"", url400);
-  79 |   });
-  80 | });",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 78, 'column': 4, 'index': 2365}","  76 |     setSources(img, settings, instance);
-  77 |     expect(img).toHaveAttribute(""src"", url200);
-> 78 |     expect(img).toHaveAttribute(""srcset"", url400);
+  79 |     expect(img).toHaveAttribute(""srcset"", url400);
+  80 |   });
+  81 | });",,
+/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Duplicate Assert,"{'line': 79, 'column': 4, 'index': 2470}","  77 |     setSources(img, settings, instance);
+  78 |     expect(img).toHaveAttribute(""src"", url200);
+> 79 |     expect(img).toHaveAttribute(""srcset"", url400);
      |    ^ Duplicate Assert
-  79 |   });
-  80 | });
-  81 |",,
+  80 |   });
+  81 | });
+  82 |",,
 /home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Global Variable,"{'line': 11, 'column': 0, 'index': 415}","   9 | expectExtend(expect);
   10 |
 > 11 | var outerDiv, settings, instance;
@@ -54,13 +54,6 @@ file,type,smells,frame,itCount,describeCount
   30 |   });
   31 |
   32 |   test('setToLoadCount sets toLoadCount to the given value', () => {",,
-/home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/set.test.js,Magic Number,"{'line': 35, 'column': 42, 'index': 1078}","  33 |     const mockInstance = {};
-  34 |     setToLoadCount(mockInstance, 10);
-> 35 |     expect(mockInstance.toLoadCount).toBe(10);
-     |                                          ^ Magic Number
-  36 |   });
-  37 | })
-  38 |",,
 /home/gabriel/Desktop/research/projects/vanilla-lazyload/tests/unit/restore.test.js,Duplicate Assert,"{'line': 46, 'column': 4, 'index': 1088}","  44 |   test(""when load hasn't been called on the element"", () => {
   45 |     restore(img);
 > 46 |     expect(img).not.toHaveAttribute(""src"");
@@ -491,10 +484,10 @@ file,type,smells,frame,itCount,describeCount
   86 |
   87 |   test(""Resets internal status"", () => {",,
 tests/unit/set.test.js,GeneralFixture,"[{""startLine"":14,""endLine"":14}]",,19.0,7.0
-tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":171,""endLine"":176}]",,19.0,7.0
-tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":177,""endLine"":185}]",,19.0,7.0
-tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":186,""endLine"":195}]",,19.0,7.0
-tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":217,""endLine"":223}]",,19.0,7.0
+tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":172,""endLine"":177}]",,19.0,7.0
+tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":178,""endLine"":186}]",,19.0,7.0
+tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":187,""endLine"":196}]",,19.0,7.0
+tests/unit/set.test.js,IdenticalTestDescription,"[{""startLine"":218,""endLine"":224}]",,19.0,7.0
 tests/unit/restore.test.js,GeneralFixture,"[{""startLine"":21,""endLine"":21}]",,29.0,6.0
 tests/unit/restore.test.js,IdenticalTestDescription,"[{""startLine"":112,""endLine"":117}]",,29.0,6.0
 tests/unit/restore.test.js,IdenticalTestDescription,"[{""startLine"":150,""endLine"":163}]",,29.0,6.0

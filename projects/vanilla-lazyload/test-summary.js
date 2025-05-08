@@ -45,6 +45,10 @@ Lines: ${coverage.lines.pct || 0}%
         fs.writeFileSync(path.join(__dirname, 'test_summary.txt'), finalSummary);
 
         console.log('Test summary written to test_summary.txt');
+
+        // Delete the output_tests file
+        fs.unlinkSync(testResultsPath);
+        console.log('Temporary test results file output_tests deleted.');
     } else {
         console.error('Test results or coverage summary not found. Make sure Jest ran successfully.');
     }
