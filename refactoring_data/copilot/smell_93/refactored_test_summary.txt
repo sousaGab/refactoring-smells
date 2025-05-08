@@ -2,7 +2,7 @@
 Test Suites: 1 failed, 9 passed, 10 total
 Tests:       1 failed, 1 todo, 71 passed, 73 total
 Snapshots:   0 total
-Time:        2.662 s, estimated 4 s
+Time:        2.949 s
 Ran all test suites.
 
 Total Coverage:

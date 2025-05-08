@@ -1,0 +1,162 @@
+file,type,smells,frame,itCount,describeCount
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/uiframe.test.js,Conditional Test Logic,"{'line': 8, 'column': 20, 'index': 197}","   6 |             runtime: {
+   7 |                 sendMessage: (args, callback) => {
+>  8 |                     if (args.action === ""getSettings"") {
+     |                    ^ Conditional Test Logic
+   9 |                         callback({settings});
+  10 |                     }
+  11 |                 },",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/uiframe.test.js,Unknown Test,"{'column': 4, 'line': 42}","  40 |     });
+  41 |
+> 42 |     it("""", () => {
+     |    ^ Unknown Test
+  43 |         uiframe.default();
+  44 |     });
+  45 | });",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}","  64 |
+  65 |         expect(normal.mappings.find('of')).toBe(undefined);
+> 66 |         expect(document.execCommand).toHaveBeenCalledTimes(0);
+     |        ^ Duplicate Assert
+  67 |
+  68 |         await waitForEvent(document, ""surfingkeys:defaultSettingsLoaded"", () => {
+  69 |             return true;",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}","  73 |
+  74 |         expect(normal.mappings.find('of').meta.word).toBe('of');
+> 75 |         expect(document.execCommand).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  76 |     });
+  77 |
+  78 |     test(""render markdown from clipboard"", async () => {",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}","  86 |         });
+  87 |         const links = document.querySelectorAll(""a"");
+> 88 |         expect(links.length).toBe(2);
+     |                                  ^ Magic Number
+  89 |         expect(links[0].href).toBe(""https://github.com/"");
+  90 |     });
+  91 |",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}","  113 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'f'}));
+  114 |         const hint_labels = document.querySelector(""div.surfingkeys_hints_host"").shadowRoot.querySelectorAll(""section>div"");
+> 115 |         expect(hint_labels.length).toBe(2);
+      |                                        ^ Magic Number
+  116 |         expect(hint_labels[0].label).toBe(""A"");
+  117 |         expect(hint_labels[1].label).toBe(""S"");
+  118 |     });",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,Sleepy Test,"{'line': 72, 'column': 33, 'index': 2704}","  70 |             sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-i>"")
+  71 |         });
+> 72 |         await new Promise((r) => setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  73 |         expect(Front.showEditor).toHaveBeenCalledTimes(1);
+  74 |     });
+  75 |",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,Sleepy Test,"{'line': 79, 'column': 33, 'index': 3105}","  77 |         const elmOmnibarClass = document.getElementById(""sk_omnibar"").classList;
+  78 |         window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""URLs"", extra: ""getAllSites"" }}, document.location.origin);
+> 79 |         await new Promise((r) => setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  80 |         const initialPosition = elmOmnibarClass.value;
+  81 |         expect(initialPosition).toContain('sk_omnibar_middle');
+  82 |",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,Sleepy Test,"{'line': 86, 'column': 33, 'index': 3399}","  84 |             sk_keyName: KeyboardUtils.encodeKeystroke(""<Ctrl-j>"")
+  85 |         });
+> 86 |         await new Promise((r) => setTimeout(r, 100));
+     |                                 ^ Sleepy Test
+  87 |         const updatedPosition = elmOmnibarClass.value;
+  88 |         expect(updatedPosition).toContain('sk_omnibar_bottom');
+  89 |     });",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}","  38 |     test('show omnibar', async () => {
+  39 |         const elmOmnibarStyle = document.getElementById(""sk_omnibar"").style;
+> 40 |         expect(elmOmnibarStyle).toHaveProperty('display', 'none');
+     |        ^ Duplicate Assert
+  41 |         await waitForEvent(window, ""message"", (_msg) => {
+  42 |             return _msg.surfingkeys_uihost_data && _msg.surfingkeys_uihost_data.action === ""setFrontFrame"";
+  43 |         }, () => {",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 46, 'column': 8, 'index': 1743}","  44 |             window.postMessage({surfingkeys_frontend_data: { action: ""openOmnibar"", type: ""SearchEngine"", extra: ""b"" }}, document.location.origin);
+  45 |         });
+> 46 |         expect(elmOmnibarStyle).not.toHaveProperty('display', 'none');
+     |        ^ Duplicate Assert
+  47 |     });
+  48 | });
+  49 |",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Conditional Test Logic,"{'line': 29, 'column': 16, 'index': 933}","  27 |         await new Promise((r) => {
+  28 |             document.addEventListener(""surfingkeys:front"", function(evt) {
+> 29 |                 if (evt.detail.length && evt.detail[0] === ""openFinder"") {
+     |                ^ Conditional Test Logic
+  30 |                     r(evt);
+  31 |                 }
+  32 |             });",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Conditional Test Logic,"{'line': 66, 'column': 16, 'index': 2570}","  64 |         await new Promise((r) => {
+  65 |             document.addEventListener(""surfingkeys:front"", function(evt) {
+> 66 |                 if (evt.detail.length && evt.detail[0] === ""querySelectedWord"") {
+     |                ^ Conditional Test Logic
+  67 |                     r(evt);
+  68 |                 }
+  69 |             });",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Duplicate Assert,"{'line': 42, 'column': 8, 'index': 1434}","  40 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));
+  41 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'G'}));
+> 42 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  43 |
+  44 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));
+  45 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'G'}));",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Duplicate Assert,"{'line': 46, 'column': 8, 'index': 1661}","  44 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));
+  45 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'G'}));
+> 46 |         expect(normal.captureElement).toHaveBeenCalledTimes(2);
+     |        ^ Duplicate Assert
+  47 |     });
+  48 |
+  49 |     test(""normal once"", async () => {",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Duplicate Assert,"{'line': 54, 'column': 8, 'index': 2000}","  52 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));
+  53 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'G'}));
+> 54 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  55 |
+  56 |         // the 2nd yG won't trigger action.
+  57 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Duplicate Assert,"{'line': 59, 'column': 8, 'index': 2271}","  57 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'y'}));
+  58 |         document.body.dispatchEvent(new KeyboardEvent('keydown', {'key': 'G'}));
+> 59 |         expect(normal.captureElement).toHaveBeenCalledTimes(1);
+     |        ^ Duplicate Assert
+  60 |     });
+  61 |
+  62 |     test(""normal mouse up"", async () => {",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Unknown Test,"{'column': 4, 'line': 25}","  23 |     });
+  24 |
+> 25 |     test(""normal /"", async () => {
+     |    ^ Unknown Test
+  26 |         normal.enter();
+  27 |         await new Promise((r) => {
+  28 |             document.addEventListener(""surfingkeys:front"", function(evt) {",,
+/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,Unknown Test,"{'column': 4, 'line': 62}","  60 |     });
+  61 |
+> 62 |     test(""normal mouse up"", async () => {
+     |    ^ Unknown Test
+  63 |         runtime.conf.mouseSelectToQuery = [ ""http://localhost"" ];
+  64 |         await new Promise((r) => {
+  65 |             document.addEventListener(""surfingkeys:front"", function(evt) {",,
+tests/content_scripts/uiframe.test.js,AnonymousTest,"[{""startLine"":42,""endLine"":44}]",,1.0,1.0
+tests/content_scripts/uiframe.test.js,TestWithoutDescription,"[{""startLine"":42,""endLine"":44}]",,1.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":38,""endLine"":38}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":39,""endLine"":39}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":40,""endLine"":40}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":42,""endLine"":42}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":43,""endLine"":43}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":44,""endLine"":44}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":45,""endLine"":45}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,GeneralFixture,"[{""startLine"":46,""endLine"":46}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,SubOptimalAssert,"[{""startLine"":65,""endLine"":65}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,SubOptimalAssert,"[{""startLine"":88,""endLine"":88}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,SubOptimalAssert,"[{""startLine"":111,""endLine"":111}]",,3.0,1.0
+tests/content_scripts/markdown.test.js,SubOptimalAssert,"[{""startLine"":115,""endLine"":115}]",,3.0,1.0
+tests/background/start.test.js,AnonymousTest,"[{""startLine"":85,""endLine"":91}]",,2.0,1.0
+tests/background/start.test.js,AnonymousTest,"[{""startLine"":93,""endLine"":109}]",,2.0,1.0
+tests/background/start.test.js,GeneralFixture,"[{""startLine"":64,""endLine"":64}]",,2.0,1.0
+tests/content_scripts/ui/omnibar.test.js,GeneralFixture,"[{""startLine"":30,""endLine"":30}]",,2.0,1.0
+tests/content_scripts/ui/frontend.test.js,AnonymousTest,"[{""startLine"":38,""endLine"":47}]",,1.0,1.0
+tests/content_scripts/ui/frontend.test.js,GeneralFixture,"[{""startLine"":27,""endLine"":27}]",,1.0,1.0
+tests/content_scripts/common/normal.test.js,AnonymousTest,"[{""startLine"":25,""endLine"":35}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,AnonymousTest,"[{""startLine"":37,""endLine"":47}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,AnonymousTest,"[{""startLine"":49,""endLine"":60}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,GeneralFixture,"[{""startLine"":19,""endLine"":19}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,GeneralFixture,"[{""startLine"":21,""endLine"":21}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"[{""startLine"":29,""endLine"":31}]",,4.0,1.0
+tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"[{""startLine"":66,""endLine"":68}]",,4.0,1.0
