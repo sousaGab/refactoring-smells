@@ -30,21 +30,20 @@ describe("Unit | Schema", function () {
     expect(schema.modelFor("author").foreignKeys).toEqual([]);
   });
 
-  test("`first()` returns the first record or null when no records exist", () => {
+  test("`first()` returns null when nothing is found", () => {
+    expect.assertions(2);
+
     let db = new Db();
     let schema = new Schema(db);
 
     let authorModel = Model.extend({});
     schema.registerModel("author", authorModel);
 
-    // No records exist
     expect(schema.first("author")).toBeNull();
 
-    // Create a record and verify it is returned
     let record = schema.create("author", { id: 1, name: "Mary Roach" });
-    let firstRecord = schema.first("author");
 
-    expect(firstRecord).toEqual(record);
+    expect(schema.first("author")).toEqual(record);
   });
 
   test("`findBy()` returns null when nothing is found", () => {
