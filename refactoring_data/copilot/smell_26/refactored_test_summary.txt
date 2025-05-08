@@ -2,7 +2,7 @@
 Test Suites: 1359 passed, 1359 total
 Tests:       20 skipped, 22291 passed, 22311 total
 Snapshots:   9274 passed, 9274 total
-Time:        307.883 s
+Time:        307.64 s
 Ran all test suites.
 
 Total Coverage:
@@ -10,4 +10,3 @@ Statements   : 97.9%
 Branches     : 97.71%
 Functions    : 98.18%
 Lines        : 97.9%
-

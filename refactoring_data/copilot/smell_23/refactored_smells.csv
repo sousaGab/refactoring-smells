@@ -1,0 +1,191 @@
+file,type,smells,frame,"{""message"":""An error occurred while trying to parse local files""}"
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Ignored Test,"{'line': 60, 'column': 9, 'index': 2119}","  58 | describe.only(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+  59 |
+> 60 | describe.skip(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+     |         ^ Ignored Test
+  61 |
+  62 | fit(""does something really long and complicated so I have to write a very long name for the describe block"", () => {});
+  63 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Ignored Test,"{'line': 74, 'column': 3, 'index': 2758}","  72 | });
+  73 |
+> 74 | it.skip(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+     |   ^ Ignored Test
+  75 |
+  76 | test.only(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+  77 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Ignored Test,"{'line': 78, 'column': 5, 'index': 2992}","  76 | test.only(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+  77 |
+> 78 | test.skip(`does something really long and complicated so I have to write a very long name for the test`, () => {});
+     |     ^ Ignored Test
+  79 |
+  80 | ftest(""does something really long and complicated so I have to write a very long name for the describe block"", () => {});
+  81 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 4, 'column': 2, 'index': 128}","  2 |
+  3 | it(""does something really long and complicated so I have to write a very long name for the test"", () => {
+> 4 |   console.log(""hello!"");
+    |  ^ Redundant Print
+  5 | });
+  6 |
+  7 | it(""does something really long and complicated so I have to write a very long name for the test"", function() {",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 8, 'column': 2, 'index': 269}","   6 |
+   7 | it(""does something really long and complicated so I have to write a very long name for the test"", function() {
+>  8 |   console.log(""hello!"");
+     |  ^ Redundant Print
+   9 | });
+  10 |
+  11 | it(""does something really long and complicated so I have to write a very long name for the test"", function(done) {",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 12, 'column': 2, 'index': 414}","  10 |
+  11 | it(""does something really long and complicated so I have to write a very long name for the test"", function(done) {
+> 12 |   console.log(""hello!"");
+     |  ^ Redundant Print
+  13 | });
+  14 |
+  15 | it(""does something really long and complicated so I have to write a very long name for the test"", function myAssertions(done) {",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 16, 'column': 2, 'index': 572}","  14 |
+  15 | it(""does something really long and complicated so I have to write a very long name for the test"", function myAssertions(done) {
+> 16 |   console.log(""hello!"");
+     |  ^ Redundant Print
+  17 | });
+  18 |
+  19 | it(`does something really long and complicated so I have to write a very long name for the test`, function() {",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 35, 'column': 2, 'index': 1173}","  33 |
+  34 | test(""does something really long and complicated so I have to write a very long name for the test"", (done) => {
+> 35 |   console.log(""hello!"");
+     |  ^ Redundant Print
+  36 | });
+  37 |
+  38 | test(`does something really long and complicated so I have to write a very long name for the test`, (done) => {",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 44, 'column': 4, 'index': 1505}","  42 | describe(""does something really long and complicated so I have to write a very long name for the describe block"", () => {
+  43 |   it(""an example test"", (done) => {
+> 44 |     console.log(""hello!"");
+     |    ^ Redundant Print
+  45 |   });
+  46 | });
+  47 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Redundant Print,"{'line': 150, 'column': 2, 'index': 6715}","  148 |
+  149 | it(""does something quick"", () => {
+> 150 |   console.log(""hello!"")
+      |  ^ Redundant Print
+  151 | }, 1000000000)
+  152 |
+  153 | it(",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Sleepy Test,"{'line': 155, 'column': 31, 'index': 6831}","  153 | it(
+  154 |   'succeeds if the test finishes in time',
+> 155 |   () => new Promise(resolve => setTimeout(resolve, 10))
+      |                               ^ Sleepy Test
+  156 | );
+  157 |
+  158 | it(",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Sleepy Test,"{'line': 160, 'column': 31, 'index': 6938}","  158 | it(
+  159 |   'succeeds if the test finishes in time',
+> 160 |   () => new Promise(resolve => setTimeout(resolve, 10)),
+      |                               ^ Sleepy Test
+  161 |   250
+  162 | );
+  163 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 3}","  1 | // Shouldn't break
+  2 |
+> 3 | it(""does something really long and complicated so I have to write a very long name for the test"", () => {
+  4 |   console.log(""hello!"");
+  5 | });
+  6 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 7}","   5 | });
+   6 |
+>  7 | it(""does something really long and complicated so I have to write a very long name for the test"", function() {
+   8 |   console.log(""hello!"");
+   9 | });
+  10 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 11}","   9 | });
+  10 |
+> 11 | it(""does something really long and complicated so I have to write a very long name for the test"", function(done) {
+  12 |   console.log(""hello!"");
+  13 | });
+  14 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 15}","  13 | });
+  14 |
+> 15 | it(""does something really long and complicated so I have to write a very long name for the test"", function myAssertions(done) {
+  16 |   console.log(""hello!"");
+  17 | });
+  18 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 34}","  32 | })
+  33 |
+> 34 | test(""does something really long and complicated so I have to write a very long name for the test"", (done) => {
+  35 |   console.log(""hello!"");
+  36 | });
+  37 |",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 2, 'line': 43}","  41 |
+  42 | describe(""does something really long and complicated so I have to write a very long name for the describe block"", () => {
+> 43 |   it(""an example test"", (done) => {
+     |  ^ Unknown Test
+  44 |     console.log(""hello!"");
+  45 |   });
+  46 | });",
+/home/gabriel/Desktop/research/projects/prettier/tests/format/js/test-declarations/test_declarations.js,Unknown Test,"{'column': 0, 'line': 149}","  147 | }, 2500)
+  148 |
+> 149 | it(""does something quick"", () => {
+  150 |   console.log(""hello!"")
+  151 | }, 1000000000)
+  152 |",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 7, 'column': 20, 'index': 268}","   5 | describe(""isVersionReleased"", () => {
+   6 |   it(""returns true for existing version"", async () => {
+>  7 |     assert.ok(await isVersionReleased(""1.0.0""));
+     |                    ^ Lazy Test
+   8 |   });
+   9 |   it(""rejects for non-existing version"", async () => {
+  10 |     await assert.rejects(() => isVersionReleased(""999.0.0""), {",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 10, 'column': 31, 'index': 389}","   8 |   });
+   9 |   it(""rejects for non-existing version"", async () => {
+> 10 |     await assert.rejects(() => isVersionReleased(""999.0.0""), {
+     |                               ^ Lazy Test
+  11 |       message: ""prettier@999.0.0 doesn't exit."",
+  12 |     });
+  13 |   });",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/version-check.test.js,Unknown Test,"{'column': 2, 'line': 9}","   7 |     assert.ok(await isVersionReleased(""1.0.0""));
+   8 |   });
+>  9 |   it(""rejects for non-existing version"", async () => {
+     |  ^ Unknown Test
+  10 |     await assert.rejects(() => isVersionReleased(""999.0.0""), {
+  11 |       message: ""prettier@999.0.0 doesn't exit."",
+  12 |     });",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Assertion Roulette,"{'column': 6, 'line': 25}","  23 |       const expectedTag = ""2.3.1"";
+  24 |       const expectedTitle = ""2.3.1"";
+> 25 |       assert.equal(new URLSearchParams(result).get(""tag""), expectedTag);
+     |      ^ Assertion Roulette
+  26 |       assert.equal(new URLSearchParams(result).get(""title""), expectedTitle);
+  27 |       });
+  28 |",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Assertion Roulette,"{'column': 6, 'line': 26}","  24 |       const expectedTitle = ""2.3.1"";
+  25 |       assert.equal(new URLSearchParams(result).get(""tag""), expectedTag);
+> 26 |       assert.equal(new URLSearchParams(result).get(""title""), expectedTitle);
+     |      ^ Assertion Roulette
+  27 |       });
+  28 |
+  29 |       it(""returns the correct body"", () => {",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 22, 'column': 21, 'index': 801}","  20 |     describe(""getReleaseUrl for patch releasing"", () => {
+  21 |       it(""returns the correct tag and title"", () => {
+> 22 |       const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+     |                     ^ Lazy Test
+  23 |       const expectedTag = ""2.3.1"";
+  24 |       const expectedTitle = ""2.3.1"";
+  25 |       assert.equal(new URLSearchParams(result).get(""tag""), expectedTag);",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 30, 'column': 21, 'index': 1133}","  28 |
+  29 |       it(""returns the correct body"", () => {
+> 30 |       const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+     |                     ^ Lazy Test
+  31 |       const expectedBody = ""🔗 [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md#231)"";
+  32 |       assert.equal(new URLSearchParams(result).get(""body""), expectedBody);
+  33 |       });",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 37, 'column': 21, 'index': 1441}","  35 |
+  36 |     it(""returns URL for minor releasing"", () => {
+> 37 |       const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+     |                     ^ Lazy Test
+  38 |       assert.equal(
+  39 |         result,
+  40 |         getExpectedReleaseUrl({",
+/home/gabriel/Desktop/research/projects/prettier/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 54, 'column': 21, 'index': 1941}","  52 |
+  53 |     it(""returns URL for major releasing"", () => {
+> 54 |       const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+     |                     ^ Lazy Test
+  55 |       assert.equal(
+  56 |         result,
+  57 |         getExpectedReleaseUrl({",
