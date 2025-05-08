@@ -206,28 +206,57 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
     setToLoadCount(mockInstance, toLoadCountValue);
     expect(mockInstance.toLoadCount).toBe(toLoadCountValue);
   });",TRUE,FALSE,FALSE,FALSE,,,,,
-10,snutsjs,chrisleekr/binance-trading-bot,/app/__tests__/error-handler.test.js,ConditionalTestLogic,"{""startLine"":207,""endLine"":212}",start: 204 end: 218,"Context: I'm refactoring test smells from a test file to improve code quality.
+10,snutsjs,chrisleekr/binance-trading-bot,/app/__tests__/error-handler.test.js,ConditionalTestLogic,"{""startLine"":207,""endLine"":212}",start: 203 end: 219,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 207, endLine : 212
 - Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
 
 Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it('throws an error', async () => {
- expect(() => {
- process.on = jest.fn().mockImplementation((event, error) => {
- if (event === 'unhandledRejection') {
- error({
- message: `something-unhandled`,
- code: 2000
- });
- }
- });
+Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","    describe(`when unhandledRejection received`, () => {
+      it('throws an error', async () => {
+        expect(() => {
+          process.on = jest.fn().mockImplementation((event, error) => {
+            if (event === 'unhandledRejection') {
+              error({
+                message: `something-unhandled`,
+                code: 2000
+              });
+            }
+          });
 
- const { runErrorHandler } = require('../error-handler');
- runErrorHandler(mockLogger);
- }).toThrow(`something-unhandled`);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+          const { runErrorHandler } = require('../error-handler');
+          runErrorHandler(mockLogger);
+        }).toThrow(`something-unhandled`);
+      });
+    });","    describe(`when unhandledRejection received`, () => {
+      beforeEach(() => {
+      process.on = jest.fn().mockImplementation((event, error) => {
+        if (event === 'unhandledRejection') {
+        error({
+          message: `something-unhandled`,
+          code: 2000
+        });
+        }
+      });
+
+      const { runErrorHandler } = require('../error-handler');
+      runErrorHandler(mockLogger);
+      });
+
+      it('throws an error with message ""something-unhandled""', () => {
+      expect(() => {
+        process.on.mock.calls.forEach(([event, handler]) => {
+        if (event === 'unhandledRejection') {
+          handler({
+          message: `something-unhandled`,
+          code: 2000
+          });
+        }
+        });
+      }).toThrow(`something-unhandled`);
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 11,snutsjs,chrisleekr/binance-trading-bot,/app/__tests__/error-handler.test.js,ConditionalTestLogic,"{""startLine"":225,""endLine"":230}",start: 222 end: 236,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -249,7 +278,26 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  const { runErrorHandler } = require('../error-handler');
  runErrorHandler(mockLogger);
  }).not.toThrow();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      describe('when uncaughtException is a redlock error', () => {
+        beforeEach(() => {
+          process.on = jest.fn().mockImplementation((event, error) => {
+        if (event === 'uncaughtException') {
+          error({
+            message: `redlock:lock-XRPBUSD`,
+            code: 500
+          });
+        }
+          });
+
+          const { runErrorHandler } = require('../error-handler');
+          runErrorHandler(mockLogger);
+        });
+
+        it('does not throw an error', () => {
+          expect(() => {}).not.toThrow();
+        });
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 12,snutsjs,chrisleekr/binance-trading-bot,/app/frontend/webserver/handlers/__tests__/grid-trade-logs-export.test.js,SubOptimalAssert,"{""startLine"":201,""endLine"":201}",start: 199 end: 202,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -260,7 +308,13 @@ Request:
 Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the test remains correct, readable, and maintainable.","it('keeps 10 logs in the folder', () => {
  const files = fs.readdirSync(fileFolder);
  expect(files.length).toBe(10);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      it('keeps 10 logs in the folder', () => {
+        const files = fs.readdirSync(fileFolder);
+        expect(files).toHaveLength(10);
+        files.forEach(file => {
+          expect(file).toMatch(/^file\d+\.json$/);
+        });
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 13,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 189, 'column': 8, 'index': 5619}",start: 188 end: 199,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -279,7 +333,13 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  'trailing-trade-ath-candles',
  {}
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      it('triggers refreshCandles', () => {
+        expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+          logger,
+          expect.stringMatching(/trailing-trade-(candles|ath-candles)/),
+          {}
+        );
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 14,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 194, 'column': 8, 'index': 5755}",start: 188 end: 199,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -298,7 +358,16 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  'trailing-trade-ath-candles',
  {}
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      it('triggers refreshCandles', () => {
+        const expectedCalls = [
+          [logger, 'trailing-trade-candles', {}],
+          [logger, 'trailing-trade-ath-candles', {}]
+        ];
+
+        expectedCalls.forEach(call => {
+          expect(mockMongo.deleteAll).toHaveBeenCalledWith(...call);
+        });
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 15,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 691, 'column': 6, 'index': 22289}",start: 690 end: 701,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -317,7 +386,13 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  'trailing-trade-ath-candles',
  {}
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('triggers refreshCandles', () => {
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      logger,
+      expect.stringMatching(/^trailing-trade-(candles|ath-candles)$/),
+      {}
+      );
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 16,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Duplicate Assert,"{'line': 696, 'column': 6, 'index': 22415}",start: 690 end: 701,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -336,7 +411,13 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  'trailing-trade-ath-candles',
  {}
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('triggers refreshCandles', () => {
+      expect(mockMongo.deleteAll).toHaveBeenCalledWith(
+      logger,
+      expect.stringMatching(/^trailing-trade-(candles|ath-candles)$/),
+      {}
+      );
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 17,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Magic Number,"{'line': 230, 'column': 10, 'index': 6700}",start: 226 end: 232,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -350,7 +431,14 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  `count`,
  1
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      it('triggers cache.hset', () => {
+        const expectedStreamCount = 1; // Number of streams expected
+        expect(mockCache.hset).toHaveBeenCalledWith(
+          'trailing-trade-streams',
+          `count`,
+          expectedStreamCount
+        );
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 18,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-binance.test.js,Magic Number,"{'line': 739, 'column': 8, 'index': 23471}",start: 735 end: 741,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -364,7 +452,14 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  `count`,
  1
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it('triggers cache.hset', () => {
+      const expectedStreamCount = 1; // Represents the initial stream count
+      expect(mockCache.hset).toHaveBeenCalledWith(
+      'trailing-trade-streams',
+      `count`,
+      expectedStreamCount
+      );
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 19,steel,chrisleekr/binance-trading-bot,/app/__tests__/server-frontend.test.js,Magic Number,"{'line': 314, 'column': 74, 'index': 9174}",start: 313 end: 315,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -374,7 +469,11 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","it('triggers status', () => {
  expect(mockRateLimiterMiddlewareResStatus).toHaveBeenCalledWith(403);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","        const FORBIDDEN_STATUS_CODE = 403;
+
+        it('triggers status', () => {
+          expect(mockRateLimiterMiddlewareResStatus).toHaveBeenCalledWith(FORBIDDEN_STATUS_CODE);
+        });",TRUE,FALSE,FALSE,FALSE,,,,,
 20,steel,chrisleekr/binance-trading-bot,/app/binance/__tests__/orders.test.js,Magic Number,"{'line': 137, 'column': 56, 'index': 3912}",start: 136 end: 138,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -384,7 +483,10 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","it('triggers clearInterval', () => {
  expect(spyOnClearInterval).toHaveBeenCalledWith(33);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      const intervalId = 33; // Assigning a meaningful variable name for the magic number
+      it('triggers clearInterval', () => {
+        expect(spyOnClearInterval).toHaveBeenCalledWith(intervalId);
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 21,steel,chrisleekr/binance-trading-bot,/app/binance/__tests__/user.test.js,Magic Number,"{'line': 142, 'column': 10, 'index': 4072}",start: 138 end: 144,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -398,7 +500,16 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  [{ asset: 'ADA', free: '0.00000000', locked: '13.82000000' }],
  1625585531721
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","      const mockBalances = [{ asset: 'ADA', free: '0.00000000', locked: '13.82000000' }];
+      const mockLastAccountUpdate = 1625585531721;
+
+      it('triggers updateAccountInfo', () => {
+        expect(mockUpdateAccountInfo).toHaveBeenCalledWith(
+          loggerMock,
+          mockBalances,
+          mockLastAccountUpdate
+        );
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 22,steel,chrisleekr/binance-trading-bot,/app/cronjob/trailingTradeHelper/__tests__/common.test.js,Duplicate Assert,"{'line': 2469, 'column': 8, 'index': 67424}",start: 2468 end: 2486,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -424,7 +535,17 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  symbol: 'BTCUSDT'
  }
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });"," it('triggers slack.sendMessage', () => {
+        expect(slackMock.sendMessage).toHaveBeenCalledWith(
+          expect.stringContaining(
+        'The bot queued to trigger the grid trade for buying'
+          ),
+          {
+        apiLimit: 0,
+        symbol: 'BTCUSDT'
+          }
+        );
+      });",TRUE,FALSE,FALSE,FALSE,,,,,
 23,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 21, 'column': 21, 'index': 739}",start: 20 end: 30,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -442,7 +563,21 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  body: ""🔗 [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md#231)"",
  }),
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe(""getReleaseUrl for patch releasing"", () => {
+      it(""returns the correct tag and title"", () => {
+      const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+      const expectedTag = ""2.3.1"";
+      const expectedTitle = ""2.3.1"";
+      assert.equal(new URLSearchParams(result).get(""tag""), expectedTag);
+      assert.equal(new URLSearchParams(result).get(""title""), expectedTitle);
+      });
+
+      it(""returns the correct body"", () => {
+      const result = getReleaseUrl(""2.3.1"", ""2.3.0"");
+      const expectedBody = ""🔗 [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md#231)"";
+      assert.equal(new URLSearchParams(result).get(""body""), expectedBody);
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 24,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 33, 'column': 21, 'index': 1090}",start: 32 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -465,7 +600,43 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  ].join(""\n\n""),
  }),
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe(""minor release URL generation"", () => {
+      it(""includes the correct tag and title"", () => {
+      const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+      const expectedUrl = getExpectedReleaseUrl({
+        tag: ""2.4.0"",
+        title: ""2.4.0"",
+        body: [
+        ""[diff](https://github.com/prettier/prettier/compare/2.3.0...2.4.0)"",
+        `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(
+          ""/"",
+        )}/2.4.0)`,
+        ].join(""\n\n""),
+      });
+      assert.equal(result, expectedUrl);
+      });
+
+      it(""includes the correct diff link in the body"", () => {
+      const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+      const expectedBody = [
+        ""[diff](https://github.com/prettier/prettier/compare/2.3.0...2.4.0)"",
+        `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(
+        ""/"",
+        )}/2.4.0)`,
+      ].join(""\n\n"");
+      const parameters = new URLSearchParams(new URL(result).search);
+      assert.equal(parameters.get(""body""), expectedBody);
+      });
+
+      it(""includes the correct release note link in the body"", () => {
+      const result = getReleaseUrl(""2.4.0"", ""2.3.0"");
+      const expectedReleaseNoteLink = `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(
+        ""/"",
+      )}/2.4.0)`;
+      const parameters = new URLSearchParams(new URL(result).search);
+      assert.ok(parameters.get(""body"").includes(expectedReleaseNoteLink));
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 25,steel,prettier/prettier,/scripts/release/tests/publish-to-npm.test.js,Lazy Test,"{'line': 50, 'column': 21, 'index': 1590}",start: 49 end: 64,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -488,7 +659,31 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  ].join(""\n\n""),
  }),
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    describe(""major release URL generation"", () => {
+      it(""includes the correct tag and title"", () => {
+      const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+      const expectedParameters = {
+        tag: ""2.3.0"",
+        title: ""2.3.0"",
+      };
+      assert.equal(
+        result.startsWith(getExpectedReleaseUrl(expectedParameters)),
+        true,
+      );
+      });
+
+      it(""includes the correct diff link in the body"", () => {
+      const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+      const diffLink = ""[diff](https://github.com/prettier/prettier/compare/2.2.0...2.3.0)"";
+      assert.equal(result.includes(diffLink), true);
+      });
+
+      it(""includes the correct release note link in the body"", () => {
+      const result = getReleaseUrl(""2.3.0"", ""2.2.0"");
+      const releaseNoteLink = `🔗 [Release note](https://prettier.io/blog/${getDateParts().join(""/"")}/2.3.0)`;
+      assert.equal(result.includes(releaseNoteLink), true);
+      });
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 26,steel,prettier/prettier,/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 7, 'column': 20, 'index': 268}",start: 6 end: 8,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -498,7 +693,11 @@ Issue Details:
 Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it(""returns true for existing version"", async () => {
  assert.ok(await isVersionReleased(""1.0.0""));
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  describe(""when the version exists"", () => {
+    it(""returns true"", async () => {
+      assert.ok(await isVersionReleased(""1.0.0""));
+    });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 27,steel,prettier/prettier,/scripts/release/tests/version-check.test.js,Lazy Test,"{'line': 10, 'column': 31, 'index': 389}",start: 9 end: 13,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -510,7 +709,19 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  await assert.rejects(() => isVersionReleased(""999.0.0""), {
  message: ""prettier@999.0.0 doesn't exit."",
  });
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  describe(""when the version exists"", () => {
+    it(""returns true"", async () => {
+      assert.ok(await isVersionReleased(""1.0.0""));
+    });
+  });
+
+  describe(""when the version does not exist"", () => {
+    it(""rejects with an appropriate error message"", async () => {
+      await assert.rejects(() => isVersionReleased(""999.0.0""), {
+        message: ""prettier@999.0.0 doesn't exit."",
+      });
+    });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 28,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":59,""endLine"":100}",start: 59 end: 100,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -559,7 +770,43 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  preset.home.descriptor.id,
  { x: 500, y: 1001 },
  );
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should not fire a scroll if the value has not changed since the previous call', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
+
+    scroll(container, { x: 500, y: 1000 });
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1000 },
+    );
+
+    marshal.updateDroppableScroll.mockReset();
+
+    scroll(container, { x: 500, y: 1000 });
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+
+    scroll(container, { x: 500, y: 1001 });
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1001 },
+    );
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 29,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":134,""endLine"":171}",start: 134 end: 171,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -604,7 +851,39 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  // also checking that no loose frames are stored up
  requestAnimationFrame.flush();
  expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should throttle multiple scrolls into a single animation frame', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    scroll(container, { x: 500, y: 1000 });
+    scroll(container, { x: 200, y: 800 });
+
+    requestAnimationFrame.step();
+
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 200, y: 800 },
+    );
+
+    requestAnimationFrame.flush();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 30,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":173,""endLine"":215}",start: 173 end: 215,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -654,7 +933,39 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  // release the frame
  requestAnimationFrame.step();
  expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should not fire a scroll if the value has not changed since the previous frame', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    scroll(container, { x: 500, y: 1000 });
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledWith(
+      preset.home.descriptor.id,
+      { x: 500, y: 1000 },
+    );
+    marshal.updateDroppableScroll.mockReset();
+
+    scroll(container, { x: 501, y: 1001 });
+    scroll(container, { x: 500, y: 1000 });
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 31,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":217,""endLine"":254}",start: 217 end: 254,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -699,7 +1010,37 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  // flushing any frames
  requestAnimationFrame.flush();
  expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should not publish a scroll update after being stopped during an animation frame', () => {
+    const marshal: DimensionMarshal = getMarshalStub();
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.droppable, 'register');
+    const wrapper = mount(
+      <WithAppContext marshal={marshal} registry={registry}>
+        <ScrollableItem />
+      </WithAppContext>,
+    );
+    const container: ?HTMLElement = wrapper
+      .find('.scroll-container')
+      .getDOMNode();
+    invariant(container);
+
+    const callbacks: DroppableCallbacks =
+      registerSpy.mock.calls[0][0].callbacks;
+
+    callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+    scroll(container, { x: 500, y: 1000 });
+    requestAnimationFrame.step();
+    expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+    marshal.updateDroppableScroll.mockReset();
+
+    scroll(container, { x: 400, y: 100 });
+    callbacks.dragStopped();
+
+    requestAnimationFrame.flush();
+    expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+  });
+",TRUE,FALSE,FALSE,FALSE,,,,,
 32,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/scroll-watching.spec.js,OvercommentedTest,"{""startLine"":257,""endLine"":288}",start: 257 end: 288,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
@@ -738,7 +1079,31 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  // scroll event after no longer watching
  scroll(container, { x: 190, y: 400 });
  expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should stop watching scroll when no longer required to publish', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <ScrollableItem />
+    </WithAppContext>,
+  );
+  const container: ?HTMLElement = wrapper
+    .find('.scroll-container')
+    .getDOMNode();
+  invariant(container);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, immediate);
+
+  scroll(container, { x: 500, y: 1000 });
+  expect(marshal.updateDroppableScroll).toHaveBeenCalledTimes(1);
+  marshal.updateDroppableScroll.mockReset();
+
+  callbacks.dragStopped();
+  scroll(container, { x: 190, y: 400 });
+  expect(marshal.updateDroppableScroll).not.toHaveBeenCalled();
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 33,snutsjs,atlassian/react-beautiful-dnd,/test/unit/health/src-file-name-convention.spec.js,ConditionalTestLogic,"{""startLine"":28,""endLine"":30}",start: 18 end: 41,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -769,7 +1134,30 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  expect(isMatching).toBe(true);
  });
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should have every prettier target following the file name convention', async () => {
+  const targets: string[] = pkg.config.prettier_target.split(' ');
+  const paths: string[] = await globby(targets);
+
+  invariant(
+    paths.length,
+    'Could not find files to test against file name convention',
+  );
+
+  const nonCompliantFiles = paths.filter(
+    (filePath: string) =>
+      !exceptions.includes(filePath) && !isSnakeCase(filePath)
+  );
+
+  expect(nonCompliantFiles).toHaveLength(0);
+
+  nonCompliantFiles.forEach((filePath: string) => {
+    invariant(
+      false,
+      `${filePath} does not follow the file path convention (snake-case.js) ${convention.toString()}`,
+    );
+  });
+});
+",TRUE,FALSE,FALSE,FALSE,,,,,
 34,snutsjs,atlassian/react-beautiful-dnd,/test/unit/docs/content.spec.js,ConditionalTestLogic,"{""startLine"":20,""endLine"":25}",start: 8 end: 30,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -799,7 +1187,27 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  // need at least one assertion
  expect(true).toBe(true);
  }
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should end all nested docs with a link back to the documentation root', async () => {
+  const files: string[] = await globby('docs/**/*.md');
+  expect(files.length).toBeGreaterThan(0);
+  const backLink: string =
+    '[← Back to documentation](/README.md#documentation-)';
+
+  const results = await Promise.all(
+    files.map(async (file) => {
+      const contents: string = await fs.readFile(file, 'utf8');
+      return { file, endsWithBacklink: contents.trim().endsWith(backLink) };
+    })
+  );
+
+  results.forEach(({ file, endsWithBacklink }) => {
+    expect(endsWithBacklink).toBe(
+      true,
+      `File: ""${file}"" did not end with back link`
+    );
+  });
+});
+",TRUE,FALSE,FALSE,FALSE,,,,,
 35,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":21,""endLine"":21}",start: 16 end: 23,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -814,7 +1222,14 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  el.style[overflow] = 'visible';
  expect(getClosestScrollable(el)).toBe(null);
  });
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should return false if an element has overflow:visible', () => {
+  ['overflowY', 'overflowX'].forEach((overflow: string) => {
+    const el: HTMLElement = document.createElement('div');
+    // $ExpectError - flow being mean
+    el.style[overflow] = 'visible';
+    expect(getClosestScrollable(el)).toBeNull();
+  });
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 36,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":64,""endLine"":64}",start: 60 end: 66,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -828,7 +1243,15 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
 
  expect(getClosestScrollable(body)).toBe(null);
  expect(console.warn).toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should warn if the body might be a scroll container', () => {
+    body.style.overflowX = 'auto';
+    html.style.overflowY = 'auto';
+
+    expect(getClosestScrollable(body)).toBeNull();
+    expect(console.warn).toHaveBeenCalledWith(
+      expect.stringContaining('A potential scroll container was detected')
+    );
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 37,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":70,""endLine"":70}",start: 68 end: 72,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -840,7 +1263,11 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  body.style.overflowX = 'visible';
  expect(getClosestScrollable(body)).toBe(null);
  expect(console.warn).not.toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should not mark the body as a scroll container if it does not have any overflow set', () => {
+    body.style.overflowX = 'visible';
+    expect(getClosestScrollable(body)).toBeNull();
+    expect(console.warn).not.toHaveBeenCalledWith(expect.any(String));
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 38,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/is-element-scrollable.spec.js,SubOptimalAssert,"{""startLine"":77,""endLine"":77}",start: 74 end: 79,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -853,7 +1280,12 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  html.style.overflowY = 'visible';
  expect(getClosestScrollable(body)).toBe(null);
  expect(console.warn).not.toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should not mark the body as a scroll container if the html element has visible overflow', () => {
+    body.style.overflowX = 'auto';
+    html.style.overflowY = 'visible';
+    expect(getClosestScrollable(body)).toBeNull();
+    expect(console.warn).not.toHaveBeenCalledWith(expect.any(String));
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 39,snutsjs,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/animated-mount.spec.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}",start: 31 end: 58,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
@@ -888,7 +1320,37 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
 
  const postMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
  expectIsFull(postMount);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should animate a mount', () => {
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      contextId={contextId}
+      animate=""open""
+      placeholder={placeholder}
+      onClose={jest.fn()}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+
+  expect(getCreatePlaceholderCalls()).toHaveLength(1);
+
+  // first call had an empty size
+  const onMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  expectIsEmpty(onMount);
+
+  // Will trigger a .setState
+  act(() => {
+    jest.runOnlyPendingTimers();
+  });
+
+  // tell enzyme that something has changed
+  wrapper.update();
+
+  const postMount: PlaceholderStyle = getPlaceholderStyle(wrapper);
+  expect(postMount).toEqual(expect.objectContaining({
+    width: expect.any(Number),
+    height: expect.any(Number),
+  }));
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 40,snutsjs,atlassian/react-beautiful-dnd,/test/unit/state/middleware/responders/announcements.spec.js,ConditionalTestLogic,"{""startLine"":143,""endLine"":146}",start: 141 end: 151,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -906,7 +1368,14 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  responders[current.responder] = undefined;
  current.execute(store);
  expect(announce).toHaveBeenCalledWith(current.defaultMessage);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    if (current.responder !== 'onDragEnd') {
+      it('should announce with the default message if no responder is provided', () => {
+      // unsetting responder
+      responders[current.responder] = undefined;
+      current.execute(store);
+      expect(announce).toHaveBeenCalledWith(current.defaultMessage);
+      });
+    }",TRUE,FALSE,FALSE,FALSE,,,,,
 41,snutsjs,atlassian/react-beautiful-dnd,/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,ConditionalTestLogic,"{""startLine"":13,""endLine"":16}",start: 10 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -936,7 +1405,25 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  });
 
  expect(isDragging(getByTestId('0'))).toBe(false);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should recover from rbd errors', () => {
+  function CanThrowOnce() {
+    throw new Error('throwing');
+  }
+
+  const { rerender, getByTestId } = render(
+    <App anotherChild={null} />,
+  );
+
+  simpleLift(keyboard, getByTestId('0'));
+  expect(isDragging(getByTestId('0'))).toBe(true);
+
+  withError(() => {
+    rerender(<App anotherChild={<CanThrowOnce />} />);
+  });
+
+  expect(isDragging(getByTestId('0'))).toBe(false);
+});
+",TRUE,FALSE,FALSE,FALSE,,,,,
 42,snutsjs,atlassian/react-beautiful-dnd,/test/unit/integration/drag-drop-context/error-handling/error-in-react-tree.spec.js,ConditionalTestLogic,"{""startLine"":37,""endLine"":40}",start: 34 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
@@ -966,7 +1453,24 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  rerender(<App anotherChild={<CanThrow shouldThrow />} />);
  }).toThrow();
  });
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should not recover from non-rbd errors', () => {
+  function AlwaysThrows() {
+    throw new Error('Boom');
+  }
+
+  const { rerender, getByTestId } = render(
+    <App anotherChild={<AlwaysThrows />} />,
+  );
+
+  simpleLift(keyboard, getByTestId('0'));
+  expect(isDragging(getByTestId('0'))).toBe(true);
+
+  withError(() => {
+    expect(() => {
+      rerender(<App anotherChild={<AlwaysThrows />} />);
+    }).toThrow();
+  });
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 43,steel,atlassian/react-beautiful-dnd,/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 23, 'column': 2, 'index': 467}",start: 16 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -990,7 +1494,23 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  warning('hey');
 
  expect(warn).toHaveBeenCalled();
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should not log a warning if warnings are disabled', () => {
+  window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+
+  warning('hey');
+  warning('sup');
+  warning('hi');
+
+  expect(warn).not.toHaveBeenCalled();
+
+  // re-enable
+  window['__react-beautiful-dnd-disable-dev-warnings'] = false;
+
+  warning('hey');
+
+  const callsAfterReEnable = warn.mock.calls.length;
+  expect(callsAfterReEnable).toBe(1);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 44,steel,atlassian/react-beautiful-dnd,/test/unit/dev-warning.spec.js,Duplicate Assert,"{'line': 31, 'column': 2, 'index': 607}",start: 16 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1014,7 +1534,23 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  warning('hey');
 
  expect(warn).toHaveBeenCalled();
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should not log a warning if warnings are disabled', () => {
+  window['__react-beautiful-dnd-disable-dev-warnings'] = true;
+
+  warning('hey');
+  warning('sup');
+  warning('hi');
+
+  expect(warn).not.toHaveBeenCalled();
+
+  // re-enable
+  window['__react-beautiful-dnd-disable-dev-warnings'] = false;
+
+  warning('hey');
+
+  const callsAfterReEnable = warn.mock.calls.length;
+  expect(callsAfterReEnable).toBe(1);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 45,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 100, 'column': 4, 'index': 2698}",start: 87 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1037,7 +1573,24 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  };
  expect(registerSpy).toHaveBeenCalledTimes(1);
  expect(registerSpy).toHaveBeenCalledWith(expected);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should register itself when mounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+
+    const [actualCall] = registerSpy.mock.calls;
+    expect(registerSpy).toHaveBeenCalledTimes(1);
+    expect(actualCall[0]).toEqual(expected);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 46,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 101, 'column': 4, 'index': 2748}",start: 87 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1060,7 +1613,24 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  };
  expect(registerSpy).toHaveBeenCalledTimes(1);
  expect(registerSpy).toHaveBeenCalledWith(expected);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should register itself when mounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+
+    const [actual] = registerSpy.mock.calls[0] || [];
+    expect(registerSpy).toHaveBeenCalledTimes(1);
+    expect(actual).toEqual(expected);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 47,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-draggable-publisher.spec.js,Duplicate Assert,"{'line': 119, 'column': 4, 'index': 3360}",start: 104 end: 128,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1092,7 +1662,27 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  wrapper.unmount();
  expect(unregisterSpy).toHaveBeenCalledTimes(1);
  expect(unregisterSpy.mock.calls[0][0]).toBe(entry);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  it('should unregister itself when unmounting', () => {
+    const registry: Registry = createRegistry();
+    const registerSpy = jest.spyOn(registry.draggable, 'register');
+    const unregisterSpy = jest.spyOn(registry.draggable, 'unregister');
+    const wrapper = mount(<Item registry={registry} />);
+
+    const expected: DraggableEntry = {
+      // $ExpectError
+      uniqueId: expect.any(String),
+      descriptor: preset.inHome1.descriptor,
+      options: defaultOptions,
+      // $ExpectError
+      getDimension: expect.any(Function),
+    };
+
+    expect(registerSpy).toHaveBeenCalledWith(expected);
+    const entry = registerSpy.mock.calls[0][0];
+
+    wrapper.unmount();
+    expect(unregisterSpy).toHaveBeenCalledWith(entry);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 48,steel,atlassian/react-beautiful-dnd,/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 40, 'column': 2, 'index': 1310}",start: 36 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -1111,7 +1701,32 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
 
  // not checking all the styles - just enough to know we are doing something
  expect(el.style.overflow).toBe('hidden');
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should apply the appropriate aria-live attribute', () => {
+  render(<WithAnnouncer contextId=""5"">{getMock()}</WithAnnouncer>);
+
+  const el: ?HTMLElement = getElement('5');
+  invariant(el, 'Cannot find node');
+
+  expect(el.getAttribute('aria-live')).toBe('assertive');
+});
+
+it('should apply the appropriate aria-atomic attribute', () => {
+  render(<WithAnnouncer contextId=""5"">{getMock()}</WithAnnouncer>);
+
+  const el: ?HTMLElement = getElement('5');
+  invariant(el, 'Cannot find node');
+
+  expect(el.getAttribute('aria-atomic')).toBe('true');
+});
+
+it('should apply non-visibility styles', () => {
+  render(<WithAnnouncer contextId=""5"">{getMock()}</WithAnnouncer>);
+
+  const el: ?HTMLElement = getElement('5');
+  invariant(el, 'Cannot find node');
+
+  expect(el.style.overflow).toBe('hidden');
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 49,steel,atlassian/react-beautiful-dnd,/test/unit/view/announcer.spec.js,Lazy Test,"{'line': 67, 'column': 2, 'index': 2142}",start: 62 end: 75,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -1132,7 +1747,31 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
 
  // assert
  expect(el.textContent).toBe('test');
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should set the text content of the announcement element when announce is called', () => {
+  // arrange
+  const mock = getMock();
+  render(<WithAnnouncer contextId=""6"">{mock}</WithAnnouncer>);
+  const el: ?HTMLElement = getElement('6');
+  invariant(el, 'Could not find announcer');
+
+  // act
+  const announce: Announce = getAnnounce(mock);
+  announce('test');
+
+  // assert
+  expect(el.textContent).toBe('test');
+});
+
+it('should not modify the text content of the announcement element initially', () => {
+  // arrange
+  const mock = getMock();
+  render(<WithAnnouncer contextId=""6"">{mock}</WithAnnouncer>);
+  const el: ?HTMLElement = getElement('6');
+  invariant(el, 'Could not find announcer');
+
+  // assert
+  expect(el.textContent).toBe('');
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 50,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 53, 'column': 32, 'index': 1757}",start: 31 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -1179,7 +1818,50 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(parent.scrollLeft).toBe(0);
  expect(droppable.scrollTop).toBe(0);
  expect(droppable.scrollLeft).toBe(0);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  // define scroll values for clarity
+  const scrollX = 100;
+  const scrollY = 100;
+
+  // ask it to scroll
+  expect(() => callbacks.scroll({ x: scrollX, y: scrollY })).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 51,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 54, 'column': 33, 'index': 1794}",start: 31 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -1226,7 +1908,48 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(parent.scrollLeft).toBe(0);
  expect(droppable.scrollTop).toBe(0);
  expect(droppable.scrollLeft).toBe(0);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  const scrollAmount = { x: 100, y: 100 }; // Refactored to eliminate magic number
+
+  // ask it to scroll
+  expect(() => callbacks.scroll(scrollAmount)).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 52,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 55, 'column': 35, 'index': 1833}",start: 31 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -1273,7 +1996,48 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(parent.scrollLeft).toBe(0);
  expect(droppable.scrollTop).toBe(0);
  expect(droppable.scrollLeft).toBe(0);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  const scrollAmount = { x: 100, y: 100 }; // Refactored to eliminate magic number
+
+  // ask it to scroll
+  expect(() => callbacks.scroll(scrollAmount)).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 53,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 56, 'column': 36, 'index': 1873}",start: 31 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -1320,7 +2084,48 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(parent.scrollLeft).toBe(0);
  expect(droppable.scrollTop).toBe(0);
  expect(droppable.scrollLeft).toBe(0);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  const scrollAmount = { x: 100, y: 100 }; // Refactored magic number
+
+  // ask it to scroll
+  expect(() => callbacks.scroll(scrollAmount)).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 54,steel,atlassian/react-beautiful-dnd,/test/unit/view/use-droppable-publisher/forced-scroll.spec.js,Magic Number,"{'line': 66, 'column': 32, 'index': 2230}",start: 31 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -1367,7 +2172,48 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(parent.scrollLeft).toBe(0);
  expect(droppable.scrollTop).toBe(0);
  expect(droppable.scrollLeft).toBe(0);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should throw if the droppable has no closest scrollable', () => {
+  const marshal: DimensionMarshal = getMarshalStub();
+  const registry: Registry = createRegistry();
+  const registerSpy = jest.spyOn(registry.droppable, 'register');
+  // no scroll parent
+  const wrapper = mount(
+    <WithAppContext marshal={marshal} registry={registry}>
+      <App parentIsScrollable={false} droppableIsScrollable={false} />,
+    </WithAppContext>,
+  );
+  const droppable: ?HTMLElement = wrapper.find('.droppable').getDOMNode();
+  invariant(droppable);
+  const parent: ?HTMLElement = wrapper.find('.scroll-parent').getDOMNode();
+  invariant(parent);
+  jest
+    .spyOn(droppable, 'getBoundingClientRect')
+    .mockImplementation(() => smallFrameClient.borderBox);
+  jest
+    .spyOn(parent, 'getBoundingClientRect')
+    .mockImplementation(() => bigClient.borderBox);
+
+  // validating no initial scroll
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+
+  const callbacks: DroppableCallbacks = registerSpy.mock.calls[0][0].callbacks;
+  // request the droppable start listening for scrolling
+  callbacks.getDimensionAndWatchScroll(preset.windowScroll, scheduled);
+
+  const invalidScrollPosition = { x: 100, y: 100 }; // Refactored to eliminate magic number
+
+  // ask it to scroll
+  expect(() => callbacks.scroll(invalidScrollPosition)).toThrow();
+
+  // no scroll changes
+  expect(parent.scrollTop).toBe(0);
+  expect(parent.scrollLeft).toBe(0);
+  expect(droppable.scrollTop).toBe(0);
+  expect(droppable.scrollLeft).toBe(0);
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 55,steel,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'line': 72, 'column': 2}",start: 50 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Assertion Roulette
@@ -1401,7 +2247,39 @@ Please refactor the affected code to eliminate the Assertion Roulette. Ensure th
 
  wrapper.setProps({ animate: 'open' });
  assert();
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should not fire an onClose if not closing when a transitionend occurs', () => {
+  const onClose = jest.fn();
+
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      animate=""none""
+      contextId=""1""
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+
+  const simulateAndAssert = (expectedCallCount: number, propertyName: string) => {
+    // Simulate a transitionend event with the given propertyName
+    const event: TransitionEvent = {
+      propertyName,
+    };
+    wrapper.simulate('transitionend', event);
+
+    // Assert that onClose has been called the expected number of times
+    expect(onClose).toHaveBeenCalledTimes(expectedCallCount);
+    onClose.mockClear();
+  };
+
+  // Assert initial state
+  expectIsFull(getPlaceholderStyle(wrapper));
+  simulateAndAssert(0, 'height'); // No onClose call expected for 'height'
+
+  // Update props and assert again
+  wrapper.setProps({ animate: 'open' });
+  simulateAndAssert(0, 'height'); // No onClose call expected for 'height' after prop change
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 56,steel,atlassian/react-beautiful-dnd,/test/unit/view/placeholder/on-close.spec.js,Assertion Roulette,"{'line': 75, 'column': 2}",start: 50 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Assertion Roulette
@@ -1435,7 +2313,41 @@ Please refactor the affected code to eliminate the Assertion Roulette. Ensure th
 
  wrapper.setProps({ animate: 'open' });
  assert();
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
+});","it('should not fire an onClose if not closing when a transitionend occurs', () => {
+  const onClose = jest.fn();
+
+  const wrapper: ReactWrapper<*> = mount(
+    <Placeholder
+      animate=""none""
+      contextId=""1""
+      placeholder={placeholder}
+      onClose={onClose}
+      onTransitionEnd={jest.fn()}
+    />,
+  );
+
+  const simulateAndAssertNoOnClose = (propertyName: string) => {
+    // Simulate a transitionend event with the given propertyName
+    const event: TransitionEvent = {
+      propertyName,
+    };
+    wrapper.simulate('transitionend', event);
+
+    // Assert that onClose has not been called
+    expect(onClose).not.toHaveBeenCalled();
+    onClose.mockClear();
+  };
+
+  // Assert initial state
+  expectIsFull(getPlaceholderStyle(wrapper));
+
+  // Simulate and assert for ""height"" property
+  simulateAndAssertNoOnClose('height');
+
+  // Update props and assert again
+  wrapper.setProps({ animate: 'open' });
+  simulateAndAssertNoOnClose('height');
+});",TRUE,FALSE,FALSE,FALSE,,,,,
 57,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 142, 'column': 6, 'index': 3763}",start: 112 end: 158,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -1489,7 +2401,90 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
  };
  expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  describe('when collecting and publishing draggables', () => {
+    it('should collect the draggables', () => {
+      const beforeInHome1: DraggableDimension = {
+        ...preset.inHome1,
+        descriptor: {
+          ...preset.inHome1.descriptor,
+          id: 'addition1',
+          index: 0,
+        },
+      };
+      const beforeInHome2: DraggableDimension = {
+        ...preset.inHome2,
+        descriptor: {
+          ...preset.inHome2.descriptor,
+          id: 'addition2',
+          index: 1,
+        },
+      };
+      const registry: Registry = createRegistry();
+      const callbacks: Callbacks = getCallbacksStub();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome1 }),
+      );
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome2 }),
+      );
+      expect(callbacks.collectionStarting).toHaveBeenCalled();
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+    });
+
+    it('should publish the collected draggables', () => {
+      const beforeInHome1: DraggableDimension = {
+        ...preset.inHome1,
+        descriptor: {
+          ...preset.inHome1.descriptor,
+          id: 'addition1',
+          index: 0,
+        },
+      };
+      const beforeInHome2: DraggableDimension = {
+        ...preset.inHome2,
+        descriptor: {
+          ...preset.inHome2.descriptor,
+          id: 'addition2',
+          index: 1,
+        },
+      };
+      const registry: Registry = createRegistry();
+      const callbacks: Callbacks = getCallbacksStub();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome1 }),
+      );
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome2 }),
+      );
+
+      // Fire the collection / publish step
+      requestAnimationFrame.step();
+      const expected: Published = {
+        ...empty,
+        additions: [beforeInHome1, beforeInHome2],
+        modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
+      };
+      expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
+    });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 58,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 176, 'column': 6, 'index': 4997}",start: 160 end: 179,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -1516,7 +2511,47 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  getDraggableEntry({ dimension: inAnotherType }),
  );
  expect(callbacks.collectionStarting).not.toHaveBeenCalled();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  describe('when adding a draggable with a different type', () => {
+    it('should not start a collection if the draggable type does not match the dragging item type', () => {
+      const callbacks: Callbacks = getCallbacksStub();
+      const registry: Registry = createRegistry();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      expect(callbacks.collectionStarting).not.toHaveBeenCalled();
+
+      // Registering a new draggable with a different type
+      registry.draggable.register(
+        getDraggableEntry({ dimension: inAnotherType }),
+      );
+      expect(callbacks.collectionStarting).not.toHaveBeenCalled();
+    });
+
+    it('should not publish while dragging if the draggable type does not match', () => {
+      const callbacks: Callbacks = getCallbacksStub();
+      const registry: Registry = createRegistry();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      // Registering a new draggable with a different type
+      registry.draggable.register(
+        getDraggableEntry({ dimension: inAnotherType }),
+      );
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+    });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 59,steel,atlassian/react-beautiful-dnd,/test/unit/view/dimension-marshal/publish-while-dragging.spec.js,Lazy Test,"{'line': 213, 'column': 6, 'index': 6080}",start: 181 end: 230,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -1573,7 +2608,103 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
  };
  expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","  describe('ordering of published draggables', () => {
+    it('should publish draggables in the order of their index', () => {
+      const beforeInHome1: DraggableDimension = {
+        ...preset.inHome1,
+        descriptor: {
+          ...preset.inHome1.descriptor,
+          id: 'b',
+          index: 0,
+        },
+      };
+      const beforeInHome2: DraggableDimension = {
+        ...preset.inHome2,
+        descriptor: {
+          ...preset.inHome2.descriptor,
+          id: 'a',
+          index: 1,
+        },
+      };
+      const callbacks: Callbacks = getCallbacksStub();
+      const registry: Registry = createRegistry();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      // Registering draggables
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome2 }),
+      );
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome1 }),
+      );
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      // Fire the collection / publish step
+      requestAnimationFrame.step();
+      const expected: Published = {
+        ...empty,
+        additions: [beforeInHome1, beforeInHome2],
+        modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
+      };
+      expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
+    });
+
+    it('should handle publishing when draggables are registered out of order', () => {
+      const beforeInHome1: DraggableDimension = {
+        ...preset.inHome1,
+        descriptor: {
+          ...preset.inHome1.descriptor,
+          id: 'b',
+          index: 0,
+        },
+      };
+      const beforeInHome2: DraggableDimension = {
+        ...preset.inHome2,
+        descriptor: {
+          ...preset.inHome2.descriptor,
+          id: 'a',
+          index: 1,
+        },
+      };
+      const callbacks: Callbacks = getCallbacksStub();
+      const registry: Registry = createRegistry();
+      const marshal: DimensionMarshal = createDimensionMarshal(
+        registry,
+        callbacks,
+      );
+      populate(registry, withScrollables);
+
+      // A publish has started
+      marshal.startPublishing(defaultRequest);
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      // Registering draggables in reverse order
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome1 }),
+      );
+      registry.draggable.register(
+        getDraggableEntry({ dimension: beforeInHome2 }),
+      );
+      expect(callbacks.publishWhileDragging).not.toHaveBeenCalled();
+
+      // Fire the collection / publish step
+      requestAnimationFrame.step();
+      const expected: Published = {
+        ...empty,
+        additions: [beforeInHome1, beforeInHome2],
+        modified: [{ droppableId: scrollableHome.descriptor.id, scroll: origin }],
+      };
+      expect(callbacks.publishWhileDragging).toHaveBeenCalledWith(expected);
+    });
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
 60,steel,jackocnr/intl-tel-input,/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 26, 'column': 6, 'index': 687}",start: 25 end: 28,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1584,7 +2715,9 @@ Request:
 Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","it(""resolves the promise"", async () => {
  expect(loadResult).toBeAPromise();
  await expect(loadResult).resolves.toBe(true);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""resolves the promise"", async () => {
+      await expect(loadResult).resolves.toBe(true);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 61,steel,jackocnr/intl-tel-input,/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 27, 'column': 12, 'index': 734}",start: 25 end: 28,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1595,7 +2728,10 @@ Request:
 Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","it(""resolves the promise"", async () => {
  expect(loadResult).toBeAPromise();
  await expect(loadResult).resolves.toBe(true);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""resolves the promise"", async () => {
+      await expect(loadResult).resolves.toBe(true);
+    });
+",TRUE,FALSE,FALSE,FALSE,,,,,
 62,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}",start: 153 end: 169,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
@@ -1619,32 +2755,26 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  // deleting area code keeps Kazakhstan selected
  await user.type(input, ""{backspace}"");
  expect(checkFlagSelected(container, ""kz"")).toBe(true);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-63,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}",start: 153 end: 169,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: Duplicate Assert
-- Smell Location:  Line : 157, column: 4, index: 4180
-- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+ });","  test(""typing/deleting different area codes should update the selected country"", async () => {
+    // typing area code starting with 1 changes to Russia
+    await user.type(input, ""1"");
+    let selectedCountry = checkFlagSelected(container, ""ru"");
+    expect(selectedCountry).toBe(true);
 
-Request:
-Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","test(""typing/deleting different area codes should update the selected country"", async () => {
- // typing area code starting with 1 changes to Russia
- await user.type(input, ""1"");
- expect(checkFlagSelected(container, ""ru"")).toBe(true);
+    // deleting area code keeps the current country selected
+    await user.type(input, ""{backspace}"");
+    expect(selectedCountry).toBe(true);
 
- // deleting area code keeps Russia selected
- await user.type(input, ""{backspace}"");
- expect(checkFlagSelected(container, ""ru"")).toBe(true);
+    // typing area code starting with 7 changes to Kazakhstan
+    await user.type(input, ""7"");
+    selectedCountry = checkFlagSelected(container, ""kz"");
+    expect(selectedCountry).toBe(true);
 
- // typing area code starting with 7 changes to Kazakhstan
- await user.type(input, ""7"");
- expect(checkFlagSelected(container, ""kz"")).toBe(true);
-
- // deleting area code keeps Kazakhstan selected
- await user.type(input, ""{backspace}"");
- expect(checkFlagSelected(container, ""kz"")).toBe(true);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-64,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}",start: 153 end: 169,"Context: I'm refactoring test smells from a test file to improve code quality.
+    // deleting area code keeps the current country selected
+    await user.type(input, ""{backspace}"");
+    expect(selectedCountry).toBe(true);
+  });",TRUE,FALSE,FALSE,FALSE,,,,,
+63,steel,jackocnr/intl-tel-input,/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}",start: 153 end: 169,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 161, column: 4, index: 4331
@@ -1668,7 +2798,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  await user.type(input, ""{backspace}"");
  expect(checkFlagSelected(container, ""kz"")).toBe(true);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-65,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
+64,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 36, column: 53, index: 886
@@ -1679,7 +2809,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(getCountryListLength(container1)).toEqual(2);
  expect(getCountryListLength(container2)).toEqual(4);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-66,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
+65,steel,jackocnr/intl-tel-input,/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}",start: 34 end: 37,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 37, column: 53, index: 943
@@ -1690,7 +2820,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(getCountryListLength(container1)).toEqual(2);
  expect(getCountryListLength(container2)).toEqual(4);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-67,steel,jackocnr/intl-tel-input,/tests/core/countrySearch.test.js,Magic Number,"{'line': 55, 'column': 51, 'index': 1582}",start: 54 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
+66,steel,jackocnr/intl-tel-input,/tests/core/countrySearch.test.js,Magic Number,"{'line': 55, 'column': 51, 'index': 1582}",start: 54 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 56, column: 51, index: 1582
@@ -1700,7 +2830,7 @@ Request:
 Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","test(""shows the right number of results"", () => {
  expect(getCountryListLength(container)).toBe(6);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-68,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":56,""endLine"":56}",start: 40 end: 59,"Context: I'm refactoring test smells from a test file to improve code quality.
+67,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":56,""endLine"":56}",start: 40 end: 59,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 56, endLine : 56
@@ -1727,7 +2857,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-69,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":73,""endLine"":73}",start: 61 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
+68,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":73,""endLine"":73}",start: 61 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 73, endLine : 73
@@ -1750,7 +2880,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-70,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":94,""endLine"":94}",start: 78 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
+69,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/put-shorthand-test.js,SubOptimalAssert,"{""startLine"":94,""endLine"":94}",start: 78 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 94, endLine : 94
@@ -1777,7 +2907,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganondorf"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-71,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}",start: 35 end: 45,"Context: I'm refactoring test smells from a test file to improve code quality.
+70,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":42,""endLine"":42}",start: 35 end: 45,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 42, endLine : 42
@@ -1795,7 +2925,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganon"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-72,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":58,""endLine"":58}",start: 47 end: 61,"Context: I'm refactoring test smells from a test file to improve code quality.
+71,snutsjs,miragejs/miragejs,/__tests__/internal/move-after-handle-request/route-handlers/post-shorthand-test.js,SubOptimalAssert,"{""startLine"":58,""endLine"":58}",start: 47 end: 61,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 58, endLine : 58
@@ -1817,7 +2947,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(model.modelName).toBe(""author"");
  expect(model.firstName).toBe(""Ganon"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-73,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 622, 'column': 4, 'index': 14567}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
+72,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 622, 'column': 4, 'index': 14567}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 623, column: 4, index: 14567
@@ -1883,7 +3013,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-74,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 623, 'column': 4, 'index': 14614}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
+73,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 623, 'column': 4, 'index': 14614}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 624, column: 4, index: 14614
@@ -1949,7 +3079,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-75,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 632, 'column': 4, 'index': 14877}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
+74,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 632, 'column': 4, 'index': 14877}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 633, column: 4, index: 14877
@@ -2015,7 +3145,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-76,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 633, 'column': 4, 'index': 14924}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
+75,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Duplicate Assert,"{'line': 633, 'column': 4, 'index': 14924}",start: 578 end: 636,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 634, column: 4, index: 14924
@@ -2081,7 +3211,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-77,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 26, 'column': 39, 'index': 502}",start: 21 end: 29,"Context: I'm refactoring test smells from a test file to improve code quality.
+76,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 26, 'column': 39, 'index': 502}",start: 21 end: 29,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 27, column: 39, index: 502
@@ -2097,7 +3227,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-78,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 59, 'column': 39, 'index': 1191}",start: 54 end: 62,"Context: I'm refactoring test smells from a test file to improve code quality.
+77,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 59, 'column': 39, 'index': 1191}",start: 54 end: 62,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 60, column: 39, index: 1191
@@ -2113,7 +3243,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-79,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 80, 'column': 31, 'index': 1650}",start: 77 end: 83,"Context: I'm refactoring test smells from a test file to improve code quality.
+78,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 80, 'column': 31, 'index': 1650}",start: 77 end: 83,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 81, column: 31, index: 1650
@@ -2127,7 +3257,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-80,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 88, 'column': 31, 'index': 1818}",start: 85 end: 91,"Context: I'm refactoring test smells from a test file to improve code quality.
+79,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 88, 'column': 31, 'index': 1818}",start: 85 end: 91,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 89, column: 31, index: 1818
@@ -2141,7 +3271,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-81,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 102, 'column': 31, 'index': 2121}",start: 95 end: 105,"Context: I'm refactoring test smells from a test file to improve code quality.
+80,steel,miragejs/miragejs,/__tests__/internal/unit/server-test.js,Magic Number,"{'line': 102, 'column': 31, 'index': 2121}",start: 95 end: 105,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 103, column: 31, index: 2121
@@ -2159,7 +3289,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  server.shutdown();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-82,steel,miragejs/miragejs,/__tests__/internal/unit/schema-test.js,Duplicate Assert,"{'line': 42, 'column': 4, 'index': 1188}",start: 33 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
+81,steel,miragejs/miragejs,/__tests__/internal/unit/schema-test.js,Duplicate Assert,"{'line': 42, 'column': 4, 'index': 1188}",start: 33 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 43, column: 4, index: 1188
@@ -2181,7 +3311,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
 
  expect(schema.first(""author"")).toEqual(record);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-83,snutsjs,brookhong/surfingkeys,/tests/content_scripts/uiframe.test.js,TestWithoutDescription,"{""startLine"":42,""endLine"":44}",start: 42 end: 44,"Context: I'm refactoring test smells from a test file to improve code quality.
+82,snutsjs,brookhong/surfingkeys,/tests/content_scripts/uiframe.test.js,TestWithoutDescription,"{""startLine"":42,""endLine"":44}",start: 42 end: 44,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: TestWithoutDescription
 - Smell Location:  Line Range:  startLine : 42, endLine : 44
@@ -2191,7 +3321,7 @@ Request:
 Please refactor the affected code to eliminate the TestWithoutDescription. Ensure the test remains correct, readable, and maintainable.","it("""", () => {
  uiframe.default();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-84,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":65,""endLine"":65}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
+83,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":65,""endLine"":65}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 65, endLine : 65
@@ -2213,7 +3343,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-85,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":88,""endLine"":88}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
+84,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":88,""endLine"":88}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 88, endLine : 88
@@ -2233,7 +3363,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(links.length).toBe(2);
  expect(links[0].href).toBe(""https://github.com/"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-86,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":111,""endLine"":111}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
+85,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":111,""endLine"":111}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 111, endLine : 111
@@ -2267,7 +3397,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-87,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":115,""endLine"":115}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
+86,snutsjs,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,SubOptimalAssert,"{""startLine"":115,""endLine"":115}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 115, endLine : 115
@@ -2301,7 +3431,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-88,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":29,""endLine"":31}",start: 25 end: 35,"Context: I'm refactoring test smells from a test file to improve code quality.
+87,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":29,""endLine"":31}",start: 25 end: 35,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 29, endLine : 31
@@ -2319,7 +3449,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  document.body.dispatchEvent(new KeyboardEvent('keydown',{'key':'/'}));
  });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-89,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":66,""endLine"":68}",start: 62 end: 77,"Context: I'm refactoring test smells from a test file to improve code quality.
+88,snutsjs,brookhong/surfingkeys,/tests/content_scripts/common/normal.test.js,ConditionalTestLogic,"{""startLine"":66,""endLine"":68}",start: 62 end: 77,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 66, endLine : 68
@@ -2342,7 +3472,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  }));
  });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-90,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
+89,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 66, 'column': 8, 'index': 2706}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 67, column: 8, index: 2706
@@ -2364,7 +3494,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-91,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
+90,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Duplicate Assert,"{'line': 75, 'column': 8, 'index': 3043}",start: 62 end: 76,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 76, column: 8, index: 3043
@@ -2386,7 +3516,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(normal.mappings.find('of').meta.word).toBe('of');
  expect(document.execCommand).toHaveBeenCalledTimes(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-92,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
+91,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 88, 'column': 34, 'index': 3642}",start: 78 end: 90,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 89, column: 34, index: 3642
@@ -2406,7 +3536,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(links.length).toBe(2);
  expect(links[0].href).toBe(""https://github.com/"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-93,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
+92,steel,brookhong/surfingkeys,/tests/content_scripts/markdown.test.js,Magic Number,"{'line': 115, 'column': 40, 'index': 4850}",start: 92 end: 118,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 116, column: 40, index: 4850
@@ -2440,7 +3570,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(hint_labels[0].label).toBe(""A"");
  expect(hint_labels[1].label).toBe(""S"");
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-94,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 80, 'column': 8, 'index': 3134}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
+93,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 80, 'column': 8, 'index': 3134}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 81, column: 8, index: 3134
@@ -2458,7 +3588,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  await new Promise((r) => setTimeout(r, 100));
  expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-95,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 85, 'column': 8, 'index': 3378}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
+94,steel,brookhong/surfingkeys,/tests/content_scripts/ui/omnibar.test.js,Duplicate Assert,"{'line': 85, 'column': 8, 'index': 3378}",start: 76 end: 86,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 86, column: 8, index: 3378
@@ -2476,7 +3606,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  await new Promise((r) => setTimeout(r, 100));
  expect(elmOmnibarClass.value).toContain('sk_omnibar_bottom');
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-96,steel,brookhong/surfingkeys,/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}",start: 38 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
+95,steel,brookhong/surfingkeys,/tests/content_scripts/ui/frontend.test.js,Duplicate Assert,"{'line': 40, 'column': 8, 'index': 1331}",start: 38 end: 47,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 41, column: 8, index: 1331
@@ -2493,7 +3623,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  });
  expect(elmOmnibarStyle).not.toHaveProperty('display', 'none');
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-97,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 59, 'column': 6, 'index': 1898}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
+96,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 59, 'column': 6, 'index': 1898}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 60, column: 6, index: 1898
@@ -2525,7 +3655,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-98,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 60, 'column': 6, 'index': 1951}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
+97,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 60, 'column': 6, 'index': 1951}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 61, column: 6, index: 1951
@@ -2557,7 +3687,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-99,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 63, 'column': 6, 'index': 2092}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
+98,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 63, 'column': 6, 'index': 2092}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 64, column: 6, index: 2092
@@ -2589,7 +3719,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-100,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 64, 'column': 6, 'index': 2143}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
+99,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 64, 'column': 6, 'index': 2143}",start: 46 end: 70,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 65, column: 6, index: 2143
@@ -2621,7 +3751,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-101,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 86, 'column': 6, 'index': 2969}",start: 72 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
+100,steel,shipshapecode/tether,/test/unit/tether.spec.js,Duplicate Assert,"{'line': 86, 'column': 6, 'index': 2969}",start: 72 end: 97,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 87, column: 6, index: 2969
@@ -2654,7 +3784,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-102,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 24, 'column': 75, 'index': 664}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
+101,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 24, 'column': 75, 'index': 664}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 25, column: 75, index: 664
@@ -2681,7 +3811,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-103,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 25, 'column': 73, 'index': 741}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
+102,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 25, 'column': 73, 'index': 741}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 26, column: 73, index: 741
@@ -2708,7 +3838,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-104,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 35, 'column': 81, 'index': 1021}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
+103,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 35, 'column': 81, 'index': 1021}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 36, column: 81, index: 1021
@@ -2735,7 +3865,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-105,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 36, 'column': 79, 'index': 1105}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
+104,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 36, 'column': 79, 'index': 1105}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 37, column: 79, index: 1105
@@ -2762,7 +3892,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-106,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 40, 'column': 103, 'index': 1239}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
+105,steel,shipshapecode/tether,/test/unit/tether.spec.js,Magic Number,"{'line': 40, 'column': 103, 'index': 1239}",start: 23 end: 42,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 41, column: 103, index: 1239
@@ -2789,7 +3919,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(element.classList.length, 'element - destroy sets classes back to initial state').toEqual(1);
  expect(target.classList.length, 'target - destroy sets classes back to initial state').toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-107,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 14, 'column': 13, 'index': 502}",start: 13 end: 15,"Context: I'm refactoring test smells from a test file to improve code quality.
+106,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 14, 'column': 13, 'index': 502}",start: 13 end: 15,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 15, column: 13, index: 502
@@ -2799,7 +3929,7 @@ Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('top left', () => {
  expect(attachmentToOffset({ left: 'left', top: 'top' })).toStrictEqual({ left: 0, top: 0 });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-108,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 18, 'column': 13, 'index': 642}",start: 17 end: 19,"Context: I'm refactoring test smells from a test file to improve code quality.
+107,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 18, 'column': 13, 'index': 642}",start: 17 end: 19,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 19, column: 13, index: 642
@@ -2809,7 +3939,7 @@ Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('middle center', () => {
  expect(attachmentToOffset({ left: 'center', top: 'middle' })).toStrictEqual({ left: '50%', top: '50%' });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-109,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 22, 'column': 13, 'index': 794}",start: 21 end: 23,"Context: I'm refactoring test smells from a test file to improve code quality.
+108,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 22, 'column': 13, 'index': 794}",start: 21 end: 23,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 23, column: 13, index: 794
@@ -2819,7 +3949,7 @@ Request:
 Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.","it('bottom right', () => {
  expect(attachmentToOffset({ left: 'right', top: 'bottom' })).toStrictEqual({ left: '100%', top: '100%' });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-110,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 28, 'column': 13, 'index': 996}",start: 27 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
+109,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 28, 'column': 13, 'index': 996}",start: 27 end: 32,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 29, column: 13, index: 996
@@ -2832,7 +3962,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  { left: 'left', top: 'top' }
  )).toStrictEqual({ left: 'right', top: 'top' });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-111,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 35, 'column': 13, 'index': 1203}",start: 34 end: 39,"Context: I'm refactoring test smells from a test file to improve code quality.
+110,steel,shipshapecode/tether,/test/unit/utils/offset.spec.js,Lazy Test,"{'line': 35, 'column': 13, 'index': 1203}",start: 34 end: 39,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 36, column: 13, index: 1203
@@ -2845,7 +3975,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  { left: 'center', top: 'top' }
  )).toStrictEqual({ left: 'center', top: 'top' });
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-112,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+111,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 157, endLine : 160
@@ -2868,7 +3998,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-113,snutsjs,katex/katex,/test/unicode-spec.js,SubOptimalAssert,"{""startLine"":163,""endLine"":163}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+112,snutsjs,katex/katex,/test/unicode-spec.js,SubOptimalAssert,"{""startLine"":163,""endLine"":163}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 163, endLine : 163
@@ -2891,7 +4021,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-114,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
+113,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
 - Smell Location:  Line Range:  startLine : 4010, endLine : 4045
@@ -2934,7 +4064,7 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  wideCharText += ""}"";
  expect(wideCharText).toBuild(strictSettings);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-115,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
+114,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 91, endLine : 94
@@ -2958,7 +4088,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  }
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-116,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":95,""endLine"":100}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
+115,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":95,""endLine"":100}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 95, endLine : 100
@@ -2982,7 +4112,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  }
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-117,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1759,""endLine"":1761}",start: 1758 end: 1762,"Context: I'm refactoring test smells from a test file to improve code quality.
+116,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1759,""endLine"":1761}",start: 1758 end: 1762,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 1759, endLine : 1761
@@ -2994,7 +4124,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  ""\\hline %hline\n"" +
  ""\\hline c&d\\end{matrix}"").toParse();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-118,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1894,""endLine"":1895}",start: 1890 end: 1897,"Context: I'm refactoring test smells from a test file to improve code quality.
+117,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":1894,""endLine"":1895}",start: 1890 end: 1897,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 1894, endLine : 1895
@@ -3009,7 +4139,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  "" = "" + String.fromCharCode(0xD835, 0xDC1A))
  .toBuildLike`\mathbf A = \mathbf a`;
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-119,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3167,""endLine"":3167}",start: 3156 end: 3169,"Context: I'm refactoring test smells from a test file to improve code quality.
+118,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3167,""endLine"":3167}",start: 3156 end: 3169,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 3167, endLine : 3167
@@ -3030,7 +4160,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(error.length).toBe(5);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-120,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3182,""endLine"":3182}",start: 3171 end: 3184,"Context: I'm refactoring test smells from a test file to improve code quality.
+119,snutsjs,katex/katex,/test/katex-spec.js,SubOptimalAssert,"{""startLine"":3182,""endLine"":3182}",start: 3171 end: 3184,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SubOptimalAssert
 - Smell Location:  Line Range:  startLine : 3182, endLine : 3182
@@ -3051,7 +4181,7 @@ Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the 
  expect(error.length).toBe(0);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-121,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+120,snutsjs,katex/katex,/test/unicode-spec.js,ConditionalTestLogic,"{""startLine"":157,""endLine"":160}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 157, endLine : 160
@@ -3074,7 +4204,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-122,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
+121,snutsjs,katex/katex,/test/katex-spec.js,OvercommentedTest,"{""startLine"":4010,""endLine"":4045}",start: 4010 end: 4045,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: OvercommentedTest
 - Smell Location:  Line Range:  startLine : 4010, endLine : 4045
@@ -3117,7 +4247,7 @@ Please refactor the affected code to eliminate the OvercommentedTest. Ensure the
  wideCharText += ""}"";
  expect(wideCharText).toBuild(strictSettings);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-123,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
+122,snutsjs,katex/katex,/test/katex-spec.js,ConditionalTestLogic,"{""startLine"":91,""endLine"":94}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 91, endLine : 94
@@ -3141,7 +4271,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
  }
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-124,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+123,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 158, 'column': 20, 'index': 5760}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 159, column: 20, index: 5760
@@ -3164,7 +4294,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-125,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+124,steel,katex/katex,/test/unicode-spec.js,Duplicate Assert,"{'line': 163, 'column': 12, 'index': 5877}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 164, column: 12, index: 5877
@@ -3187,7 +4317,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-126,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}",start: 143 end: 149,"Context: I'm refactoring test smells from a test file to improve code quality.
+125,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 145, 'column': 19, 'index': 5223}",start: 143 end: 149,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 146, column: 19, index: 5223
@@ -3201,7 +4331,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  );
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-127,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
+126,steel,katex/katex,/test/unicode-spec.js,Lazy Test,"{'line': 164, 'column': 19, 'index': 5923}",start: 151 end: 166,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 165, column: 19, index: 5923
@@ -3223,6 +4353,44 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(script).toBe(null);
  expect(supportedCodepoint(codepoint)).toBe(false);
  }
+ });",,FALSE,FALSE,FALSE,FALSE,,,,,
+127,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 575, column: 8, index: 17088
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","it(""should produce a frac"", function() {
+ let parse;
+
+ parse = getParsed(simpleOver)[0];
+
+ expect(parse.type).toEqual(""genfrac"");
+ expect(parse.numer).toBeDefined();
+ expect(parse.denom).toBeDefined();
+
+ parse = getParsed(complexOver)[0];
+
+ expect(parse.type).toEqual(""genfrac"");
+ expect(parse.numer).toBeDefined();
+ expect(parse.denom).toBeDefined();
+
+ const parseBraceFrac = getParsed(braceFrac)[0];
+
+ expect(parseBraceFrac.type).toEqual(""genfrac"");
+ expect(parseBraceFrac.numer).toBeDefined();
+ expect(parseBraceFrac.denom).toBeDefined();
+ expect(parseBraceFrac.leftDelim).toBeDefined();
+ expect(parseBraceFrac.rightDelim).toBeDefined();
+
+ const parseBrackFrac = getParsed(brackFrac)[0];
+
+ expect(parseBrackFrac.type).toEqual(""genfrac"");
+ expect(parseBrackFrac.numer).toBeDefined();
+ expect(parseBrackFrac.denom).toBeDefined();
+ expect(parseBrackFrac.leftDelim).toBeDefined();
+ expect(parseBrackFrac.rightDelim).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
 128,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
@@ -3262,45 +4430,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(parseBrackFrac.leftDelim).toBeDefined();
  expect(parseBrackFrac.rightDelim).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-129,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 574, 'column': 8, 'index': 17088}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: Duplicate Assert
-- Smell Location:  Line : 575, column: 8, index: 17088
-- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
-
-Request:
-Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.","it(""should produce a frac"", function() {
- let parse;
-
- parse = getParsed(simpleOver)[0];
-
- expect(parse.type).toEqual(""genfrac"");
- expect(parse.numer).toBeDefined();
- expect(parse.denom).toBeDefined();
-
- parse = getParsed(complexOver)[0];
-
- expect(parse.type).toEqual(""genfrac"");
- expect(parse.numer).toBeDefined();
- expect(parse.denom).toBeDefined();
-
- const parseBraceFrac = getParsed(braceFrac)[0];
-
- expect(parseBraceFrac.type).toEqual(""genfrac"");
- expect(parseBraceFrac.numer).toBeDefined();
- expect(parseBraceFrac.denom).toBeDefined();
- expect(parseBraceFrac.leftDelim).toBeDefined();
- expect(parseBraceFrac.rightDelim).toBeDefined();
-
- const parseBrackFrac = getParsed(brackFrac)[0];
-
- expect(parseBrackFrac.type).toEqual(""genfrac"");
- expect(parseBrackFrac.numer).toBeDefined();
- expect(parseBrackFrac.denom).toBeDefined();
- expect(parseBrackFrac.leftDelim).toBeDefined();
- expect(parseBrackFrac.rightDelim).toBeDefined();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-130,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
+129,steel,katex/katex,/test/katex-spec.js,Duplicate Assert,"{'line': 575, 'column': 8, 'index': 17135}",start: 569 end: 599,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Duplicate Assert
 - Smell Location:  Line : 576, column: 8, index: 17135
@@ -3338,7 +4468,7 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(parseBrackFrac.leftDelim).toBeDefined();
  expect(parseBrackFrac.rightDelim).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-131,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}",start: 43 end: 50,"Context: I'm refactoring test smells from a test file to improve code quality.
+130,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}",start: 43 end: 50,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 45, column: 22, index: 1225
@@ -3353,7 +4483,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(group.type).toMatch(""ord"");
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-132,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}",start: 52 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
+131,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}",start: 52 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 54, column: 22, index: 1483
@@ -3365,7 +4495,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
 
  expect(parse).toHaveLength(expression.length);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-133,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}",start: 66 end: 74,"Context: I'm refactoring test smells from a test file to improve code quality.
+132,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}",start: 66 end: 74,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
 - Smell Location:  Line : 68, column: 22, index: 1816
@@ -3381,7 +4511,7 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(group.family).toEqual(""bin"");
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-134,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
+133,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 93, column: 48, index: 2613
@@ -3405,7 +4535,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  }
  }
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-135,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}",start: 111 end: 115,"Context: I'm refactoring test smells from a test file to improve code quality.
+134,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}",start: 111 end: 115,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 115, column: 44, index: 3404
@@ -3417,7 +4547,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  const mml = buildMathML(getParsed(contents), contents, defaultOptions);
  expect(mml.children.length).toEqual(1);
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-136,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}",start: 343 end: 352,"Context: I'm refactoring test smells from a test file to improve code quality.
+135,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}",start: 343 end: 352,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 347, column: 35, index: 10074
@@ -3434,7 +4564,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(ord.type).toMatch(""ord"");
  expect(ord.body).toBeTruthy();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-137,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}",start: 365 end: 375,"Context: I'm refactoring test smells from a test file to improve code quality.
+136,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}",start: 365 end: 375,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 369, column: 35, index: 10676
@@ -3452,7 +4582,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(ord.body).toBeTruthy();
  expect(ord.semisimple).toBeTruthy();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-138,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}",start: 388 end: 398,"Context: I'm refactoring test smells from a test file to improve code quality.
+137,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}",start: 388 end: 398,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line : 392, column: 35, index: 11303
@@ -3470,7 +4600,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(sizing.body).toBeTruthy();
  expect(sizing.size).toBeDefined();
  });",,FALSE,FALSE,FALSE,FALSE,,,,,
-139,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+138,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 120, endLine : 126
@@ -3523,7 +4653,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-140,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+139,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 138, endLine : 138
@@ -3576,7 +4706,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-141,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+140,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 140, endLine : 145
@@ -3629,7 +4759,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-142,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+141,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: ConditionalTestLogic
 - Smell Location:  Line Range:  startLine : 146, endLine : 149
@@ -3682,7 +4812,7 @@ Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure 
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-143,snutsjs,vercel/ncc,/test/watcher.test.js,SensitiveEquality,"{""startLine"":123,""endLine"":123}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+142,snutsjs,vercel/ncc,/test/watcher.test.js,SensitiveEquality,"{""startLine"":123,""endLine"":123}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SensitiveEquality
 - Smell Location:  Line Range:  startLine : 123, endLine : 123
@@ -3735,7 +4865,7 @@ Please refactor the affected code to eliminate the SensitiveEquality. Ensure the
 
   fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-144,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+143,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
 - Smell Location:  Line Range:  startLine : 120, endLine : 126
@@ -3788,7 +4918,7 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  fs.writeFileSync(buildFile, initialBuildFileContents);
 });",,FALSE,FALSE,FALSE,FALSE,,,,,
-145,snutsjs,vercel/ncc,/test/unit.test.js,SensitiveEquality,"{""startLine"":54,""endLine"":54}",start: 15 end: 80,"Context: I'm refactoring test smells from a test file to improve code quality.
+144,snutsjs,vercel/ncc,/test/unit.test.js,SensitiveEquality,"{""startLine"":54,""endLine"":54}",start: 15 end: 80,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: SensitiveEquality
 - Smell Location:  Line Range:  startLine : 54, endLine : 54

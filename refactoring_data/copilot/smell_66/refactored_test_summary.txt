@@ -2,7 +2,7 @@
 Test Suites: 14 passed, 14 total
 Tests:       110 passed, 110 total
 Snapshots:   0 total
-Time:        5.871 s
+Time:        4.161 s
 Ran all test suites.
 
 Total Coverage:

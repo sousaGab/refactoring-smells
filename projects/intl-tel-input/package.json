@@ -88,7 +88,7 @@
   "homepage": "https://intl-tel-input.com",
   "scripts": {
     "test": "grunt travis && jest",
-    "jest": "jest",
+    "jest": "jest --coverage --coverageReporters=text-summary",
     "lint:js": "eslint .",
     "lint:spelling": "cspell --dot --gitignore --no-progress '**'",
     "watch": "grunt watch",
