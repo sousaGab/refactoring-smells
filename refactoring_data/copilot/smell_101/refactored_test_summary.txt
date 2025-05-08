@@ -2,8 +2,8 @@
 Test Suites: 6 passed, 6 total
 Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        1.367 s, estimated 3 s
-Ran all test suites.
+Time:        1.564 s
+Ran all test suites
 
 Total Coverage:
 Statements   : 67.87%

@@ -1,6 +1,7 @@
 FileName, TotalMethods, TotalTestSmells,Physical SLOC,Logical SLOC,Cyclomatic,CyclomaticDensity,HalsteadBugs,HalsteadDifficulty,HalsteadEffort,HalsteadLength,HalsteadTime,HalsteadVocabulary,HalsteadVolume,Maintainability,assertionRoulette,conditionalTestLogic,duplicateAssert,eagerTest,emptyTest,exceptionHandling,globalVariable,ignoredTest,lazyTest,magicNumberRule,mysteryGuest,redundantAssertion,redundantPrint,resourceOptimism,sleepyTest,unknownTest
-/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/uiframe.test.js,1,2,46,42,8,19.048,0.253,9.213,7002.467,134,389.026,51,760.105,118.214,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1
-/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/markdown.test.js,3,2,120,178,17,9.551,1.406,14.338,60471.941,585,3359.552,148,4217.53,104.989,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/omnibar.test.js,2,2,88,89,8,8.989,0.689,9.54,19707.947,313,1094.886,97,2065.773,105.263,0,0,2,0,0,0,0,0,0,0,0,0,0,0,3,0
-/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/ui/frontend.test.js,1,1,49,61,10,16.393,0.477,9.9,14164.676,229,786.926,76,1430.775,112.289,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0
-/home/gabriel/Desktop/research/projects/surfingkeys/tests/content_scripts/common/normal.test.js,4,3,79,90,15,16.667,0.777,19.303,45022.366,370,2501.243,79,2332.399,108.195,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,2
+/home/gabriel/Desktop/research/projects/tether/test/unit/tether.spec.js,5,2,163,173,11,6.358,1.597,29.149,139687.9,767,7760.439,76,4792.16,94.046,0,0,17,0,0,0,0,0,0,30,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/tether/test/unit/evented.spec.js,8,1,70,83,19,22.892,0.566,11.136,18925.54,272,1051.419,76,1699.436,123.504,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/tether/test/unit/constraint.spec.js,33,2,452,529,59,11.153,5.279,29.601,468762.882,2030,26042.382,223,15835.827,104.753,0,0,21,0,0,0,0,0,0,25,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/offset.spec.js,12,1,86,140,20,14.286,0.797,12.075,28859.723,394,1603.318,67,2390.039,114.598,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/deferred.spec.js,1,2,19,21,4,19.048,0.095,5.833,1663.942,66,92.441,20,285.247,123.512,0,0,4,3,0,0,0,0,0,0,0,0,0,0,0,0
+/home/gabriel/Desktop/research/projects/tether/test/unit/utils/classes.spec.js,7,4,67,80,11,13.75,0.567,10.434,17750.095,288,986.116,60,1701.184,113.596,0,0,4,2,0,0,0,0,6,3,0,0,0,0,0,0
