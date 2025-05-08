@@ -2,12 +2,12 @@
 Test Suites: 1 failed, 237 passed, 238 total
 Tests:       2 failed, 1229 passed, 1231 total
 Snapshots:   2 passed, 2 total
-Time:        26.568s, estimated 36s
+Time:        26.032s
 Ran all test suites.
 
 Total Coverage:
-Statements   : 94.02% ( 3708/3944 )
-Branches     : 86.86% ( 1362/1568 )
-Functions    : 95.12% ( 935/983 )
-Lines        : 93.98% ( 3625/3857 )
+Statements   : 94.02%
+Branches     : 86.86%
+Functions    : 95.12%
+Lines        : 93.98%
 
