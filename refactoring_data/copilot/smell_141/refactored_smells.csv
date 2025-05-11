@@ -1,0 +1,302 @@
+file,type,smells,frame,itCount,describeCount
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/unit.js,Ignored Test,"{'line': 175, 'column': 9, 'index': 5830}","  173 | }
+  174 |
+> 175 | describe.skip('forwardResponse: content-type encoding', () => {
+      |         ^ Ignored Test
+  176 |   test('content-type header missing', async (done) => {
+  177 |     const binaryMimeTypes = []
+  178 |     const multiValueHeaders = { foo: ['bar'] }",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/unit.js,Lazy Test,"{'line': 303, 'column': 32, 'index': 10118}","  301 |       (resolve, reject) => {
+  302 |         const context = new MockContext(resolve, reject)
+> 303 |         const contextResolver = makeResolver({
+      |                                ^ Lazy Test
+  304 |           context,
+  305 |           resolutionMode: 'CONTEXT'
+  306 |         })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/unit.js,Lazy Test,"{'line': 316, 'column': 29, 'index': 10468}","  314 |   test('CALLBACK', () => {
+  315 |     const callback = (e, response) => response
+> 316 |     const callbackResolver = makeResolver({
+      |                             ^ Lazy Test
+  317 |       callback,
+  318 |       resolutionMode: 'CALLBACK',
+  319 |       context: {}",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/unit.js,Lazy Test,"{'line': 334, 'column': 30, 'index': 10866}","  332 |         reject
+  333 |       }
+> 334 |       const promiseResolver = makeResolver({
+      |                              ^ Lazy Test
+  335 |         promise,
+  336 |         resolutionMode: 'PROMISE'
+  337 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Conditional Test Logic,"{'line': 275, 'column': 4, 'index': 8444}","  273 |     }
+  274 |
+> 275 |     switch (eventSourceName) {
+      |    ^ Conditional Test Logic
+  276 |       case 'alb':
+  277 |       case 'apiGatewayV1':
+  278 |         validateHeaders(response.multiValueHeaders, 'etag', 'last-modified')",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Conditional Test Logic,"{'line': 463, 'column': 4, 'index': 13912}","  461 |     jest.useRealTimers()
+  462 |
+> 463 |     switch (eventSourceName) {
+      |    ^ Conditional Test Logic
+  464 |       case 'azureHttpFunctionV4':
+  465 |       case 'azureHttpFunctionV3':
+  466 |         expectedResponse.cookies = [",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Conditional Test Logic,"{'line': 507, 'column': 6, 'index': 14870}","  505 |       ]
+  506 |
+> 507 |       for (const method of mockMethods) { mocks.push(jest.spyOn(global.console, method).mockImplementation()) }
+      |      ^ Conditional Test Logic
+  508 |     })
+  509 |
+  510 |     afterEach(() => {",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Conditional Test Logic,"{'line': 511, 'column': 6, 'index': 15012}","  509 |
+  510 |     afterEach(() => {
+> 511 |       for (const mock of mocks) mock.mockRestore()
+      |      ^ Conditional Test Logic
+  512 |     })
+  513 |
+  514 |     test('custom logger', async () => {",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 557, 'column': 6, 'index': 16398}","  555 |       loggerError.debug('nocall')
+  556 |       loggerError.verbose('nocall')
+> 557 |       expect(global.console.warn).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  558 |       expect(global.console.debug).not.toHaveBeenCalled()
+  559 |       expect(global.console.info).not.toHaveBeenCalled()
+  560 |       expect(global.console.error).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 558, 'column': 6, 'index': 16455}","  556 |       loggerError.verbose('nocall')
+  557 |       expect(global.console.warn).not.toHaveBeenCalled()
+> 558 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  559 |       expect(global.console.info).not.toHaveBeenCalled()
+  560 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  561 |         message: 'error'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 558, 'column': 6, 'index': 16455}","  556 |       loggerError.verbose('nocall')
+  557 |       expect(global.console.warn).not.toHaveBeenCalled()
+> 558 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  559 |       expect(global.console.info).not.toHaveBeenCalled()
+  560 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  561 |         message: 'error'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 559, 'column': 6, 'index': 16513}","  557 |       expect(global.console.warn).not.toHaveBeenCalled()
+  558 |       expect(global.console.debug).not.toHaveBeenCalled()
+> 559 |       expect(global.console.info).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  560 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  561 |         message: 'error'
+  562 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 559, 'column': 6, 'index': 16513}","  557 |       expect(global.console.warn).not.toHaveBeenCalled()
+  558 |       expect(global.console.debug).not.toHaveBeenCalled()
+> 559 |       expect(global.console.info).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  560 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  561 |         message: 'error'
+  562 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 560, 'column': 6, 'index': 16570}","  558 |       expect(global.console.debug).not.toHaveBeenCalled()
+  559 |       expect(global.console.info).not.toHaveBeenCalled()
+> 560 |       expect(global.console.error).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  561 |         message: 'error'
+  562 |       })
+  563 |",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 571, 'column': 6, 'index': 16900}","  569 |       loggerWarn.debug('nocall')
+  570 |       loggerWarn.verbose('nocall')
+> 571 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  572 |       expect(global.console.info).not.toHaveBeenCalled()
+  573 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  574 |         message: 'error2'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 571, 'column': 6, 'index': 16900}","  569 |       loggerWarn.debug('nocall')
+  570 |       loggerWarn.verbose('nocall')
+> 571 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  572 |       expect(global.console.info).not.toHaveBeenCalled()
+  573 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  574 |         message: 'error2'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 572, 'column': 6, 'index': 16958}","  570 |       loggerWarn.verbose('nocall')
+  571 |       expect(global.console.debug).not.toHaveBeenCalled()
+> 572 |       expect(global.console.info).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  573 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  574 |         message: 'error2'
+  575 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 572, 'column': 6, 'index': 16958}","  570 |       loggerWarn.verbose('nocall')
+  571 |       expect(global.console.debug).not.toHaveBeenCalled()
+> 572 |       expect(global.console.info).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  573 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  574 |         message: 'error2'
+  575 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 573, 'column': 6, 'index': 17015}","  571 |       expect(global.console.debug).not.toHaveBeenCalled()
+  572 |       expect(global.console.info).not.toHaveBeenCalled()
+> 573 |       expect(global.console.error).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  574 |         message: 'error2'
+  575 |       })
+  576 |       expect(global.console.warn).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 576, 'column': 6, 'index': 17112}","  574 |         message: 'error2'
+  575 |       })
+> 576 |       expect(global.console.warn).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  577 |         message: 'warn2'
+  578 |       })
+  579 |",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 587, 'column': 6, 'index': 17440}","  585 |       loggerInfo.debug('nocall')
+  586 |       loggerInfo.verbose('nocall')
+> 587 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  588 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  589 |         message: 'error3'
+  590 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 587, 'column': 6, 'index': 17440}","  585 |       loggerInfo.debug('nocall')
+  586 |       loggerInfo.verbose('nocall')
+> 587 |       expect(global.console.debug).not.toHaveBeenCalled()
+      |      ^ Duplicate Assert
+  588 |       expect(global.console.error).toHaveBeenLastCalledWith({
+  589 |         message: 'error3'
+  590 |       })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 588, 'column': 6, 'index': 17498}","  586 |       loggerInfo.verbose('nocall')
+  587 |       expect(global.console.debug).not.toHaveBeenCalled()
+> 588 |       expect(global.console.error).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  589 |         message: 'error3'
+  590 |       })
+  591 |       expect(global.console.warn).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 591, 'column': 6, 'index': 17595}","  589 |         message: 'error3'
+  590 |       })
+> 591 |       expect(global.console.warn).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  592 |         message: 'warn3'
+  593 |       })
+  594 |       expect(global.console.info).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 594, 'column': 6, 'index': 17690}","  592 |         message: 'warn3'
+  593 |       })
+> 594 |       expect(global.console.info).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  595 |         message: 'info3'
+  596 |       })
+  597 |",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 605, 'column': 6, 'index': 18041}","  603 |       loggerVerbose.verbose('verbose4')
+  604 |       loggerVerbose.debug('nocall')
+> 605 |       expect(global.console.error).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  606 |         message: 'error4'
+  607 |       })
+  608 |       expect(global.console.warn).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 608, 'column': 6, 'index': 18138}","  606 |         message: 'error4'
+  607 |       })
+> 608 |       expect(global.console.warn).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  609 |         message: 'warn4'
+  610 |       })
+  611 |       expect(global.console.info).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 611, 'column': 6, 'index': 18233}","  609 |         message: 'warn4'
+  610 |       })
+> 611 |       expect(global.console.info).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  612 |         message: 'info4'
+  613 |       })
+  614 |       expect(global.console.debug).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 614, 'column': 6, 'index': 18328}","  612 |         message: 'info4'
+  613 |       })
+> 614 |       expect(global.console.debug).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  615 |         message: 'verbose4'
+  616 |       })
+  617 |",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 625, 'column': 6, 'index': 18669}","  623 |       loggerDebug.verbose('verbose5')
+  624 |       loggerDebug.debug('debug5')
+> 625 |       expect(global.console.error).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  626 |         message: 'error5'
+  627 |       })
+  628 |       expect(global.console.warn).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 628, 'column': 6, 'index': 18766}","  626 |         message: 'error5'
+  627 |       })
+> 628 |       expect(global.console.warn).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  629 |         message: 'warn5'
+  630 |       })
+  631 |       expect(global.console.info).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 631, 'column': 6, 'index': 18861}","  629 |         message: 'warn5'
+  630 |       })
+> 631 |       expect(global.console.info).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  632 |         message: 'info5'
+  633 |       })
+  634 |       expect(global.console.debug).toHaveBeenLastCalledWith({",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 634, 'column': 6, 'index': 18956}","  632 |         message: 'info5'
+  633 |       })
+> 634 |       expect(global.console.debug).toHaveBeenLastCalledWith({
+      |      ^ Duplicate Assert
+  635 |         message: 'debug5'
+  636 |       })
+  637 |     })",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 647, 'column': 6, 'index': 19340}","  645 |       logger.debug('array', ['message'])
+  646 |
+> 647 |       expect(global.console.debug).toHaveBeenNthCalledWith(
+      |      ^ Duplicate Assert
+  648 |         1,
+  649 |         {
+  650 |           message: 'simple message'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 653, 'column': 6, 'index': 19475}","  651 |         }
+  652 |       )
+> 653 |       expect(global.console.debug).toHaveBeenNthCalledWith(
+      |      ^ Duplicate Assert
+  654 |         2,
+  655 |         {
+  656 |           message: 'debug',",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 661, 'column': 6, 'index': 19646}","  659 |         }
+  660 |       )
+> 661 |       expect(global.console.debug).toHaveBeenNthCalledWith(
+      |      ^ Duplicate Assert
+  662 |         3,
+  663 |         {
+  664 |           message: 'debug'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Duplicate Assert,"{'line': 667, 'column': 6, 'index': 19772}","  665 |         }
+  666 |       )
+> 667 |       expect(global.console.debug).toHaveBeenNthCalledWith(
+      |      ^ Duplicate Assert
+  668 |         4,
+  669 |         {
+  670 |           message: 'array',",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Ignored Test,"{'line': 413, 'column': 7, 'index': 12311}","  411 |   })
+  412 |
+> 413 |   test.skip('respondToEventSourceWithError', async () => {
+      |       ^ Ignored Test
+  414 |     const response = await serverlessExpressInstance(null)
+  415 |     expect(response).toEqual({
+  416 |       statusCode: 500,",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Magic Number,"{'line': 536, 'column': 56, 'index': 15723}","  534 |       await serverlessExpressInstance(event)
+  535 |
+> 536 |       expect(customLogger.debug.mock.calls.length).toBe(6)
+      |                                                        ^ Magic Number
+  537 |
+  538 |       // TODO: test log levels
+  539 |       // customLogger.level = 'error'",,
+/home/gabriel/Desktop/research/projects/serverless-express/__tests__/integration.js,Mystery Guest,"{'column': 25, 'line': 252}","  250 |     const response = await serverlessExpressInstance(event)
+  251 |
+> 252 |     const samLogoImage = fs.readFileSync(samLogoPath)
+      |                         ^ Mystery Guest
+  253 |     const samLogoBase64 = Buffer.from(samLogoImage).toString('base64')
+  254 |     const expectedResponse = makeResponse({
+  255 |       eventSourceName,",,
+__tests__/unit.js,AnonymousTest,"[{""startLine"":225,""endLine"":247}]",,17.0,2.0
+__tests__/unit.js,AnonymousTest,"[{""startLine"":299,""endLine"":312}]",,17.0,2.0
+__tests__/unit.js,AnonymousTest,"[{""startLine"":314,""endLine"":326}]",,17.0,2.0
+__tests__/unit.js,AnonymousTest,"[{""startLine"":328,""endLine"":345}]",,17.0,2.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":35,""endLine"":65}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":67,""endLine"":104}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":217,""endLine"":237}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":239,""endLine"":294}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":296,""endLine"":322}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":324,""endLine"":344}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":346,""endLine"":375}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":422,""endLine"":493}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":514,""endLine"":547}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":549,""endLine"":637}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":677,""endLine"":708}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":710,""endLine"":736}]",,20.0,1.0
+__tests__/integration.js,AnonymousTest,"[{""startLine"":738,""endLine"":764}]",,20.0,1.0
+__tests__/integration.js,OvercommentedTest,"[{""startLine"":514,""endLine"":547}]",,20.0,1.0
+__tests__/integration.js,SubOptimalAssert,"[{""startLine"":536,""endLine"":536}]",,20.0,1.0
+__tests__/integration.js,VerboseStatement,"[{""startLine"":422,""endLine"":493}]",,20.0,1.0
+__tests__/integration.js,VerboseStatement,"[{""startLine"":549,""endLine"":637}]",,20.0,1.0

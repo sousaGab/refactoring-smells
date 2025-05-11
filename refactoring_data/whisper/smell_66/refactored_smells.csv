@@ -1,0 +1,245 @@
+file,type,smells,frame,itCount,describeCount
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 26, 'column': 6, 'index': 687}","  24 |
+  25 |     it(""resolves the promise"", async () => {
+> 26 |       expect(loadResult).toBeAPromise();
+     |      ^ Duplicate Assert
+  27 |       await expect(loadResult).resolves.toBe(true);
+  28 |     });
+  29 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Duplicate Assert,"{'line': 27, 'column': 12, 'index': 734}","  25 |     it(""resolves the promise"", async () => {
+  26 |       expect(loadResult).toBeAPromise();
+> 27 |       await expect(loadResult).resolves.toBe(true);
+     |            ^ Duplicate Assert
+  28 |     });
+  29 |
+  30 |     it(""installs the utils module at intlTelInput.utils"", async () => {",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Exception Handling,"{'line': 160, 'column': 8, 'index': 4232}","  158 |     it(""rejects if the function rejects"", async () => {
+  159 |       const loadPromise = intlTelInput.attachUtils(async () => {
+> 160 |         throw new Error(""Uhoh!"");
+      |        ^ Exception Handling
+  161 |       });
+  162 |
+  163 |       await expect(loadPromise).rejects.toThrow(""Uhoh!"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Exception Handling,"{'line': 168, 'column': 8, 'index': 4458}","  166 |     it(""rejects if the function throws"", async () => {
+  167 |       const loadPromise = intlTelInput.attachUtils(() => {
+> 168 |         throw new Error(""Uhoh!"");
+      |        ^ Exception Handling
+  169 |       });
+  170 |
+  171 |       await expect(loadPromise).rejects.toThrow(""Uhoh!"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/static/attachUtils.test.js,Unknown Test,"{'column': 6, 'line': 38}","  36 |     describe(""then init plugin with loadUtils option"", () => {
+  37 |
+> 38 |       it(""resolves the instance's promise"", async () => {
+     |      ^ Unknown Test
+  39 |         const { iti } = initPlugin({
+  40 |           intlTelInput,
+  41 |           options: {",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","  154 |     // typing area code starting with 1 changes to Russia
+  155 |     await user.type(input, ""1"");
+> 156 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  157 |
+  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 156, 'column': 4, 'index': 4180}","  154 |     // typing area code starting with 1 changes to Russia
+  155 |     await user.type(input, ""1"");
+> 156 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  157 |
+  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}","  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");
+> 160 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  161 |
+  162 |     // typing area code starting with 7 changes to Kazakhstan
+  163 |     await user.type(input, ""7"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 160, 'column': 4, 'index': 4331}","  158 |     // deleting area code keeps Russia selected
+  159 |     await user.type(input, ""{backspace}"");
+> 160 |     expect(checkFlagSelected(container, ""ru"")).toBe(true);
+      |    ^ Duplicate Assert
+  161 |
+  162 |     // typing area code starting with 7 changes to Kazakhstan
+  163 |     await user.type(input, ""7"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 164, 'column': 4, 'index': 4486}","  162 |     // typing area code starting with 7 changes to Kazakhstan
+  163 |     await user.type(input, ""7"");
+> 164 |     expect(checkFlagSelected(container, ""kz"")).toBe(true);
+      |    ^ Duplicate Assert
+  165 |
+  166 |     // deleting area code keeps Kazakhstan selected
+  167 |     await user.type(input, ""{backspace}"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 164, 'column': 4, 'index': 4486}","  162 |     // typing area code starting with 7 changes to Kazakhstan
+  163 |     await user.type(input, ""7"");
+> 164 |     expect(checkFlagSelected(container, ""kz"")).toBe(true);
+      |    ^ Duplicate Assert
+  165 |
+  166 |     // deleting area code keeps Kazakhstan selected
+  167 |     await user.type(input, ""{backspace}"");",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 168, 'column': 4, 'index': 4641}","  166 |     // deleting area code keeps Kazakhstan selected
+  167 |     await user.type(input, ""{backspace}"");
+> 168 |     expect(checkFlagSelected(container, ""kz"")).toBe(true);
+      |    ^ Duplicate Assert
+  169 |   });
+  170 | });
+  171 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/separateDialCode.test.js,Duplicate Assert,"{'line': 168, 'column': 4, 'index': 4641}","  166 |     // deleting area code keeps Kazakhstan selected
+  167 |     await user.type(input, ""{backspace}"");
+> 168 |     expect(checkFlagSelected(container, ""kz"")).toBe(true);
+      |    ^ Duplicate Assert
+  169 |   });
+  170 | });
+  171 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 16, 'column': 4, 'index': 432}","  14 |     const { iti } = initPlugin({ intlTelInput });
+  15 |
+> 16 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+     |    ^ Duplicate Assert
+  17 |
+  18 |     await iti.promise;
+  19 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 16, 'column': 4, 'index': 432}","  14 |     const { iti } = initPlugin({ intlTelInput });
+  15 |
+> 16 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+     |    ^ Duplicate Assert
+  17 |
+  18 |     await iti.promise;
+  19 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 20, 'column': 4, 'index': 534}","  18 |     await iti.promise;
+  19 |
+> 20 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+     |    ^ Duplicate Assert
+  21 |   });
+  22 |
+  23 |   it(""loads the utils script successfully"", async () => {",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 20, 'column': 4, 'index': 534}","  18 |     await iti.promise;
+  19 |
+> 20 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+     |    ^ Duplicate Assert
+  21 |   });
+  22 |
+  23 |   it(""loads the utils script successfully"", async () => {",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 24, 'column': 4, 'index': 676}","  22 |
+  23 |   it(""loads the utils script successfully"", async () => {
+> 24 |     expect(intlTelInput).not.toHaveProperty(""utils.isValidNumber"");
+     |    ^ Duplicate Assert
+  25 |
+  26 |     const { iti } = initPlugin({
+  27 |       intlTelInput,",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 32, 'column': 4, 'index': 860}","  30 |
+  31 |     await iti.promise;
+> 32 |     expect(intlTelInput).toHaveProperty(""utils.isValidNumber"");
+     |    ^ Duplicate Assert
+  33 |   });
+  34 |
+  35 |   it(""waits until the page is loaded before loading utils"", async () => {",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 43, 'column': 4, 'index': 1168}","  41 |     });
+  42 |
+> 43 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+     |    ^ Duplicate Assert
+  44 |
+  45 |     const loadEvent = new Event(""load"");
+  46 |     window.dispatchEvent(loadEvent);",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 48, 'column': 4, 'index': 1325}","  46 |     window.dispatchEvent(loadEvent);
+  47 |
+> 48 |     expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", true);
+     |    ^ Duplicate Assert
+  49 |
+  50 |     await iti.promise;
+  51 |   });",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 127, 'column': 6, 'index': 3594}","  125 |       });
+  126 |
+> 127 |       expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+      |      ^ Duplicate Assert
+  128 |
+  129 |       await iti.promise;
+  130 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 127, 'column': 6, 'index': 3594}","  125 |       });
+  126 |
+> 127 |       expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+      |      ^ Duplicate Assert
+  128 |
+  129 |       await iti.promise;
+  130 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 131, 'column': 6, 'index': 3700}","  129 |       await iti.promise;
+  130 |
+> 131 |       expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+      |      ^ Duplicate Assert
+  132 |     });
+  133 |   });
+  134 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/options/loadUtils.test.js,Duplicate Assert,"{'line': 131, 'column': 6, 'index': 3700}","  129 |       await iti.promise;
+  130 |
+> 131 |       expect(intlTelInput).toHaveProperty(""startedLoadingUtilsScript"", false);
+      |      ^ Duplicate Assert
+  132 |     });
+  133 |   });
+  134 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,Magic Number,"{'line': 35, 'column': 53, 'index': 886}","  33 |   
+  34 |   test(""instances have different country lists"", () => {
+> 35 |     expect(getCountryListLength(container1)).toEqual(2);
+     |                                                     ^ Magic Number
+  36 |     expect(getCountryListLength(container2)).toEqual(4);
+  37 |   });
+  38 |",,
+/home/gabriel/Desktop/research/projects/intl-tel-input/tests/core/multipleInstances.test.js,Magic Number,"{'line': 36, 'column': 53, 'index': 943}","  34 |   test(""instances have different country lists"", () => {
+  35 |     expect(getCountryListLength(container1)).toEqual(2);
+> 36 |     expect(getCountryListLength(container2)).toEqual(4);
+     |                                                     ^ Magic Number
+  37 |   });
+  38 |
+  39 |   test(""selecting a country in the first instance dropdown only updates the selected country for that instance"", async () => {",,
+tests/static/attachUtils.test.js,IdenticalTestDescription,"[{""startLine"":88,""endLine"":90}]",,17.0,8.0
+tests/static/attachUtils.test.js,IdenticalTestDescription,"[{""startLine"":92,""endLine"":94}]",,17.0,8.0
+tests/static/attachUtils.test.js,IdenticalTestDescription,"[{""startLine"":140,""endLine"":142}]",,17.0,8.0
+tests/options/separateDialCode.test.js,IdenticalTestDescription,"[{""startLine"":88,""endLine"":90}]",,11.0,7.0
+tests/options/separateDialCode.test.js,IdenticalTestDescription,"[{""startLine"":92,""endLine"":95}]",,11.0,7.0
+tests/options/separateDialCode.test.js,IdenticalTestDescription,"[{""startLine"":112,""endLine"":115}]",,11.0,7.0
+tests/core/usingInput.test.js,IdenticalTestDescription,"[{""startLine"":66,""endLine"":68}]",,9.0,7.0
+tests/core/usingDropdown.test.js,GeneralFixture,"[{""startLine"":40,""endLine"":40}]",,11.0,5.0
+tests/core/usingDropdown.test.js,GeneralFixture,"[{""startLine"":111,""endLine"":111}]",,11.0,5.0
+tests/core/openCountryDropdownEvent.test.js,GeneralFixture,"[{""startLine"":19,""endLine"":19}]",,3.0,1.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":57,""endLine"":59}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":61,""endLine"":63}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":73,""endLine"":75}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":78,""endLine"":80}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":94,""endLine"":96}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":107,""endLine"":109}]",,12.0,7.0
+tests/core/initialValues.test.js,IdenticalTestDescription,"[{""startLine"":111,""endLine"":113}]",,12.0,7.0
+tests/core/dropdownShortcuts.test.js,IdenticalTestDescription,"[{""startLine"":100,""endLine"":104}]",,12.0,4.0
+tests/helpers/helpers.js,NonFunctionalStatement,"[{""startLine"":55,""endLine"":55}]",,0.0,0.0
+src/spec/tests/static/defaults.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,1.0,2.0
+src/spec/tests/options/onlyCountries.js,GeneralFixture,"[{""startLine"":62,""endLine"":65}]",,3.0,4.0
+src/spec/tests/options/onlyCountries.js,GeneralFixture,"[{""startLine"":67,""endLine"":70}]",,3.0,4.0
+src/spec/tests/options/nationalMode.js,GeneralFixture,"[{""startLine"":137,""endLine"":140}]",,10.0,6.0
+src/spec/tests/options/initialCountry.js,GeneralFixture,"[{""startLine"":37,""endLine"":37}]",,2.0,3.0
+src/spec/tests/options/initialCountry.js,GeneralFixture,"[{""startLine"":38,""endLine"":40}]",,2.0,3.0
+src/spec/tests/options/hiddenInput.js,GeneralFixture,"[{""startLine"":41,""endLine"":41}]",,4.0,3.0
+src/spec/tests/options/hiddenInput.js,GeneralFixture,"[{""startLine"":42,""endLine"":47}]",,4.0,3.0
+src/spec/tests/options/geoIpLookup.js,AnonymousTest,"[{""startLine"":64,""endLine"":66}]",,4.0,5.0
+src/spec/tests/options/geoIpLookup.js,GeneralFixture,"[{""startLine"":10,""endLine"":10}]",,4.0,5.0
+src/spec/tests/options/geoIpLookup.js,GeneralFixture,"[{""startLine"":52,""endLine"":57}]",,4.0,5.0
+src/spec/tests/options/geoIpLookup.js,GeneralFixture,"[{""startLine"":74,""endLine"":74}]",,4.0,5.0
+src/spec/tests/options/geoIpLookup.js,GeneralFixture,"[{""startLine"":75,""endLine"":80}]",,4.0,5.0
+src/spec/tests/options/geoIpLookup.js,IdenticalTestDescription,"[{""startLine"":45,""endLine"":47}]",,4.0,5.0
+src/spec/tests/options/formatOnDisplay.js,GeneralFixture,"[{""startLine"":9,""endLine"":9}]",,6.0,4.0
+src/spec/tests/options/excludeCountries.js,GeneralFixture,"[{""startLine"":27,""endLine"":29}]",,4.0,2.0
+src/spec/tests/options/dropdownContainer.js,GeneralFixture,"[{""startLine"":8,""endLine"":8}]",,7.0,5.0
+src/spec/tests/options/dropdownContainer.js,GeneralFixture,"[{""startLine"":50,""endLine"":52}]",,7.0,5.0
+src/spec/tests/options/dropdownContainer.js,IdenticalTestDescription,"[{""startLine"":75,""endLine"":79}]",,7.0,5.0
+src/spec/tests/options/customPlaceholder.js,GeneralFixture,"[{""startLine"":8,""endLine"":14}]",,2.0,1.0
+src/spec/tests/options/containerClass.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,1.0,2.0
+src/spec/tests/options/containerClass.js,GeneralFixture,"[{""startLine"":18,""endLine"":20}]",,1.0,2.0
+src/spec/tests/options/autoPlaceholder.js,IdenticalTestDescription,"[{""startLine"":71,""endLine"":73}]",,8.0,6.0
+src/spec/tests/options/allowDropdown.js,GeneralFixture,"[{""startLine"":43,""endLine"":45}]",,7.0,3.0
+src/spec/tests/options/allowDropdown.js,IdenticalTestDescription,"[{""startLine"":57,""endLine"":62}]",,7.0,3.0
+src/spec/tests/methods/setNumber.js,GeneralFixture,"[{""startLine"":32,""endLine"":32}]",,4.0,4.0
+src/spec/tests/methods/setNumber.js,GeneralFixture,"[{""startLine"":55,""endLine"":57}]",,4.0,4.0
+src/spec/tests/methods/setCountry.js,GeneralFixture,"[{""startLine"":9,""endLine"":9}]",,4.0,4.0
+src/spec/tests/methods/setCountry.js,GeneralFixture,"[{""startLine"":43,""endLine"":46}]",,4.0,4.0
+src/spec/tests/methods/isValidNumberPrecise.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,7.0,3.0
+src/spec/tests/methods/isValidNumber.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,6.0,2.0
+src/spec/tests/methods/getValidationError.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,3.0,1.0
+src/spec/tests/methods/getNumberType.js,GeneralFixture,"[{""startLine"":7,""endLine"":7}]",,3.0,1.0
+src/spec/tests/methods/getNumber.js,GeneralFixture,"[{""startLine"":37,""endLine"":37}]",,5.0,5.0
+src/spec/tests/methods/destroy.js,GeneralFixture,"[{""startLine"":59,""endLine"":59}]",,2.0,4.0
+src/spec/tests/methods/destroy.js,GeneralFixture,"[{""startLine"":60,""endLine"":62}]",,2.0,4.0
