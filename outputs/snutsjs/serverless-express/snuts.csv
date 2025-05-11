@@ -1,0 +1,3 @@
+file,type,smells,itCount,describeCount
+__tests__/integration.js,OvercommentedTest,"[{""startLine"":524,""endLine"":557}]",20,1
+__tests__/integration.js,SubOptimalAssert,"[{""startLine"":546,""endLine"":546}]",20,1
