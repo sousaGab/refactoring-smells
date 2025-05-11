@@ -5428,7 +5428,26 @@ Please refactor the affected code to eliminate the Duplicate Assert. Ensure the 
  expect(parseBrackFrac.denom).toBeDefined();
  expect(parseBrackFrac.leftDelim).toBeDefined();
  expect(parseBrackFrac.rightDelim).toBeDefined();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should produce a frac"", function() {
+        const testGenfrac = (parsedFrac) => {
+            expect(parsedFrac.type).toEqual(""genfrac"");
+            expect(parsedFrac.numer).toBeDefined();
+            expect(parsedFrac.denom).toBeDefined();
+        };
+
+        testGenfrac(getParsed(simpleOver)[0]);
+        testGenfrac(getParsed(complexOver)[0]);
+
+        const parseBraceFrac = getParsed(braceFrac)[0];
+        testGenfrac(parseBraceFrac);
+        expect(parseBraceFrac.leftDelim).toBeDefined();
+        expect(parseBraceFrac.rightDelim).toBeDefined();
+
+        const parseBrackFrac = getParsed(brackFrac)[0];
+        testGenfrac(parseBrackFrac);
+        expect(parseBrackFrac.leftDelim).toBeDefined();
+        expect(parseBrackFrac.rightDelim).toBeDefined();
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 126,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 44, 'column': 22, 'index': 1225}",start: 43 end: 50,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -5443,7 +5462,19 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  const group = parse[i];
  expect(group.type).toMatch(""ord"");
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should build a list of ords with correct type"", function() {
+        const parse = getParsed(expression);
+
+        parse.forEach((group) => {
+            expect(group.type).toMatch(""ord"");
+        });
+    });
+
+    it(""should build a list of ords with correct length"", function() {
+        const parse = getParsed(expression);
+
+        expect(parse).toHaveLength(expression.length);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 127,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 53, 'column': 22, 'index': 1483}",start: 52 end: 56,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -5455,7 +5486,19 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  const parse = getParsed(expression);
 
  expect(parse).toHaveLength(expression.length);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should parse each character as an ord"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < expression.length; i++) {
+            expect(parse[i].type).toBe(""ord"");
+        }
+    });
+
+    it(""should parse the correct number of ords"", function() {
+        const parse = getParsed(expression);
+
+        expect(parse).toHaveLength(expression.length);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 128,steel,katex/katex,/test/katex-spec.js,Lazy Test,"{'line': 67, 'column': 22, 'index': 1816}",start: 66 end: 74,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Lazy Test
@@ -5471,7 +5514,28 @@ Please refactor the affected code to eliminate the Lazy Test. Ensure the test re
  expect(group.type).toEqual(""atom"");
  expect(group.family).toEqual(""bin"");
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should parse without failing"", function() {
+        const parse = getParsed(expression);
+        expect(parse).toBeDefined();
+    });
+
+    it(""should build a list of bins with correct type"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            const group = parse[i];
+            expect(group.type).toEqual(""atom"");
+        }
+    });
+
+    it(""should build a list of bins with correct family"", function() {
+        const parse = getParsed(expression);
+
+        for (let i = 0; i < parse.length; i++) {
+            const group = parse[i];
+            expect(group.family).toEqual(""bin"");
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 129,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 92, 'column': 48, 'index': 2613}",start: 86 end: 102,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -5495,7 +5559,24 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(group.family).toEqual(""rel"");
  }
  }
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should build a list of rels"", function() {
+        const parse = getParsed(expression);
+        const expectedHtmlLength = 1; // Magic number replaced with a named constant for clarity
+
+        for (let i = 0; i < parse.length; i++) {
+            let group = parse[i];
+            if (group.type === ""htmlmathml"") {
+                expect(group.html).toHaveLength(expectedHtmlLength);
+                group = group.html[0];
+            }
+            if (group.type === ""mclass"") {
+                expect(group.mclass).toEqual(""mrel"");
+            } else {
+                expect(group.type).toEqual(""atom"");
+                expect(group.family).toEqual(""rel"");
+            }
+        }
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 130,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 114, 'column': 44, 'index': 3404}",start: 111 end: 115,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -5507,7 +5588,12 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  const contents = ""\\mathinner{\\langle{\\psi}\\rangle}"";
  const mml = buildMathML(getParsed(contents), contents, defaultOptions);
  expect(mml.children.length).toEqual(1);
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should return one group, not a fragment"", function() {
+        const contents = ""\\mathinner{\\langle{\\psi}\\rangle}"";
+        const expectedChildCount = 1; // Number of expected children in the MathML
+        const mml = buildMathML(getParsed(contents), contents, defaultOptions);
+        expect(mml.children.length).toEqual(expectedChildCount);
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 131,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 346, 'column': 35, 'index': 10074}",start: 343 end: 352,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -5524,7 +5610,17 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
 
  expect(ord.type).toMatch(""ord"");
  expect(ord.body).toBeTruthy();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should produce a single ord"", function() {
+        const parse = getParsed`{xy}`;
+
+        const expectedLength = 1; // Clarifies the expected number of elements
+        expect(parse).toHaveLength(expectedLength);
+
+        const ord = parse[0];
+
+        expect(ord.type).toMatch(""ord"");
+        expect(ord.body).toBeTruthy();
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 132,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 368, 'column': 35, 'index': 10676}",start: 365 end: 375,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -5542,7 +5638,18 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(ord.type).toMatch(""ord"");
  expect(ord.body).toBeTruthy();
  expect(ord.semisimple).toBeTruthy();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
+ });","    it(""should produce a semi-simple group"", function() {
+        const parse = getParsed`\begingroup xy \endgroup`;
+
+        expect(parse).toHaveLength(1);
+
+        const ord = parse[0];
+
+        const expectedType = ""ord""; // Refactored to eliminate magic number
+        expect(ord.type).toMatch(expectedType);
+        expect(ord.body).toBeTruthy();
+        expect(ord.semisimple).toBeTruthy();
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
 133,steel,katex/katex,/test/katex-spec.js,Magic Number,"{'line': 391, 'column': 35, 'index': 11303}",start: 388 end: 398,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
@@ -5560,395 +5667,168 @@ Please refactor the affected code to eliminate the Magic Number. Ensure the test
  expect(sizing.type).toEqual(""sizing"");
  expect(sizing.body).toBeTruthy();
  expect(sizing.size).toBeDefined();
- });",,FALSE,FALSE,FALSE,FALSE,,,,,
-134,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+ });","    it(""should produce a single object"", function() {
+        const parse = getParsed`\Large abc`;
+
+        const expectedLength = 1; // Define a constant for clarity
+        expect(parse).toHaveLength(expectedLength);
+
+        const sizing = parse[0];
+
+        expect(sizing.type).toEqual(""sizing"");
+        expect(sizing.body).toBeTruthy();
+        expect(sizing.size).toBeDefined();
+    });",TRUE,FALSE,FALSE,FALSE,,,,,
+134,snutsjs,CodeGenieApp/serverless-express,/__tests__/integration.js,OvercommentedTest,"{""startLine"":524,""endLine"":557}",start: 524 end: 557 ,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 120, endLine : 126
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
+- Test Smell Category: OvercommentedTest
+- Smell Location:  Line Range:  startLine : 524, endLine : 557
+- Description:  A test method that has been excessively commented on
 
 Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
- let buildCnt = 0;
- const buildFile = path.resolve('./test/integration/twilio.js');
- const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
- await new Promise((resolve, reject) => {
- const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
- expect(files._set.size).toBeGreaterThan(100);
- if (buildCnt < 3) {
- setTimeout(() => {
- // NOTE: We actually have to make the change for the rebuild to happen!
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
- watcher.triggerChanges([buildFile], []);
- }, 100);
- }
- }, function watchEnd () {
- resolve();
- });
-
- console.time('First Build');
- const { handler, rebuild, close } = ncc(buildFile, {
- assetBuilds: true,
- watch: watcher
- });
- 
- handler(({ err, code, map, assets, permissions }) => {
- if (err) return reject(err);
- buildCnt++;
- if (buildCnt === 1) {
- console.timeEnd('First Build');
- }
- else {
- console.timeEnd('Watched Build');
- }
- if (buildCnt === 3) {
- close();
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
- }
- });
- rebuild(() => {
- console.time('Watched Build');
- });
- });
-
- fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-135,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":138,""endLine"":138}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 138, endLine : 138
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
-
-Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
- let buildCnt = 0;
- const buildFile = path.resolve('./test/integration/twilio.js');
- const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
- await new Promise((resolve, reject) => {
- const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
- expect(files._set.size).toBeGreaterThan(100);
- if (buildCnt < 3) {
- setTimeout(() => {
- // NOTE: We actually have to make the change for the rebuild to happen!
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
- watcher.triggerChanges([buildFile], []);
- }, 100);
- }
- }, function watchEnd () {
- resolve();
- });
-
- console.time('First Build');
- const { handler, rebuild, close } = ncc(buildFile, {
- assetBuilds: true,
- watch: watcher
- });
- 
- handler(({ err, code, map, assets, permissions }) => {
- if (err) return reject(err);
- buildCnt++;
- if (buildCnt === 1) {
- console.timeEnd('First Build');
- }
- else {
- console.timeEnd('Watched Build');
- }
- if (buildCnt === 3) {
- close();
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
- }
- });
- rebuild(() => {
- console.time('Watched Build');
- });
- });
-
- fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-136,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":140,""endLine"":145}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 140, endLine : 145
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
-
-Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
- let buildCnt = 0;
- const buildFile = path.resolve('./test/integration/twilio.js');
- const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
- await new Promise((resolve, reject) => {
- const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
- expect(files._set.size).toBeGreaterThan(100);
- if (buildCnt < 3) {
- setTimeout(() => {
- // NOTE: We actually have to make the change for the rebuild to happen!
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
- watcher.triggerChanges([buildFile], []);
- }, 100);
- }
- }, function watchEnd () {
- resolve();
- });
-
- console.time('First Build');
- const { handler, rebuild, close } = ncc(buildFile, {
- assetBuilds: true,
- watch: watcher
- });
- 
- handler(({ err, code, map, assets, permissions }) => {
- if (err) return reject(err);
- buildCnt++;
- if (buildCnt === 1) {
- console.timeEnd('First Build');
- }
- else {
- console.timeEnd('Watched Build');
- }
- if (buildCnt === 3) {
- close();
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
- }
- });
- rebuild(() => {
- console.time('Watched Build');
- });
- });
-
- fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-137,snutsjs,vercel/ncc,/test/watcher.test.js,ConditionalTestLogic,"{""startLine"":146,""endLine"":149}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: ConditionalTestLogic
-- Smell Location:  Line Range:  startLine : 146, endLine : 149
-- Description:  Occurs due to the presence of test methods that contain conditional statements, such as the use of if-else or loops like for or while. Test methods that include conditional statements can compromise the effectiveness of tests
-
-Request:
-Please refactor the affected code to eliminate the ConditionalTestLogic. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
- let buildCnt = 0;
- const buildFile = path.resolve('./test/integration/twilio.js');
- const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
- await new Promise((resolve, reject) => {
- const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
- expect(files._set.size).toBeGreaterThan(100);
- if (buildCnt < 3) {
- setTimeout(() => {
- // NOTE: We actually have to make the change for the rebuild to happen!
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
- watcher.triggerChanges([buildFile], []);
- }, 100);
- }
- }, function watchEnd () {
- resolve();
- });
-
- console.time('First Build');
- const { handler, rebuild, close } = ncc(buildFile, {
- assetBuilds: true,
- watch: watcher
- });
- 
- handler(({ err, code, map, assets, permissions }) => {
- if (err) return reject(err);
- buildCnt++;
- if (buildCnt === 1) {
- console.timeEnd('First Build');
- }
- else {
- console.timeEnd('Watched Build');
- }
- if (buildCnt === 3) {
- close();
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
- }
- });
- rebuild(() => {
- console.time('Watched Build');
- });
- });
-
- fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-138,snutsjs,vercel/ncc,/test/watcher.test.js,SensitiveEquality,"{""startLine"":123,""endLine"":123}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
-Issue Details:
-- Test Smell Category: SensitiveEquality
-- Smell Location:  Line Range:  startLine : 123, endLine : 123
-- Description:  In JavaScript, Sensitive Equality occurs when toString() or a similar string representation of an object is used in tests to verify equality by comparing it to a specific string. This creates fragile tests because any change to the toString() implementation—regardless of whether the object's behavior changed—can cause the test to fail.
-
-Request:
-Please refactor the affected code to eliminate the SensitiveEquality. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
-  let buildCnt = 0;
-  const buildFile = path.resolve('./test/integration/twilio.js');
-  const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
-  await new Promise((resolve, reject) => {
-    const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
-      expect(files._set.size).toBeGreaterThan(100);
-      if (buildCnt < 3) {
-        setTimeout(() => {
-          // NOTE: We actually have to make the change for the rebuild to happen!
-          fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
-          watcher.triggerChanges([buildFile], []);
-        }, 100);
+Please refactor the affected code to eliminate the OvercommentedTest. Ensure the test remains correct, readable, and maintainable.","    test('custom logger', async () => {
+      app = express()
+      router = express.Router()
+      app.use('/', router)
+      router.get('/users', (req, res) => {
+        res.json({})
+      })
+      const event = makeEvent({
+        eventSourceName,
+        path: '/users',
+        httpMethod: 'GET'
+      })
+      const customLogger = {
+        error: jest.fn(),
+        warn: jest.fn(),
+        info: jest.fn(),
+        verbose: jest.fn(),
+        debug: jest.fn()
       }
-    }, function watchEnd () {
-      resolve();
-    });
+      serverlessExpressInstance = serverlessExpress({ app, log: customLogger })
+      await serverlessExpressInstance(event)
 
-    console.time('First Build');
-    const { handler, rebuild, close } = ncc(buildFile, {
-      assetBuilds: true,
-      watch: watcher
-    });
-    
-    handler(({ err, code, map, assets, permissions }) => {
-      if (err) return reject(err);
-      buildCnt++;
-      if (buildCnt === 1) {
-        console.timeEnd('First Build');
-      }
-      else {
-        console.timeEnd('Watched Build');
-      }
-      if (buildCnt === 3) {
-        close();
-        fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
-      }
-    });
-    rebuild(() => {
-      console.time('Watched Build');
-    });
-  });
+      expect(customLogger.debug.mock.calls.length).toBe(6)
 
-  fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-139,steel,vercel/ncc,/test/watcher.test.js,Magic Number,"{""startLine"":120,""endLine"":126}",start: 112 end: 157,"Context: I'm refactoring test smells from a test file to improve code quality.
+      // TODO: test log levels
+      // customLogger.level = 'error'
+      // customLogger.debug.mockClear()
+      // customLogger.debug.mockReset()
+      // customLogger.debug = jest.fn()
+
+      // serverlessExpressInstance = serverlessExpress({ app, log: customLogger })
+      // await serverlessExpressInstance(event)
+      // expect(customLogger.debug.mock.calls.length).toBe(0)
+    })",,FALSE,FALSE,FALSE,FALSE,,,,,
+135,snutsjs,CodeGenieApp/serverless-express,/__tests__/integration.js,SubOptimalAssert,"{""startLine"":546,""endLine"":546}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: SubOptimalAssert
+- Smell Location:  Line Range:  startLine : 546, endLine : 546
+- Description:  Occurs when the assertions used in tests are not ideal for verifying the specific condition being tested. Using more specific and expressive assertions can improve test clarity and make results more useful
+
+Request:
+Please refactor the affected code to eliminate the SubOptimalAssert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+136,steel,CodeGenieApp/serverless-express,/__tests__/unit.js,Lazy Test,"{'line': 303, 'column': 32, 'index': 10118}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Lazy Test
+- Smell Location:  Line : 304, column: 32, index: 10118
+- Description:  Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+
+Request:
+Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+137,steel,CodeGenieApp/serverless-express,/__tests__/unit.js,Lazy Test,"{'line': 316, 'column': 29, 'index': 10468}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Lazy Test
+- Smell Location:  Line : 317, column: 29, index: 10468
+- Description:  Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+
+Request:
+Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+138,steel,CodeGenieApp/serverless-express,/__tests__/unit.js,Lazy Test,"{'line': 334, 'column': 30, 'index': 10866}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Lazy Test
+- Smell Location:  Line : 335, column: 30, index: 10866
+- Description:  Lazy Test occurs when a single test is written superficially and verifies multiple functionalities of a class without going into detail about each one.
+
+Request:
+Please refactor the affected code to eliminate the Lazy Test. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+139,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Duplicate Assert,"{'line': 281, 'column': 8, 'index': 8873}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 282, column: 8, index: 8873
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+140,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Duplicate Assert,"{'line': 282, 'column': 8, 'index': 8930}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 283, column: 8, index: 8930
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+141,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Duplicate Assert,"{'line': 287, 'column': 8, 'index': 9134}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 288, column: 8, index: 9134
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+142,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Duplicate Assert,"{'line': 288, 'column': 8, 'index': 9191}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 289, column: 8, index: 9191
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+143,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Duplicate Assert,"{'line': 567, 'column': 6, 'index': 17214}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Duplicate Assert
+- Smell Location:  Line : 568, column: 6, index: 17214
+- Description:  This issue occurs when a test method verifies the same condition more than once within its scope, making the test harder to read and maintain. Identical assertions within the same method do not explicitly convey the purpose of the test method.
+
+Request:
+Please refactor the affected code to eliminate the Duplicate Assert. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+144,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Magic Number,"{'line': 270, 'column': 63, 'index': 8318}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
 - Test Smell Category: Magic Number
-- Smell Location:  Line Range:  startLine : 120, endLine : 126
+- Smell Location:  Line : 271, column: 63, index: 8318
 - Description:  Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
 
 Request:
-Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.","it('Should support custom watch API', async () => {
- let buildCnt = 0;
- const buildFile = path.resolve('./test/integration/twilio.js');
- const initialBuildFileContents = fs.readFileSync(buildFile).toString();
-
- await new Promise((resolve, reject) => {
- const watcher = new CustomWatchFileSystem(function watchStart (files, dirs, missing) {
- expect(files._set.size).toBeGreaterThan(100);
- if (buildCnt < 3) {
- setTimeout(() => {
- // NOTE: We actually have to make the change for the rebuild to happen!
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString() + '\n');
- watcher.triggerChanges([buildFile], []);
- }, 100);
- }
- }, function watchEnd () {
- resolve();
- });
-
- console.time('First Build');
- const { handler, rebuild, close } = ncc(buildFile, {
- assetBuilds: true,
- watch: watcher
- });
- 
- handler(({ err, code, map, assets, permissions }) => {
- if (err) return reject(err);
- buildCnt++;
- if (buildCnt === 1) {
- console.timeEnd('First Build');
- }
- else {
- console.timeEnd('Watched Build');
- }
- if (buildCnt === 3) {
- close();
- fs.writeFileSync(buildFile, fs.readFileSync(buildFile).toString().slice(0, -2));
- }
- });
- rebuild(() => {
- console.time('Watched Build');
- });
- });
-
- fs.writeFileSync(buildFile, initialBuildFileContents);
-});",,FALSE,FALSE,FALSE,FALSE,,,,,
-140,snutsjs,vercel/ncc,/test/unit.test.js,SensitiveEquality,"{""startLine"":54,""endLine"":54}",start: 15 end: 80,"Context: I'm refactoring test smells from a test file to improve code quality.
+Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+145,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Magic Number,"{'line': 272, 'column': 75, 'index': 8466}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
 Issue Details:
-- Test Smell Category: SensitiveEquality
-- Smell Location:  Line Range:  startLine : 54, endLine : 54
-- Description:  In JavaScript, Sensitive Equality occurs when toString() or a similar string representation of an object is used in tests to verify equality by comparing it to a specific string. This creates fragile tests because any change to the toString() implementation—regardless of whether the object's behavior changed—can cause the test to fail.
+- Test Smell Category: Magic Number
+- Smell Location:  Line : 273, column: 75, index: 8466
+- Description:  Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
 
 Request:
-Please refactor the affected code to eliminate the SensitiveEquality. Ensure the test remains correct, readable, and maintainable.","it(`should generate correct output for ${unitTest}`, async () => { 
-    const testDir = `${__dirname}/unit/${unitTest}`;
-    const expected = normalizeForWindows(fs.readFileSync(`${testDir}/output${coverage ? '-coverage' : ''}.js`, 'utf8'));
-    let expectedSourceMap;
-    try {
-      expectedSourceMap = normalizeForWindows(fs.readFileSync(`${testDir}/output${coverage ? '-coverage' : ''}.js.map`, 'utf8'));
-    } catch (_) {}
+Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+146,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Magic Number,"{'line': 293, 'column': 53, 'index': 9438}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Magic Number
+- Smell Location:  Line : 294, column: 53, index: 9438
+- Description:  Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
 
-    let opts;
-    try {
-      opts = fs.readFileSync(`${testDir}/opt.json`, 'utf8');
-      opts = JSON.parse(opts);
-    } catch (_) {}
+Request:
+Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+147,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Magic Number,"{'line': 296, 'column': 65, 'index': 9633}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Magic Number
+- Smell Location:  Line : 297, column: 65, index: 9633
+- Description:  Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
 
-    // set env variable so tsconfig-paths can find the config
-    process.env.TS_NODE_PROJECT = `${testDir}/tsconfig.json`;
-    // find the name of the input file (e.g input.ts)
-    const inputFile = fs.readdirSync(testDir).find(file => file.includes(""input""));
-    await ncc(`${testDir}/${inputFile}`, Object.assign({
-      assetBuilds: true,
-      transpileOnly: true,
-      customEmit (path) {
-        if (path.endsWith('test.json'))
-          return false;
-      },
-      externals: {
-        'piscina': 'piscina',
-        'externaltest': 'externalmapped',
-        '/\\w+-regex/': 'regexexternal',
-        '/external-replace(/.*)/': 'external-replace/replaced$1'
-      }
-    }, opts)).then(
-      async ({ code, assets, map }) => {
-        if (unitTest.startsWith('bundle-subasset')) {
-          expect(assets['pi-bridge.js']).toBeDefined();
-          expect(assets['pi-bridge.js'].source.toString()).toContain('Math.PI');
-        }
-        if (unitTest.includes('sourcemap-register')) {
-          expect(assets['sourcemap-register.js']).toBeDefined()
-          expect(assets['sourcemap-register.js'].source.toString()).toEqual(fs.readFileSync(__dirname + '/../src/sourcemap-register.js.cache.js').toString())
-        }
-        if (unitTest.includes('minify') && !unitTest.includes('minify-err')) {
-          expect(assets['index.js.map']).toBeDefined()
-        }
-        const actual = normalizeForWindows(code);
-        try {
-          expect(actual).toBe(expected);
-        } catch (e) {
-          // useful for updating fixtures
-          fs.writeFileSync(`${testDir}/actual.js`, actual);
-          throw e;
-        }
+Request:
+Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,
+148,steel,CodeGenieApp/serverless-express,/__tests__/integration.js,Magic Number,"{'line': 546, 'column': 56, 'index': 16539}",start:  end: ,"Context: I'm refactoring test smells from a test file to improve code quality.
+Issue Details:
+- Test Smell Category: Magic Number
+- Smell Location:  Line : 547, column: 56, index: 16539
+- Description:  Occurs when numeric literals are used directly in tests without explanation or documentation. These numbers lack clear context, making the code less readable and harder to maintain, as it is not obvious why such values are used.
 
-        if (map) {
-          const actualSourceMap = normalizeForWindows(map);
-          try {
-            expect(actualSourceMap).toBe(expectedSourceMap);
-          } catch (e) {
-            // useful for updating fixtures
-            fs.writeFileSync(`${testDir}/actual.js.map`, actualSourceMap);
-            throw e;
-          }
-        }
-      }
-    )
-  });",,FALSE,FALSE,FALSE,FALSE,,,,,
+Request:
+Please refactor the affected code to eliminate the Magic Number. Ensure the test remains correct, readable, and maintainable.",,,FALSE,FALSE,FALSE,FALSE,,,,,

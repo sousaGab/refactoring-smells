@@ -34,8 +34,11 @@ def run_steel_tool(project_name, llm):
     os.chdir(smell_detections_tools_path)
     log_info(f"Changed directory to {os.getcwd()}")
 
-    # test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}" # run with prettier project
     test_files_pattern = "{**/__tests__/**/*.js,**/test/**/*.js,**/?(*.)+(test|tests|spec|specs).js,**/test_*.js,**/test-*.js,**/Spec*.js,**/*Test.js,**/*Tests.js}"
+    
+    if project_name == 'prettier':
+        test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+    
     steel_command = f'npx steel detect "../../projects/{project_name}/**/{test_files_pattern}"'
 
     log_info(f"Running command: {steel_command}")
@@ -109,7 +112,7 @@ def concat_csv(name_run, smell_number, llm):
     snutsjs_df = pd.read_csv(snutsjs_csv)
 
     combined_df = pd.concat([steel_df, snutsjs_df], ignore_index=True)
-    output_file = f'/home/gabriel/Desktop/research/refactoring_data/copilot/smell_{smell_number}/{name_run}_smells.csv'
+    output_file = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/{name_run}_smells.csv'
     combined_df.to_csv(output_file, index=False)
 
     log_info(f"Combined CSV file created successfully at: {output_file}")
@@ -205,7 +208,9 @@ def run_tests(name_run, project_name, smell_number, llm):
 
 # Main function
 async def main():
-    llm = 'copilot'
+    # llm = 'copilot'
+    llm = 'whisper'
+    
     projects_names = {
         1: 'vanilla-lazyload',
         2: 'binance-trading-bot',
@@ -216,7 +221,8 @@ async def main():
         7: 'surfingkeys',
         8: 'tether',
         9: 'katex',
-        10: 'ncc'
+        10: 'serverless-express',
+        # 10: 'ncc'
     }
 
     type_of_run = input("Enter the type of run (1 for original, 2 for refactored): ").strip()

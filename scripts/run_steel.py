@@ -52,6 +52,7 @@ def process_steel_json_to_csv():
     smelled_files = data.get('smelledFiles', [])
     csv_data = []
     smell_type_counter = {}
+    seen_entries = set()  # Track unique entries
 
     for smelled_file in smelled_files:
         file_name = smelled_file.get('path', 'Unknown')
@@ -73,7 +74,12 @@ def process_steel_json_to_csv():
                 smell_lines = item.get('start', [])
                 frame = item.get('frame', 'Unknown')
 
+                entry = (file_name, smell_type, tuple(smell_lines), frame)  # Use a tuple for immutability
+                if entry in seen_entries:
+                    continue  # Skip duplicates
+
                 csv_data.append([file_name, smell_type, smell_lines, frame])
+                seen_entries.add(entry)  # Mark as seen
                 smell_type_counter[smell_type] += 1
 
                 if smell_type_counter[smell_type] >= number_max_smells:
