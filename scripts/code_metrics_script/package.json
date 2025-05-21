@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@babel/parser": "^7.27.2",
+    "@babel/traverse": "^7.27.1",
+    "acorn": "^8.14.1",
+    "acorn-walk": "^8.3.4",
+    "csv-parse": "^5.6.0",
+    "csv-stringify": "^6.5.2"
+  }
+}
