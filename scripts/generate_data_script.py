@@ -47,7 +47,7 @@ def run_steel_tool(project_name, llm):
 def process_steel_json_to_csv(smell_number, llm):
     """Process the steel JSON file and convert it to a CSV."""
     input_file = validate_env_variable('INPUT_STEEL_JSON')
-    output_file = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
+    output_file = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
 
     with open(input_file, 'r') as json_file:
         data = json.load(json_file)
@@ -79,7 +79,7 @@ def process_steel_json_to_csv(smell_number, llm):
 async def run_snuts_js(project_name, smell_number, llm):
     """Run the Snuts.js tool."""
     projects_folder = validate_env_variable('PROJECTS_FOLDER')
-    snuts_output_folder = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
+    snuts_output_folder = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
 
     snuts_command = (
         f'curl -X POST http://localhost:3001/export-csv-local '
@@ -105,14 +105,14 @@ async def run_snuts_js(project_name, smell_number, llm):
 # CSV utilities
 def concat_csv(name_run, smell_number, llm):
     """Concatenate the steel and Snuts.js CSV files."""
-    steel_csv = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
-    snutsjs_csv = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
+    steel_csv = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv'
+    snutsjs_csv = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
 
     steel_df = pd.read_csv(steel_csv)
     snutsjs_df = pd.read_csv(snutsjs_csv)
 
     combined_df = pd.concat([steel_df, snutsjs_df], ignore_index=True)
-    output_file = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/{name_run}_smells.csv'
+    output_file = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/{name_run}_smells.csv'
     combined_df.to_csv(output_file, index=False)
 
     log_info(f"Combined CSV file created successfully at: {output_file}")
@@ -121,8 +121,8 @@ def concat_csv(name_run, smell_number, llm):
 def organize_output_folder(smell_number, llm):
     """Organize the output folder."""
     csv_files = [
-        f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv',
-        f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
+        f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/steel.csv',
+        f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/snutsjs.csv'
     ]
 
     for csv_file in csv_files:
@@ -134,7 +134,7 @@ def organize_output_folder(smell_number, llm):
 
 def copy_test_file(name_run, project_name, smell_number, llm):
     """Copy the test file to the output folder and delete the original test_summary.txt and output_tests files."""
-    csv_file_path = f'/home/gabriel/Desktop/research/scripts/assets/dataset.csv'
+    csv_file_path = f'/home/username/Desktop/research/scripts/assets/dataset.csv'
     df = pd.read_csv(csv_file_path)
 
     filtered_df = df.loc[df['Id'] == int(smell_number), 'File']
@@ -143,8 +143,8 @@ def copy_test_file(name_run, project_name, smell_number, llm):
         return
 
     test_file_path = filtered_df.values[0]
-    source_file = f'/home/gabriel/Desktop/research/projects/{project_name}{test_file_path}'
-    destination_folder = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
+    source_file = f'/home/username/Desktop/research/projects/{project_name}{test_file_path}'
+    destination_folder = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
     new_file_name = f'{name_run}_test.js'
 
     try:
@@ -153,7 +153,7 @@ def copy_test_file(name_run, project_name, smell_number, llm):
             shutil.copy(source_file, destination_file)
             log_info(f"Copied test file to: {destination_folder}")
         else:
-            project_folder = f'/home/gabriel/Desktop/projects/{project_name}/'
+            project_folder = f'/home/username/Desktop/projects/{project_name}/'
             source_file = os.path.join(project_folder, test_file_path)
             log_info(f"Checking for test file in project folder: {source_file}")
 
@@ -166,7 +166,7 @@ def run_tests(name_run, project_name, smell_number, llm):
     """Run the tests for the specified project."""
     test_command = f'npm run test:research'
 
-    os.chdir(f'/home/gabriel/Desktop/research/projects/{project_name}')
+    os.chdir(f'/home/username/Desktop/research/projects/{project_name}')
     log_info(f"Changed directory to {os.getcwd()}")
 
     log_info(f"Running command: {test_command}")
@@ -175,15 +175,15 @@ def run_tests(name_run, project_name, smell_number, llm):
     log_info("Tests completed successfully.")
 
     # Copy the test_summary.txt to the output folder
-    test_summary_file = f'/home/gabriel/Desktop/research/projects/{project_name}/test_summary.txt'
-    destination_folder = f'/home/gabriel/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
+    test_summary_file = f'/home/username/Desktop/research/projects/{project_name}/test_summary.txt'
+    destination_folder = f'/home/username/Desktop/research/refactoring_data/{llm}/smell_{smell_number}/'
     destination_file = os.path.join(destination_folder, f'{name_run}_test_summary.txt')
     try:
         if os.path.exists(test_summary_file):
             shutil.copy(test_summary_file, destination_file)
             log_info(f"Copied test summary file to: {destination_folder}")
               # Delete the original test_summary.txt file
-            test_summary_file = f'/home/gabriel/Desktop/research/projects/{project_name}/test_summary.txt'
+            test_summary_file = f'/home/username/Desktop/research/projects/{project_name}/test_summary.txt'
             if os.path.exists(test_summary_file):
                 os.remove(test_summary_file)
                 log_info(f"Deleted original test_summary.txt file: {test_summary_file}")
@@ -191,7 +191,7 @@ def run_tests(name_run, project_name, smell_number, llm):
                 log_info(f"Original test_summary.txt file not found, skipping deletion: {test_summary_file}")
 
             # Delete the output_tests file
-            output_tests_file = f'/home/gabriel/Desktop/research/projects/{project_name}/output_tests'
+            output_tests_file = f'/home/username/Desktop/research/projects/{project_name}/output_tests'
             if os.path.exists(output_tests_file):
                 os.remove(output_tests_file)
                 log_info(f"Deleted output_tests file: {output_tests_file}")

@@ -192,8 +192,8 @@ function calculateMaintainabilityIndex(logicalSloc, cyclomatic, halsteadVolume) 
 }
 
 // Update the path to your dataset as needed:
-// const filePath = '/home/gabriel/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_Whisperer.csv';
-const filePath = '/home/gabriel/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_Copilot.csv';
+// const filePath = '/home/username/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_Whisperer.csv';
+const filePath = '/home/username/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_Copilot.csv';
 
 if (!fs.existsSync(filePath)) {
     console.error('Input CSV file not found at:', filePath);

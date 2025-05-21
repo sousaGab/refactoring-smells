@@ -141,8 +141,8 @@ def main():
             tools_name = "Whisperer"
 
         # File paths
-        refactor_dataset_path = f"/home/gabriel/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_{tools_name}.csv"
-        refactor_dataset_output_path = f"/home/gabriel/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_{tools_name}_updated.csv"
+        refactor_dataset_path = f"/home/username/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_{tools_name}.csv"
+        refactor_dataset_output_path = f"/home/username/Desktop/refactoring-smells/scripts/assets/Refactor - Dataset_{tools_name}_updated.csv"
 
         # Load the dataset
         refactor_dataset = pd.read_csv(refactor_dataset_path)
@@ -155,12 +155,12 @@ def main():
             smell_id = row["Id"]
 
             # File paths for smells
-            original_smells_path = f"/home/gabriel/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/original_smells.csv"
-            refactored_smells_path = f"/home/gabriel/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/refactored_smells.csv"
+            original_smells_path = f"/home/username/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/original_smells.csv"
+            refactored_smells_path = f"/home/username/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/refactored_smells.csv"
 
             # File paths for test summaries
-            original_test_summary_path = f"/home/gabriel/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/original_tests_summary.txt"
-            refactored_test_summary_path = f"/home/gabriel/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/refactored_test_summary.txt"
+            original_test_summary_path = f"/home/username/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/original_tests_summary.txt"
+            refactored_test_summary_path = f"/home/username/Desktop/refactoring-smells/refactoring_data/{tool}/smell_{smell_id}/refactored_test_summary.txt"
 
             try:
                 # Load smells data

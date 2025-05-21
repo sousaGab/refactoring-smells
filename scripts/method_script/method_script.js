@@ -22,7 +22,7 @@ function constructFilePathAndLine(row) {
     const repoName = row['Repository'].split('/').pop();
 
     // Use the PROJECT_PATH environment variable or fall back to a default value
-    const projectPath = process.env.PROJECT_PATH || '/home/gabriel/Desktop/research/projects/';
+    const projectPath = process.env.PROJECT_PATH || '/home/username/Desktop/research/projects/';
     if (!fs.existsSync(projectPath)) {
       throw new Error(`Invalid PROJECT_PATH: ${projectPath}`);
     }
