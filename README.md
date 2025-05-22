@@ -1,6 +1,6 @@
 # Refactoring Smells Dataset
 
-This project provides a dataset designed for research on refactoring test smells in JavaScript open-source projects. The dataset is intended to support studies leveraging Large Language Models (LLMs) such as GitHub Copilot and AWS CodeWhisperer.
+This project provides an artefac and dataset designed for research on refactoring test smells in JavaScript open-source projects. The dataset is intended to support studies leveraging Large Language Models (LLMs) such as GitHub Copilot and AWS CodeWhisperer.
 
 ## Overview
 
@@ -17,18 +17,22 @@ The dataset includes data collected from various JavaScript projects, focusing o
 - **GitHub Copilot**: An AI-powered code completion tool developed by GitHub.
 - **AWS CodeWhisperer**: An AI coding companion provided by Amazon Web Services.
 
-## How to Use
+## Repository Folder Guide
 
-1. Explore the dataset to identify test smells in JavaScript projects.
-2. Use LLMs like Copilot or CodeWhisperer to refactor the identified smells.
-3. Analyze the results to evaluate the effectiveness of the tools.
+- **datasets/**  
+  Contains the datasets used in this research, including lists of repositories, refined selections, and results (e.g., `repositories.csv`, `dataset_results.xlsx`). These files provide the foundational data for analysis and experiments.
 
-## Contribution
+- **projects/**  
+  Includes the source code for each open-source project analyzed in this research. Each subfolder corresponds to a specific project under study.
 
-Contributions to this project are welcome. If you have suggestions for improving the dataset or the research methodology, feel free to submit a pull request or open an issue.
+- **refactoring_data/**  
+  Stores samples of each test smell studied in this research. This includes original and refactored code examples, organized by tool and smell type.
 
-## License
+- **scripts/**  
+  Contains scripts used to run smell detection tools, analyze code metrics, process datasets, and automate various research tasks. See [scripts/SCRIPTS_GUIDE.md](scripts/SCRIPTS_GUIDE.md) for detailed usage instructions.
 
-This project is licensed under [insert license here]. Please ensure compliance with the license terms when using the dataset.
+- **smell_detection_tools/**  
+  Houses the tools and utilities for detecting test smells in JavaScript projects. Each tool is organized in its own subdirectory.
 
----
+- **smells_detected/**  
+  Contains the output files listing the smells detected in each project. This includes both the full set of detected smells and the subset selected for further study.
