@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Load the CSV file into a pandas DataFrame
-input_file = os.getenv("INPUT_FILE")
-output_file = os.getenv("OUTPUT_FILE")
+input_file = os.getenv("REPO_INPUT_FILE")
+output_file = os.getenv("REPO_OUTPUT_FILE")
 
 # Read the CSV file
 df = pd.read_csv(input_file)

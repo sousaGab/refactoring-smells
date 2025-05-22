@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+# Smell types selected for detection
+SELECTED_SNUTS_SMELL_TYPES = ["ConditionalTestLogic","OvercommentedTest","SubOptimalAssert","TestWithoutDescription","SensitiveEquality"]
+
 def log_info(message):
     """Log informational messages."""
     print(f"[INFO] {message}")
@@ -56,7 +59,7 @@ def filter_snuts_csv():
     """Filter the Snuts.js CSV file based on selected smell types."""
     input_csv = validate_env_variable('SNUTS_INPUT_CSV')
     output_csv = validate_env_variable('SNUTS_OUTPUT_CSV')
-    selected_smell_types = os.getenv('SELECTED_SNUTS_SMELL_TYPES', '').strip('[]').replace('"', '').split(',')
+    selected_smell_types = SELECTED_SNUTS_SMELL_TYPES.strip('[]').replace('"', '').split(',')
     max_number = 5  # Maximum number of rows per smell type
 
     # Initialize a dictionary to count occurrences of each smell type

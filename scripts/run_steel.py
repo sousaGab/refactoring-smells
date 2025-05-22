@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+# Smell types selected for detection
+SELECTED_STEEL_SMELL_TYPES = ["Assertion Roulette","Duplicate Assert","Magic Number","Lazy Test, Redudant Print"]
+
 def log_info(message):
     """Log informational messages."""
     print(f"[INFO] {message}")
@@ -30,9 +33,12 @@ def run_steel_tool():
     log_info(f"Changed directory to {os.getcwd()}")
 
     project_name = input("Enter the project name: ").strip()
-    # test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
-    # test_files_pattern = "{**/__tests__/**/*.js,*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+
     test_files_pattern = "{**/__tests__/**/*.js,**/test/**/*.js,**/?(*.)+(test|tests|spec|specs).js,**/test_*.js,**/test-*.js,**/Spec*.js,**/*Test.js,**/*Tests.js}"
+    
+    if project_name == 'prettier':
+        test_files_pattern = "{*.test.js,*.tests.js,*.spec.js,*.specs.js,test_*.js,test-*.js,Spec*.js}"
+
     steel_command = f'npx steel detect "../../projects/{project_name}/**/{test_files_pattern}"'
 
     log_info(f"Running command: {steel_command}")
@@ -40,7 +46,7 @@ def run_steel_tool():
 
 def process_steel_json_to_csv():
     """Process the steel JSON file and convert it to a CSV."""
-    selected_smell_types = os.getenv('SELECTED_STEEL_SMELL_TYPES', '')
+    selected_smell_types = SELECTED_STEEL_SMELL_TYPES
     number_max_smells = 5
 
     input_file = validate_env_variable('INPUT_STEEL_JSON')
