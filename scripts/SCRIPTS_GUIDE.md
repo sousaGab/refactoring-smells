@@ -1,168 +1,163 @@
 # Research Scripts Guide
 
-This repository contains a collection of Python scripts designed to assist with various research tasks, including analyzing JavaScript repositories, detecting test smells, and processing data. Each script is explained in detail below, along with instructions on how to run and use them.
+This repository contains a suite of scripts for analyzing JavaScript repositories, detecting test smells, collecting code metrics, and processing research data.  
+**Please follow the setup instructions carefully before running any script.**
 
 ---
 
 ## Table of Contents
-- [Scripts Overview](#scripts-overview)
-- [Setup](#setup)
-- [Environment Variables](#environment-variables)
-- [Scripts Details](#scripts-details)
-  - [1. `filter_script.py`](#1-filter_scriptpy)
-  - [2. `run_steel.py`](#2-run_steelpy)
-  - [3. `run_snutsjs.py`](#3-run_snutsjspy)
-  - [4. `random_script.py`](#4-random_scriptpy)
-- [Common Issues](#common-issues)
-- [License](#license)
 
----
-
-## Scripts Overview
-
-| Script Name         | Description                                                                 |
-|----------------------|-----------------------------------------------------------------------------|
-| `filter_script.py`   | Analyzes GitHub repositories for JavaScript usage, test frameworks, and licenses. |
-| `run_steel.py`       | Runs the Steel detection tool to identify test smells in JavaScript files.  |
-| `run_snutsjs.py`     | Runs the Snuts.js tool to detect test smells and filters the results.       |
-| `random_script.py`   | Randomly selects repositories from a CSV file for further analysis.         |
+| Section                        | Description                                                                                 |
+|---------------------------------|---------------------------------------------------------------------------------------------|
+| [Setup](#setup)                | Prerequisites and environment configuration                                                 |
+| [Environment Variables](#environment-variables) | How to configure your `.env` file and what each variable means                  |
+| [Scripts Overview](#scripts-overview)           | Quick summary of all scripts and their purposes                                 |
+| [Scripts Details](#scripts-details)             | Detailed usage and description for each script                                   |
+| [Common Issues](#common-issues)                 | Troubleshooting and tips                                                         |
+| [License](#license)                             | License information                                                              |
 
 ---
 
 ## Setup
 
 ### Prerequisites
-1. **Python 3.8 or higher**:
-   - Install required Python libraries:
-     ```bash
-     pip install pandas python-dotenv requests
-     ```
 
-2. **Node.js (for Steel and Snuts.js)**:
-   - Install Node.js from [Node.js Official Website](https://nodejs.org/).
+| Requirement         | Details                                                                                   |
+|---------------------|-------------------------------------------------------------------------------------------|
+| Python              | Version 3.8 or higher                                                                     |
+| Node.js             | Required for Steel and Snuts.js tools (see [Node.js Official Website](https://nodejs.org/))|
+| Python Libraries    | Install with:<br> <code>pip install pandas python-dotenv requests</code>                  |
 
-3. **Environment Variables**:
-   - Create a `.env` file in the root directory to store environment variables (see [Environment Variables](#environment-variables)).
+### Environment Variables
+
+1. **Copy the example file:**  
+   ```bash
+   cp scripts/env.example .env
+   ```
+2. **Edit `.env`:**  
+   Fill in the required variables as described in the comments of `env.example`.  
+   This file is required for all Python scripts.
 
 ---
 
 ## Environment Variables
 
-The following environment variables are used across the scripts. Add them to your `.env` file:
+| Variable Name         | Description                                                      |
+|---------------------- |------------------------------------------------------------------|
+| `GITHUB_TOKEN`        | GitHub personal access token for API requests                    |
+| `PROJECTS_FOLDER`     | Path to the folder containing JavaScript projects                |
+| `OUTPUT_SNUTS_FOLDER` | Path to store Snuts.js output files                              |
+| `INPUT_STEEL_JSON`    | Path to the Steel JSON file                                      |
+| `OUTPUT_STEEL_CSV`    | Path to store the Steel CSV output                               |
+| `INPUT_FILE`          | Path to the input CSV file for random selection                  |
+| `OUTPUT_FILE`         | Path to the output CSV file for random selection                 |
+| ...                   | See `env.example` for additional variables used by some scripts  |
 
-| Variable Name                | Description                                                                 |
-|-------------------------------|-----------------------------------------------------------------------------|
-| `GITHUB_TOKEN`               | Your GitHub personal access token for API requests.                        |
-| `PROJECTS_FOLDER`            | Path to the folder containing JavaScript projects.                         |
-| `OUTPUT_SNUTS_FOLDER`        | Path to store Snuts.js output files.                                        |
-| `INPUT_STEEL_JSON`           | Path to the Steel JSON file.                                                |
-| `OUTPUT_STEEL_CSV`           | Path to store the Steel CSV output.                                         |
-| `INPUT_FILE`                 | Path to the input CSV file for random selection.                           |
-| `OUTPUT_FILE`                | Path to the output CSV file for random selection.                          |
+---
+
+## Scripts Overview
+
+| Script Name                | Description                                                                                   |
+|----------------------------|-----------------------------------------------------------------------------------------------|
+| `filter_script.py`         | Analyzes GitHub repositories for JS usage, test frameworks, and licenses                      |
+| `run_steel.py`             | Runs Steel to detect test smells in JS files and processes results                            |
+| `run_snutsjs.py`           | Runs Snuts.js to detect and filter test smells in JS files                                    |
+| `random_script.py`         | Randomly selects repositories from a CSV                                                      |
+| `generate_data_script.py`  | Automates running detection tools and organizes outputs for analysis                          |
+| `check_smells.py`          | Compares original and refactored test files for presence/removal of test smells               |
+| `code_metrics_script.js`   | (JavaScript) Computes code metrics for methods before/after refactoring                       |
+| `method_scripts.py`        | Extracts and lists methods analyzed by each test smell detection tool                         |
 
 ---
 
 ## Scripts Details
 
-### 1. `filter_script.py`
-
-#### Description
-This script analyzes GitHub repositories to determine:
-- The percentage of JavaScript code.
-- The test framework used (e.g., Jest, Mocha).
-- The license type.
-
-#### How to Run
-```bash
-python filter_script.py
-```
-
-#### Input
-- A CSV file named `repo_list_initial.csv` containing repository names.
-
-#### Output
-- A CSV file named `output_classification.csv` with the following columns:
-  - `Name`: Repository name.
-  - `JavaScript Percentage`: Percentage of JavaScript code.
-  - `Test Framework`: Detected test framework.
-  - `License`: License type.
+### `filter_script.py`
+| Purpose         | Analyze GitHub repositories for JavaScript usage, test frameworks, and license types. |
+|-----------------|--------------------------------------------------------------------------------------|
+| Input           | `repo_list_initial.csv` (list of repository names)                                   |
+| Output          | `output_classification.csv` (columns: Name, JavaScript Percentage, Test Framework, License) |
+| How to Run      | `python filter_script.py`                                                            |
 
 ---
 
-### 2. `run_steel.py`
-
-#### Description
-This script runs the Steel detection tool to identify test smells in JavaScript files and processes the results into a CSV file.
-
-#### How to Run
-```bash
-python run_steel.py
-```
-
-#### Steps
-1. Prompts for the project name.
-2. Runs the Steel detection tool.
-3. Processes the Steel JSON output into a CSV file.
-
-#### Output
-- A CSV file with the following columns:
-  - `file`: File path.
-  - `type`: Type of test smell.
-  - `smells`: Lines where the smell occurs.
-  - `frame`: Additional context.
+### `run_steel.py`
+| Purpose         | Run the Steel detection tool to identify test smells in JavaScript files.             |
+|-----------------|--------------------------------------------------------------------------------------|
+| Steps           | Prompts for project name, runs Steel, processes JSON output to CSV                   |
+| Output          | CSV with columns: file, type, smells, frame                                          |
+| How to Run      | `python run_steel.py`                                                                |
 
 ---
 
-### 3. `run_snutsjs.py`
-
-#### Description
-This script runs the Snuts.js tool to detect test smells in JavaScript files and filters the results based on selected smell types.
-
-#### How to Run
-```bash
-python run_snutsjs.py
-```
-
-#### Steps
-1. Prompts for the project name.
-2. Runs the Snuts.js tool.
-3. Filters the Snuts.js CSV output based on selected smell types.
-
-#### Output
-- A filtered CSV file with test smell information.
+### `run_snutsjs.py`
+| Purpose         | Run Snuts.js to detect and filter test smells in JavaScript files.                    |
+|-----------------|--------------------------------------------------------------------------------------|
+| Steps           | Prompts for project name, runs Snuts.js, filters output CSV by smell types           |
+| Output          | Filtered CSV with test smell information                                             |
+| How to Run      | `python run_snutsjs.py`                                                              |
 
 ---
 
-### 4. `random_script.py`
+### `random_script.py`
+| Purpose         | Randomly select repositories from a CSV file for further analysis.                    |
+|-----------------|--------------------------------------------------------------------------------------|
+| Input           | CSV specified by `INPUT_FILE` in `.env`                                              |
+| Output          | CSV specified by `OUTPUT_FILE` in `.env`                                             |
+| How to Run      | `python random_script.py`                                                            |
 
-#### Description
-This script randomly selects repositories from a CSV file and saves the selected repositories to a new CSV file.
+---
 
-#### How to Run
-```bash
-python random_script.py
-```
+### `generate_data_script.py`
+| Purpose         | Automate running Steel and Snuts.js, organize outputs, and copy relevant files.       |
+|-----------------|--------------------------------------------------------------------------------------|
+| Steps           | Runs both detection tools, processes outputs, copies test files for analysis         |
+| Output          | Organized output folders and CSVs                                                    |
+| How to Run      | `python generate_data_script.py`                                                     |
 
-#### Input
-- A CSV file specified by the `INPUT_FILE` environment variable.
+---
 
-#### Output
-- A CSV file specified by the `OUTPUT_FILE` environment variable containing randomly selected repositories.
+### `check_smells.py`
+| Purpose         | Compare original and refactored test files for presence/removal of test smells.       |
+|-----------------|--------------------------------------------------------------------------------------|
+| Steps           | Compares detection results, summarizes changes                                       |
+| Output          | Summary CSV or report                                                                |
+| How to Run      | `python check_smells.py`                                                             |
+
+---
+
+### `code_metrics_script.js`
+| Purpose         | Compute code metrics for methods before and after refactoring (JavaScript).           |
+|-----------------|--------------------------------------------------------------------------------------|
+| Input           | CSV with method details (before/after refactoring)                                   |
+| Output          | CSV with code metrics for each method                                                |
+| How to Run      | `node code_metrics_script.js`                                                        |
+
+---
+
+### `method_scripts.py`
+| Purpose         | Extract and list methods analyzed by each test smell detection tool.                  |
+|-----------------|--------------------------------------------------------------------------------------|
+| Output          | CSV or report listing methods per tool                                               |
+| How to Run      | `python method_scripts.py`                                                           |
 
 ---
 
 ## Common Issues
 
-1. **Missing Environment Variables**:
-   - Ensure all required environment variables are set in the `.env` file.
+| Issue                        | Solution                                                                 |
+|------------------------------|--------------------------------------------------------------------------|
+| Missing environment variables| Ensure all required variables are set in `.env`                          |
+| Invalid input files          | Verify input CSV files are correctly formatted                           |
+| GitHub API rate limits       | Use a valid `GITHUB_TOKEN` and try again later                           |
+| Steel/Snuts.js errors        | Ensure both tools are installed and configured correctly                 |
+| Snuts.js                     | It was necessary for Snuts.js to be running for their scripts to work.  |
 
-2. **Invalid Input Files**:
-   - Verify that input CSV files are correctly formatted.
 
-3. **GitHub API Rate Limits**:
-   - If you encounter rate limits, ensure your `GITHUB_TOKEN` has sufficient permissions and try again later.
+---
 
-4. **Steel or Snuts.js Errors**:
-   - Ensure the Steel and Snuts.js tools are installed and configured correctly.
+## License
+
+See [LICENSE](../LICENSE) for details.
 
 ---
