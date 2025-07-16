@@ -36,3 +36,14 @@ The dataset includes data collected from various JavaScript projects, focusing o
 
 - **smells_detected/**  
   Contains the output files listing the smells detected in each project. This includes both the full set of detected smells and the subset selected for further study.
+
+  ## Related Article
+
+This dataset and repository support the research presented in the article:
+
+📄 **"Improving JavaScript Test Quality with Large Language Models: Lessons from Test Smell Refactoring"**  
+The article is available in the root directory of this repository: [article.pdf](./article.pdf)
+
+The article discusses the methodology, challenges, and results of using LLMs like GitHub Copilot and AWS CodeWhisperer to automate the refactoring of test smells in JavaScript projects. It provides a detailed account of the dataset construction, refactoring strategies, and evaluation metrics, offering valuable insights for researchers and practitioners working at the intersection of software quality and AI-powered development tools.
+
+Please refer to the article for a comprehensive explanation of the motivation, design decisions, and findings of this research.
